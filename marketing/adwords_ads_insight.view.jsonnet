@@ -20,7 +20,7 @@
         cpr.interaction_types,
         cpr.cost,
         cpr.conversions
-       FROM (adwords.campaign_performance_reports cpr
-         LEFT JOIN adwords.campaigns c ON (((c.id)::text = cpr.campaign_id)));
-  |||
+       FROM (%(adwordsSchema)s.campaign_performance_reports cpr
+         LEFT JOIN %(adwordsSchema)s.campaigns c ON (((c.id)::text = cpr.campaign_id)));
+  ||| % variables
 }

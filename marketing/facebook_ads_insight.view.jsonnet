@@ -18,10 +18,10 @@
       insights.spend,
       insights.reach,
       insights.frequency
-     FROM (((facebook_ads.insights
-       LEFT JOIN facebook_ads.ads ON (((ads.id)::text = insights.ad_id)))
-       LEFT JOIN facebook_ads.ad_sets ON (((ad_sets.id)::text = ads.adset_id)))
-       LEFT JOIN facebook_ads.campaigns ON (((campaigns.id)::text = ad_sets.campaign_id)))
+     FROM (((%(facebookSchema)s.insights
+       LEFT JOIN %(facebookSchema)s.ads ON (((ads.id)::text = insights.ad_id)))
+       LEFT JOIN %(facebookSchema)s.ad_sets ON (((ad_sets.id)::text = ads.adset_id)))
+       LEFT JOIN %(facebookSchema)s.campaigns ON (((campaigns.id)::text = ad_sets.campaign_id)))
     ORDER BY campaigns.name, insights.date_start;
   |||,
   measures: {
@@ -31,23 +31,23 @@
       reportOptions: {},
     },
     'Facebook Ads Insight frequency AVERAGE': {
-      value: { aggregation: 'average', column: 'frequency' },
       type: 'customColumn',
+      aggregation: 'average', column: 'frequency',
       reportOptions: {},
     },
     'Facebook Ads Insight impressions SUM': {
-      value: { aggregation: 'sum', column: 'impressions' },
       type: 'customColumn',
+      aggregation: 'sum', column: 'impressions',
       reportOptions: {},
     },
     'Facebook Ads Insight campaign COUNT_UNIQUE': {
-      value: { aggregation: 'countUnique', column: 'campaign' },
       type: 'customColumn',
+      aggregation: 'countUnique', column: 'campaign',
       reportOptions: {},
     },
     'Facebook Ads Insight clicks SUM': {
-      value: { aggregation: 'sum', column: 'clicks' },
       type: 'customColumn',
+      aggregation: 'sum', column: 'clicks',
       reportOptions: {},
     },
   },

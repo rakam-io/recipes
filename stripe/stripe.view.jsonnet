@@ -24,8 +24,8 @@
       charges.paid,
       charges.statement_descriptor,
       charges.status
-     FROM stripe.charges;
-  |||,
+     FROM %(stripeSchema)s.charges;
+  ||| % variables,
   columnMapping: {
     eventTimestamp: 'created',
     incremental: null,
@@ -35,40 +35,32 @@
   },
   measures: {
     'Total Net Charges': {
-      value: {
-        expression: 'SUM("amount")-SUM("amount_refunded")',
-      },
       type: 'expression',
+      expression: 'SUM("amount") - SUM("amount_refunded")',
       reportOptions: {
         prefix: '$',
         formatNumbers: true,
       },
     },
     'Total Gross Charges': {
-      value: {
-        aggregation: 'sum',
-        column: 'amount',
-      },
       type: 'customColumn',
+      aggregation: 'sum',
+      column: 'amount',
       reportOptions: {
         prefix: '$',
         formatNumbers: true,
       },
     },
     'Charges Count': {
-      value: {
-        aggregation: 'count',
-        column: 'id',
-      },
       type: 'customColumn',
+      aggregation: 'count',
+      column: 'id',
       reportOptions: {},
     },
     'Total Amount Refunded': {
-      value: {
-        aggregation: 'sum',
-        column: 'amount_refunded',
-      },
       type: 'customColumn',
+      aggregation: 'sum',
+      column: 'amount_refunded',
       reportOptions: {
         prefix: '$',
         formatNumbers: true,

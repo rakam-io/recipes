@@ -9,8 +9,8 @@
       sum(cpr.clicks) AS clicks,
       (sum(cpr.cost) / (10000)::numeric) AS cost,
       'google'::text AS channel
-     FROM (adwords.campaign_performance_reports cpr
-       LEFT JOIN adwords.campaigns c ON (((c.id)::text = cpr.campaign_id)))
+     FROM (%(adwordsSchema)s.campaign_performance_reports cpr
+       LEFT JOIN %(adwordsSchema)s.campaigns c ON (((c.id)::text = cpr.campaign_id)))
     GROUP BY c.name, ((cpr.received_at)::date)
   UNION ALL
    SELECT campaigns.name AS campaign,
@@ -19,12 +19,12 @@
       sum(insights.clicks) AS clicks,
       sum(insights.spend) AS cost,
       'facebook'::text AS channel
-     FROM (((facebook_ads.insights insights
-       LEFT JOIN facebook_ads.ads ads ON (((ads.id)::text = insights.ad_id)))
-       LEFT JOIN facebook_ads.ad_sets ad_sets ON (((ad_sets.id)::text = ads.adset_id)))
-       LEFT JOIN facebook_ads.campaigns campaigns ON (((campaigns.id)::text = ad_sets.campaign_id)))
+     FROM (((%(facebookSchema)s.insights insights
+       LEFT JOIN %(facebookSchema)s.ads ads ON (((ads.id)::text = insights.ad_id)))
+       LEFT JOIN %(facebookSchema)s.ad_sets ad_sets ON (((ad_sets.id)::text = ads.adset_id)))
+       LEFT JOIN %(facebookSchema)s.campaigns campaigns ON (((campaigns.id)::text = ad_sets.campaign_id)))
     GROUP BY campaigns.name, ((insights.received_at)::date);
-  |||,
+  ||| % variables,
   columnMapping: {
     eventTimestamp: 'time',
     incremental: null,
@@ -34,45 +34,36 @@
   },
   measures: {
     'Total Spend': {
-      value: {
-        aggregation: 'sum',
-        column: 'cost',
-      },
       type: 'customColumn',
+      aggregation: 'sum',
+              column: 'cost',
       reportOptions: {
         prefix: '$',
         formatNumbers: true,
       },
     },
     Clicks: {
-      value: {
-        aggregation: 'sum',
-        column: 'clicks',
-      },
       type: 'customColumn',
+        aggregation: 'sum',
+              column: 'clicks',
       reportOptions: {},
     },
     'Click Through Rate': {
-      value: {
-        expression: 'SUM("clicks")/SUM("impressions")',
-      },
       type: 'expression',
+              expression: 'SUM("clicks")/SUM("impressions")',
+
       reportOptions: {},
     },
     Impressions: {
-      value: {
-        aggregation: 'sum',
-        column: 'impressions',
-      },
       type: 'customColumn',
+       aggregation: 'sum',
+              column: 'impressions',
       reportOptions: {},
     },
     'Campaign Count': {
-      value: {
-        aggregation: 'countUnique',
-        column: 'campaign',
-      },
       type: 'customColumn',
+       aggregation: 'countUnique',
+              column: 'campaign',
       reportOptions: {},
     },
   },
