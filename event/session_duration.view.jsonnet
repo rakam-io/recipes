@@ -1,20 +1,7 @@
 {
   label: 'Session Duration',
+  description: '',
   hide: true,
-  columnMapping: {
-    eventTimestamp: 'session_start_at',
-    incremental: null,
-    userId: null,
-    deviceId: null,
-    sessionId: 'session_id',
-  },
-  measures: {
-    'Average Session Duration': {
-      type: 'column',
-      reportOptions: { suffix: 'minutes', formatNumbers: true },
-      value: { aggregation: 'average', column: 'session_duration_minute' },
-    },
-  },
   type: 'view',
   query: |||
     WITH all_mappings AS (
@@ -61,7 +48,7 @@
                 row_number() OVER (PARTITION BY mapped_tracks.rakam_visitor_id ORDER BY mapped_tracks.received_at) AS session_sequence_number,
                 lead(mapped_tracks.received_at) OVER (PARTITION BY mapped_tracks.rakam_visitor_id ORDER BY mapped_tracks.received_at) AS next_session_start_at
                FROM mapped_tracks
-              WHERE ((mapped_tracks.idle_time_minutes > (30)::double precision) OR (mapped_tracks.idle_time_minutes IS NULL))
+              WHERE ((mapped_tracks.idle_time_minutes > (%(sessionDurationInMinutes)0.2f)::double precision) OR (mapped_tracks.idle_time_minutes IS NULL))
             )
      SELECT s.session_id,
         min(s.session_start_at) AS session_start_at,
@@ -69,5 +56,21 @@
        FROM (tracks t
          JOIN session_tracks s ON (((COALESCE(t.user_id, t.anonymous_id) = s.rakam_visitor_id) AND (t.received_at >= s.session_start_at) AND ((t.received_at < s.next_session_start_at) OR (s.next_session_start_at IS NULL)))))
       GROUP BY s.session_id;
-  |||,
+  ||| % variables,
+  columnMapping: {
+    eventTimestamp: 'session_start_at',
+    incremental: null,
+    userId: null,
+    deviceId: null,
+    sessionId: 'session_id',
+  },
+  measures: {
+    'Average Session Duration': {
+      type: 'column',
+      aggregation: 'average',
+      column: 'session_duration_minute',
+      reportOptions: { suffix: 'minutes', formatNumbers: true },
+    },
+  },
+  relations: [],
 }
