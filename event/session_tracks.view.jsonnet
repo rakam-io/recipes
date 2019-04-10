@@ -52,12 +52,14 @@
   measures: {
     'Unique users': {
       type: 'customColumn',
-      aggregation: 'countUnique', column: 'rakam_visitor_id',
+      aggregation: 'countUnique',
+      column: 'rakam_visitor_id',
       reportOptions: {},
     },
     'Unique sessions': {
       type: 'customColumn',
-      aggregation: 'count', column: 'session_id',
+      aggregation: 'count',
+      column: 'session_id',
     },
   },
 }
