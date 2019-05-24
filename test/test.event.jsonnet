@@ -9,15 +9,16 @@
     deviceId: null,
     sessionId: null,
   },
-  columns: {
-    anonymous_id: {
-      hide: false,
-      groupable: true,
-      filterable: true,
-      reportOptions: {
-        prefix: '$',
-        suffix: '&',
-      },
-    },
-  },
+  columns:
+      [ {
+        name: 'test',
+        hide: false,
+        groupable: true,
+        filterable: true,
+        reportOptions: {
+          prefix: '$',
+          suffix: '&'
+        }
+        }
+      ]
 }
