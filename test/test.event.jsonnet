@@ -2,7 +2,7 @@
   name: 'add_to_basket',
   label: 'Test',
   description: 'test',
-  mappin: {
+  mapping: {
     eventTimestamp: 'received_at',
     incremental: '_user',
     userId: '_user',
