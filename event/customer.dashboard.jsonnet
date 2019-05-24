@@ -13,27 +13,29 @@
         description: '',
         type: 'segmentation',
         options: {
-          datasets: [
-            {
-              collection: { name: 'session_durations', type: 'view' },
-              filter: {
-                value: [
-                  {
-                    collection: null,
-                    column: 'session_duration_minute',
-                    type: 'double',
-                    connector: 'and',
-                    operator: 'greaterThan',
-                    value: 1,
-                  },
-                ],
-                type: 'simple',
-              },
+           collection: { name: 'session_durations', type: 'event' },
+            filter: {
+              value: [
+                {
+                  collection: null,
+                  column: 'session_duration_minute',
+                  type: 'double',
+                  connector: 'and',
+                  operator: 'greaterThan',
+                  value: 1,
+                },
+              ],
+              type: 'simple',
             },
+          dimensions: [
+            {
+               type: 'column',
+               column: 'ahmet',
+               postOperation: 'date'
+            }
           ],
-          dimensions: [],
           measures: [
-            1048,
+            {relation: { name: 'session_durations', type: 'event' }, name: 'unique users'}
           ],
           reportOptions: {
             chartOptions: {
