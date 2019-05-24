@@ -2,9 +2,12 @@
   name: 'add_to_basket',
   label: 'Test',
   description: 'test',
-  mapping: {
+  mappin: {
     eventTimestamp: 'received_at',
+    incremental: '_user',
     userId: '_user',
+    deviceId: "_user",
+    sessionId: '_user',
   },
   measures: [],
   columns:
