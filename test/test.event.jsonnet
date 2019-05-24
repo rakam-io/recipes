@@ -9,6 +9,7 @@
     deviceId: null,
     sessionId: null,
   },
+  measures: [],
   columns:
       [ {
         name: 'test',

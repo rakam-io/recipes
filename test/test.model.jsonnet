@@ -6,6 +6,7 @@
      materialized: 'view'
   },
   dbtModel: 'select 1 as test',
+  measures: [],
   columns:
     [ {
         name: 'test',
