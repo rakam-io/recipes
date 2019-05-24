@@ -2,7 +2,7 @@
   name: 'add_to_basket',
   label: 'Test',
   description: 'test',
-  columnMapping: {
+  mapping: {
     eventTimestamp: 'received_at',
     incremental: null,
     userId: '_user',
