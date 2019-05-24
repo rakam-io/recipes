@@ -4,10 +4,7 @@
   description: 'test',
   mapping: {
     eventTimestamp: 'received_at',
-    incremental: null,
     userId: '_user',
-    deviceId: null,
-    sessionId: null,
   },
   measures: [],
   columns:
