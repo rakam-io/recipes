@@ -12,6 +12,6 @@
       type: 'table-select',
       default: 30,
       description: 'The session duration of the user events',
-    }
-  }
+    },
+  },
 }
