@@ -1,6 +1,8 @@
 {
   version: 1.1,
-  name: 'demo recipe',
+  name: 'Segment Recipe',
+  description: 'It provides session and pageview analytics for Segment Warehouse. For Segment Warehouse users, it provides basic reports similar to Googl Analytics',
+  image: '',
   variables: {
     sessionDurationInMinutes: {
       label: 'Session duration',
