@@ -1,55 +1,116 @@
 {
-  label: 'Facebook Ads Insight',
-  columnMapping: {
+  name: 'rakam_facebook_ads_insights',
+  label: 'Facebook Ads',
+  mapping: {
     eventTimestamp: 'date_start',
-    incremental: null,
-    userId: null,
-    deviceId: null,
-    sessionId: null,
+    incremental: 'received_at',
+    userId: 'user_id',
   },
-  type: 'view',
-  query: |||
-  SELECT campaigns.name AS campaign,
-      ad_sets.name AS ad_set,
-      (insights.date_start)::date AS date_start,
-      (insights.date_stop)::date AS date_stop,
-      insights.impressions,
-      insights.clicks,
-      insights.spend,
-      insights.reach,
-      insights.frequency
-     FROM (((%(facebookSchema)s.insights
-       LEFT JOIN %(facebookSchema)s.ads ON (((ads.id)::text = insights.ad_id)))
-       LEFT JOIN %(facebookSchema)s.ad_sets ON (((ad_sets.id)::text = ads.adset_id)))
-       LEFT JOIN %(facebookSchema)s.campaigns ON (((campaigns.id)::text = ad_sets.campaign_id)))
-    ORDER BY campaigns.name, insights.date_start;
+  dbtConfig: {
+    materialized: 'view',
+  },
+  dbtModel: |||
+    SELECT campaigns.name AS campaign,
+       ad_sets.name AS ad_set,
+       (insights.date_start)::date AS date_start,
+       (insights.date_stop)::date AS date_stop,
+       insights.impressions,
+       insights.clicks,
+       insights.spend,
+       insights.reach,
+       insights.frequency
+      FROM (((facebook_ads.insights
+        LEFT JOIN facebook_ads.ads ON (((ads.id)::text = insights.ad_id)))
+        LEFT JOIN facebook_ads.ad_sets ON (((ad_sets.id)::text = ads.adset_id)))
+        LEFT JOIN facebook_ads.campaigns ON (((campaigns.id)::text = ad_sets.campaign_id)))
+     ORDER BY campaigns.name, insights.date_start
   |||,
   measures: {
-    'Facebook Ads Insight spend SUM': {
-      value: { aggregation: 'sum', column: 'spend' },
+    'Total Impressions': {
       type: 'customColumn',
-      reportOptions: {},
+      aggregation: 'sum',
+      customColumn: 'impressions',
+      reportOptions: {
+        formatNumbers: true,
+      },
     },
-    'Facebook Ads Insight frequency AVERAGE': {
+    'Total Reach': {
       type: 'customColumn',
-      aggregation: 'average', column: 'frequency',
-      reportOptions: {},
+      aggregation: 'sum',
+      customColumn: 'reach',
+      reportOptions: {
+        formatNumbers: true,
+      },
     },
-    'Facebook Ads Insight impressions SUM': {
+    'Total Clicks': {
       type: 'customColumn',
-      aggregation: 'sum', column: 'impressions',
-      reportOptions: {},
+      aggregation: 'count',
+      customColumn: 'clicks',
+      reportOptions: {
+        formatNumbers: true,
+      },
     },
-    'Facebook Ads Insight campaign COUNT_UNIQUE': {
+    'Total Spent': {
       type: 'customColumn',
-      aggregation: 'countUnique', column: 'campaign',
-      reportOptions: {},
+      aggregation: 'count',
+      customColumn: 'spend',
+      reportOptions: {
+        prefix: '$',
+        formatNumbers: true,
+      },
     },
-    'Facebook Ads Insight clicks SUM': {
+    'Average Frequency': {
       type: 'customColumn',
-      aggregation: 'sum', column: 'clicks',
-      reportOptions: {},
+      aggregation: 'average',
+      customColumn: 'frequency',
+      reportOptions: {
+        formatNumbers: true,
+      },
+    },
+    'Click Through Rate': {
+      type: 'expression',
+      expression: 'SUM("clicks")/SUM("impressions")',
+      reportOptions: {
+        formatNumbers: true,
+      },
     },
   },
-
+  columns: {
+    ad_set: {
+      groupable: false,
+      filterable: false,
+    },
+    campaign: {
+      groupable: false,
+      filterable: false,
+    },
+    clicks: {
+      groupable: false,
+      filterable: false,
+    },
+    date_start: {
+      groupable: false,
+      filterable: false,
+    },
+    date_stop: {
+      groupable: false,
+      filterable: false,
+    },
+    frequency: {
+      groupable: false,
+      filterable: false,
+    },
+    impressions: {
+      groupable: false,
+      filterable: false,
+    },
+    reach: {
+      groupable: false,
+      filterable: false,
+    },
+    spend: {
+      groupable: false,
+      filterable: false,
+    },
+  },
 }
