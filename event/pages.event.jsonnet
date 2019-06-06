@@ -11,6 +11,12 @@ local segmentColumns = import 'common_columns.jsonnet';
     deviceId: null,
     sessionId: null,
   },
+  measures: {
+     'Total Pageviews': {
+        type: 'customColumn',
+        aggregation: 'count'
+     }
+  },
   relations: [
     {
       relationType: 'oneToMany',
