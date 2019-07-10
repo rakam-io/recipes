@@ -3,7 +3,7 @@
   name: "test",
   target: {table: "test1"},
   dbt: {
-    model: "select 1",
+    model: "select " + std.extVar('sessionDuration'),
     config: {
         materialized: 'view'
     }
