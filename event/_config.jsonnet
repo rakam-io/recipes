@@ -10,7 +10,7 @@
       description: 'The session duration of the user events',
     },
     addToBasket: {
-      type: 'table-select',
+      type: 'model-select',
       default: 30,
       description: 'The session duration of the user events',
     },
