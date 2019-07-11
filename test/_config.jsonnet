@@ -8,6 +8,7 @@
         "description": "The session duration of the user events",
         "label": "Session duration",
         "type": "numeric",
+        required: true
       },
       testTableName: {
         "default": 30,
@@ -24,7 +25,8 @@
       },
       measure: {
         type: "measure",
-        parent: "model"
+        parent: "model",
+        required: true
       }
   }
 }
