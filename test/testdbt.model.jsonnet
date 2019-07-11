@@ -1,7 +1,7 @@
 {
   label: 'test',
-  name: "test",
-  target: {table: "test1"},
+  name: std.extVar('testTableName'),
+  target: {table: std.extVar('testTableName')},
   dbt: {
     model: "select " + std.extVar('sessionDuration'),
     config: {

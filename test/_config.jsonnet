@@ -26,5 +26,5 @@
         type: "measure",
         parent: "model"
       }
-  },
+  }
 }
