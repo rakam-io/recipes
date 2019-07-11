@@ -15,17 +15,12 @@
         "type": "string",
         required: true
       },
-      model: {
-        type: "model"
+      table: {
+        type: "table"
       },
-      dimension: {
-        type: "dimension",
-        parent: "model"
-      },
-      measure: {
-        type: "measure",
-        parent: "model",
-        required: true
+      column: {
+        type: "column",
+        parent: "table"
       }
   }
 }
