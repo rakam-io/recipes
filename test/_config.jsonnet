@@ -8,6 +8,12 @@
       type: 'numeric',
       default: 30,
       description: 'The session duration of the user events',
+    },
+    testTableName: {
+      label: 'Session duration',
+      type: 'string',
+      default: 30,
+      description: 'The session duration of the user events',
     }
   },
 }
