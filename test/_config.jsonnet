@@ -10,7 +10,7 @@
         "type": "numeric",
         required: true
       },
-      testTableName: {
+      testTableName2: {
         "default": 30,
         "description": "The session duration of the user events",
         "label": "Session duration",
