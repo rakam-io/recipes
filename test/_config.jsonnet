@@ -8,19 +8,23 @@
         "description": "The session duration of the user events",
         "label": "Session duration",
         "type": "numeric",
-        required: true
+        required: true,
+        order: 1,
       },
       testTableName: {
         "description": "The session duration of the user events",
         "type": "string",
-        required: true
+        required: true,
+        order: 2
       },
       table: {
-        type: "table"
+        type: "table",
+        order: 3
       },
       column: {
         type: "tableColumn",
-        parent: "table"
+        parent: "table",
+        order: 4
       }
   }
 }
