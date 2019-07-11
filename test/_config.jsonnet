@@ -19,7 +19,7 @@
         type: "table"
       },
       column: {
-        type: "column",
+        type: "tableColumn",
         parent: "table"
       }
   }
