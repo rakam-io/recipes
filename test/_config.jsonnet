@@ -12,7 +12,6 @@
       },
       testTableName: {
         "description": "The session duration of the user events",
-        "label": "Session duration",
         "type": "string",
         required: true
       },
