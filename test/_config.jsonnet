@@ -10,11 +10,11 @@
         "type": "numeric",
         required: true
       },
-      testTableName2: {
-        "default": 30,
+      testTableName: {
         "description": "The session duration of the user events",
         "label": "Session duration",
-        "type": "string"
+        "type": "string",
+        required: true
       },
       model: {
         type: "model"
