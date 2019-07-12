@@ -1,12 +1,4 @@
 {
-  uuid: {
-    hide: true,
-    description: 'Is used to prevent duplicates. You can ignore this column.',
-  },
-  uuid_ts: {
-    hide: true,
-    description: 'Is used to prevent duplicates. You can ignore this column.',
-  },
   id: {
     description: 'An ID attached to the event at execution time and used for deduplication at the server level.',
     groupable: false,
@@ -30,93 +22,78 @@
     label: 'Campaign Content',
     category: 'Marketing',
     type: 'string',
-    groupable: true,
-    filterable: false,
   },
   context_campaign_medium: {
     label: 'Campaign Medium',
     category: 'Marketing',
     type: 'string',
-    groupable: true,
-    filterable: false,
+    
   },
   context_campaign_name: {
     label: 'Campaign Name',
     category: 'Marketing',
     type: 'string',
-    groupable: true,
-    filterable: false,
+    
   },
   context_campaign_source: {
     label: 'Campaign Source',
     category: 'Marketing',
     type: 'string',
-    groupable: true,
-    filterable: false,
+    
   },
   context_campaign_term: {
     label: 'Campaign Term',
     category: 'Marketing',
     type: 'string',
-    groupable: true,
-    filterable: false,
+    
   },
   context_ip: {
     label: 'User Ip',
     category: 'Event',
     type: 'string',
-    groupable: true,
-    filterable: false,
+    
   },
   context_library_name: {
     label: 'Segment Library Name',
     category: 'Event',
     type: 'string',
-    groupable: true,
-    filterable: false,
+    
   },
   context_library_version: {
     label: 'Segment Library Version',
     category: 'Event',
     type: 'string',
-    groupable: true,
-    filterable: false,
+    
   },
   context_page_path: {
     category: 'Website',
     type: 'string',
-    groupable: true,
-    filterable: false,
+    
   },
   context_page_referrer: {
     category: 'Marketing',
     type: 'string',
-    groupable: true,
-    filterable: false,
+    
   },
   context_page_search: {
     category: 'Website',
     type: 'string',
-    groupable: true,
-    filterable: false,
+    
   },
   context_page_title: {
     category: 'Website',
     type: 'string',
-    groupable: true,
-    filterable: false,
+    
   },
   context_page_url: {
     category: 'Website',
     type: 'string',
-    groupable: true,
-    filterable: false,
+    
   },
   context_user_agent: {
     category: 'Website',
     type: 'string',
-    groupable: true,
-    filterable: false,
+    
   },
   original_timestamp: {
     description: 'The original timestamp set by the Segment library at the time the event is created. Keep in mind, this timestamp can be affected by device clock skew.',
@@ -132,7 +109,6 @@
     groupable: false,
     filterable: false,
   },
-
   timestamp: {
     description: 'UTC-converted timestamp which is set by the Segment library.',
     category: 'Event',
@@ -144,15 +120,13 @@
     label: 'Page Title',
     category: 'Website',
     type: 'string',
-    groupable: true,
-    filterable: false,
+    
   },
   url: {
     label: 'Page URL',
     category: 'Website',
     type: 'string',
-    groupable: true,
-    filterable: false,
+    
   },
   user_id: {
     category: 'Event',

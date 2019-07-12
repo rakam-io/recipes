@@ -1,10 +1,20 @@
-local segmentColumns = import 'common_columns.jsonnet';
+local commonDimensions = import 'common_dimensions.jsonnet';
 local pages = import 'pages.libsonnet';
 
 {
   name: 'tracks',
   label: 'All Events',
   description: 'The table that contains all your event.track() calls',
+  target: {
+       table: 'tracks'
+    },
+    mapping: {
+        eventTimestamp: 'received_at',
+        incremental: 'timestamp',
+        userId: 'user_id',
+        deviceId: null,
+        sessionId: null,
+      },
   relations: pages.relations,
   columns: segmentColumns {
     event: {

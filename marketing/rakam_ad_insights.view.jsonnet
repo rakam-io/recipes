@@ -64,15 +64,13 @@
       label: 'Campaign Name',
       type: 'string',
       hide: false,
-      groupable: true,
-      filterable: false,
+
     },
     channel: {
       label: 'Channel',
       type: 'string',
       hide: false,
-      groupable: true,
-      filterable: false,
+
     },
     clicks: {
       label: 'Clicks',
@@ -99,8 +97,7 @@
       label: 'Date',
       type: 'date',
       hide: false,
-      groupable: true,
-      filterable: false,
+
     },
   },
 }

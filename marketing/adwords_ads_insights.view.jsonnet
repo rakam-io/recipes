@@ -77,14 +77,12 @@
     campaign: {
 
       hide: false,
-      groupable: true,
-      filterable: false,
+
     },
     campaign_id: {
 
       hide: true,
-      groupable: true,
-      filterable: false,
+
     },
     clicks: {
 
@@ -113,8 +111,7 @@
     interaction_types: {
 
       hide: false,
-      groupable: true,
-      filterable: false,
+
     },
     interactions: {
 
@@ -125,8 +122,7 @@
     received_at: {
 
       hide: false,
-      groupable: true,
-      filterable: false,
+
     },
   },
 }
