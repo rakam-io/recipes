@@ -69,17 +69,18 @@ local commonDimensions = import 'common_dimensions.jsonnet';
       label: 'Page Path',
       category: 'Website',
       type: 'string',
+      column: 'path'
     },
     referrer: {
       category: 'Website',
       type: 'string',
-
+column: 'referrer'
     },
     search: {
       label: 'Page Search Parameter',
       category: 'Website',
       type: 'string',
-
+column: 'search'
     },
   },
 }
