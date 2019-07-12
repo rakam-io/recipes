@@ -7,6 +7,7 @@ local model = (importstr 'rakam_segment_web_sessions.sql');
   target: {
      table: 'rakam_segment_web_sessions'
   },
+  hidden: std.extVar('a'),
   dbt: {
     model: std.strReplace(std.strReplace(model, '%', '%%'), '%%(', '%(') % {
        inactivity_cutoff: std.extVar('sessionDurationInMinutes'),
