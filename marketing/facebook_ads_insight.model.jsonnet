@@ -77,40 +77,31 @@
   },
   columns: {
     ad_set: {
-      groupable: false,
-      filterable: false,
+
     },
     campaign: {
-      groupable: false,
-      filterable: false,
+
     },
     clicks: {
-      groupable: false,
-      filterable: false,
+
     },
     date_start: {
-      groupable: false,
-      filterable: false,
+
     },
     date_stop: {
-      groupable: false,
-      filterable: false,
+
     },
     frequency: {
-      groupable: false,
-      filterable: false,
+
     },
     impressions: {
-      groupable: false,
-      filterable: false,
+
     },
     reach: {
-      groupable: false,
-      filterable: false,
+
     },
     spend: {
-      groupable: false,
-      filterable: false,
+
     },
   },
 }

@@ -64,20 +64,16 @@
   columns: {
     active_view_impressions: {
 
-      hide: false,
-      groupable: false,
-      filterable: false,
+      
+      
     },
     amount: {
 
-      hide: false,
-      groupable: false,
-      filterable: false,
+      
+      
     },
     campaign: {
-
-      hide: false,
-
+      
     },
     campaign_id: {
 
@@ -86,42 +82,37 @@
     },
     clicks: {
 
-      hide: false,
-      groupable: false,
-      filterable: false,
+      
+      
     },
     conversions: {
 
-      hide: false,
-      groupable: false,
-      filterable: false,
+      
+      
     },
     cost: {
 
-      hide: false,
-      groupable: false,
-      filterable: false,
+      
+      
     },
     impressions: {
 
-      hide: false,
-      groupable: false,
-      filterable: false,
+      
+      
     },
     interaction_types: {
 
-      hide: false,
+      
 
     },
     interactions: {
 
-      hide: false,
-      groupable: false,
-      filterable: false,
+      
+      
     },
     received_at: {
 
-      hide: false,
+      
 
     },
   },

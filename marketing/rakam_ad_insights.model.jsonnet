@@ -76,22 +76,19 @@
       label: 'Clicks',
       type: 'double',
       hide: false,
-      groupable: false,
-      filterable: false,
+
     },
     cost: {
       label: 'Cost',
       type: 'double',
       hide: false,
-      groupable: false,
-      filterable: false,
+
     },
     impressions: {
       label: 'Impressions',
       type: 'double',
       hide: false,
-      groupable: false,
-      filterable: false,
+
     },
     time: {
       label: 'Date',
