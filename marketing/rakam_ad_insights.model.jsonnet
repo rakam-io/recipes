@@ -58,7 +58,7 @@
       },
     },
   },
-  relations: [],
+  relations: {},
   columns: {
     campaign: {
       label: 'Campaign Name',

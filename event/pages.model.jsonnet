@@ -19,14 +19,14 @@ local commonDimensions = import 'common_dimensions.jsonnet';
         aggregation: 'count'
      }
   },
-  relations: [
-    {
+  relations: {
+    session: {
       relationType: 'oneToMany',
       modelName: 'rakam_segment_web_sessions',
       sourceColumn: 'anonymous_id',
       targetColumn: 'anonymous_id',
     }
-  ],
+  },
   columns: commonDimensions {
     page_url_host: {
       description: 'Host value extracted from the url',

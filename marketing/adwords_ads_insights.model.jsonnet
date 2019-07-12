@@ -60,7 +60,7 @@
       },
     },
   },
-  relations: [],
+  relations: {},
   columns: {
     active_view_impressions: {
 
