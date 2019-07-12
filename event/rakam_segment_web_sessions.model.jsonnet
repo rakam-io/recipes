@@ -79,7 +79,7 @@ local model = (importstr 'rakam_segment_web_sessions.sql');
       },
     },
   },
-  columns: {
+  dimensions: {
 //    anonymous_id: {
 //
 //    },

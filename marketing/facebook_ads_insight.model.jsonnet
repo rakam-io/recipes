@@ -75,7 +75,7 @@
       },
     },
   },
-  columns: {
+  dimensions: {
     ad_set: {
 
     },

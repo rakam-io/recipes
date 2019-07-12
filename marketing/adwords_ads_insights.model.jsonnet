@@ -61,7 +61,7 @@
     },
   },
   relations: {},
-  columns: {
+  dimension: {
     active_view_impressions: {
 
       

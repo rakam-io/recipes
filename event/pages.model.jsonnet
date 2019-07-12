@@ -28,7 +28,7 @@ local commonDimensions = import 'common_dimensions.jsonnet';
       targetColumn: 'anonymous_id',
     }
   },
-  columns: commonDimensions {
+  dimensions: commonDimensions {
     page_url_host: {
       description: 'Host value extracted from the url',
       sql: "split_part(split_part(replace(replace(url, 'http://', ''), 'https://', ''), '/', 1), '?', 1)",
