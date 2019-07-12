@@ -21,6 +21,10 @@
         type: "table",
         order: 3
       },
+      testmodel: {
+        type: "model",
+        order: 3
+      },
       column: {
         type: "tableColumn",
         parent: "table",
