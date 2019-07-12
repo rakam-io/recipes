@@ -25,13 +25,7 @@ local commonDimensions = import 'common_dimensions.jsonnet';
       modelName: 'rakam_segment_web_sessions',
       sourceColumn: 'anonymous_id',
       targetColumn: 'anonymous_id',
-    },
-    {
-      relationType: 'oneToMany',
-      modelName: 'rakam_ad_insights',
-      sourceColumn: 'context_campaign_name',
-      targetColumn: 'campaign'
-    },
+    }
   ],
   columns: commonDimensions {
     page_url_host: {

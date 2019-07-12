@@ -1,27 +1,27 @@
-{%% set partition_by = "partition by session_id" %%}
+{% set partition_by = "partition by session_id" %}
 
-  {%% set sessionization_cutoff = "
+  {% set sessionization_cutoff = "
 (
     select
-    -- segment_sessionization_trailing_window
+    -- sessionization_trailing_window
     {{
         dbt_utils.safe_cast(
             dbt_utils.dateadd(
                 'hour',
-                -%(segment_sessionization_trailing_window)0.2f,
+                -%(sessionization_trailing_window)0.2f,
                 'max(session_start_tstamp)'),
             'timestamp') }}
     from {{this}}
 )
-" %%}
+" %}
 
-  {%% set window_clause = "
+  {% set window_clause = "
     partition by session_id
     order by page_view_number
     rows between unbounded preceding and unbounded following
-    " %%}
+    " %}
 
-  {%% set first_values = {
+  {% set first_values = {
   'context_campaign_source' : 'utm_source',
   'context_campaign_content' : 'utm_content',
   'context_campaign_medium' : 'utm_medium',
@@ -30,13 +30,13 @@
   'url' : 'first_page_url',
   'path' : 'first_page_url_path',
   'search' : 'first_page_url_query',
-  } %%}
+  } %}
 
-  {%% set last_values = {
+  {% set last_values = {
   'url' : 'last_url',
   'path' : 'last_path',
   'search' : 'last_search'
-  } %%}
+  } %}
 
 with
   sessionized as (
@@ -44,23 +44,23 @@ with
 
       select * from pages
 
-        {%% if is_incremental() %%}
+        {% if is_incremental() %}
       where anonymous_id in (
         select distinct anonymous_id
         from pages
         where timestamp >= (
         select
-        -- segment_sessionization_trailing_window
+        -- sessionization_trailing_window
         {{
         dbt_utils.safe_cast(
         dbt_utils.dateadd(
         'hour',
-        -%(segment_sessionization_trailing_window)0.2f,
+        -%(sessionization_trailing_window)0.2f,
         'max(session_start_tstamp)'),
         'timestamp') }}
         from {{ this }})
         )
-          {%% endif %%}
+          {% endif %}
       ),
 
       numbered as (
@@ -113,8 +113,8 @@ with
           {{ dbt_utils.datediff('previous_tstamp', 'timestamp', 'second') }} as period_of_inactivity,
           case
           when
-          -- segment_inactivity_cutoff
-          {{ dbt_utils.datediff('previous_tstamp', 'timestamp', 'second') }} <= (%(segment_inactivity_cutoff)0.2f then 0 else 1 end as new_session
+          -- inactivity_cutoff
+          {{ dbt_utils.datediff('previous_tstamp', 'timestamp', 'second') }} <= (%(inactivity_cutoff)0.2f then 0 else 1 end as new_session
         from lagged
 
         ),
@@ -160,13 +160,13 @@ with
       session_id,
       anonymous_id,
 
-      {%% for (key, value) in first_values.items() %%}
+      {% for (key, value) in first_values.items() %}
       first_value({{key}}) over ({{window_clause}}) as {{value}},
-      {%% endfor %%}
+      {% endfor %}
 
-      {%% for (key, value) in last_values.items() %%}
+      {% for (key, value) in last_values.items() %}
       last_value({{key}}) over ({{window_clause}}) as {{value}},
-      {%% endfor %%}
+      {% endfor %}
 
       min(timestamp) over ( {{partition_by}} ) as session_start_tstamp,
       max(timestamp) over ( {{partition_by}} ) as session_end_tstamp,
@@ -180,18 +180,18 @@ with
       {{ dbt_utils.datediff('session_start_tstamp', 'session_end_tstamp', 'second') }} as duration_in_s
     from pageviews
 
-      {%% if is_incremental() %%}
+      {% if is_incremental() %}
     where session_start_tstamp > (
-      select -- segment_sessionization_trailing_window
+      select -- sessionization_trailing_window
       {{
       dbt_utils.safe_cast(
       dbt_utils.dateadd(
       'hour',
-      -%(segment_sessionization_trailing_window)0.2f,
+      -%(sessionization_trailing_window)0.2f,
       'max(session_start_tstamp)'),
       'timestamp') }}
       from {{ this }})
-        {%% endif %%}
+        {% endif %}
   ),
 
   sessions as (
@@ -210,19 +210,19 @@ with
 
     from sessionized_durations
 
-      {%% if is_incremental() %%}
+      {% if is_incremental() %}
     where session_start_tstamp > (
       select
-       -- segment_sessionization_trailing_window
+       -- sessionization_trailing_window
       {{
       dbt_utils.safe_cast(
       dbt_utils.dateadd(
       'hour',
-      -%(segment_sessionization_trailing_window)0.2f,
+      -%(sessionization_trailing_window)0.2f,
       'max(session_start_tstamp)'),
       'timestamp') }}
       from {{ this }})
-        {%% endif %%}
+        {% endif %}
   ),
 
   id_stitching as (
@@ -255,12 +255,12 @@ with
 
     from sessions left join id_stitching using (anonymous_id)
 
-      {%% if is_incremental() %%}
+      {% if is_incremental() %}
     where session_start_tstamp > {{sessionization_cutoff}}
-        {%% endif %%}
+        {% endif %}
   )
 
-  {%% if is_incremental() %%}
+  {% if is_incremental() %}
 
     , agg as (
 
@@ -274,16 +274,16 @@ with
 
   group by 1)
 
-  {%% endif %%}
+  {% endif %}
 
 select
   *,
   row_number() over (partition by blended_user_id order by s.session_start_tstamp)
-  {%% if is_incremental() %%}+ agg.starting_session_number {%% endif %%}
+  {% if is_incremental() %}+ agg.starting_session_number {% endif %}
   as session_number
 
 from stitched_sessions s
 
-  {%% if is_incremental() %%}
+  {% if is_incremental() %}
      left join agg using (blended_user_id)
-  {%% endif %%}
+  {% endif %}

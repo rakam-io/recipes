@@ -5,6 +5,6 @@
      table: 'users'
   },
   mapping: {
-          userId: 'id'
-        },
+      userId: 'id'
+    }
 }

@@ -8,10 +8,6 @@
       type: 'numeric',
       default: 30,
       description: 'The session duration of the user events',
-    },
-    addToBasket: {
-      type: 'model-select',
-      description: 'The session duration of the user events',
-    },
+    }
   },
 }

@@ -8,9 +8,9 @@ local model = (importstr 'rakam_segment_web_sessions.sql');
      table: 'rakam_segment_web_sessions'
   },
   dbt: {
-    model: std.strReplace(model, '%', '%%') % {
-       segment_inactivity_cutoff: 1,
-       segment_sessionization_trailing_window: 2,
+    model: std.strReplace(std.strReplace(model, '%', '%%'), '%%(', '%(') % {
+       segment_inactivity_cutoff: std.extVar('sessionDurationInMinutes'),
+       sessionization_trailing_window: 2,
      },
      config: {
      unique_key: 'session_id',
@@ -90,76 +90,93 @@ local model = (importstr 'rakam_segment_web_sessions.sql');
 //
 //    },
     device: {
-
+       column: 'device'
     },
     device_category: {
-
+        column: 'device_category'
     },
     duration_in_s: {
-
+        column: 'duration_in_s'
     },
     duration_in_s_tier: {
-
+        column: 'duration_in_s_tier'
     },
     first_page_url: {
-
+        column: 'first_page_url'
     },
     first_page_url_host: {
-
+        column: 'first_page_url_host'
     },
     first_page_url_path: {
+        column: 'first_page_url_path'
 
     },
     first_page_url_query: {
-
+        column: 'first_page_url_query'
     },
 
     last_page_url: {
+        column: 'last_page_url'
 
     },
     last_page_url_host: {
+        column: 'last_page_url_host'
 
     },
     last_page_url_path: {
+        column: 'last_page_url_path'
 
     },
     last_page_url_query: {
+        column: 'last_page_url_query'
 
     },
     page_views: {
+        column: 'page_views'
 
     },
     referrer: {
+        column: 'referrer'
 
     },
     referrer_host: {
+        column: 'referrer_host'
 
     },
     session_end_tstamp: {
+        column: 'session_end_tstamp'
 
     },
     session_id: {
+        column: 'session_id'
 
     },
     session_number: {
+        column: 'session_number'
 
     },
     session_start_tstamp: {
+        column: 'session_start_tstamp'
 
     },
     utm_campaign: {
+        column: 'utm_campaign'
 
     },
     utm_content: {
+        column: 'utm_content'
 
     },
     utm_medium: {
+        column: 'utm_medium'
 
     },
     utm_source: {
+        column: 'utm_source'
 
     },
     utm_term: {
+        column: 'utm_term'
 
     },
   },
