@@ -8,7 +8,7 @@ local model = (importstr 'rakam_segment_web_sessions.sql');
      table: 'rakam_segment_web_sessions'
   },
   dbt: {
-    model: std.toString(model) % {
+    model: std.strReplace(model, '%', '%%') % {
        segment_inactivity_cutoff: 1,
        segment_sessionization_trailing_window: 2,
      },
