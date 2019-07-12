@@ -9,7 +9,7 @@ local model = (importstr 'rakam_segment_web_sessions.sql');
   },
   dbt: {
     model: std.strReplace(std.strReplace(model, '%', '%%'), '%%(', '%(') % {
-       inactivity_cutoff: std.extVar('sessionDurationInMinutes'),
+       inactivity_cutoff: 1,
        sessionization_trailing_window: 2,
      },
      config: {
