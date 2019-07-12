@@ -35,15 +35,13 @@
   },
   measures: {
     'Total Net Charges': {
-      type: 'expression',
-      expression: 'SUM("amount") - SUM("amount_refunded")',
+      sql: 'SUM("amount") - SUM("amount_refunded")',
       reportOptions: {
         prefix: '$',
         formatNumbers: true,
       },
     },
     'Total Gross Charges': {
-      type: 'customColumn',
       aggregation: 'sum',
       column: 'amount',
       reportOptions: {
@@ -52,13 +50,11 @@
       },
     },
     'Charges Count': {
-      type: 'customColumn',
       aggregation: 'count',
       column: 'id',
       reportOptions: {},
     },
     'Total Amount Refunded': {
-      type: 'customColumn',
       aggregation: 'sum',
       column: 'amount_refunded',
       reportOptions: {

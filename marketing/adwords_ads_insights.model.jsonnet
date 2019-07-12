@@ -26,7 +26,6 @@
   |||,
   measures: {
     'Total Clicks': {
-      type: 'customColumn',
       aggregation: 'sum',
       customColumn: 'clicks',
       reportOptions: {
@@ -34,7 +33,6 @@
       },
     },
     'Total Spent': {
-      type: 'customColumn',
       aggregation: 'sum',
       customColumn: 'cost',
       reportOptions: {
@@ -43,7 +41,6 @@
       },
     },
     'Total Conversions': {
-      type: 'customColumn',
       aggregation: 'sum',
       customColumn: 'conversions',
       reportOptions: {
@@ -52,7 +49,6 @@
       },
     },
     'Total Interactions': {
-      type: 'customColumn',
       aggregation: 'count',
       customColumn: 'interactions',
       reportOptions: {

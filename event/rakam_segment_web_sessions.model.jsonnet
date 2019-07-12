@@ -47,7 +47,6 @@ local model = (importstr 'rakam_segment_web_sessions.sql');
       },
     },
     'Pages Per Session': {
-      type: 'expression',
       sql: '1.0 * "page_views" / nullif(count(*), 0)',
       reportOptions: {
         formatNumbers: true,

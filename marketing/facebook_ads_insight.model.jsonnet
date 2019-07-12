@@ -27,7 +27,6 @@
   |||,
   measures: {
     'Total Impressions': {
-      type: 'customColumn',
       aggregation: 'sum',
       customColumn: 'impressions',
       reportOptions: {
@@ -35,7 +34,6 @@
       },
     },
     'Total Reach': {
-      type: 'customColumn',
       aggregation: 'sum',
       customColumn: 'reach',
       reportOptions: {
@@ -43,7 +41,6 @@
       },
     },
     'Total Clicks': {
-      type: 'customColumn',
       aggregation: 'count',
       customColumn: 'clicks',
       reportOptions: {
@@ -51,7 +48,6 @@
       },
     },
     'Total Spent': {
-      type: 'customColumn',
       aggregation: 'count',
       customColumn: 'spend',
       reportOptions: {
@@ -60,7 +56,6 @@
       },
     },
     'Average Frequency': {
-      type: 'customColumn',
       aggregation: 'average',
       customColumn: 'frequency',
       reportOptions: {
@@ -68,8 +63,7 @@
       },
     },
     'Click Through Rate': {
-      type: 'expression',
-      expression: 'SUM("clicks")/SUM("impressions")',
+      sql: 'SUM("clicks")/SUM("impressions")',
       reportOptions: {
         formatNumbers: true,
       },
