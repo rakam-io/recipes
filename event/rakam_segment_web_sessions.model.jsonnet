@@ -18,7 +18,7 @@ local model = (importstr 'rakam_segment_web_sessions.sql');
    },
    updateInterval: 'PT3H'
   },
-  mapping: {
+  mappings: {
     eventTimestamp: 'session_start_tstamp',
     incremental: 'received_at',
     userId: 'blended_user_id',

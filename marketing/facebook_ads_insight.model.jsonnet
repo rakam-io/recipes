@@ -1,7 +1,7 @@
 {
   name: 'rakam_facebook_ads_insights',
   label: 'Facebook Ads',
-  mapping: {
+  mappings: {
     eventTimestamp: 'date_start',
     incremental: 'received_at',
     userId: 'user_id',

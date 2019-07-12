@@ -8,7 +8,7 @@ local pages = import 'pages.libsonnet';
   target: {
        table: 'tracks'
     },
-    mapping: {
+    mappings: {
         eventTimestamp: 'received_at',
         incremental: 'timestamp',
         userId: 'user_id',

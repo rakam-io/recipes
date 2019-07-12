@@ -1,7 +1,7 @@
 {
   name: 'rakam_adwords_ads_insights',
   label: 'Adwords',
-  mapping: {
+  mappings: {
     eventTimestamp: 'received_at',
     incremental: 'received_at',
     userId: 'user_id',

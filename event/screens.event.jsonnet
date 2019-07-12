@@ -10,5 +10,5 @@ local pages = import 'pages.model.jsonnet';
   },
   relations: pages.relations,
   dimensions: commonDimensions,
-  mapping: pages.mapping,
+  mappings: pages.mappings,
 }

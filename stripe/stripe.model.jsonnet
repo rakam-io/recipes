@@ -26,7 +26,7 @@
       charges.status
      FROM %(stripeSchema)s.charges;
   ||| % variables,
-  columnMapping: {
+  mappings: {
     eventTimestamp: 'created',
     incremental: null,
     userId: null,

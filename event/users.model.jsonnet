@@ -4,7 +4,7 @@
   target: {
      table: 'users'
   },
-  mapping: {
+  mappings: {
       userId: 'id'
     }
 }

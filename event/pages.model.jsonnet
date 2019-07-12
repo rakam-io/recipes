@@ -7,7 +7,7 @@ local commonDimensions = import 'common_dimensions.jsonnet';
   target: {
       table: 'pages'
   },
-  mapping: {
+  mappings: {
     eventTimestamp: 'received_at',
     incremental: 'timestamp',
     userId: 'user_id',
