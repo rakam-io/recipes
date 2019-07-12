@@ -16,7 +16,7 @@ local pages = import 'pages.libsonnet';
         sessionId: null,
       },
   relations: pages.relations,
-  columns: segmentColumns {
+  dimensions: segmentColumns {
     event: {
       hide: true,
       description: 'The slug of the event name, mapping to an event-specific table.',

@@ -59,7 +59,7 @@
     },
   },
   relations: {},
-  columns: {
+  dimensions: {
     campaign: {
       label: 'Campaign Name',
       type: 'string',

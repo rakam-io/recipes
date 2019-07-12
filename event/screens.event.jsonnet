@@ -9,6 +9,6 @@ local pages = import 'pages.model.jsonnet';
      table: 'screens'
   },
   relations: pages.relations,
-  columns: commonDimensions,
+  dimensions: commonDimensions,
   mapping: pages.mapping,
 }
