@@ -111,10 +111,10 @@ with
         select
           *,
           {{ dbt_utils.datediff('previous_tstamp', 'timestamp', 'second') }} as period_of_inactivity,
-          case
+          (case
           when
           -- inactivity_cutoff
-          {{ dbt_utils.datediff('previous_tstamp', 'timestamp', 'second') }} <= (%(inactivity_cutoff)0.2f then 0 else 1 end as new_session
+          {{ dbt_utils.datediff('previous_tstamp', 'timestamp', 'second') }} <= %(inactivity_cutoff)0.2f then 0 else 1 end) as new_session
         from lagged
 
         ),
