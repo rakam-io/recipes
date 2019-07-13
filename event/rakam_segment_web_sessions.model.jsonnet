@@ -1,5 +1,7 @@
 local model = (importstr 'rakam_segment_web_sessions.sql');
 
+local pages_table = std.join(".", std.filter(x => x != null, [std.extVar('pages').database, std.extVar('pages').schema, std.extVar('pages').table]))
+
 {
   name: 'rakam_segment_web_sessions',
   label: 'Pageview Sessions',
@@ -9,8 +11,9 @@ local model = (importstr 'rakam_segment_web_sessions.sql');
   },
   dbt: {
     model: std.strReplace(std.strReplace(model, '%', '%%'), '%%(', '%(') % {
-       inactivity_cutoff: 1,
+       inactivity_cutoff: std.extVar('sessionDurationInMinutes'),
        sessionization_trailing_window: 2,
+       pages_table: pages_table
      },
      config: {
      unique_key: 'session_id',

@@ -42,12 +42,12 @@ with
   sessionized as (
     with pageviews as (
 
-      select * from pages
+      select * from %(pages_table)s
 
         {% if is_incremental() %}
       where anonymous_id in (
         select distinct anonymous_id
-        from pages
+        from %(pages_table)s
         where timestamp >= (
         select
         -- sessionization_trailing_window
