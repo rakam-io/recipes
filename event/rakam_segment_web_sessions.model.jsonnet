@@ -1,6 +1,6 @@
 local model = (importstr 'rakam_segment_web_sessions.sql');
+local pages_table = std.join(".", std.filter(function(x) x != null, [std.extVar('pages').database, std.extVar('pages').schema, std.extVar('pages').table]));
 
-local pages_table = std.join(".", std.filter(function(x) x != null, [std.extVar('pages').database, std.extVar('pages').schema, std.extVar('pages').table]))
 
 {
   name: 'rakam_segment_web_sessions',
@@ -181,5 +181,5 @@ local pages_table = std.join(".", std.filter(function(x) x != null, [std.extVar(
         column: 'utm_term'
 
     },
-  },
+  }
 }
