@@ -1,14 +1,11 @@
 local model = (importstr 'rakam_segment_web_sessions.sql');
-local pages_table = std.join(".", std.filter(function(x) x != null, [std.extVar('pages').database, std.extVar('pages').schema, std.extVar('pages').table]));
-
+local pages_table = std.join(".", std.filter(function(x) x != null, [std.extVar('pages_table').database, std.extVar('pages_table').schema, std.extVar('pages_table').table]));
 
 {
   name: 'rakam_segment_web_sessions',
   label: 'Pageview Sessions',
   description: 'Website session information for the pageview event',
-  target: {
-     table: 'rakam_segment_web_sessions'
-  },
+  target: std.extVar('model_target'),
   dbt: {
     model: std.strReplace(std.strReplace(model, '%', '%%'), '%%(', '%(') % {
        inactivity_cutoff: std.extVar('sessionDurationInMinutes'),
