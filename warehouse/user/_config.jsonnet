@@ -20,7 +20,7 @@
     attributions: {
       order: 2,
       label: 'Attributions',
-      parent: 'users_table',
+      parent: 'users_target',
       type: 'table-column',
       options: {
         multiple: true
