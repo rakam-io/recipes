@@ -3,7 +3,7 @@ local pages = import 'pages.model.jsonnet';
 
 {
   name: 'screens',
-  label: '[Segment] Screens',
+  label: 'Screen Calls',
   description: "The screen data that's collected via Segment Javascript SDK",
   target: {
      table: 'screens'

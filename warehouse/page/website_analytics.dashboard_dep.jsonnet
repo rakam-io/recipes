@@ -161,10 +161,7 @@
             value: {
               joinCollection: null,
               column: 'timestamp',
-              postOperation: {
-                type: 'timestamp',
-                value: 'day',
-              },
+              postOperation: ['day'],
             },
             isPivot: false,
           },

@@ -4,7 +4,7 @@ local commonDimensions = import 'common_dimensions.jsonnet';
   name: 'pages',
   label: '[Segment] Pageview',
   description: "The pageview data that's collected via Segment Javascript SDK",
-  target: std.extVar('pages_table'),
+  target: std.extVar('pages_target'),
   mappings: {
     eventTimestamp: 'received_at',
     incremental: 'timestamp',

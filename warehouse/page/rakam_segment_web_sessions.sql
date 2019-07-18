@@ -42,12 +42,12 @@ with
   sessionized as (
     with pageviews as (
 
-      select * from %(pages_table)s
+      select * from %(pages_target)s
 
         {% if is_incremental() %}
       where anonymous_id in (
         select distinct anonymous_id
-        from %(pages_table)s
+        from %(pages_target)s
         where timestamp >= (
         select
         -- sessionization_trailing_window
@@ -245,7 +245,7 @@ with
         partition by anonymous_id
         ) as last_seen_at
 
-    from %(pages_table)s
+    from %(pages_target)s
   ),
 
   stitched_sessions as (
