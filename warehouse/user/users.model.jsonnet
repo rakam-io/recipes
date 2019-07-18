@@ -1,7 +1,7 @@
 {
   label: 'All Users',
   name: 'users',
-  target: std.extVar('users_table'),
+  target: std.extVar('users_target'),
   mappings: {
       userId: 'id'
     },
