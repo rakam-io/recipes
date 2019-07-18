@@ -1,9 +1,9 @@
 {
   label: 'All Users',
   name: 'users',
-  target: std.extVar('identifies_table'),
+  target: std.extVar('users_table'),
   mappings: {
-      eventTimestamp: received_at
+      userId: 'id'
     },
     dimensions: {
      last_update: {

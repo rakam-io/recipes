@@ -3,10 +3,11 @@
   name: 'users',
   target: std.extVar('identifies_target'),
   mappings: {
-      userId: 'id'
+      userId: 'id',
+      eventTimestamp: 'received_at'
     },
     dimensions: {
-     last_update: {
+     received_at: {
         type: 'timestamp',
         column: 'received_at'
      }
