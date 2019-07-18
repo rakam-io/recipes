@@ -1,14 +1,15 @@
 {
   label: 'All Users',
-  name: 'users',
+  category: 'attribution',
+  name: std.strReplace(std.thisFile, '.model.jsonnet', ''),
   target: std.extVar('users_target'),
   mappings: {
       userId: 'id'
     },
-    dimensions: {
+    dimensions: std.extVar('attributions') {
      last_update: {
         type: 'timestamp',
         column: 'received_at'
-     } + std.extVar('attributions')
+     }
   }
 }
