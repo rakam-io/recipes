@@ -1,4 +1,4 @@
-local commonDimensions = import 'common_dimensions.jsonnet';
+local commonDimensions = import '../common_dimensions.jsonnet';
 local pages = import 'pages.model.jsonnet';
 
 {
