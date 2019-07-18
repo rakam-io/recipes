@@ -12,7 +12,10 @@
     attributions: {
       label: 'Attributions',
       parent: 'users_table',
-      type: 'multiple-table-column',
+      type: 'table-column',
+      options: {
+        multiple: true
+      },
       description: 'WThe attributions that will be attached as dimensions to user model',
     }
   },
