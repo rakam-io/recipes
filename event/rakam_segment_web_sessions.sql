@@ -245,35 +245,27 @@ with
         partition by anonymous_id
         ) as last_seen_at
 
-    from pages
-
+    from %(pages_table)s
   ),
 
   stitched_sessions as (
-
     select sessions.*, coalesce(id_stitching.user_id, sessions.anonymous_id) as blended_user_id
-
     from sessions left join id_stitching using (anonymous_id)
-
-      {% if is_incremental() %}
-    where session_start_tstamp > {{sessionization_cutoff}}
-        {% endif %}
+    {% if is_incremental() %}
+       where session_start_tstamp > {{sessionization_cutoff}}
+    {% endif %}
   )
 
   {% if is_incremental() %}
 
     , agg as (
-
-  select
-  blended_user_id,
-  count(*) as starting_session_number
-  from {{this}}
+      select
+      blended_user_id,
+      count(*) as starting_session_number
+      from {{this}}
 
   -- only include sessions that are not going to be resessionized in this run
-  where session_start_tstamp <= {{sessionization_cutoff}}
-
-  group by 1)
-
+  where session_start_tstamp <= {{sessionization_cutoff}} group by 1)
   {% endif %}
 
 select

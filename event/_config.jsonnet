@@ -12,7 +12,7 @@
     pages: {
       label: 'Segment Table',
       type: 'table',
-      default: {database: null, schema:null, table: 'pages'},
+      default: {table: 'pages'},
       description: 'The pages table in your Segment Destionation. See: https://segment.com/docs/destinations/#warehouse-schemas',
     }
   },
