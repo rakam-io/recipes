@@ -41,12 +41,12 @@ with
   sessionized as (
     with pageviews as (
 
-      select * from %(pages_target)s
+      select * from {{pages_target}}
 
         {% if is_incremental() %}
       where anonymous_id in (
         select distinct anonymous_id
-        from %(pages_target)s
+        from {{pages_target}}
         where timestamp >= (
         select
                 {{
@@ -111,8 +111,7 @@ with
           {{ dbt_utils.datediff('previous_tstamp', 'timestamp', 'second') }} as period_of_inactivity,
           (case
           when
-          -- inactivity_cutoff
-          {{ dbt_utils.datediff('previous_tstamp', 'timestamp', 'second') }} <= %(inactivity_cutoff)0.2f then 0 else 1 end) as new_session
+          {{ dbt_utils.datediff('previous_tstamp', 'timestamp', 'second') }} <= {{inactivity_cutoff}} then 0 else 1 end) as new_session
         from lagged
 
         ),
@@ -241,7 +240,7 @@ with
         partition by anonymous_id
         ) as last_seen_at
 
-    from %(pages_target)s
+    from {{pages_target}}
   ),
 
   stitched_sessions as (
