@@ -1,6 +1,6 @@
 local dbtModel = (importstr 'rakam_segment_web_sessions.sql');
 local pages_target_ref = std.join(".", std.filter(function(x) x != null, [std.extVar('pages_target').database, std.extVar('pages_target').schema, std.extVar('pages_target').table]));
-local generate_jinja_header(obj) = std.join('', ['{%% set %s = %s %%}\n' % [f, std.manifestPython(obj[f])] for f in std.objectFields(obj)]);
+local generate_jinja_header(obj) = std.join('', ['{%% set %s = %s %%} ' % [f, std.manifestPython(obj[f])] for f in std.objectFields(obj)]);
 
 
 {

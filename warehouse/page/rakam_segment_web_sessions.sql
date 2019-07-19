@@ -3,8 +3,7 @@
 {% set sessionization_cutoff = "
 (
     select
-    -- sessionization_trailing_window
-    {{
+        {{
         dbt_utils.safe_cast(
             dbt_utils.dateadd(
                 'hour',
@@ -50,8 +49,7 @@ with
         from %(pages_target)s
         where timestamp >= (
         select
-        -- sessionization_trailing_window
-        {{
+                {{
         dbt_utils.safe_cast(
         dbt_utils.dateadd(
         'hour',
@@ -182,8 +180,7 @@ with
 
       {% if is_incremental() %}
     where session_start_tstamp > (
-      select -- sessionization_trailing_window
-      {{
+      select       {{
       dbt_utils.safe_cast(
       dbt_utils.dateadd(
       'hour',
@@ -213,8 +210,7 @@ with
       {% if is_incremental() %}
     where session_start_tstamp > (
       select
-       -- sessionization_trailing_window
-      {{
+             {{
       dbt_utils.safe_cast(
       dbt_utils.dateadd(
       'hour',
