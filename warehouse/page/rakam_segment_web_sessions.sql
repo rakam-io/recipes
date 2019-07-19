@@ -1,6 +1,6 @@
 {% set partition_by = "partition by session_id" %}
 
-  {% set sessionization_cutoff = "
+{% set sessionization_cutoff = "
 (
     select
     -- sessionization_trailing_window
@@ -8,7 +8,7 @@
         dbt_utils.safe_cast(
             dbt_utils.dateadd(
                 'hour',
-                -%(sessionization_trailing_window)0.2f,
+                -{{sessionization_trailing_window}},
                 'max(session_start_tstamp)'),
             'timestamp') }}
     from {{this}}
@@ -55,7 +55,7 @@ with
         dbt_utils.safe_cast(
         dbt_utils.dateadd(
         'hour',
-        -%(sessionization_trailing_window)0.2f,
+        -{{sessionization_trailing_window}},
         'max(session_start_tstamp)'),
         'timestamp') }}
         from {{ this }})
@@ -187,7 +187,7 @@ with
       dbt_utils.safe_cast(
       dbt_utils.dateadd(
       'hour',
-      -%(sessionization_trailing_window)0.2f,
+      -{{sessionization_trailing_window}},
       'max(session_start_tstamp)'),
       'timestamp') }}
       from {{ this }})
@@ -218,7 +218,7 @@ with
       dbt_utils.safe_cast(
       dbt_utils.dateadd(
       'hour',
-      -%(sessionization_trailing_window)0.2f,
+      -{{sessionization_trailing_window}},
       'max(session_start_tstamp)'),
       'timestamp') }}
       from {{ this }})

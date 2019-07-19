@@ -1,6 +1,6 @@
-local model = (importstr 'rakam_segment_web_sessions.sql');
-local pages_target = std.join(".", std.filter(function(x) x != null, [std.extVar('pages_target').database, std.extVar('pages_target').schema, std.extVar('pages_target').table]));
-local generate_header(obj) = std.join('', ['{%% set %s = "%s" %%}\n' % [f, obj[f]] for f in std.objectFields(obj)]);
+local dbtModel = (importstr 'rakam_segment_web_sessions.sql');
+local pages_target_ref = std.join(".", std.filter(function(x) x != null, [std.extVar('pages_target').database, std.extVar('pages_target').schema, std.extVar('pages_target').table]));
+local generate_jinja_header(obj) = std.join('', ['{%% set %s = %s %%}\n' % [f, std.manifestPython(obj[f])] for f in std.objectFields(obj)]);
 
 
 {
@@ -9,11 +9,11 @@ local generate_header(obj) = std.join('', ['{%% set %s = "%s" %%}\n' % [f, obj[f
   description: 'Website session information for the pageview event',
   target: std.extVar('model_target'),
   dbt: {
-    model: std.strReplace(std.strReplace(model, '%', '%%'), '%%(', '%(') % {
-       inactivity_cutoff: std.extVar('session_duration_in_minutes'),
-       sessionization_trailing_window: 2,
-       pages_target: pages_target
-     },
+     model: generate_jinja_header({
+             inactivity_cutoff: std.extVar('session_duration_in_minutes'),
+             sessionization_trailing_window: 2.0,
+             pages_target: pages_target_ref
+           }) + dbtModel,
      config: {
      unique_key: 'session_id',
      materialized: 'incremental',
