@@ -106,7 +106,8 @@ local last_values = {
       },
     },
   },
-  dimensions: {
+  dimensions: ({ [first_values[k].column]: first_values[k] for k in std.objectFields(first_values) }) +
+              ({ [last_values[k].column]: last_values[k] for k in std.objectFields(last_values) }) + {
 //    anonymous_id: {
 //
 //    },
@@ -127,36 +128,6 @@ local last_values = {
     },
     duration_in_s_tier: {
         column: 'duration_in_s_tier'
-    },
-    first_page_url: {
-        column: 'first_page_url'
-    },
-    first_page_url_host: {
-        column: 'first_page_url_host'
-    },
-    first_page_url_path: {
-        column: 'first_page_url_path'
-
-    },
-    first_page_url_query: {
-        column: 'first_page_url_query'
-    },
-
-    last_page_url: {
-        column: 'last_page_url'
-
-    },
-    last_page_url_host: {
-        column: 'last_page_url_host'
-
-    },
-    last_page_url_path: {
-        column: 'last_page_url_path'
-
-    },
-    last_page_url_query: {
-        column: 'last_page_url_query'
-
     },
     page_views: {
         column: 'page_views'
@@ -186,25 +157,5 @@ local last_values = {
         column: 'session_start_tstamp'
 
     },
-    utm_campaign: {
-        column: 'utm_campaign'
-
-    },
-    utm_content: {
-        column: 'utm_content'
-
-    },
-    utm_medium: {
-        column: 'utm_medium'
-
-    },
-    utm_source: {
-        column: 'utm_source'
-
-    },
-    utm_term: {
-        column: 'utm_term'
-
-    } + { [first_values[k].column]: first_values[k] for k in std.objectFields(first_values) } + { [last_values[k].column]: last_values[k] for k in std.objectFields(last_values) },
   }
 }
