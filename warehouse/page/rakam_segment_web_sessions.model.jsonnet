@@ -52,8 +52,9 @@ local last_values = {
     userId: 'blended_user_id',
   },
   measures: {
-    'Average Duration': {
+    average_duration: {
       aggregation: 'average',
+      label: 'Average Duration',
       column: 'duration_in_s',
       reportOptions: {
         prefix: '',
@@ -61,44 +62,51 @@ local last_values = {
         formatNumbers: true,
       },
     },
-    'Total Sessions': {
+    sessions: {
       aggregation: 'count',
+      label: 'Total Sessions',
       reportOptions: {
         formatNumbers: true,
       },
     },
-    'Distinct Users': {
+    users: {
+      label: 'Distinct Users',
       aggregation: 'countUnique',
       column: 'userId',
       reportOptions: {
         formatNumbers: true,
       },
     },
-    'Pages Per Session': {
+    pages_per_session: {
+      label: 'Pages Per Session',
       sql: '1.0 * "page_views" / nullif(count(*), 0)',
       reportOptions: {
         formatNumbers: true,
       },
     },
-    'Bounce Rate': {
+    bounce_rate: {
       sql: '1.0 * sum(case when "page_views" = 1 then 1 else 0 end) /\n            nullif(count(*), 0)',
+      label: 'Bounce Rate',
       reportOptions: {
         formatNumbers: true,
       },
     },
-    'New Sessions': {
+    new_sessions: {
+      label: 'New Sessions',
       sql: 'sum(case when "session_number" = 1 then 1 else 0 end)',
       reportOptions: {
         formatNumbers: true,
       },
     },
-    'Returning Sessions': {
+    returning_sessions: {
+      label: 'Returning Sessions',
       sql: 'sum(case when "session_number" > 1 then 1 else 0 end)',
       reportOptions: {
         formatNumbers: true,
       },
     },
-    'Average Session Per User': {
+    average_session_count_per_user: {
+      label: 'Average Session Per User',
       aggregation: 'average',
       column: 'session_number',
       reportOptions: {

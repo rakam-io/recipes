@@ -13,8 +13,9 @@ local commonDimensions = import '../common_dimensions.jsonnet';
     sessionId: null,
   },
   measures: {
-     'Total Pageviews': {
-        aggregation: 'count'
+     pageviews: {
+        aggregation: 'count',
+        label: 'Total Pageviews'
      }
   },
   relations: {
