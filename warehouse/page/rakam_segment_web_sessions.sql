@@ -20,23 +20,6 @@
     rows between unbounded preceding and unbounded following
     " %}
 
-  {% set first_values = {
-  'context_campaign_source' : 'utm_source',
-  'context_campaign_content' : 'utm_content',
-  'context_campaign_medium' : 'utm_medium',
-  'context_campaign_name' : 'utm_campaign',
-  'context_campaign_term' : 'utm_term',
-  'url' : 'first_page_url',
-  'path' : 'first_page_url_path',
-  'search' : 'first_page_url_query',
-  } %}
-
-  {% set last_values = {
-  'url' : 'last_url',
-  'path' : 'last_path',
-  'search' : 'last_search'
-  } %}
-
 with
   sessionized as (
     with pageviews as (

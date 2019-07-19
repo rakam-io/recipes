@@ -30,14 +30,18 @@ local commonDimensions = import '../common_dimensions.jsonnet';
     page_url_host: {
       description: 'Host value extracted from the url',
       sql: "split_part(split_part(replace(replace(url, 'http://', ''), 'https://', ''), '/', 1), '?', 1)",
+      postOperations: []
+
     },
     page_referrer_host: {
       description: 'Referrer host extracted from the referrer url',
       sql: "split_part(split_part(replace(replace(referrer, 'http://', ''), 'https://', ''), '/', 1), '?', 1)",
+      postOperations: []
     },
     gclid: {
       description: 'Google Click Identifier extracted from the referrer url',
       sql: "split_part(split_part(replace(replace(referrer, 'http://', ''), 'https://', ''), '/', 1), '?', 1)",
+      postOperations: []
     },
     device: {
       description: 'The device type',
@@ -47,6 +51,7 @@ local commonDimensions = import '../common_dimensions.jsonnet';
             ELSE replace(split_part(split_part(context_user_agent, '(', 2), ' ', 1), ';', '')
         END
       |||,
+      postOperations: []
     },
     device_category: {
       description: 'The device category',
@@ -62,23 +67,27 @@ local commonDimensions = import '../common_dimensions.jsonnet';
             else 'Uncategorized'
         end
       |||,
+      postOperations: []
     },
     path: {
       label: 'Page Path',
       category: 'Website',
       type: 'string',
-      column: 'path'
+      column: 'path',
+      postOperations: []
     },
     referrer: {
       category: 'Website',
       type: 'string',
-column: 'referrer'
+column: 'referrer',
+postOperations: []
     },
     search: {
       label: 'Page Search Parameter',
       category: 'Website',
       type: 'string',
-column: 'search'
+column: 'search',
+postOperations: []
     },
   },
 }

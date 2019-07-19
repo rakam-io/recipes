@@ -3,6 +3,30 @@ local pages_target_ref = std.join(".", std.filter(function(x) x != null, [std.ex
 local generate_jinja_header(obj) = std.join('', ['{%% set %s = %s %%} ' % [f, std.manifestPython(obj[f])] for f in std.objectFields(obj)]);
 
 
+/* We will extract the first values of the events in a given session from pageview events and materialize it in our model.
+ key: column_column
+ value: dimension with target column name
+ */
+
+local first_values = {
+  context_campaign_source : {column: 'utm_source'},
+  context_campaign_content : {column: 'utm_content'},
+  context_campaign_medium : {column: 'utm_medium'},
+ context_campaign_name :{column: 'utm_campaign'} ,
+  context_campaign_term : {column: 'utm_term'},
+  url : {column: 'first_page_url'},
+  path : {column: 'first_page_url_path'},
+  search : {column: 'first_page_url_query'},
+  };
+
+/* We will extract the last values of the events in a given session from pageview events and materialize it in our model. */
+local last_values = {
+  url : {column: 'last_url'},
+  path : {column: 'last_path'},
+  search : {column: 'last_search'}
+  };
+
+
 {
   name: 'rakam_segment_web_sessions',
   label: 'Pageview Sessions',
@@ -12,7 +36,9 @@ local generate_jinja_header(obj) = std.join('', ['{%% set %s = %s %%} ' % [f, st
      model: generate_jinja_header({
              inactivity_cutoff: std.extVar('session_duration_in_minutes'),
              sessionization_trailing_window: 2.0,
-             pages_target: pages_target_ref
+             pages_target: pages_target_ref,
+             first_values: { [k]: first_values[k].column for k in std.objectFields(first_values) },
+             last_values: { [k]: last_values[k].column for k in std.objectFields(last_values) }
            }) + dbtModel,
      config: {
      unique_key: 'session_id',
@@ -179,6 +205,6 @@ local generate_jinja_header(obj) = std.join('', ['{%% set %s = %s %%} ' % [f, st
     utm_term: {
         column: 'utm_term'
 
-    },
+    } + { [first_values[k].column]: first_values[k] for k in std.objectFields(first_values) } + { [last_values[k].column]: last_values[k] for k in std.objectFields(last_values) },
   }
 }
