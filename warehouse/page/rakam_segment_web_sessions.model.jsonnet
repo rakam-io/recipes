@@ -1,5 +1,7 @@
 local model = (importstr 'rakam_segment_web_sessions.sql');
 local pages_target = std.join(".", std.filter(function(x) x != null, [std.extVar('pages_target').database, std.extVar('pages_target').schema, std.extVar('pages_target').table]));
+local generate_header(obj) = std.join('', ['{%% set %s = "%s" %%}\n' % [f, obj[f]] for f in std.objectFields(obj)]);
+
 
 {
   name: 'rakam_segment_web_sessions',

@@ -1,7 +1,7 @@
 {
   version: 1.1,
   label: 'Segment Event Analytics',
-  description: 'It provides session and pageview analytics for Segment Warehouse. For Segment Warehouse users, it provides basic reports similar to Googl Analytics',
+  description: 'It provides session and pageview analytics for Segment Warehouse. For Segment Warehouse users, it provides basic reports similar to Google Analytics',
   variables: {
     session_duration_in_minutes: {
       label: 'Session duration',
