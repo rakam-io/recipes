@@ -9,21 +9,21 @@ local generate_jinja_header(obj) = std.join('', ['{%% set %s = %s %%} ' % [f, st
  */
 
 local first_values = {
-  context_campaign_source : {column: 'utm_source'},
-  context_campaign_content : {column: 'utm_content'},
-  context_campaign_medium : {column: 'utm_medium'},
- context_campaign_name :{column: 'utm_campaign'} ,
-  context_campaign_term : {column: 'utm_term'},
-  url : {column: 'first_page_url'},
-  path : {column: 'first_page_url_path'},
-  search : {column: 'first_page_url_query'},
+  context_campaign_source : {column: 'utm_source', postOperations: []},
+  context_campaign_content : {column: 'utm_content', postOperations: []},
+  context_campaign_medium : {column: 'utm_medium', postOperations: []},
+ context_campaign_name :{column: 'utm_campaign', postOperations: []} ,
+  context_campaign_term : {column: 'utm_term', postOperations: []},
+  url : {column: 'first_page_url', postOperations: []},
+  path : {column: 'first_page_url_path', postOperations: []},
+  search : {column: 'first_page_url_query', postOperations: []},
   };
 
 /* We will extract the last values of the events in a given session from pageview events and materialize it in our model. */
 local last_values = {
-  url : {column: 'last_url'},
-  path : {column: 'last_path'},
-  search : {column: 'last_search'}
+  url : {column: 'last_url', postOperations: []},
+  path : {column: 'last_path', postOperations: []},
+  search : {column: 'last_search', postOperations: []}
   };
 
 
