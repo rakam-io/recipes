@@ -1,5 +1,5 @@
 local commonDimensions = import '../common_dimensions.jsonnet';
-local sessionsModel = import '../rakam_segment_web_sessions.model.jsonnet';
+local sessionsModel = import './rakam_segment_web_sessions.model.jsonnet';
 
 {
   name: 'pages',
