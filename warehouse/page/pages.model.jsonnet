@@ -1,5 +1,4 @@
 local commonDimensions = import '../common_dimensions.jsonnet';
-local sessionsModel = import './rakam_segment_web_sessions.model.jsonnet';
 
 {
   name: 'pages',
@@ -23,7 +22,7 @@ local sessionsModel = import './rakam_segment_web_sessions.model.jsonnet';
     session: {
       relationType: 'oneToMany',
       joinType: 'leftJoin',
-      modelName: sessionsModel.name,
+      modelName: 'rakam_segment_web_sessions',
       sourceColumn: 'anonymous_id',
       targetColumn: 'anonymous_id',
     }
