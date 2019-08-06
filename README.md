@@ -1,3 +1,3 @@
-# segment-recipe
+# Recipes
 
-Rakam recipes for Segment.com Warehouse
+A collection of Rakam recipes
