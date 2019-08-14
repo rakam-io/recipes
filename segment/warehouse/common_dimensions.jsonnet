@@ -150,8 +150,7 @@
     description: 'UTC-converted timestamp which is set by the Segment library.',
     category: 'Event',
     type: 'timestamp',
-    column : 'timestamp',
-    timeframes: true
+    column : 'timestamp'
   },
   title: {
     label: 'Page Title',
