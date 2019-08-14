@@ -16,7 +16,7 @@
       description: 'The pages table in your Segment Destionation. See: https://segment.com/docs/destinations/#warehouse-schemas',
     },
     user_model: {
-      label: 'The target of the sessionization model',
+      label: 'Segment user model',
       type: 'model',
       default: 'users',
       description: 'If you have installed the user recipe, select the `All users` model.',
