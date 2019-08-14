@@ -1,6 +1,7 @@
 local commonDimensions = import '../common_dimensions.jsonnet';
 local sessionsModel = import './rakam_segment_web_sessions.model.jsonnet';
 
+
 {
   name: 'pages',
   label: '[Segment] Pageview',
@@ -27,6 +28,14 @@ local sessionsModel = import './rakam_segment_web_sessions.model.jsonnet';
       sourceColumn: 'anonymous_id',
       targetColumn: 'anonymous_id',
     }
+    + if std.extVar('user_model') != null then
+        { user : {
+          relationType: 'manyToOne',
+          joinType: 'leftJoin',
+          modelName: std.extVar('user_model'),
+          sourceColumn: 'user_id',
+          targetColumn: 'id',
+        } } else {}
   },
   dimensions: commonDimensions {
     page_url_host: {
