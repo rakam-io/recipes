@@ -1,11 +1,16 @@
 {
   label: 'All Users',
   category: 'attribution',
-  name: std.strReplace(std.thisFile, '.model.jsonnet', ''),
+  name: 'users',
   target: std.extVar('users_target'),
   mappings: {
       userId: 'id'
     },
+     measures: {
+         total_users: {
+              aggregation: 'count',
+         }
+        },
     dimensions: std.extVar('attributions') {
      last_update: {
         type: 'timestamp',

@@ -32,18 +32,14 @@ local sessionsModel = import './rakam_segment_web_sessions.model.jsonnet';
     page_url_host: {
       description: 'Host value extracted from the url',
       sql: "split_part(split_part(replace(replace(url, 'http://', ''), 'https://', ''), '/', 1), '?', 1)",
-      postOperations: []
-
     },
     page_referrer_host: {
       description: 'Referrer host extracted from the referrer url',
       sql: "split_part(split_part(replace(replace(referrer, 'http://', ''), 'https://', ''), '/', 1), '?', 1)",
-      postOperations: []
     },
     gclid: {
       description: 'Google Click Identifier extracted from the referrer url',
       sql: "split_part(split_part(replace(replace(referrer, 'http://', ''), 'https://', ''), '/', 1), '?', 1)",
-      postOperations: []
     },
     device: {
       description: 'The device type',
@@ -53,7 +49,6 @@ local sessionsModel = import './rakam_segment_web_sessions.model.jsonnet';
             ELSE replace(split_part(split_part(context_user_agent, '(', 2), ' ', 1), ';', '')
         END
       |||,
-      postOperations: []
     },
     device_category: {
       description: 'The device category',
@@ -69,27 +64,23 @@ local sessionsModel = import './rakam_segment_web_sessions.model.jsonnet';
             else 'Uncategorized'
         end
       |||,
-      postOperations: []
     },
     path: {
       label: 'Page Path',
       category: 'Website',
       type: 'string',
-      column: 'path',
-      postOperations: []
+      column: 'path'
     },
     referrer: {
       category: 'Website',
       type: 'string',
 column: 'referrer',
-postOperations: []
     },
     search: {
       label: 'Page Search Parameter',
       category: 'Website',
       type: 'string',
 column: 'search',
-postOperations: []
     },
   },
 }

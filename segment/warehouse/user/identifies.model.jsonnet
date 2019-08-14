@@ -1,7 +1,7 @@
 {
   label: 'Attributions',
   category: 'attribution',
-  name: std.strReplace(std.thisFile, '.model.jsonnet', ''),
+  name: 'identifies',
   target: std.extVar('identifies_target'),
   mappings: {
       userId: 'id',

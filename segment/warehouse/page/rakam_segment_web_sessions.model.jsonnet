@@ -1,7 +1,8 @@
-local dbtModel = (importstr 'rakam_segment_web_sessions.sql');
-local pages_target_ref = std.join(".", std.filter(function(x) x != null, [std.extVar('pages_target').database, std.extVar('pages_target').schema, std.extVar('pages_target').table]));
-local generate_jinja_header(obj) = std.join('', ['{%% set %s = %s %%} ' % [f, std.manifestPython(obj[f])] for f in std.objectFields(obj)]);
+local util = import '/util.libsonnet';
 
+local dbtModel = (importstr 'rakam_segment_web_sessions.sql');
+
+local pages_target_ref = util.generate_target_reference(std.extVar('pages_target'));
 
 /* We will extract the first values of the events in a given session from pageview events and materialize it in our model.
  key: column_column
@@ -9,21 +10,21 @@ local generate_jinja_header(obj) = std.join('', ['{%% set %s = %s %%} ' % [f, st
  */
 
 local first_values = {
-  context_campaign_source : {column: 'utm_source', postOperations: []},
-  context_campaign_content : {column: 'utm_content', postOperations: []},
-  context_campaign_medium : {column: 'utm_medium', postOperations: []},
- context_campaign_name :{column: 'utm_campaign', postOperations: []} ,
-  context_campaign_term : {column: 'utm_term', postOperations: []},
-  url : {column: 'first_page_url', postOperations: []},
-  path : {column: 'first_page_url_path', postOperations: []},
-  search : {column: 'first_page_url_query', postOperations: []},
+  context_campaign_source : {column: 'utm_source', },
+  context_campaign_content : {column: 'utm_content', },
+  context_campaign_medium : {column: 'utm_medium', },
+ context_campaign_name :{column: 'utm_campaign', } ,
+  context_campaign_term : {column: 'utm_term', },
+  url : {column: 'first_page_url', },
+  path : {column: 'first_page_url_path', },
+  search : {column: 'first_page_url_query', },
   };
 
 /* We will extract the last values of the events in a given session from pageview events and materialize it in our model. */
 local last_values = {
-  url : {column: 'last_url', postOperations: []},
-  path : {column: 'last_path', postOperations: []},
-  search : {column: 'last_search', postOperations: []}
+  url : {column: 'last_url', },
+  path : {column: 'last_path', },
+  search : {column: 'last_search', }
   };
 
 
@@ -33,7 +34,7 @@ local last_values = {
   description: 'Website session information for the pageview event',
   target: std.extVar('model_target'),
   dbt: {
-     model: generate_jinja_header({
+     model: util.generate_jinja_header({
              inactivity_cutoff: std.extVar('session_duration_in_minutes'),
              sessionization_trailing_window: 2.0,
              pages_target: pages_target_ref,

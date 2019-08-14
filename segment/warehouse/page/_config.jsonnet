@@ -7,7 +7,7 @@
       label: 'Session duration',
       type: 'numeric',
       default: 30,
-      description: 'The session duration of the user events',
+      description: 'The session duration in minutes',
     },
     pages_target: {
       label: 'Segment Pageview Table',
@@ -22,4 +22,5 @@
       description: 'We need to create an incremental model in your warehouse in order the sessionize your pageview table.',
     }
   },
+  tags: ["segment"]
 }
