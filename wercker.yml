@@ -10,6 +10,7 @@ box: python:3.4-slim
 build:
   steps:
     # first we want to run pip-install to install all the dependencies
-    - pip-install
+    - pip-install:
+        packages_list: "jsonnet requests"
     - update_index:
         code: python build.py
