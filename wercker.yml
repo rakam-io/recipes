@@ -12,5 +12,5 @@ build:
     # first we want to run pip-install to install all the dependencies
     - pip-install:
         packages_list: "jsonnet requests"
-    - update_index:
+    - script:
         code: python build.py
