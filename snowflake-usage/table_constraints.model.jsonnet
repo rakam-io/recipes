@@ -1,6 +1,6 @@
 {
  name: "snowflake_table_constraints",
- target: {database: "FIVETRAN", schema: "ACCOUNT_USAGE", table: "TABLE_CONSTRAINTS"},
+ target: {database: "SNOWFLAKE", schema: "ACCOUNT_USAGE", table: "TABLE_CONSTRAINTS"},
  measures: {
     count: {
         aggregation: 'count'

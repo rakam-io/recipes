@@ -1,6 +1,6 @@
 {
  name: "snowflake_tables",
- target: {database: "FIVETRAN", schema: "ACCOUNT_USAGE", table: "TABLES"},
+ target: {database: "SNOWFLAKE", schema: "ACCOUNT_USAGE", table: "TABLES"},
  measures: {
     count: {
         aggregation: 'count'

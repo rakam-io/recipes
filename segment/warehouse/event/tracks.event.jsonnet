@@ -4,7 +4,7 @@ local pages = import 'pages.libsonnet';
 {
   name: 'tracks',
   label: 'All Events',
-  description: 'The table that contains all your event.track() calls',
+  description: 'It creates a model',
   target: {
        table: 'tracks'
     },

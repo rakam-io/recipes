@@ -1,6 +1,6 @@
 {
  name: "snowflake_query_history",
- target: {database: "FIVETRAN", schema: "ACCOUNT_USAGE", table: "QUERY_HISTORY"},
+ target: {database: "SNOWFLAKE", schema: "ACCOUNT_USAGE", table: "QUERY_HISTORY"},
  measures: {
     query_count: {
         aggregation: 'count'
