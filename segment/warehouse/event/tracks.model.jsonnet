@@ -1,5 +1,4 @@
 local commonDimensions = import '../common_dimensions.jsonnet';
-local pages = import 'pages.libsonnet';
 
 {
   name: 'tracks',
@@ -13,7 +12,14 @@ local pages = import 'pages.libsonnet';
         deviceId: null,
         sessionId: null,
       },
-  relations: pages.relations,
+  relations: if std.extVar('user_model') != null then
+                         { user : {
+                           relationType: 'manyToOne',
+                           joinType: 'leftJoin',
+                           modelName: std.extVar('user_model'),
+                           sourceColumn: 'user_id',
+                           targetColumn: 'id',
+                         } } else {},
   dimensions: commonDimensions {
     event_text: {
         description: 'The name of the event.',
