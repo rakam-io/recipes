@@ -2,7 +2,7 @@
   version: 1.1,
   label: 'Segment Event Analytics',
   description: 'It implements screen event for Segment Warehouse in order to track user actions on Android & iOS.',
-  image: 'https://github.com/rakam-io/recipes/raw/master/segment/logo.png',
+  //image: 'https://github.com/rakam-io/recipes/raw/master/segment/logo.png',
   variables: {
     tracks_target: {
       label: 'Segment Tracks Table',
@@ -13,7 +13,7 @@
     event_types: {
         label: 'Event types',
         type: 'table',
-        decription: 'Select the event types that you want to create models from',
+        description: 'Select the event types that you want to create models from',
         options: {
             multiple: true,
             exclude: ['aliases', 'groups', 'identifies', 'pages', 'screens', 'tracks']
