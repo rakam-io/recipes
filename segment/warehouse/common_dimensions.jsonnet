@@ -56,29 +56,17 @@
 
 
   },
-  context_campaign_term: {
-    label: 'Campaign Term',
-    category: 'Marketing',
-    type: 'string',
-        column : 'context_campaign_term'
-
-
-  },
   context_ip: {
     label: 'User Ip',
     category: 'Event',
     type: 'string',
-        column : 'context_ip'
-
-
+    column : 'context_ip'
   },
   context_library_name: {
     label: 'Segment Library Name',
     category: 'Event',
     type: 'string',
-        column : 'context_library_name'
-
-
+    column : 'context_library_name'
   },
   context_library_version: {
     label: 'Segment Library Version',
