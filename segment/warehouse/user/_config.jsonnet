@@ -2,7 +2,9 @@
   version: 1.1,
   label: 'Segment User Attribution',
   description: 'It provides user attribution analytics for Segment Warehouse',
-  variables: {
+   image: 'https://github.com/rakam-io/recipes/raw/master/segment/logo.png',
+
+ variables: {
     users_target: {
       label: 'Segment User Table',
       type: 'table',
