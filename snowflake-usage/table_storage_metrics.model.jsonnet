@@ -1,6 +1,6 @@
 {
  name: "snowflake_storage_usage",
- target: {database: "FIVETRAN", schema: "ACCOUNT_USAGE", table: "STORAGE_USAGE"},
+ target: {database: "FIVETRAN", schema: "ACCOUNT_USAGE", table: "TABLE_STORAGE_METRICS"},
  label: "storage_usage",
  measures: {
     average_storage_tb: {
