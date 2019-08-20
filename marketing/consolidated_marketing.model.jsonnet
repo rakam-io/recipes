@@ -1,5 +1,4 @@
 local modelSql = (importstr 'consolidated_marketing.sql');
-local pages = import 'pages.libsonnet';
 local util = import '../../util.libsonnet';
 
 {
@@ -13,7 +12,6 @@ local util = import '../../util.libsonnet';
                     first_values: { [k]: first_values[k].column for k in std.objectFields(first_values) },
                     last_values: { [k]: last_values[k].column for k in std.objectFields(last_values) }
                   }) + dbtModel,
-  relations: pages.relations,
   dimensions: segmentColumns {
     event: {
       hide: true,
