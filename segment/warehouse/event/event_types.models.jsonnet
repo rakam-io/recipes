@@ -1,4 +1,6 @@
-std.map(function(target) {
-    target: target,
-    name: target.table
-}, std.extVar('event_types'))
+local event_types = std.extVar('event_types');
+
+std.map(function(tableName) {
+    target: {database: event_types.database, schema: event_types.schema, table: tableName},
+    name: tableName
+}, event_types.table)
