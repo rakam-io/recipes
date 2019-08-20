@@ -1,6 +1,6 @@
 {
   version: 1.1,
-  label: 'Segment Mobile Analytics',
+  label: 'Segment Event Analytics',
   description: 'It implements screen event for Segment Warehouse in order to track user actions on Android & iOS.',
   variables: {
     tracks_target: {
