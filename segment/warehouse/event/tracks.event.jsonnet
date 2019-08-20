@@ -4,10 +4,8 @@ local pages = import 'pages.libsonnet';
 {
   name: 'tracks',
   label: 'All Events',
-  description: 'It creates a model',
-  target: {
-       table: 'tracks'
-    },
+  description: 'A table with all of your track method calls. This model will only include a few standardized properties that are all common to all events: anonymous_id, context_*, event, event_text, received_at, sent_at, and user_id. This is because every event that you send to Segment has completely different properties. For querying by the custom properties, use the event type models instead.',
+  target: std.extVar('screens_target'),
     mappings: {
         eventTimestamp: 'received_at',
         incremental: 'timestamp',
@@ -16,10 +14,10 @@ local pages = import 'pages.libsonnet';
         sessionId: null,
       },
   relations: pages.relations,
-  dimensions: segmentColumns {
-    event: {
-      hide: true,
-      description: 'The slug of the event name, mapping to an event-specific table.',
-    },
+  dimensions: commonDimensions {
+    event_text: {
+        description: 'The name of the event.',
+        column : 'event_text'
+      }
   },
 }

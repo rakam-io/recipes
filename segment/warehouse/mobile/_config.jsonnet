@@ -9,6 +9,12 @@
       default: {table: 'screens'},
       description: 'The pages table in your Segment Destionation. See: https://segment.com/docs/destinations/#warehouse-schemas',
     },
+    attributes: {
+      label: 'Segment user model',
+      parent: 'screens_target',
+      type: 'table-column',
+      description: 'Select the attributes that you want to turn into dimensions',
+    },
     user_model: {
       label: 'Segment user model',
       type: 'model',

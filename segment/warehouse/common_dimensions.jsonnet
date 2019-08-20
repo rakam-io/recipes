@@ -10,12 +10,6 @@
 
 
   },
-  event_text: {
-    description: 'The name of the event.',
-        column : 'event_text'
-
-
-  },
   anonymous_id: {
     description: 'The anonymous ID of the user',
     category: 'Event',
