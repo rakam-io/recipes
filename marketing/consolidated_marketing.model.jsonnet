@@ -137,7 +137,7 @@ local data = std.mapWithKey(function(channel, mapping) mapping, channels.options
     },
     cost_per_click: {
         label: "CPC",
-        decription: "Cost per click",
+        description: "Cost per click",
         sql: "{{dimension.cost}}*1.0 / NULLIF({{dimension.clicks}},0)",
         reportOptions: {prefix: '$'},
     },
