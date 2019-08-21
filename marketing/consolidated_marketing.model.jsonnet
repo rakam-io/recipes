@@ -1,17 +1,18 @@
 local modelSql = (importstr 'consolidated_marketing.sql');
 local util = import '../../util.libsonnet';
+local channels = import './channels.jsonnet';
+
+local keys = std.objectFields(channels);
+local event_types = std.extVar('event_types');
 
 {
   name: 'marketing',
   label: 'All campaigns',
   description: 'Consolidated marketing data',
-  sql: util.generate_jinja_header({
-                    inactivity_cutoff: std.extVar('session_duration_in_minutes'),
-                    sessionization_trailing_window: 2.0,
-                    pages_target: pages_target_ref,
-                    first_values: { [k]: first_values[k].column for k in std.objectFields(first_values) },
-                    last_values: { [k]: last_values[k].column for k in std.objectFields(last_values) }
-                  }) + dbtModel,
+  sql: util.generate_jinja_header(std.mapWithKey(function(channel) {
+    model: std.extVar(channel + '_model'),
+    mapping: std.extVar(channel + '_mapping')
+  }, channels) + dbtModel,
   dimensions: segmentColumns {
     event: {
       hide: true,

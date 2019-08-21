@@ -1,3 +1,5 @@
+local channels = import './channels.jsonnet';
+
 local mapping = {
      dimensions: {
         ad_name: {},
@@ -24,6 +26,6 @@ local generateVariableForChannel(name) = {[name + '_model']: {
   version: 1.1,
   label: 'Marketing Analytics',
   description: 'It creates a consolidated dashboard that combines all your marketing data.',
-  variables: generateVariableForChannel("facebook") + generateVariableForChannel("google"),
+  variables: map(generateVariableForChannel, std.objectFields(channels)),
   tags: ["marketing"]
 }
