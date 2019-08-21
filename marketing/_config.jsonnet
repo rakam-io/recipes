@@ -12,7 +12,7 @@ local mapping = {
      }
   };
 
-local generateVariableForChannel(name, value) = {[name + '_model']: {
+local generateVariableForChannel(name) = {[name + '_model']: {
                                                type: 'model'
                                              },
                                              [name + '_mapping']: {
@@ -22,10 +22,13 @@ local generateVariableForChannel(name, value) = {[name + '_model']: {
                                              }
                                              };
 
+local items = std.map(generateVariableForChannel, std.objectFields(channels));
+local variables = std.foldl(function(a, b) a + b, items, {});
+
 {
   version: 1.1,
   label: 'Marketing Analytics',
   description: 'It creates a consolidated dashboard that combines all your marketing data.',
-  variables: std.mapWithKey(generateVariableForChannel, channels),
+  variables: variables,
   tags: ["marketing"]
 }
