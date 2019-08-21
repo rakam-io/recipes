@@ -1,16 +1,19 @@
 local channels = import './channels.libsonnet';
 
 local mapping = {
-     dimensions: {
-        ad_name: {},
-        ad_group: {},
-        campaign: {},
-      },
-      measures: {
-       cost: {},
-       reach: {}
-     }
+  // measures
+  clicks: {},
+  conversions: {},
+  cost: {},
+  conversion_value: {},
+
+  ad_name: {},
+  adgroup_name: {},
+  campaign_name: {},
+  impressions: {}
   };
+
+local variable_mapping = std.mapWithKey(function(key, value) value.variable, channels.mapping);
 
 local generateVariableForChannel(name) = {[name + '_model']: {
                                                type: 'model'
@@ -18,11 +21,11 @@ local generateVariableForChannel(name) = {[name + '_model']: {
                                              [name + '_mapping']: {
                                                parent: name + '_model',
                                                type: 'modelMapping',
-                                               options: mapping,
+                                               options: variable_mapping,
                                              }
                                              };
 
-local items = std.map(generateVariableForChannel, std.objectFields(channels));
+local items = std.map(generateVariableForChannel, std.objectFields(channels.options));
 local variables = std.foldl(function(a, b) a + b, items, {});
 
 {
