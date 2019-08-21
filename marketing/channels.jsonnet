@@ -1,4 +1,0 @@
-{
-    facebook: {},
-    google: {}
-}

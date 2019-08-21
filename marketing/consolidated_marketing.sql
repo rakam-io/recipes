@@ -1,16 +1,13 @@
-{% set str_attrs = ['user_id', 'os_name', 'os_version', 'country', 'city'] %}
+{% for key, channel in channels.items() %}
+{% if loop.counter > 1 %}
+UNION ALL
+{% endif %}
 
-{% for channel in channels %}
-  {% if loop.counter > 0 %}
-    UNION ALL
-  {% endif %}
-
-  SELECT
-  {% for dimension in dimensions %}
+SELECT
+  '{{channel.options.label}}' as channel
+  {% for name, dimension in channel.mapping.items() %}
+    , {{model[channel.model].dimension[dimension]}} as {{name}}
   {% endfor %}
 
-  {% for measure in measures %}
+  FROM {{model[channel.model]}}
   {% endfor %}
-
-  FROM {{channel.target}}
-{% endfor %}

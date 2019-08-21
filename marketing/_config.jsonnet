@@ -1,4 +1,4 @@
-local channels = import './channels.jsonnet';
+local channels = import './channels.libsonnet';
 
 local mapping = {
      dimensions: {
@@ -12,7 +12,7 @@ local mapping = {
      }
   };
 
-local generateVariableForChannel(name) = {[name + '_model']: {
+local generateVariableForChannel(name, value) = {[name + '_model']: {
                                                type: 'model'
                                              },
                                              [name + '_mapping']: {
@@ -26,6 +26,6 @@ local generateVariableForChannel(name) = {[name + '_model']: {
   version: 1.1,
   label: 'Marketing Analytics',
   description: 'It creates a consolidated dashboard that combines all your marketing data.',
-  variables: map(generateVariableForChannel, std.objectFields(channels)),
+  variables: std.mapWithKey(generateVariableForChannel, channels),
   tags: ["marketing"]
 }
