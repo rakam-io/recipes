@@ -65,53 +65,32 @@ local last_values = {
     sessions: {
       aggregation: 'count',
       label: 'Total Sessions',
-      reportOptions: {
-        formatNumbers: true,
-      },
     },
     users: {
       label: 'Distinct Users',
       aggregation: 'countUnique',
       column: 'userId',
-      reportOptions: {
-        formatNumbers: true,
-      },
     },
     pages_per_session: {
       label: 'Pages Per Session',
       sql: '1.0 * "page_views" / nullif(count(*), 0)',
-      reportOptions: {
-        formatNumbers: true,
-      },
     },
     bounce_rate: {
       sql: '1.0 * sum(case when "page_views" = 1 then 1 else 0 end) /\n            nullif(count(*), 0)',
       label: 'Bounce Rate',
-      reportOptions: {
-        formatNumbers: true,
-      },
     },
     new_sessions: {
       label: 'New Sessions',
       sql: 'sum(case when "session_number" = 1 then 1 else 0 end)',
-      reportOptions: {
-        formatNumbers: true,
-      },
     },
     returning_sessions: {
       label: 'Returning Sessions',
       sql: 'sum(case when "session_number" > 1 then 1 else 0 end)',
-      reportOptions: {
-        formatNumbers: true,
-      },
     },
     average_session_count_per_user: {
       label: 'Average Session Per User',
       aggregation: 'average',
       column: 'session_number',
-      reportOptions: {
-        formatNumbers: true,
-      },
     },
   },
   dimensions: ({ [first_values[k].column]: first_values[k] for k in std.objectFields(first_values) }) +

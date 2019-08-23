@@ -26,9 +26,6 @@
       pivot: false,
       type: 'string',
       column: 'id',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     slot: {
@@ -36,9 +33,6 @@
       pivot: false,
       type: 'string',
       column: 'slot',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     aoi_most_specific_target_id: {
@@ -46,81 +40,54 @@
       pivot: false,
       type: 'string',
       column: 'aoi_most_specific_target_id',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     creative_id: {
       pivot: false,
       type: 'string',
       column: 'creative_id',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     criteria_parameters: {
       pivot: false,
       type: 'string',
       column: 'criteria_parameters',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     ad_group_id: {
       pivot: false,
       type: 'string',
       column: 'ad_group_id',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: true,
     },
     date_start: {
       pivot: false,
       type: 'timestamp',
       column: 'date_start',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     date_stop: {
       pivot: false,
       type: 'timestamp',
       column: 'date_stop',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     ad_format: {
       pivot: false,
       type: 'string',
       column: 'ad_format',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     ad_network_type_2: {
       pivot: false,
       type: 'string',
       column: 'ad_network_type_2',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     click_type: {
       pivot: false,
       type: 'string',
       column: 'click_type',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     device: {
@@ -128,9 +95,6 @@
       pivot: false,
       type: 'string',
       column: 'device',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     gcl_id: {
@@ -138,27 +102,18 @@
       pivot: false,
       type: 'string',
       column: 'gcl_id',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     ad_network_type_1: {
       pivot: false,
       type: 'string',
       column: 'ad_network_type_1',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     campaign_id: {
       pivot: false,
       type: 'string',
       column: 'campaign_id',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: true,
     },
     page: {
@@ -172,9 +127,6 @@
   measures: {
     'Page Shown': {
       description: 'Page number in search results where the ad was shown.',
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'page',
       aggregation: 'average',
       fieldType: 'double',

@@ -27,9 +27,6 @@
       pivot: false,
       type: 'string',
       column: 'id',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     received_at: {
@@ -49,36 +46,24 @@
       ],
       type: 'timestamp',
       column: 'received_at',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     campaign_status: {
       pivot: false,
       type: 'string',
       column: 'campaign_status',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     campaign_trial_type: {
       pivot: false,
       type: 'string',
       column: 'campaign_trial_type',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     interaction_types: {
       pivot: false,
       type: 'string',
       column: 'interaction_types',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     uuid_ts: {
@@ -98,27 +83,18 @@
       ],
       type: 'timestamp',
       column: 'uuid_ts',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     is_budget_explicitly_shared: {
       pivot: false,
       type: 'string',
       column: 'is_budget_explicitly_shared',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     base_campaign_id: {
       pivot: false,
       type: 'string',
       column: 'base_campaign_id',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     date_start: {
@@ -138,9 +114,6 @@
       ],
       type: 'timestamp',
       column: 'date_start',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     date_stop: {
@@ -160,54 +133,36 @@
       ],
       type: 'timestamp',
       column: 'date_stop',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     advertising_channel_sub_type: {
       pivot: false,
       type: 'string',
       column: 'advertising_channel_sub_type',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     campaign_id: {
       pivot: false,
       type: 'string',
       column: 'campaign_id',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     budget_id: {
       pivot: false,
       type: 'string',
       column: 'budget_id',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     adwords_customer_id: {
       pivot: false,
       type: 'string',
       column: 'adwords_customer_id',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
   },
   measures: {
     invalid_clicks: {
       category: 'Overview',
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'invalid_clicks',
       aggregation: 'sum',
       fieldType: 'double',
@@ -215,9 +170,6 @@
     },
     average_time_on_site: {
       category: 'Overview',
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'average_time_on_site',
       aggregation: 'average',
       fieldType: 'double',
@@ -225,9 +177,6 @@
     },
     average_bounce_rate: {
       category: 'Overview',
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'bounce_rate',
       aggregation: 'average',
       fieldType: 'double',
@@ -235,9 +184,6 @@
     },
     click_assisted_conversions: {
       category: 'Overview',
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'click_assisted_conversions',
       aggregation: 'sum',
       fieldType: 'double',
@@ -245,9 +191,6 @@
     },
     gmail_forwards: {
       category: 'Gmail',
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'gmail_forwards',
       aggregation: 'sum',
       fieldType: 'double',
@@ -255,9 +198,6 @@
     },
     average_video_view_rate: {
       category: 'Video',
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'video_view_rate',
       aggregation: 'average',
       fieldType: 'double',
@@ -276,9 +216,6 @@
     },
     viewability: {
       category: 'Overview',
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'active_view_viewability',
       aggregation: 'average',
       fieldType: 'double',
@@ -287,9 +224,6 @@
     cost: {
       description: 'The sum of your cost-per-click (CPC) and cost-per-thousand impressions (CPM) costs during this period.',
       category: 'Cost',
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'cost',
       aggregation: 'sum',
       fieldType: 'double',
@@ -297,9 +231,6 @@
     },
     clicks: {
       category: 'Overview',
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'clicks',
       aggregation: 'sum',
       fieldType: 'double',
@@ -307,9 +238,6 @@
     },
     impressions: {
       category: 'Overview',
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'impressions',
       aggregation: 'count',
       fieldType: 'double',
@@ -317,9 +245,6 @@
     },
     engagements: {
       category: 'Overview',
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'engagements',
       aggregation: 'count',
       fieldType: 'double',
@@ -328,9 +253,6 @@
     video_quartile_100_rate: {
       description: 'Percentage of impressions where the viewer watched all of your video.',
       category: 'Video',
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'video_quartile_100_rate',
       aggregation: 'average',
       fieldType: 'double',
@@ -338,9 +260,6 @@
     },
     video_quartile_50_rate: {
       category: 'Video',
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'video_quartile_50_rate',
       aggregation: 'average',
       fieldType: 'double',
@@ -349,9 +268,6 @@
     video_view_rate: {
       description: 'The number of views your TrueView video ad receives divided by its number of impressions, including thumbnail impressions for TrueView in-display ads.',
       category: 'Video',
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'video_view_rate',
       aggregation: 'average',
       fieldType: 'double',
@@ -359,9 +275,6 @@
     },
     total_video_views: {
       category: 'Video',
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'video_views',
       aggregation: 'sum',
       fieldType: 'double',
@@ -369,9 +282,6 @@
     },
     gmail_saves: {
       category: 'Gmail',
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'gmail_saves',
       aggregation: 'sum',
       fieldType: 'double',
@@ -380,9 +290,6 @@
     gmail_secondary_clicks: {
       description: 'The number of clicks to your landing page on the expanded state of Gmail ads.',
       category: 'Gmail',
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'gmail_secondary_clicks',
       aggregation: 'count',
       fieldType: 'double',
@@ -390,9 +297,6 @@
     },
     interactions: {
       category: 'Overview',
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'interactions',
       aggregation: 'sum',
       fieldType: 'double',

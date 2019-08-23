@@ -30,36 +30,24 @@
       pivot: false,
       type: 'string',
       column: 'id',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: true,
     },
     name: {
       pivot: false,
       type: 'string',
       column: 'name',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     account_id: {
       pivot: false,
       type: 'string',
       column: 'account_id',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: true,
     },
     campaign_id: {
       pivot: false,
       type: 'string',
       column: 'campaign_id',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: true,
     },
     effective_status: {
@@ -67,9 +55,6 @@
       pivot: false,
       type: 'string',
       column: 'effective_status',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     configured_status: {
@@ -77,18 +62,12 @@
       pivot: false,
       type: 'string',
       column: 'configured_status',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
     end_time: {
       pivot: false,
       type: 'timestamp',
       column: 'end_time',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
   },

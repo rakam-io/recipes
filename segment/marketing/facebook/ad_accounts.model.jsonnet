@@ -12,18 +12,12 @@
       pivot: false,
       type: 'string',
       column: 'id',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: true,
     },
     name: {
       pivot: false,
       type: 'string',
       column: 'name',
-      reportOptions: {
-        formatNumbers: true,
-      },
       hidden: false,
     },
   },
