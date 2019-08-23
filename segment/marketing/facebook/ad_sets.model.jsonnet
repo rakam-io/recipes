@@ -1,11 +1,7 @@
 {
   name: 'facebook_ad_sets',
   hidden: true,
-  target: {
-    database: 'vpn_segment',
-    schema: 'facebook_ads',
-    table: 'ad_sets',
-  },
+  target: std.mergePatch(std.extVar('schema'), {table: 'ad_sets'}),
   mappings: {
     eventTimestamp: 'end_time',
   },

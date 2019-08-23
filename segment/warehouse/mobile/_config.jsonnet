@@ -5,16 +5,19 @@
   image: 'https://github.com/rakam-io/recipes/raw/master/segment/logo.png',
   variables: {
     screens_target: {
-      label: 'Segment Pageview Table',
+      label: 'Segment Screens Table',
       type: 'table',
       default: {table: 'screens'},
       description: 'The pages table in your Segment Destionation. See: https://segment.com/docs/destinations/#warehouse-schemas',
     },
     attributes: {
-      label: 'Segment user model',
+      label: 'Event attributes',
       parent: 'screens_target',
       type: 'table-column',
       description: 'Select the attributes that you want to turn into dimensions',
+      options: {
+        multiple: true
+      }
     },
     user_model: {
       label: 'Segment user model',
