@@ -5,9 +5,9 @@
   image: 'https://github.com/rakam-io/recipes/raw/master/segment/logo.png',
   variables: {
     schema: {
-      label: 'Segment Adwords Schema',
+      label: 'Segment Facebook Schema',
       type: 'schema',
-      default: {schema: 'adwords'},
+      default: {schema: 'facebook_ads'},
       description: 'The Facebook Schema that you ingest the data. The schema must have tables such as facebook_ads, facebook_ad_accounts, facebook_campaigns etc.',
     }
   },
