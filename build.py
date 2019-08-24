@@ -23,7 +23,6 @@ if __name__ == "__main__":
                      })
 
     if len(sys.argv) == 2 and sys.argv[1] == 'deploy':
-        print("Deploying to "+os.environ['PROJECT_ID'])
         credentials_dict = {
             'type': 'service_account',
             'client_id': os.environ['CLIENT_ID'],
@@ -31,6 +30,7 @@ if __name__ == "__main__":
             'private_key_id': os.environ['PRIVATE_KEY_ID'],
             'private_key': os.environ['PRIVATE_KEY'],
         }
+        print("Deploying to "+json.dumps(credentials_dict))
         credentials = ServiceAccountCredentials.from_json_keyfile_dict(credentials_dict)
         client = storage.Client(credentials=credentials, project= os.environ['PROJECT_ID'])
         bucket = client.get_bucket('rakam-public')
