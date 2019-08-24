@@ -29,7 +29,7 @@ local items = std.map(generateVariableForChannel, std.objectFields(channels.opti
 local variables = std.foldl(function(a, b) a + b, items, {});
 
 {
-  version: "1.1",
+  version: 1.0,
   label: 'Marketing Analytics',
   description: 'It creates a consolidated dashboard that combines all your marketing data.',
   variables: variables,
