@@ -30,5 +30,5 @@
       description: 'We need to create an incremental model in your warehouse in order the sessionize your pageview table.',
     }
   },
-  tags: ["segment"]
+  tags: ["segment", "website"]
 }
