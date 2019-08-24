@@ -1,5 +1,5 @@
 {
-  version: 1.1,
+  version: "1.1",
   label: 'Segment User Attribution',
   description: 'It provides user attribution analytics for Segment Warehouse',
   image: 'https://github.com/rakam-io/recipes/raw/master/segment/logo.png',

@@ -1,5 +1,5 @@
 {
-  version: 1.1,
+  version: "1.1",
   label: 'Segment Pageview Analytics',
   description: 'It provides session and pageview analytics for Segment Warehouse. For Segment Warehouse users, it provides basic reports similar to Google Analytics',
   image: 'https://github.com/rakam-io/recipes/raw/master/segment/logo.png',

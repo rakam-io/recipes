@@ -1,5 +1,5 @@
 {
-  version: 1.0,
+  version: "1.0",
   label: 'Segment Facebook Destination',
   description: 'It provides marketing reports for your Facebook destinations',
   image: 'https://github.com/rakam-io/recipes/raw/master/segment/logo.png',
