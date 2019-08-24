@@ -10,7 +10,11 @@ if __name__ == "__main__":
     for root, dirs, files in os.walk("."):
         for name in files:
             if name == '_config.jsonnet':
-                config = json.loads(_jsonnet.evaluate_snippet("snippet", open(os.path.join(root, name), "r").read()))
+                path = os.path.join(root, name)
+                try:
+                    config = json.loads(_jsonnet.evaluate_file(path))
+                except Exception as e:
+                    raise Exception("Unable to parse "+path+": "+str(e))
                 result.append(
                     {"repository": 'https://github.com/rakam-io/recipes',
                      "path": root[1:],
