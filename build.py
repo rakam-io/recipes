@@ -23,6 +23,7 @@ if __name__ == "__main__":
                      })
 
     if len(sys.argv) == 2 and sys.argv[1] == 'deploy':
+        print("Deploying to "+os.environ['PROJECT_ID'])
         credentials_dict = {
             'type': 'service_account',
             'client_id': os.environ['CLIENT_ID'],
