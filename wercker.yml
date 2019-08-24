@@ -6,7 +6,7 @@
 # If you want Google's container you would reference google/python
 # Read more about containers on our dev center
 # https://devcenter.wercker.com/overview-and-core-concepts/containers/
-box: python:3.4-slim
+box: python:3.4
 build:
   steps:
     # first we want to run pip-install to install all the dependencies
