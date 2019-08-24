@@ -24,6 +24,14 @@
       type: 'model',
       default: 'users',
       description: 'If you have installed the user recipe, select the `All users` model.',
+//      required: false,
+//      hidden: true,
+//      dependencies: [
+//          {
+//            path: '/segment/warehouse/user',
+//            repository: 'https://github.com/rakam-io/recipes',
+//          }
+//      ]
     }
   },
   tags: ["segment"]

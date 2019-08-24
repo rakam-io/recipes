@@ -18,7 +18,7 @@
       description: 'The identifies table in your Segment Destination. See: https://segment.com/docs/destinations/#warehouse-schemas',
     },
     attributions: {
-      label: 'Attributions',
+      label: 'User properties',
       parent: 'users_target',
       type: 'table-column',
       options: {

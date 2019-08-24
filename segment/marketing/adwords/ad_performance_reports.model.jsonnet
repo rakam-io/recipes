@@ -19,12 +19,12 @@ local mappingForConsolidatedMarketing = {
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), {table: 'ad_performance_reports'}),
   sql: |||
-     -- adset_name and campaign_name are for the consolidated marketing dashboard
+      SELECT
       facebook_campaigns.id as campaign_id, facebook_campaigns.name as campaign_name
       from %s
-      {{model.facebook_insights.relation.facebook_ads}}
-      {{model.facebook_ads.relation.facebook_ad_sets}}
-      {{model.facebook_ad_sets.relation.facebook_campaigns}}
+      {{relation.adwords_ads}}
+      {{model.adwords_ads.relation.adwords_ad_groups}}
+      {{model.adwords_ad_groups.relation.adwords_campaigns}}
 ||| % {target: util.generate_target_reference(std.mergePatch(std.extVar('schema'), {table: 'ad_performance_reports'}))},
   relations: {
     adwords_ads: {
