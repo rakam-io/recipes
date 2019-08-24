@@ -3,10 +3,10 @@
   hidden: false,
   sql: |||
     -- adset_name and campaign_name are for the consolidated marketing dashboard
-    select facebook_insights.*, facebook_ads.name as ad_name, facebook_ad_sets.id as adset_id, facebook_ad_sets.name as adset_name,
+    select insights.*, facebook_ads.name as ad_name, facebook_ad_sets.id as adset_id, facebook_ad_sets.name as adset_name,
     facebook_campaigns.id as campaign_id, facebook_campaigns.name as campaign_name
-    from {{model.facebook_insights}}
-    {{model.facebook_insights.relation.facebook_ads}}
+    from facebook_ads.insights
+    {{relation.facebook_ads}}
     {{model.facebook_ads.relation.facebook_ad_sets}}
     {{model.facebook_ad_sets.relation.facebook_campaigns}}
 |||,
