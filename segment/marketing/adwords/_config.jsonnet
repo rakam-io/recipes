@@ -1,14 +1,14 @@
 {
   version: 1.0,
-  label: 'Segment Adwords Destination',
-  description: 'It provides marketing reports for your Adwords destinations',
+  label: 'Segment Facebook Destination',
+  description: 'It provides marketing reports for your Facebook destinations',
   image: 'https://github.com/rakam-io/recipes/raw/master/segment/logo.png',
   variables: {
     schema: {
-      label: 'Segment Adwords Schema',
+      label: 'Segment Facebook Schema',
       type: 'schema',
-      default: {schema: 'adwords'},
-      description: 'The Adwords Schema that you ingest the data. The schema must have tables such as ads, campaign_performance_reports, campaigns etc.',
+      default: {schema: 'facebook_ads'},
+      description: 'The Facebook Schema that you ingest the data. The schema must have tables such as facebook_ads, facebook_ad_accounts, facebook_campaigns etc.',
     }
   },
   tags: ["segment", "marketing"]
