@@ -12,7 +12,7 @@ build:
     # first we want to run pip-install to install all the dependencies
     - pip-install:
         requirements_file: ""
-        packages_list: "jsonnet requests gcloud"
+        packages_list: "jsonnet requests gcloud google-cloud google-cloud-storage"
     - script:
         code: python build.py
 deploy:
