@@ -23,7 +23,7 @@ local mappingForConsolidatedMarketing = {
       SELECT
       ad_performance_reports.*, adwords_ads.name as ad_name,
       adwords_ad_groups.id as ad_group_id, adwords_ad_groups.name as ad_group_name,
-      adwords_campaigns.id as campaign_id, adwords_campaigns.name as campaign_name,
+      adwords_campaigns.id as campaign_id, adwords_campaigns.name as campaign_name
       from %(target)s
       {{relation.adwords_ads}}
       {{model.adwords_ads.relation.adwords_ad_groups}}
