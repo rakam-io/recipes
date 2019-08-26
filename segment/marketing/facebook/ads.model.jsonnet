@@ -64,6 +64,10 @@
       column: 'name',
       hidden: false,
     },
+    is_active: {
+      fieldType: 'boolean',
+      sql: 'CASE WHEN {{TABLE}}.status = "ACTIVE" then TRUE else FALSE END'
+    },
     status: {
       pivot: false,
       type: 'string',

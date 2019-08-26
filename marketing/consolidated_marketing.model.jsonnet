@@ -12,9 +12,10 @@ local channel_mapping = std.mapWithKey(map_values, channels.options);
 local data = std.mapWithKey(function(channel, mapping) mapping, channels.options);
 
 {
-  name: 'marketing',
+  name: 'consolidatedmarketing',
   label: 'All campaigns',
   description: 'Consolidated marketing data',
+  category: 'Marketing',
   sql: util.generate_jinja_header({channels: channel_mapping}) + |||
   {% for key, channel in channels.items() %}
     {% if loop.counter > 1 %}

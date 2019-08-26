@@ -5,6 +5,10 @@
   mappings: {},
   category: 'Marketing',
   dimensions: {
+     is_active: {
+        fieldType: 'boolean',
+        sql: 'CASE WHEN {{TABLE}}.effective_status = "ACTIVE" then TRUE else FALSE END'
+      },
     id: {
       pivot: false,
       type: 'string',

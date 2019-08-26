@@ -29,6 +29,10 @@
       column: 'id',
       hidden: true,
     },
+    is_active: {
+      fieldType: 'boolean',
+      sql: 'CASE WHEN {{TABLE}}.effective_status = "ACTIVE" then TRUE else FALSE END'
+    },
     name: {
       pivot: false,
       type: 'string',
