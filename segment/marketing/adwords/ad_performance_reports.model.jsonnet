@@ -9,7 +9,7 @@ local mappingForConsolidatedMarketing = {
                               impressions: {hidden: true, column: 'impressions'},
 
                               // dimensions
-                              ad_name: {column: 'ad_name'},
+                              ad_name: {column: 'ad_id'},
                               ad_group_name: {column: 'ad_group_name'},
                               campaign_name: {column: 'campaign_name'},
                               };
@@ -21,7 +21,7 @@ local mappingForConsolidatedMarketing = {
   category: 'Marketing',
   sql: |||
       SELECT
-      adwords_ad_performance_reports.*, adwords_ads.name as ad_name,
+      adwords_ad_performance_reports.*,
       adwords_ad_groups.id as ad_group_id, adwords_ad_groups.name as ad_group_name,
       adwords_campaigns.id as campaign_id, adwords_campaigns.name as campaign_name
       from %(target)s as adwords_ad_performance_reports
