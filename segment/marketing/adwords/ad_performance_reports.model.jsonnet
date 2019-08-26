@@ -21,10 +21,10 @@ local mappingForConsolidatedMarketing = {
   category: 'Marketing',
   sql: |||
       SELECT
-      ad_performance_reports.*, adwords_ads.name as ad_name,
+      adwords_ad_performance_reports.*, adwords_ads.name as ad_name,
       adwords_ad_groups.id as ad_group_id, adwords_ad_groups.name as ad_group_name,
       adwords_campaigns.id as campaign_id, adwords_campaigns.name as campaign_name
-      from %(target)s
+      from %(target)s as adwords_ad_performance_reports
       {{relation.adwords_ads}}
       {{model.adwords_ads.relation.adwords_ad_groups}}
       {{model.adwords_ad_groups.relation.adwords_campaigns}}
