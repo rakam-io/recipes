@@ -24,7 +24,7 @@ local mappingForConsolidatedMarketing = {
     select facebook_insights.*, facebook_ads.name as ad_name,
     facebook_ad_sets.id as adset_id, facebook_ad_sets.name as adset_name,
     facebook_campaigns.id as campaign_id, facebook_campaigns.name as campaign_name
-    from %s as facebook_insights
+    from %(target)s as facebook_insights
     {{relation.facebook_ads}}
     {{model.facebook_ads.relation.facebook_ad_sets}}
     {{model.facebook_ad_sets.relation.facebook_campaigns}}
