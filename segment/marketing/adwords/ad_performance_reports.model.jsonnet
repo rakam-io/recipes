@@ -12,7 +12,7 @@ local mappingForConsolidatedMarketing = {
                               ad_name: {column: 'ad_name'},
                               ad_group_name: {column: 'ad_group_name'},
                               campaign_name: {column: 'campaign_name'},
-                              }
+                              };
 
 {
   name: 'adwords_ad_performance_reports',
@@ -99,4 +99,4 @@ local mappingForConsolidatedMarketing = {
       hidden: false,
     },
   },
-},
+}
