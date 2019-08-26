@@ -1,4 +1,4 @@
-local ad_performance_reports = import 'ad_performance_reports.model.jsonnet';
+local ad_performance_reports = import './ad_performance_reports.model.jsonnet';
 
 {
   name: 'adwords_campaign_performance_reports',
