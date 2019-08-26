@@ -161,5 +161,6 @@ local ad_performance_reports = import './ad_performance_reports.model.jsonnet';
       column: 'adwords_customer_id',
       hidden: false,
     },
-  }
+  },
+  measures: ad_performance_reports.measures,
 }

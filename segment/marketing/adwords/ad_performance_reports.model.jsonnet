@@ -17,7 +17,6 @@ local mappingForConsolidatedMarketing = {
 {
   name: 'adwords_ad_performance_reports',
   hidden: false,
-  target: std.mergePatch(std.extVar('schema'), {table: 'ad_performance_reports'}),
   sql: |||
       SELECT
       ad_performance_reports.*, adwords_ads.name as ad_name,
