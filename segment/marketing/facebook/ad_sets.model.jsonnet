@@ -1,7 +1,7 @@
 {
   name: 'facebook_ad_sets',
   hidden: true,
-  target: std.mergePatch(std.extVar('schema'), {table: 'ad_sets'}),
+  target: std.mergePatch(std.extVar('schema'), { table: 'ad_sets' }),
   mappings: {
     eventTimestamp: 'end_time',
   },

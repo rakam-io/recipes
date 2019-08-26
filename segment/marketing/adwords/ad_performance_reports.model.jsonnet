@@ -4,8 +4,8 @@ local mappingForConsolidatedMarketing = {
                               // measures
                               clicks: {hidden: true, column: 'clicks'},
                               conversions: {hidden: true, column: 'conversions'},
-                              cost: {hidden: true, column: 'cost'},
                               conversion_value: {hidden: true, column: 'conversion_value'},
+                              cost: {hidden: true, column: 'cost'},
                               impressions: {hidden: true, column: 'impressions'},
 
                               // dimensions
@@ -20,7 +20,9 @@ local mappingForConsolidatedMarketing = {
   target: std.mergePatch(std.extVar('schema'), {table: 'ad_performance_reports'}),
   sql: |||
       SELECT
-      facebook_campaigns.id as campaign_id, facebook_campaigns.name as campaign_name
+      ad_performance_reports.*, adwords_ads.name as ad_name,
+      adwords_ad_groups.id as ad_group_id, adwords_ad_groups.name as ad_group_name,
+      adwords_campaigns.id as campaign_id, adwords_campaigns.name as campaign_name,
       from %s
       {{relation.adwords_ads}}
       {{model.adwords_ads.relation.adwords_ad_groups}}

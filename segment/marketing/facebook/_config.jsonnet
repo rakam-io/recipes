@@ -7,9 +7,9 @@
     schema: {
       label: 'Segment Facebook Schema',
       type: 'schema',
-      default: {schema: 'facebook_ads'},
+      default: { schema: 'facebook_ads' },
       description: 'The Facebook Schema that you ingest the data. The schema must have tables such as facebook_ads, facebook_ad_accounts, facebook_campaigns etc.',
-    }
+    },
   },
-  tags: ["segment", "marketing"]
+  tags: ['segment', 'marketing'],
 }
