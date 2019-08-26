@@ -1,3 +1,5 @@
+local util = import '../../../util.libsonnet';
+
 local mappingForConsolidatedMarketing = {
   // measures
   clicks: { hidden: true, column: 'clicks' },
