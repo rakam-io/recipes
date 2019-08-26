@@ -1,7 +1,5 @@
-local modelSql = (importstr 'consolidated_marketing.sql');
 local util = import '../util.libsonnet';
 local channels = import './channels.libsonnet';
-local dbtModel = (importstr 'consolidated_marketing.sql');
 
 local map_values = function(channel, options) {
           model: std.extVar(channel + '_model'),
@@ -17,7 +15,21 @@ local data = std.mapWithKey(function(channel, mapping) mapping, channels.options
   name: 'marketing',
   label: 'All campaigns',
   description: 'Consolidated marketing data',
-  sql: util.generate_jinja_header({channels: channel_mapping}) + dbtModel,
+  sql: util.generate_jinja_header({channels: channel_mapping}) + |||
+  {% for key, channel in channels.items() %}
+    {% if loop.counter > 1 %}
+    UNION ALL
+    {% endif %}
+
+    SELECT
+      '{{channel.options.label}}' as channel
+      {% for name, value in channel.mapping.dimensions.items() %}
+        , {% if value %} {{model[channel.model].dimension[value]}} {% else %} null {% endif %} as {{name}}
+      {% endfor %}
+
+    FROM {{model[channel.model]}}
+  {% endfor %}
+|||,
   measures: {
     click_though_rate: {
         label: "CTR",

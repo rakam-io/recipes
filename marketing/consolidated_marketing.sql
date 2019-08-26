@@ -4,10 +4,10 @@
   {% endif %}
 
   SELECT
-  '{{channel.options.label}}' as channel
-  {% for name, dimension in channel.mapping.items() %}
-    , {{model[channel.model].dimension[dimension]}} as {{name}}
-  {% endfor %}
+    '{{channel.options.label}}' as channel
+    {% for name, value in channel.mapping.dimensions.items() %}
+      , {% if value %} {{model[channel.model].dimension[value]}} {% else %} null {% endif %} as {{name}}
+    {% endfor %}
 
   FROM {{model[channel.model]}}
 {% endfor %}
