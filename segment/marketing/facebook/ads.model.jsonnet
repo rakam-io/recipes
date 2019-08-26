@@ -3,6 +3,7 @@
   hidden: true,
   target: std.mergePatch(std.extVar('schema'), { table: 'ads' }),
   mappings: {},
+  category: 'Marketing',
   relations: {
     facebook_campaigns: {
       relationType: 'manyToMany',

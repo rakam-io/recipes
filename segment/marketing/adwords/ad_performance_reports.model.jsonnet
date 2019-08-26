@@ -17,6 +17,8 @@ local mappingForConsolidatedMarketing = {
 {
   name: 'adwords_ad_performance_reports',
   hidden: false,
+  label: 'Adwords Ad Performance',
+  category: 'Marketing',
   sql: |||
       SELECT
       ad_performance_reports.*, adwords_ads.name as ad_name,

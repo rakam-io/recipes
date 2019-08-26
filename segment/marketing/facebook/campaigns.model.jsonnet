@@ -3,6 +3,7 @@
   hidden: true,
   target: std.mergePatch(std.extVar('schema'), { table: 'campaigns' }),
   mappings: {},
+  category: 'Marketing',
   dimensions: {
     id: {
       pivot: false,

@@ -6,8 +6,8 @@ local ad_performance_reports = import './ad_performance_reports.model.jsonnet';
   target: std.mergePatch(std.extVar('schema'), {table: 'campaign_performance_reports'}),
   label: 'Campaign Performance',
   description: 'Includes a daily snapshot of performance statistics per campaign.',
-  category: 'Marketing',
   mappings: {},
+  category: 'Marketing',
   relations: {
     adwords_campaigns: {
       relationType: 'manyToOne',

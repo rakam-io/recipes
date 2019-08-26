@@ -5,6 +5,7 @@
   mappings: {
     eventTimestamp: 'end_time',
   },
+  category: 'Marketing',
   relations: {
     facebook_campaigns: {
       relationType: 'manyToOne',
