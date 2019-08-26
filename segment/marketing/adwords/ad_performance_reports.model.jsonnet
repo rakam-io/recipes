@@ -38,7 +38,7 @@ local mappingForConsolidatedMarketing = {
       targetColumn: 'id',
     },
   },
-  dimensions: {
+  dimensions: mappingForConsolidatedMarketing + {
     id: {
       pivot: false,
       type: 'string',
