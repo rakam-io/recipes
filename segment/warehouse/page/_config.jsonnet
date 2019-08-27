@@ -20,7 +20,7 @@
     user_model: {
       label: 'Segment user model',
       type: 'model',
-      default: 'users',
+      default: 'segment_users',
       description: 'If you have installed the user recipe, select the `All users` model.',
     },
     model_target: {
