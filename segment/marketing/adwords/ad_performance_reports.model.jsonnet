@@ -159,6 +159,9 @@ local mappingForConsolidatedMarketing = {
                   column: 'cost',
                   aggregation: 'sum',
                   hidden: false,
+                  reportOptions: {
+                    prefix: '$'
+                  }
                 },
                 clicks: {
                   category: 'Overview',

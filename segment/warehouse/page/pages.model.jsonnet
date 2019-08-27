@@ -88,7 +88,7 @@ column: 'referrer',
       label: 'Page Search Parameter',
       category: 'Website',
       type: 'string',
-column: 'search',
+      column: 'search',
     },
   },
 }

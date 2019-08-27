@@ -18,6 +18,6 @@
               // dimensions
               ad_name: {dimension: {column: 'ad_name'}, variable: {defaultValue: 'ad_name'}},
               ad_group_name: {dimension: {column: 'ad_group_name'}, variable: {defaultValue: 'ad_group_name'}},
-              campaign_name: {dimension: {column: 'campaign_name'}, variable: {defaultValue: 'campaign_name'}},
+              campaign_name: {dimension: {column: 'campaign_name', type: 'string'}, variable: {defaultValue: 'campaign_name'}},
               }
 }

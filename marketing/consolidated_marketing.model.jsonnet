@@ -32,6 +32,14 @@ local data = std.mapWithKey(function(channel, mapping) mapping, channels.options
   {% endfor %}
 |||,
   measures: {
+    total_campaigns: {
+        aggregation: 'countUnique',
+        column: 'campaign_name'
+    },
+    total_ads: {
+        aggregation: 'countUnique',
+        column: 'ad_name'
+    },
     click_though_rate: {
         label: "CTR",
         description: "The percent of people that click on an ad.",
@@ -140,6 +148,9 @@ local data = std.mapWithKey(function(channel, mapping) mapping, channels.options
         }
   },
   dimensions: std.mapWithKey(function(key, value) value.dimension, channels.mapping) + {
+    channel: {
+        column: 'channel'
+    },
     click_through_rate: {
         description: "The percent of people that click on an ad.",
         sql: "{{dimension.clicks}}*1.0/nullif({{dimension.clicks}},0)"
