@@ -1,10 +1,12 @@
 {
   options:: {
                  facebook: {
-                     label: 'Facebook'
+                     label: 'Facebook',
+                     defaultValue: 'facebook_insights'
                  },
                  google: {
-                     label: 'Google'
+                     label: 'Google',
+                     defaultValue: 'ad_performance_reports'
                  }
              },
   mapping:: {
