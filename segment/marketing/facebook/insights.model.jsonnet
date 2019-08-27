@@ -128,7 +128,7 @@ local mappingForConsolidatedMarketing = {
       },
     },
     click_through_rate: {
-      sql: '{{dimension.clicks}}/{{dimension.impressions}}',
+      sql: '{{measure.clicks}}/{{measure.impressions}}',
 //      type: 'double',
       hidden: false,
     },
