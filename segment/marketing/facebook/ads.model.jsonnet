@@ -66,7 +66,7 @@
     },
     is_active: {
       type: 'boolean',
-      sql: 'CASE WHEN {{TABLE}}.status = "ACTIVE" then TRUE else FALSE END'
+      sql: "CASE WHEN {{TABLE}}.status = 'ACTIVE' then TRUE else FALSE END"
     },
     status: {
       pivot: false,
