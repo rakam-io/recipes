@@ -78,59 +78,62 @@ local mappingForConsolidatedMarketing = {
     },
   },
   measures: {
-    'Total Reach': {
+    reach: {
       description: 'The number of people who saw your ads at least once. Reach is different from impressions, which may include multiple views of your ads by the same people.',
       column: 'reach',
       aggregation: 'sum',
       fieldType: 'double',
       hidden: false,
     },
-    'Total Impressions': {
+    impressions: {
       description: 'The number of times your ads were on screen.',
       column: 'impressions',
       aggregation: 'sum',
       fieldType: 'double',
       hidden: false,
     },
-    'Total Social Spend': {
+    social_spend: {
       description: 'The total amount you’ve spent so far for your ads showed with social information.',
       column: 'social_spend',
       aggregation: 'sum',
       fieldType: 'double',
       hidden: false,
     },
-    'Total Clicks': {
+    clicks: {
       column: 'clicks',
       aggregation: 'sum',
       fieldType: 'double',
       hidden: false,
     },
-    'Average Frequency': {
+    frequency: {
       description: 'The average number of times each person saw your ad.',
       column: 'frequency',
       aggregation: 'average',
       fieldType: 'double',
       hidden: false,
     },
-    'Total Link Clicks': {
+    link_clicks: {
       column: 'link_clicks',
       aggregation: 'sum',
       fieldType: 'double',
       hidden: false,
     },
-    'Total Post Engagements': {
+    post_engagements: {
       description: 'The total number of actions that people take involving your ads.',
       column: 'inline_post_engagements',
       aggregation: 'sum',
       fieldType: 'double',
       hidden: false,
     },
-    'Total Spend': {
+    total_spend: {
       description: 'The estimated total amount of money you’ve spent on your campaign, ad set or ad during its schedule.',
       column: 'spend',
       aggregation: 'sum',
       fieldType: 'double',
       hidden: false,
+      reportOptions: {
+        prefix: '$',
+      },
     },
     click_through_rate: {
       sql: 'SUM("clicks")/SUM("impressions")',
