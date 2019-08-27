@@ -6,7 +6,7 @@
   category: 'Marketing',
   dimensions: {
      is_active: {
-        fieldType: 'boolean',
+        type: 'boolean',
         sql: 'CASE WHEN {{TABLE}}.effective_status = "ACTIVE" then TRUE else FALSE END'
       },
     id: {

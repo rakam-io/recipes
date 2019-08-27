@@ -39,7 +39,7 @@
             column: "FIRST_AUTHENTICATION_FACTOR"
         },
         is_success: {
-            fieldType: 'boolean',
+            type: 'boolean',
             sql: "CASE WHEN {{TABLE}}.IS_SUCCESS = 'YES' THEN TRUE ELSE FALSE END"
         },
         related_event_id: {

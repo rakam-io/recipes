@@ -65,7 +65,7 @@
       hidden: false,
     },
     is_active: {
-      fieldType: 'boolean',
+      type: 'boolean',
       sql: 'CASE WHEN {{TABLE}}.status = "ACTIVE" then TRUE else FALSE END'
     },
     status: {

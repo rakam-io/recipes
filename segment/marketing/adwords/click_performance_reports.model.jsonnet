@@ -130,7 +130,6 @@
       description: 'Page number in search results where the ad was shown.',
       column: 'page',
       aggregation: 'average',
-      fieldType: 'double',
       hidden: false,
     },
   },

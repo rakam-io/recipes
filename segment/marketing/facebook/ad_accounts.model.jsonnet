@@ -27,7 +27,6 @@
       },
       column: 'spend_cap',
       aggregation: 'maximum',
-      fieldType: 'double',
       hidden: false,
     },
     Balance: {
@@ -38,7 +37,6 @@
       },
       column: 'balance',
       aggregation: 'sum',
-      fieldType: 'double',
       hidden: false,
     },
   },

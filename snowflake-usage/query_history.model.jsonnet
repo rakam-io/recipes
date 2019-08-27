@@ -111,7 +111,7 @@
         column: "QUEUED_OVERLOAD_TIME"
     },
     has_overload_time: {
-        fieldType: 'boolean',
+        type: 'boolean',
         sql: "{{dimension.queued_overload_time}}>0"
     },
     queued_provisioning_time: {
@@ -149,7 +149,7 @@
         column: 'WAREHOUSE_TYPE'
     },
     is_prior_month_mtd: {
-        fieldType: 'boolean',
+        type: 'boolean',
         sql: 'EXTRACT(month, {{TABLE}}.START_TIME) = EXTRACT(month, current_timestamp()) - 1
                           and {{TABLE}}.START_TIME <= dateadd(month, -1, current_timestamp())'
     }

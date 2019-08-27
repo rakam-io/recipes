@@ -36,15 +36,15 @@
     },
     is_insertable_into: {
         sql: "CASE WHEN ${TABLE}.IS_INSERTABLE_INTO = 'YES' THEN TRUE ELSE FALSE END",
-        fieldType: 'boolean'
+        type: 'boolean'
     },
     is_transient: {
         sql: "CASE WHEN ${TABLE}.IS_TRANSIENT = 'YES' THEN TRUE ELSE FALSE END",
-        fieldType: 'boolean'
+        type: 'boolean'
     },
     is_typed: {
         sql: "CASE WHEN ${TABLE}.IS_TYPED = 'YES' THEN TRUE ELSE FALSE END",
-        fieldType: 'boolean'
+        type: 'boolean'
     },
     reference_generation: {
         column: "REFERENCE_GENERATION",
