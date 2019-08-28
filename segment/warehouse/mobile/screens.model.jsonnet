@@ -12,4 +12,17 @@ local screenDimensions = std.foldl(function(a, b) a { [b]: { column: b } }, embe
   target: std.extVar('screens_target'),
   dimensions: commonDimensions + screenDimensions + std.extVar('attributes'),
   mappings: pages.mappings,
+  measures: {
+    total_events: {
+      aggregation: 'count',
+    },
+    unique_users: {
+      aggregation: 'countUnique',
+      column: 'user_id',
+    },
+    unique_devices: {
+      aggregation: 'countUnique',
+      column: 'context_device_id',
+    },
+  },
 }
