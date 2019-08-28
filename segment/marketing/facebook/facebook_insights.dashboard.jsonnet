@@ -15,12 +15,10 @@
     {
       name: 'Average Frequency',
       ttl: 'PT1H',
-      x: 4,
-      y: 1,
       h: 1,
       w: 2,
       component: 'r-number',
-      type: 1,
+      type: 'segmentation',
       reportOptions: {
         modelName: 'facebook_insights',
         filter: null,
