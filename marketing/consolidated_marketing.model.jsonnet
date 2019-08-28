@@ -124,9 +124,8 @@ local data = std.mapWithKey(function(channel, mapping) mapping, channels.options
       label: 'Conversions',
       description: 'Total conversions.',
       aggregation: 'sum',
-      sql: '{{dimension.conversions}}?',
+      sql: '{{dimension.conversions}}',
     },
-
     total_conversion_value: {
       label: 'Conv. Value',
       description: 'Total conversion value.',
