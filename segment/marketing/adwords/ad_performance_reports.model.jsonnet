@@ -1,18 +1,40 @@
 local util = import '../../../util.libsonnet';
 
-local mappingForConsolidatedMarketing = {
-                              // measures
-                              clicks: {hidden: true, column: 'clicks'},
-                              conversions: {hidden: true, column: 'conversions'},
-                              conversion_value: {hidden: true, column: 'conversion_value'},
-                              cost: {hidden: true, column: 'cost'},
-                              impressions: {hidden: true, column: 'impressions'},
+local measures = {
+  clicks: {
+    column: 'clicks',
+    aggregation: 'sum',
+  },
+  conversions: {
+    column: 'conversions',
+    aggregation: 'sum',
+  },
+  conversion_value: {
+    column: 'conversion_value',
+    aggregation: 'sum',
+  },
+  cost: {
+    description: 'The sum of your cost-per-click (CPC) and cost-per-thousand impressions (CPM) costs during this period.',
+    column: 'cost',
+    aggregation: 'sum',
+    hidden: false,
+    reportOptions: {
+      prefix: '$',
+    },
+  },
+  impressions: {
+    column: 'impressions',
+    aggregation: 'sum',
+  },
+};
 
-                              // dimensions
-                              ad_name: {column: 'ad_id'},
-                              ad_group_name: {column: 'ad_group_name'},
-                              campaign_name: {column: 'campaign_name'},
-                              };
+local dimensions = {
+  ad_name: { column: 'ad_id' },
+  ad_group_name: { column: 'ad_group_name' },
+  campaign_name: { column: 'campaign_name' },
+};
+
+local mappingForConsolidatedMarketing = std.mapWithKey(function(key, value) { hidden: true, column: value.column }, measures) + dimensions;
 
 {
   name: 'adwords_ad_performance_reports',
@@ -20,15 +42,15 @@ local mappingForConsolidatedMarketing = {
   label: 'Adwords Ad Performance',
   category: 'Marketing',
   sql: |||
-      SELECT
-      adwords_ad_performance_reports.*,
-      adwords_ad_groups.id as ad_group_id, adwords_ad_groups.name as ad_group_name,
-      adwords_campaigns.id as campaign_id, adwords_campaigns.name as campaign_name
-      from %(target)s as adwords_ad_performance_reports
-      {{relation.adwords_ads}}
-      {{model.adwords_ads.relation.adwords_ad_groups}}
-      {{model.adwords_ad_groups.relation.adwords_campaigns}}
-||| % {target: util.generate_target_reference(std.mergePatch(std.extVar('schema'), {table: 'ad_performance_reports'}))},
+    SELECT
+    adwords_ad_performance_reports.*,
+    adwords_ad_groups.id as ad_group_id, adwords_ad_groups.name as ad_group_name,
+    adwords_campaigns.id as campaign_id, adwords_campaigns.name as campaign_name
+    from %(target)s as adwords_ad_performance_reports
+    {{relation.adwords_ads}}
+    {{model.adwords_ads.relation.adwords_ad_groups}}
+    {{model.adwords_ad_groups.relation.adwords_campaigns}}
+  ||| % { target: util.generate_target_reference(std.mergePatch(std.extVar('schema'), { table: 'ad_performance_reports' })) },
   relations: {
     adwords_ads: {
       relationType: 'manyToOne',
@@ -38,7 +60,7 @@ local mappingForConsolidatedMarketing = {
       targetColumn: 'id',
     },
   },
-  dimensions: mappingForConsolidatedMarketing + {
+  dimensions: mappingForConsolidatedMarketing {
     id: {
       pivot: false,
       type: 'string',
@@ -100,131 +122,109 @@ local mappingForConsolidatedMarketing = {
       hidden: false,
     },
   },
-  measures: {
-                invalid_clicks: {
-                  category: 'Overview',
-                  column: 'invalid_clicks',
-                  aggregation: 'sum',
-                  hidden: false,
-                },
-                average_time_on_site: {
-                  category: 'Overview',
-                  column: 'average_time_on_site',
-                  aggregation: 'average',
-                  hidden: false,
-                },
-                average_bounce_rate: {
-                  category: 'Overview',
-                  column: 'bounce_rate',
-                  aggregation: 'average',
-                  hidden: false,
-                },
-                click_assisted_conversions: {
-                  category: 'Overview',
-                  column: 'click_assisted_conversions',
-                  aggregation: 'sum',
-                  hidden: false,
-                },
-                gmail_forwards: {
-                  category: 'Gmail',
-                  column: 'gmail_forwards',
-                  aggregation: 'sum',
-                  hidden: false,
-                },
-                average_video_view_rate: {
-                  category: 'Video',
-                  column: 'video_view_rate',
-                  aggregation: 'average',
-                  hidden: false,
-                },
-                budget: {
-                  category: 'Cost',
-                  reportOptions: {
-                    prefix: '$',
-                    formatNumbers: true,
-                  },
-                  column: 'amount',
-                  aggregation: 'sum',
-                  hidden: false,
-                },
-                viewability: {
-                  category: 'Overview',
-                  column: 'active_view_viewability',
-                  aggregation: 'average',
-                  hidden: false,
-                },
-                cost: {
-                  description: 'The sum of your cost-per-click (CPC) and cost-per-thousand impressions (CPM) costs during this period.',
-                  category: 'Cost',
-                  column: 'cost',
-                  aggregation: 'sum',
-                  hidden: false,
-                  reportOptions: {
-                    prefix: '$'
-                  }
-                },
-                clicks: {
-                  category: 'Overview',
-                  column: 'clicks',
-                  aggregation: 'sum',
-                  hidden: false,
-                },
-                impressions: {
-                  category: 'Overview',
-                  column: 'impressions',
-                  aggregation: 'count',
-                  hidden: false,
-                },
-                engagements: {
-                  category: 'Overview',
-                  column: 'engagements',
-                  aggregation: 'count',
-                  hidden: false,
-                },
-                video_quartile_100_rate: {
-                  description: 'Percentage of impressions where the viewer watched all of your video.',
-                  category: 'Video',
-                  column: 'video_quartile_100_rate',
-                  aggregation: 'average',
-                  hidden: false,
-                },
-                video_quartile_50_rate: {
-                  category: 'Video',
-                  column: 'video_quartile_50_rate',
-                  aggregation: 'average',
-                  hidden: false,
-                },
-                video_view_rate: {
-                  description: 'The number of views your TrueView video ad receives divided by its number of impressions, including thumbnail impressions for TrueView in-display ads.',
-                  category: 'Video',
-                  column: 'video_view_rate',
-                  aggregation: 'average',
-                  hidden: false,
-                },
-                total_video_views: {
-                  category: 'Video',
-                  column: 'video_views',
-                  aggregation: 'sum',
-                  hidden: false,
-                },
-                gmail_saves: {
-                  category: 'Gmail',
-                  column: 'gmail_saves',
-                  aggregation: 'sum',
-                  hidden: false,
-                },
-                gmail_secondary_clicks: {
-                  description: 'The number of clicks to your landing page on the expanded state of Gmail ads.',
-                  category: 'Gmail',
-                  column: 'gmail_secondary_clicks',
-                  aggregation: 'count',
-                  hidden: false,
-                },
-                interactions: {
-                  category: 'Overview',
-                  column: 'interactions',
-                  aggregation: 'sum',
-                  hidden: false,
-                },
-              }
+  measures: measures {
+    invalid_clicks: {
+      category: 'Overview',
+      column: 'invalid_clicks',
+      aggregation: 'sum',
+      hidden: false,
+    },
+    average_time_on_site: {
+      category: 'Overview',
+      column: 'average_time_on_site',
+      aggregation: 'average',
+      hidden: false,
+    },
+    average_bounce_rate: {
+      category: 'Overview',
+      column: 'bounce_rate',
+      aggregation: 'average',
+      hidden: false,
+    },
+    click_assisted_conversions: {
+      category: 'Overview',
+      column: 'click_assisted_conversions',
+      aggregation: 'sum',
+      hidden: false,
+    },
+    gmail_forwards: {
+      category: 'Gmail',
+      column: 'gmail_forwards',
+      aggregation: 'sum',
+      hidden: false,
+    },
+    average_video_view_rate: {
+      category: 'Video',
+      column: 'video_view_rate',
+      aggregation: 'average',
+      hidden: false,
+    },
+    budget: {
+      category: 'Cost',
+      reportOptions: {
+        prefix: '$',
+        formatNumbers: true,
+      },
+      column: 'amount',
+      aggregation: 'sum',
+      hidden: false,
+    },
+    viewability: {
+      category: 'Overview',
+      column: 'active_view_viewability',
+      aggregation: 'average',
+      hidden: false,
+    },
+    engagements: {
+      category: 'Overview',
+      column: 'engagements',
+      aggregation: 'count',
+      hidden: false,
+    },
+    video_quartile_100_rate: {
+      description: 'Percentage of impressions where the viewer watched all of your video.',
+      category: 'Video',
+      column: 'video_quartile_100_rate',
+      aggregation: 'average',
+      hidden: false,
+    },
+    video_quartile_50_rate: {
+      category: 'Video',
+      column: 'video_quartile_50_rate',
+      aggregation: 'average',
+      hidden: false,
+    },
+    video_view_rate: {
+      description: 'The number of views your TrueView video ad receives divided by its number of impressions, including thumbnail impressions for TrueView in-display ads.',
+      category: 'Video',
+      column: 'video_view_rate',
+      aggregation: 'average',
+      hidden: false,
+    },
+    total_video_views: {
+      category: 'Video',
+      column: 'video_views',
+      aggregation: 'sum',
+      hidden: false,
+    },
+    gmail_saves: {
+      category: 'Gmail',
+      column: 'gmail_saves',
+      aggregation: 'sum',
+      hidden: false,
+    },
+    gmail_secondary_clicks: {
+      description: 'The number of clicks to your landing page on the expanded state of Gmail ads.',
+      category: 'Gmail',
+      column: 'gmail_secondary_clicks',
+      aggregation: 'count',
+      hidden: false,
+    },
+    interactions: {
+      category: 'Overview',
+      column: 'interactions',
+      aggregation: 'sum',
+      hidden: false,
+    },
+  },
 }
