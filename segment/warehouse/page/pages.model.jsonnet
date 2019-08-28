@@ -15,10 +15,10 @@ local sessionsModel = import './rakam_segment_web_sessions.model.jsonnet';
     sessionId: null,
   },
   measures: {
-     pageviews: {
-        aggregation: 'count',
-        label: 'Total Pageviews'
-     }
+    pageviews: {
+      aggregation: 'count',
+      label: 'Total Pageviews',
+    },
   },
   relations: {
     session: {
@@ -27,15 +27,15 @@ local sessionsModel = import './rakam_segment_web_sessions.model.jsonnet';
       modelName: sessionsModel.name,
       sourceColumn: 'anonymous_id',
       targetColumn: 'anonymous_id',
-    }
-  }  + if std.extVar('user_model') != null then
-            { user : {
-              relationType: 'manyToOne',
-              joinType: 'leftJoin',
-              modelName: std.extVar('user_model'),
-              sourceColumn: 'user_id',
-              targetColumn: 'id',
-            } } else {},
+    },
+  } + if std.extVar('user_model') != null then
+    { user: {
+      relationType: 'manyToOne',
+      joinType: 'leftJoin',
+      modelName: std.extVar('user_model'),
+      sourceColumn: 'user_id',
+      targetColumn: 'id',
+    } } else {},
   dimensions: commonDimensions {
     page_url_host: {
       description: 'Host value extracted from the url',
@@ -48,6 +48,18 @@ local sessionsModel = import './rakam_segment_web_sessions.model.jsonnet';
     gclid: {
       description: 'Google Click Identifier extracted from the referrer url',
       sql: "split_part(split_part(replace(replace(referrer, 'http://', ''), 'https://', ''), '/', 1), '?', 1)",
+    },
+    title: {
+      label: 'Page Title',
+      category: 'Website',
+      type: 'string',
+      column: 'title',
+    },
+    url: {
+      label: 'Page URL',
+      category: 'Website',
+      type: 'string',
+      column: 'url',
     },
     device: {
       description: 'The device type',
@@ -77,12 +89,12 @@ local sessionsModel = import './rakam_segment_web_sessions.model.jsonnet';
       label: 'Page Path',
       category: 'Website',
       type: 'string',
-      column: 'path'
+      column: 'path',
     },
     referrer: {
       category: 'Website',
       type: 'string',
-column: 'referrer',
+      column: 'referrer',
     },
     search: {
       label: 'Page Search Parameter',

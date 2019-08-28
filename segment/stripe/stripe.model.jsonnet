@@ -12,7 +12,7 @@
       charges.card_id,
       charges.receipt_email,
       charges.refunded,
-      charges.uuid_ts,
+      charges.uuid_ts,  
       charges.invoice_id,
       (charges.amount / 100) AS amount,
       (charges.amount_refunded / 100) AS amount_refunded,
