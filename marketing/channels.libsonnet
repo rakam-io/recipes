@@ -6,7 +6,7 @@
     },
     google: {
       label: 'Google',
-      default: 'ad_performance_reports',
+      default: 'adwords_ad_performance_reports',
     },
   },
   mapping:: {
