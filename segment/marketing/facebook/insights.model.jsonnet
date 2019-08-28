@@ -28,7 +28,7 @@ local mappingForConsolidatedMarketing = {
     {{relation.facebook_ads}}
     {{model.facebook_ads.relation.facebook_ad_sets}}
     {{model.facebook_ad_sets.relation.facebook_campaigns}}
-  ||| % {target: util.generate_target_reference(std.mergePatch(std.extVar('schema'), {table: 'insights'}))},
+  ||| % { target: util.generate_target_reference(std.mergePatch(std.extVar('schema'), { table: 'insights' })) },
   category: 'Marketing',
   relations: {
     facebook_ads: {
@@ -129,7 +129,7 @@ local mappingForConsolidatedMarketing = {
     },
     click_through_rate: {
       sql: '{{measure.clicks}}/{{measure.impressions}}',
-//      type: 'double',
+      //      type: 'double',
       hidden: false,
     },
   },

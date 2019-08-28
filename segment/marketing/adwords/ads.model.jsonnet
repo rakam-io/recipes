@@ -1,8 +1,7 @@
-
-                             {
+{
   name: 'adwords_ads',
   hidden: true,
-  target: std.mergePatch(std.extVar('schema'), {table: 'ads'}),
+  target: std.mergePatch(std.extVar('schema'), { table: 'ads' }),
   mappings: {},
   category: 'Marketing',
   relations: {
@@ -12,6 +11,11 @@
       modelName: 'adwords_ad_groups',
       sourceColumn: 'ad_group_id',
       targetColumn: 'id',
+    },
+  },
+  measures: {
+    total_ads: {
+      aggregation: 'count',
     },
   },
   dimensions: {
@@ -26,6 +30,10 @@
       type: 'string',
       column: 'type',
       hidden: false,
+    },
+    is_active: {
+      type: 'boolean',
+      sql: 'CASE WHEN {{TABLE}}.status = "ENABLED" then TRUE else FALSE END',
     },
     status: {
       pivot: false,
