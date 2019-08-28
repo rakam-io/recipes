@@ -18,37 +18,29 @@
 
 
   },
-  context_campaign_content: {
-    label: 'Campaign Content',
-    category: 'Marketing',
-    column: 'context_campaign_content',
-
-
-  },
-  context_campaign_medium: {
-    label: 'Campaign Medium',
-    category: 'Marketing',
-    type: 'string',
-    column: 'context_campaign_medium',
-
-
-  },
-  context_campaign_name: {
-    label: 'Campaign Name',
-    category: 'Marketing',
-    type: 'string',
-    column: 'context_campaign_name',
-
-
-  },
-  context_campaign_source: {
-    label: 'Campaign Source',
-    category: 'Marketing',
-    type: 'string',
-    column: 'context_campaign_source',
-
-
-  },
+  // context_campaign_content: {
+  //   label: 'Campaign Content',
+  //   category: 'Marketing',
+  //   column: 'context_campaign_content',
+  // },
+  // context_campaign_medium: {
+  //   label: 'Campaign Medium',
+  //   category: 'Marketing',
+  //   type: 'string',
+  //   column: 'context_campaign_medium',
+  // },
+  // context_campaign_name: {
+  //   label: 'Campaign Name',
+  //   category: 'Marketing',
+  //   type: 'string',
+  //   column: 'context_campaign_name',
+  // },
+  // context_campaign_source: {
+  //   label: 'Campaign Source',
+  //   category: 'Marketing',
+  //   type: 'string',
+  //   column: 'context_campaign_source',
+  // },
   context_ip: {
     label: 'User Ip',
     category: 'Event',
