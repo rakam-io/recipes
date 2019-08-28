@@ -3,7 +3,7 @@ local pages = import '../page/pages.model.jsonnet';
 local config = import '_config.jsonnet';
 
 local embeddedDimensions = config.variables.attributes.options.exclude;
-local screenDimensions = std.foldl(function(a, b) a { [b]: { column: b } }, embeddedDimensions, {});
+local screenDimensions = std.foldl(function(a, b) a { [b]: { column: b, category: 'Mobile' } }, embeddedDimensions, {});
 
 {
   name: 'screens',
