@@ -12,7 +12,7 @@ local channel_mapping = std.mapWithKey(map_values, channels.options);
 local data = std.mapWithKey(function(channel, mapping) mapping, channels.options);
 
 {
-  name: 'consolidateds_marketing',
+  name: 'consolidated_marketing',
   label: 'All campaigns',
   description: 'Consolidated marketing data',
   category: 'Marketing',
