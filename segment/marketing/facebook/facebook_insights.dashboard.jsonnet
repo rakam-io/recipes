@@ -18,7 +18,7 @@
       h: 1,
       w: 2,
       component: 'r-number',
-      type: 'segmentation',
+      type: 1,
       reportOptions: {
         modelName: 'facebook_insights',
         filter: null,
