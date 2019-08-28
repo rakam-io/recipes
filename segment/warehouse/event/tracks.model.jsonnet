@@ -40,7 +40,7 @@ local commonDimensions = import '../common_dimensions.jsonnet';
     context_app_version: {
       label: 'Last Seen App Version',
       description: 'It helps you to identify deprecated events',
-      type: 'max',
+      aggregation: 'maximum',
       column: 'context_app_version',
     },
   },
