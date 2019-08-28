@@ -18,17 +18,19 @@ local data = std.mapWithKey(function(channel, mapping) mapping, channels.options
   category: 'Marketing',
   sql: util.generate_jinja_header({ channels: channel_mapping }) + |||
     {% for key, channel in channels.items() %}
-      {% if loop.counter > 1 %}
-      UNION ALL
+      {% if channel.model %}
+        {% if loop.counter > 1 %}
+        UNION ALL
+        {% endif %}
+
+        SELECT
+          '{{channel.options.label}}' as channel
+          {% for name, value in channel.mapping.dimensions.items() %}
+            , {% if value %} {{model[channel.model].dimension[value]}} {% else %} null {% endif %} as {{name}}
+          {% endfor %}
+
+        FROM {{model[channel.model]}}
       {% endif %}
-
-      SELECT
-        '{{channel.options.label}}' as channel
-        {% for name, value in channel.mapping.dimensions.items() %}
-          , {% if value %} {{model[channel.model].dimension[value]}} {% else %} null {% endif %} as {{name}}
-        {% endfor %}
-
-      FROM {{model[channel.model]}}
     {% endfor %}
   |||,
   measures: {
