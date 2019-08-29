@@ -19,6 +19,7 @@ local mappingForConsolidatedMarketing = {
 {
   name: 'facebook_insights',
   hidden: false,
+  label: 'Facebook Ads',
   sql: |||
     select facebook_insights.*, facebook_ads.name as ad_name,
     facebook_ad_sets.id as adset_id, facebook_ad_sets.name as adset_name,

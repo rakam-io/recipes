@@ -1,5 +1,5 @@
 {
-  name: 'Facebook Ads (Recipe)',
+  name: 'Facebook Ads',
   filterSchema: [
     {
       name: 'Date',

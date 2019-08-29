@@ -39,7 +39,7 @@ local mappingForConsolidatedMarketing = std.mapWithKey(function(key, value) { hi
 {
   name: 'adwords_ad_performance_reports',
   hidden: false,
-  label: 'Adwords Ad Performance',
+  label: 'Adwords Ads',
   category: 'Marketing',
   sql: |||
     SELECT
