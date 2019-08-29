@@ -7,6 +7,7 @@ local sessionsModel = import './rakam_segment_web_sessions.model.jsonnet';
   label: '[Segment] Pageview',
   description: "The pageview data that's collected via Segment Javascript SDK",
   target: std.extVar('pages_target'),
+  category: 'Segment Events',
   mappings: {
     eventTimestamp: 'received_at',
     incremental: 'timestamp',

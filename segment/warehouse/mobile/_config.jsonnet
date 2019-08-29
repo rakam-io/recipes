@@ -1,6 +1,6 @@
 {
   version: 1.0,
-  label: 'Segment Mobile Analytics',
+  label: '[Segment] Screen',
   description: 'It implements screen event for Segment Warehouse in order to track user actions on Android & iOS.',
   image: 'https://github.com/rakam-io/recipes/raw/master/segment/logo.png',
   variables: {
