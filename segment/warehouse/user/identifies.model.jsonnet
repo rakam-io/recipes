@@ -14,8 +14,10 @@
   },
   dimensions: std.extVar('attributions') {
     received_at: {
-      type: 'timestamp',
       column: 'received_at',
+    },
+    id: {
+      column: 'id',
     },
   },
 }

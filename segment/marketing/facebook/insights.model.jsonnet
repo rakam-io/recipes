@@ -21,13 +21,14 @@ local mappingForConsolidatedMarketing = {
   hidden: false,
   label: 'Facebook Ads',
   sql: |||
-    select facebook_insights.*, facebook_ads.name as ad_name,
-    facebook_ad_sets.id as adset_id, facebook_ad_sets.name as adset_name,
-    facebook_campaigns.id as campaign_id, facebook_campaigns.name as campaign_name
+    select facebook_insights.*, 
+    facebook_ads.adset_id, facebook_ads.campaign_id, facebook_ads.account_id,
+    facebook_ads.name as ad_name, facebook_ad_sets.name as adset_name, facebook_campaigns.name as campaign_name, facebook_ad_accounts.name as account_name
     from %(target)s as facebook_insights
     {{relation.facebook_ads}}
     {{model.facebook_ads.relation.facebook_ad_sets}}
     {{model.facebook_ad_sets.relation.facebook_campaigns}}
+    {{model.facebook_campaigns.relation.facebook_ad_accounts}}
   ||| % { target: util.generate_target_reference(std.mergePatch(std.extVar('schema'), { table: 'insights' })) },
   category: 'Marketing',
   relations: {
@@ -42,19 +43,22 @@ local mappingForConsolidatedMarketing = {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
       modelName: 'facebook_ad_sets',
-      sql: 'facebook_ad_sets.id = (select adset_id from "facebook_ads".ads where id = facebook_insights.ad_id limit 1)',
+      sourceColumn: 'adset_id',
+      targetColumn: 'id',
     },
     facebook_campaigns: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
       modelName: 'facebook_campaigns',
-      sql: 'facebook_campaigns.id = (select campaign_id from "facebook_ads".ads where id = facebook_insights.ad_id limit 1)',
+      sourceColumn: 'campaign_id',
+      targetColumn: 'id',
     },
     facebook_ad_accounts: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
       modelName: 'facebook_ad_accounts',
-      sql: 'facebook_account.id = (select account_id from "facebook_ads".ads where id = facebook_insights.ad_id limit 1)',
+      sourceColumn: 'account_id',
+      targetColumn: 'id',
     },
   },
   dimensions: mappingForConsolidatedMarketing {
