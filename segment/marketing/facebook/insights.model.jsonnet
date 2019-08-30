@@ -27,8 +27,8 @@ local mappingForConsolidatedMarketing = {
     from %(target)s as facebook_insights
     {{relation.facebook_ads}}
     {{model.facebook_ads.relation.facebook_ad_sets}}
-    {{model.facebook_ad_sets.relation.facebook_campaigns}}
-    {{model.facebook_campaigns.relation.facebook_ad_accounts}}
+    {{model.facebook_ads.relation.facebook_campaigns}}
+    {{model.facebook_ads.relation.facebook_ad_accounts}}
   ||| % { target: util.generate_target_reference(std.mergePatch(std.extVar('schema'), { table: 'insights' })) },
   category: 'Marketing',
   relations: {
