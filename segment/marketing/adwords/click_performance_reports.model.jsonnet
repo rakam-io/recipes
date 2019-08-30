@@ -1,7 +1,7 @@
 {
   name: 'adwords_click_performance_reports',
   hidden: false,
-  target: std.mergePatch(std.extVar('schema'), {table: 'click_performance_reports'}),
+  target: std.mergePatch(std.extVar('schema'), { table: 'click_performance_reports' }),
   label: 'Adwords Click Performance',
   description: 'Includes stats at the click level, including both valid and invalid clicks.',
   category: 'Marketing',
@@ -20,6 +20,13 @@
       modelName: 'adwords_ad_groups',
       sourceColumn: 'ad_group_id',
       targetColumn: 'id',
+    },
+  },
+  measures: {
+    page_shown: {
+      description: 'Page number in search results where the ad was shown.',
+      column: 'page',
+      aggregation: 'average',
     },
   },
   dimensions: {
@@ -62,75 +69,37 @@
       hidden: true,
     },
     date_start: {
-      pivot: false,
-      type: 'timestamp',
       column: 'date_start',
-      hidden: false,
     },
     date_stop: {
-      pivot: false,
-      type: 'timestamp',
       column: 'date_stop',
-      hidden: false,
     },
     ad_format: {
-      pivot: false,
-      type: 'string',
       column: 'ad_format',
-      hidden: false,
     },
     ad_network_type_2: {
-      pivot: false,
-      type: 'string',
       column: 'ad_network_type_2',
-      hidden: false,
     },
     click_type: {
-      pivot: false,
-      type: 'string',
       column: 'click_type',
-      hidden: false,
     },
     device: {
       description: 'Device type where the impression was shown.',
-      pivot: false,
-      type: 'string',
       column: 'device',
-      hidden: false,
     },
     gcl_id: {
       description: 'The Google Click ID.',
-      pivot: false,
-      type: 'string',
       column: 'gcl_id',
-      hidden: false,
     },
     ad_network_type_1: {
-      pivot: false,
-      type: 'string',
       column: 'ad_network_type_1',
-      hidden: false,
     },
     campaign_id: {
-      pivot: false,
-      type: 'string',
       column: 'campaign_id',
-      hidden: true,
     },
     page: {
       description: 'Page number in search results where the ad was shown.',
-      pivot: false,
-      type: 'long',
       column: 'page',
-      hidden: false,
-    },
-  },
-  measures: {
-    'Page Shown': {
-      description: 'Page number in search results where the ad was shown.',
-      column: 'page',
-      aggregation: 'average',
-      hidden: false,
     },
   },
 }
