@@ -140,13 +140,9 @@ local ad_performance_reports = import './ad_performance_reports.model.jsonnet';
       column: 'campaign_id',
     },
     budget_id: {
-      pivot: false,
-      type: 'string',
       column: 'budget_id',
     },
     adwords_customer_id: {
-      pivot: false,
-      type: 'string',
       column: 'adwords_customer_id',
     },
   },
