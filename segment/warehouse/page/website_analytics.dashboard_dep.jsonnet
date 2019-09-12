@@ -3,7 +3,7 @@
   variables: {
     dateRange: {
       type: 'dateRange',
-      defaultValue: 'P14D',
+      defaultValue: 'P5Y',
     },
   },
   reports: [

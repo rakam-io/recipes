@@ -7,7 +7,7 @@
       value: {
         name: 'eventTimestamp',
       },
-      defaultValue: 'P14D',
+      defaultValue: 'P5Y',
       isRequired: true,
     },
   ],
