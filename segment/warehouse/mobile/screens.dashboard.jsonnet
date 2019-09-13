@@ -1,15 +1,7 @@
 {
   name: 'Mobile Overview',
   filterSchema: [
-    {
-      name: 'dateRange',
-      type: 'mappingDimension',
-      value: {
-        name: 'eventTimestamp',
-      },
-      defaultValue: 'P5Y',
-      isRequired: true,
-    },
+  
   ],
   reports: [
     {
