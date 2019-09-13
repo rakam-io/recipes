@@ -18,29 +18,6 @@
 
 
   },
-  // context_campaign_content: {
-  //   label: 'Campaign Content',
-  //   category: 'Marketing',
-  //   column: 'context_campaign_content',
-  // },
-  // context_campaign_medium: {
-  //   label: 'Campaign Medium',
-  //   category: 'Marketing',
-  //   type: 'string',
-  //   column: 'context_campaign_medium',
-  // },
-  // context_campaign_name: {
-  //   label: 'Campaign Name',
-  //   category: 'Marketing',
-  //   type: 'string',
-  //   column: 'context_campaign_name',
-  // },
-  // context_campaign_source: {
-  //   label: 'Campaign Source',
-  //   category: 'Marketing',
-  //   type: 'string',
-  //   column: 'context_campaign_source',
-  // },
   context_ip: {
     label: 'User Ip',
     category: 'Event',
@@ -58,66 +35,18 @@
     category: 'Event',
     type: 'string',
     column: 'context_library_version',
-
-
-  },
-  context_page_path: {
-    category: 'Website',
-    type: 'string',
-    column: 'context_page_path',
-
-
-  },
-  context_page_referrer: {
-    category: 'Marketing',
-    type: 'string',
-    column: 'context_page_referrer',
-
-
-  },
-  context_page_search: {
-    category: 'Website',
-    type: 'string',
-    column: 'context_page_search',
-
-
-  },
-  context_page_title: {
-    category: 'Website',
-    type: 'string',
-    column: 'context_page_title',
-
-
-  },
-  context_page_url: {
-    category: 'Website',
-    type: 'string',
-    column: 'context_page_url',
-
-
-  },
-  context_user_agent: {
-    category: 'Website',
-    type: 'string',
-    column: 'context_user_agent',
-
-
   },
   original_timestamp: {
     description: 'The original timestamp set by the Segment library at the time the event is created. Keep in mind, this timestamp can be affected by device clock skew.',
     category: 'Event',
     type: 'timestamp',
     column: 'original_timestamp',
-
-
   },
   received_at: {
     description: 'The UTC timestamp set by the Segment API when the API receives the payload from client or server.',
     category: 'Event',
     type: 'timestamp',
     column: 'received_at',
-
-
   },
   timestamp: {
     description: 'UTC-converted timestamp which is set by the Segment library.',

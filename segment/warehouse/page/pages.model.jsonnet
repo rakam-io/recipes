@@ -70,7 +70,60 @@ local sessionsModel = import './rakam_segment_web_sessions.model.jsonnet';
             ELSE replace(split_part(split_part(context_user_agent, '(', 2), ' ', 1), ';', '')
         END
       |||,
-    },
+    }, 
+     context_campaign_content: {
+    label: 'Campaign Content',
+    category: 'Marketing',
+    column: 'context_campaign_content',
+  },
+  context_campaign_medium: {
+    label: 'Campaign Medium',
+    category: 'Marketing',
+    type: 'string',
+    column: 'context_campaign_medium',
+  },
+  context_campaign_name: {
+    label: 'Campaign Name',
+    category: 'Marketing',
+    type: 'string',
+    column: 'context_campaign_name',
+  },
+  context_campaign_source: {
+    label: 'Campaign Source',
+    category: 'Marketing',
+    type: 'string',
+    column: 'context_campaign_source',
+  },
+  context_page_path: {
+    category: 'Website',
+    type: 'string',
+    column: 'context_page_path',
+  },
+  context_page_referrer: {
+    category: 'Marketing',
+    type: 'string',
+    column: 'context_page_referrer',
+  },
+  context_page_search: {
+    category: 'Website',
+    type: 'string',
+    column: 'context_page_search',
+  },
+  context_page_title: {
+    category: 'Website',
+    type: 'string',
+    column: 'context_page_title',
+  },
+  context_page_url: {
+    category: 'Website',
+    type: 'string',
+    column: 'context_page_url',
+  },
+  context_user_agent: {
+    category: 'Website',
+    type: 'string',
+    column: 'context_user_agent',
+  }, 
     device_category: {
       description: 'The device category',
       sql: |||

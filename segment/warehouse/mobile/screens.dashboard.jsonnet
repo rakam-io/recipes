@@ -23,7 +23,6 @@
       type: 1,
       reportOptions: {
         modelName: 'screens',
-        filter: null,
         dimensions: [
           {
             name: 'context_device_type',
@@ -66,7 +65,6 @@
       type: 1,
       reportOptions: {
         modelName: 'screens',
-        filter: null,
         dimensions: [
           {
             name: 'context_app_name',
@@ -110,7 +108,6 @@
       type: 1,
       reportOptions: {
         modelName: 'screens',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -136,7 +133,6 @@
       type: 1,
       reportOptions: {
         modelName: 'screens',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -162,7 +158,6 @@
       type: 1,
       reportOptions: {
         modelName: 'screens',
-        filter: null,
         dimensions: [
           {
             name: 'context_os_name',
@@ -205,7 +200,6 @@
       type: 1,
       reportOptions: {
         modelName: 'screens',
-        filter: null,
         dimensions: [
           {
             name: 'context_device_manufacturer',
@@ -249,7 +243,6 @@
       type: 1,
       reportOptions: {
         modelName: 'screens',
-        filter: null,
         dimensions: [
           {
             name: 'context_network_carrier',
@@ -293,7 +286,6 @@
       type: 1,
       reportOptions: {
         modelName: 'screens',
-        filter: null,
         dimensions: [
           {
             name: 'context_device_type',
