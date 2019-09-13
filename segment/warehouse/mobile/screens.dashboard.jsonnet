@@ -2,7 +2,7 @@
   name: 'Mobile Overview',
   filterSchema: [
     {
-      name: 'Date',
+      name: 'dateRange',
       type: 'mappingDimension',
       value: {
         name: 'eventTimestamp',

@@ -2,7 +2,7 @@
   name: 'Google Adwords',
   filterSchema: [
     {
-      name: 'Date',
+      name: 'dateRange',
       type: 'mappingDimension',
       value: {
         name: 'eventTimestamp',

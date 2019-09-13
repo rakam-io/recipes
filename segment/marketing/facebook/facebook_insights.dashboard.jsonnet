@@ -2,7 +2,7 @@
   name: 'Facebook Ads',
   filterSchema: [
     {
-      name: 'Date',
+      name: 'dateRange',
       type: 'dimension',
       value: {
         model: 'facebook_ad_sets',
