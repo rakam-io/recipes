@@ -23,7 +23,6 @@
       type: 1,
       reportOptions: {
         modelName: 'identifies',
-        filter: null,
         dimensions: [
           {
             name: 'received_at',
@@ -69,7 +68,6 @@
       type: 1,
       reportOptions: {
         modelName: 'segment_users',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -128,7 +126,6 @@
       type: 1,
       reportOptions: {
         modelName: 'segment_users',
-        filter: null,
         dimensions: [
           {
             name: 'context_device_type',
@@ -171,7 +168,6 @@
       type: 1,
       reportOptions: {
         modelName: 'segment_users',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -206,7 +202,6 @@
       type: 1,
       reportOptions: {
         modelName: 'segment_users',
-        filter: null,
         dimensions: [],
         measures: [
           {

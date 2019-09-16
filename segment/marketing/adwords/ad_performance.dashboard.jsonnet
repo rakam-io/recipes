@@ -23,7 +23,6 @@
       type: 1,
       reportOptions: {
         modelName: 'adwords_ad_performance_reports',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -58,7 +57,6 @@
       type: 1,
       reportOptions: {
         modelName: 'adwords_ad_performance_reports',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -84,7 +82,6 @@
       type: 1,
       reportOptions: {
         modelName: 'adwords_ad_performance_reports',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -110,7 +107,6 @@
       type: 1,
       reportOptions: {
         modelName: 'adwords_ad_performance_reports',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -136,7 +132,6 @@
       type: 1,
       reportOptions: {
         modelName: 'adwords_ad_performance_reports',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -181,7 +176,6 @@
       type: 1,
       reportOptions: {
         modelName: 'adwords_ad_performance_reports',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -216,7 +210,6 @@
       type: 1,
       reportOptions: {
         modelName: 'adwords_ad_performance_reports',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -251,7 +244,6 @@
       type: 1,
       reportOptions: {
         modelName: 'adwords_ad_performance_reports',
-        filter: null,
         dimensions: [
           {
             name: 'campaign_name',
@@ -301,7 +293,6 @@
       type: 1,
       reportOptions: {
         modelName: 'adwords_ad_performance_reports',
-        filter: null,
         dimensions: [
           {
             name: 'is_active',

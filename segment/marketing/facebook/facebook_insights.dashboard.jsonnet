@@ -21,7 +21,6 @@
       type: 1,
       reportOptions: {
         modelName: 'facebook_insights',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -56,7 +55,6 @@
       type: 1,
       reportOptions: {
         modelName: 'facebook_insights',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -91,7 +89,6 @@
       type: 1,
       reportOptions: {
         modelName: 'facebook_insights',
-        filter: null,
         dimensions: [
           {
             name: 'name',
@@ -170,7 +167,6 @@
       type: 1,
       reportOptions: {
         modelName: 'facebook_insights',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -205,7 +201,6 @@
       type: 1,
       reportOptions: {
         modelName: 'facebook_insights',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -240,7 +235,6 @@
       type: 1,
       reportOptions: {
         modelName: 'facebook_insights',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -275,7 +269,6 @@
       type: 1,
       reportOptions: {
         modelName: 'facebook_insights',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -301,7 +294,6 @@
       type: 1,
       reportOptions: {
         modelName: 'facebook_insights',
-        filter: null,
         dimensions: [
           {
             name: 'buying_type',

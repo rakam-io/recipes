@@ -23,7 +23,6 @@
       type: 1,
       reportOptions: {
         modelName: 'tracks',
-        filter: null,
         dimensions: [
           {
             name: 'event_text',
@@ -66,7 +65,6 @@
       type: 1,
       reportOptions: {
         modelName: 'tracks',
-        filter: null,
         dimensions: [
           {
             name: 'event_text',
@@ -110,7 +108,6 @@
       type: 1,
       reportOptions: {
         modelName: 'tracks',
-        filter: null,
         dimensions: [
           {
             name: 'event_text',
@@ -154,7 +151,6 @@
       type: 1,
       reportOptions: {
         modelName: 'tracks',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -190,7 +186,6 @@
       type: 1,
       reportOptions: {
         modelName: 'tracks',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -226,7 +221,6 @@
       type: 1,
       reportOptions: {
         modelName: 'tracks',
-        filter: null,
         dimensions: [],
         measures: [
           {
