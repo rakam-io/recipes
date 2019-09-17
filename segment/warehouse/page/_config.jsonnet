@@ -14,21 +14,21 @@
     pages_target: {
       label: 'Segment Pageview Table',
       type: 'table',
-      default: {table: 'pages'},
+      default: { table: 'pages' },
       description: 'The pages table in your Segment Destionation. See: https://segment.com/docs/destinations/#warehouse-schemas',
     },
     user_model: {
       label: 'Segment user model',
       type: 'model',
-      default: 'segment_users',
+      default: 'segment.users',
       description: 'If you have installed the user recipe, select the `All users` model.',
     },
     model_target: {
       label: 'The target of the sessionization model',
       type: 'target',
-      default: {table: 'rakam_segment_web_sessions'},
+      default: { table: 'rakam_segment_web_sessions' },
       description: 'We need to create an incremental model in your warehouse in order the sessionize your pageview table.',
-    }
+    },
   },
-  tags: ["segment", "website"]
+  tags: ['segment', 'website'],
 }

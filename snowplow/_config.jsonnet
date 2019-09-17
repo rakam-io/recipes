@@ -11,5 +11,5 @@
       description: 'The pages table in your Segment Destination. See: https://segment.com/docs/destinations/#warehouse-schemas',
     },
   },
-  tags: ['segment', 'mobile'],
+  tags: ['website'],
 }

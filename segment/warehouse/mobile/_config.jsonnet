@@ -43,7 +43,7 @@
     user_model: {
       label: 'Segment user model',
       type: 'model',
-      default: 'segment_users',
+      default: 'segment.users',
       description: 'If you have installed the user recipe, select the `All users` model.',
     },
   },

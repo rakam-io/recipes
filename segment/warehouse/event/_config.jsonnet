@@ -7,32 +7,32 @@
     tracks_target: {
       label: 'Segment Tracks Table',
       type: 'table',
-      default: {table: 'tracks'},
+      default: { table: 'tracks' },
       description: 'The tracks table in your Segment Destination. See: https://segment.com/docs/destinations/#warehouse-schemas',
     },
     event_types: {
-        label: 'Event types',
-        type: 'table',
-        description: 'Select the event types that you want to create models from',
-        options: {
-            multiple: true,
-            exclude: ['aliases', 'groups', 'identifies', 'pages', 'screens', 'tracks']
-         }
+      label: 'Event types',
+      type: 'table',
+      description: 'Select the event types that you want to create models from',
+      options: {
+        multiple: true,
+        exclude: ['aliases', 'groups', 'identifies', 'pages', 'screens', 'tracks'],
+      },
     },
     user_model: {
       label: 'Segment user model',
       type: 'model',
-      default: 'segment_users',
+      default: 'segment.users',
       description: 'If you have installed the user recipe, select the `All users` model.',
-//      required: false,
-//      hidden: true,
-//      dependencies: [
-//          {
-//            path: '/segment/warehouse/user',
-//            repository: 'https://github.com/rakam-io/recipes',
-//          }
-//      ]
-    }
+      //      required: false,
+      //      hidden: true,
+      //      dependencies: [
+      //          {
+      //            path: '/segment/warehouse/user',
+      //            repository: 'https://github.com/rakam-io/recipes',
+      //          }
+      //      ]
+    },
   },
-  tags: ["segment"]
+  tags: ['segment'],
 }
