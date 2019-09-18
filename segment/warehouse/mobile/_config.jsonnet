@@ -47,5 +47,5 @@
       description: 'If you have installed the user recipe, select the `All users` model.',
     },
   },
-  tags: ['segment', 'mobile'],
+  tags: ['mobile'],
 }

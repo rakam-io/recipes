@@ -11,5 +11,5 @@
       description: 'The Facebook Schema that you ingest the data. The schema must have tables such as facebook_ads, facebook_ad_accounts, facebook_campaigns etc.',
     },
   },
-  tags: ['segment', 'marketing'],
+  tags: ['marketing'],
 }

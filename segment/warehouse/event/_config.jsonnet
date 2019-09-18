@@ -34,5 +34,5 @@
       //      ]
     },
   },
-  tags: ['segment'],
+  tags: ['event'],
 }

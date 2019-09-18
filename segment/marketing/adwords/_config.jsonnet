@@ -11,5 +11,5 @@
       description: 'The Adwords Schema that you ingest the data. The schema must have tables such as ads, campaign_performance_reports, campaigns etc.',
     },
   },
-  tags: ['segment', 'marketing'],
+  tags: ['marketing'],
 }
