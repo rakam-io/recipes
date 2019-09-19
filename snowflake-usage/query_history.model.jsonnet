@@ -50,7 +50,7 @@
     current_mtd_avg_exec_time: {
         aggregation: 'average',
         sql: '{{dimension.execution_time}}',
-        filters: [{dimension: 'start_date' operator: 'relative', value: "this month", valueType: 'timestamp'}]
+        filters: [{dimension: 'start_date', operator: 'between', value: "P1M", valueType: 'timestamp'}]
     },
     prior_mtd_avg_exec_time: {
         aggregation: 'average',
