@@ -22,8 +22,8 @@
       sql: '{{dimension.queued_overload_time}}',
       filters: [{ dimension: 'has_overload_time', operator: 'is', value: true, valueType: 'boolean' }],
     },
-    median_queued_overload_time: {
-      aggregation: 'median',
+    average_queued_overload_time: {
+      aggregation: 'aveage',
       sql: '1.0*{{queued_overload_time}}',
       filters: [{ dimension: 'has_overload_time', operator: 'is', value: true, valueType: 'boolean' }],
     },
