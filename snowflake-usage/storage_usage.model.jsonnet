@@ -1,58 +1,58 @@
 {
- name: "snowflake_storage_usage",
- target: {database: "SNOWFLAKE", schema: "ACCOUNT_USAGE", table: "STORAGE_USAGE"},
- label: "storage_usage",
- measures: {
+  name: 'snowflake_storage_usage',
+  target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'STORAGE_USAGE' },
+  label: 'storage_usage',
+  measures: {
     average_storage_tb: {
-        aggregation: 'average',
-        sql: "{{dimension.storage_tb}}"
+      aggregation: 'average',
+      sql: '{{dimension.storage_tb}}',
     },
     count: {
-        aggregation: 'count'
+      aggregation: 'count',
     },
     billable_tb: {
-        aggregation: 'average',
-        sql: "{{dimension.total_tb}}"
+      aggregation: 'average',
+      sql: '{{dimension.total_tb}}',
     },
-    curr_mtd_billable_tb: {
-        aggregation: 'average',
-        sql:  "{{dimension.total_tb}}",
-        filters: []
+    current_month_billable_tb: {
+      aggregation: 'average',
+      sql: '{{dimension.total_tb}}',
+      filters: [],
     },
     prior_mtd_billable_tb: {
-        aggregation: 'average',
-        sql:  "{{dimension.storage_tb}} + {{dimension.failsafe_tb}}",
-        filters: [{dimension: 'usage', operator: 'isGreater', value: "lastMonth", valueType: 'timestamp'}]
-    }
- },
- dimensions: {
+      aggregation: 'average',
+      sql: '{{dimension.storage_tb}} + {{dimension.failsafe_tb}}',
+      filters: [{ dimension: 'usage', operator: 'isGreater', value: 'lastMonth', valueType: 'timestamp' }],
+    },
+  },
+  dimensions: {
     database_id: {
-        column: "DATABASE_ID"
+      column: 'DATABASE_ID',
     },
     deleted: {
-        column: "DELETED"
+      column: 'DELETED',
     },
     database_name: {
-        column: "DATABASE_NAME"
+      column: 'DATABASE_NAME',
     },
     usage: {
-        column: "USAGE_DATE",
-        timeframes: []
+      column: 'USAGE_DATE',
+      timeframes: [],
     },
     storage_bytes: {
-        column: "AVERAGE_DATABASE_BYTES"
+      column: 'AVERAGE_DATABASE_BYTES',
     },
     failsafe_bytes: {
-        column: "AVERAGE_FAILSAFE_BYTES"
+      column: 'AVERAGE_FAILSAFE_BYTES',
     },
     storage_tb: {
-        sql: "{{dimension.storage_bytes}} / power(1024,4) "
+      sql: '{{dimension.storage_bytes}} / power(1024,4) ',
     },
     failsafe_tb: {
-        sql: "{{dimension.failsafe_bytes}} / power(1024,4) "
+      sql: '{{dimension.failsafe_bytes}} / power(1024,4) ',
     },
     total_tb: {
-        sql: "${dimension.storage_tb} + ${dimension.failsafe_tb}"
-    }
- },
+      sql: '${dimension.storage_tb} + ${dimension.failsafe_tb}',
+    },
+  },
 }
