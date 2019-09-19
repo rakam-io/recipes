@@ -19,10 +19,10 @@
       sql: '{{dimension.total_tb}}',
       filters: [],
     },
-    prior_mtd_billable_in_tb: {
+    prior_month_billable_in_tb: {
       aggregation: 'average',
       sql: '{{dimension.storage_tb}} + {{dimension.failsafe_tb}}',
-      filters: [{ dimension: 'usage', operator: 'isGreater', value: 'lastMonth', valueType: 'timestamp' }],
+      filters: [{ dimension: 'usage', operator: 'lessThan', value: 'P1M', valueType: 'timestamp' }],
     },
   },
   dimensions: {
