@@ -1,5 +1,5 @@
 {
-  name: 'snowflake_views',
+  name: 'snowflake.views',
   target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'VIEWS' },
   measures: {
     count: {

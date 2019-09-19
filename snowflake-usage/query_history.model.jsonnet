@@ -1,5 +1,5 @@
 {
-  name: 'snowflake_query_history',
+  name: 'snowflake.query_history',
   target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'QUERY_HISTORY' },
   measures: {
     query_count: {

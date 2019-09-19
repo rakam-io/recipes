@@ -1,5 +1,5 @@
 {
-  name: 'snowflake_table_constraints',
+  name: 'snowflake.table_constraints',
   target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'TABLE_CONSTRAINTS' },
   measures: {
     count: {

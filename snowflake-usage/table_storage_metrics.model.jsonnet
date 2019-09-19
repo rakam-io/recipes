@@ -1,5 +1,5 @@
 {
-  name: 'snowflake_storage_usage',
+  name: 'snowflake.storage_metrics',
   target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'TABLE_STORAGE_METRICS' },
   label: 'storage_usage',
   measures: {
