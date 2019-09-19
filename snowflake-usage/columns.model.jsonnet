@@ -8,7 +8,7 @@
   },
   dimensions: {
     id: {
-      column: 'ID',
+      column: 'COLUMN_ID',
     },
     character_maximum_length: {
       column: 'CHARACTER_MAXIMUM_LENGTH',
