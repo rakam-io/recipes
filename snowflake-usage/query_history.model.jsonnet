@@ -23,7 +23,7 @@
       filters: [{ dimension: 'has_overload_time', operator: 'is', value: true, valueType: 'boolean' }],
     },
     average_queued_overload_time: {
-      aggregation: 'aveage',
+      aggregation: 'average',
       sql: '1.0*{{queued_overload_time}}',
       filters: [{ dimension: 'has_overload_time', operator: 'is', value: true, valueType: 'boolean' }],
     },
