@@ -7,7 +7,7 @@
     },
     current_month_query_count: {
       aggregation: 'count',
-      filters: [{ dimension: 'start_date', operation: 'between', value: 'P1M', valueType: 'timestamp' }],
+      filters: [{ dimension: 'start_date', operator: 'between', value: 'P1M', valueType: 'timestamp' }],
     },
     average_execution_time: {
       aggregation: 'average',
