@@ -57,8 +57,8 @@
     user_name: {
       column: 'USER_NAME',
     },
-    seconds_between_login_attempts: {
-      sql: 'timediff(seconds, {{TABLE}}.EVENT_TIMESTAMP, lead({{TABLE}}.EVENT_TIMESTAMP) over(partition by {{dimension.user_name}} order by {{TABLE}}.EVENT_TIMESTAMP)) ',
-    },
+    // seconds_between_login_attempts: {
+    //   sql: 'timediff(seconds, {{TABLE}}.EVENT_TIMESTAMP, lead({{TABLE}}.EVENT_TIMESTAMP) over(partition by {{dimension.user_name}} order by {{TABLE}}.EVENT_TIMESTAMP)) ',
+    // },
   },
 }
