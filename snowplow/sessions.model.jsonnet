@@ -24,7 +24,7 @@
     new_vs_returning: {
         sql: |||
         case
-            when ${session_index} = 1 then 'new'
+            when {{dimension.session_index}} = 1 then 'new'
             else 'returning'
         end
 |||

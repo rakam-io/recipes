@@ -24,7 +24,7 @@
     },
     median_queued_overload_time: {
       aggregation: 'median',
-      sql: '1.0*${queued_overload_time}',
+      sql: '1.0*{{queued_overload_time}}',
       filters: [{ dimension: 'has_overload_time', operator: 'is', value: true, valueType: 'boolean' }],
     },
     total_elapsed_time: {

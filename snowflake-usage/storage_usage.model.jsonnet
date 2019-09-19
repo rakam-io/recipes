@@ -52,7 +52,7 @@
       sql: '{{dimension.failsafe_bytes}} / power(1024,4) ',
     },
     total_tb: {
-      sql: '${dimension.storage_tb} + ${dimension.failsafe_tb}',
+      sql: '{{dimension.storage_tb}} + {{dimension.failsafe_tb}}',
     },
   },
 }

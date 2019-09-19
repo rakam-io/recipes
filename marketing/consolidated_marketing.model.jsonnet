@@ -177,7 +177,7 @@ local data = std.mapWithKey(function(channel, mapping) mapping, channels.options
     value_per_cost: {
       label: 'ROAS',
       description: 'Return on ad spend',
-      sql: '{{dimension.conversion_value}}*1.0 / NULLIF(${cost},0) ',
+      sql: '{{dimension.conversion_value}}*1.0 / NULLIF({{dimension.cost}},0) ',
     },
   },
 }
