@@ -79,9 +79,9 @@
     interval_type: {
       column: 'INTERVAL_TYPE',
     },
-    is_identity: {
-      sql: "CASE WHEN {{TABLE}}.IS_IDENTITY = 'YES' THEN TRUE ELSE FALSE END",
-    },
+    // is_identity: {
+    //   sql: "CASE WHEN {{TABLE}}.IS_IDENTITY = 'YES' THEN TRUE ELSE FALSE END",
+    // },
     deleted: {
       column: 'DELETED',
       timeframes: [],
