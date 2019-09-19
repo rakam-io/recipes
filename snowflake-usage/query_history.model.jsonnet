@@ -62,16 +62,16 @@
     compilation_time: {
       column: 'COMPILATION_TIME',
     },
-    query_context: {
-      hidden: true,
-      sql: "PARSE_JSON(regexp_substr(regexp_substr({{TABLE}}.query_text, 'Query\\sContext\\s\\'\\{.*\\}\\''),'\\{.*}'))",
-    },
-    looker_history_id: {
-      sql: '{{dimension.looker_history_id}}:history_id',
-    },
-    looker_user_id: {
-      sql: '{{dimension.looker_history_id}}:user_id',
-    },
+    // query_context: {
+    //   hidden: true,
+    //   sql: "PARSE_JSON(regexp_substr(regexp_substr({{TABLE}}.query_text, 'Query\\sContext\\s\\'\\{.*\\}\\''),'\\{.*}'))",
+    // },
+    // looker_history_id: {
+    //   sql: '{{dimension.looker_history_id}}:history_id',
+    // },
+    // looker_user_id: {
+    //   sql: '{{dimension.looker_history_id}}:user_id',
+    // },
     database_name: {
       column: 'DATABASE_NAME',
     },
