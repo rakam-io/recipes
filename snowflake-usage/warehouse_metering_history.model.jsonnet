@@ -13,10 +13,10 @@
       aggregation: 'sum',
       column: 'credits_used',
     },
-    current_mtd_credits_used: {
+    current_month_credits_used: {
       aggregation: 'sum',
       column: 'credits_used',
-      filters: [{ dimension: 'start_date', operator: 'is', value: 'P1M', valueType: 'timestamp' }],
+      filters: [{ dimension: 'start_date', operator: 'between', value: 'P1M', valueType: 'timestamp' }],
       reportOptions: {
         prefix: '$',
       },
