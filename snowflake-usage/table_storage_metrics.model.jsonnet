@@ -26,14 +26,14 @@
     },
   },
   dimensions: {
-    database_id: {
+    id: {
       column: 'ID',
     },
     deleted: {
       column: 'DELETED',
     },
-    database_name: {
-      column: 'DATABASE_NAME',
+    catalog: {
+      column: 'TABLE_CATALOG',
     },
     usage: {
       column: 'USAGE_DATE',
