@@ -17,7 +17,7 @@
       column: 'CONSTRAINT_NAME',
     },
     constraint_schema: {
-      column: 'constraint_schema',
+      column: 'CONSTRAINT_SCHEMA',
     },
     constraint_type: {
       column: 'CONSTRAINT_TYPE',
