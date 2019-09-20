@@ -64,7 +64,7 @@
     },
     query_context: {
       hidden: true,
-      sql: "PARSE_JSON(regexp_substr(regexp_substr({{TABLE}}.query_text, 'Query\\sContext\\s\\'\\{.*\\}\\''),'\\{.*}'))",
+      sql: '1',
     },
     looker_history_id: {
       sql: '{{dimension.looker_history_id}}:history_id',
