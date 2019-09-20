@@ -8,18 +8,18 @@
   },
   dimensions: {
     comment: {
-      column: 'comment',
+      column: 'COMMENT',
     },
     created: {
-      column: 'created',
+      column: 'CREATED',
       timeframes: [],
     },
     deleted: {
       timeframes: [],
-      column: 'deleted',
+      column: 'DELETED',
     },
     last_altered: {
-      column: 'last_altered',
+      column: 'LAST_ALTERED',
       timeframes: [],
     },
     stage_catalog: {
