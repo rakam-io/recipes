@@ -1,7 +1,6 @@
 {
   name: 'snowflake.storage_usage',
-  target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'STORAGE_USAGE' },
-  label: 'storage_usage',
+  target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'DATABASE_STORAGE_USAGE_HISTORY' },
   measures: {
     average_storage_tb: {
       aggregation: 'average',
