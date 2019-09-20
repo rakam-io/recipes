@@ -134,10 +134,6 @@
     table_catalog: {
       column: 'TABLE_CATALOG',
     },
-    table_catalog_deleted: {
-      column: 'TABLE_CATALOG_DELETED',
-      timeframes: [],
-    },
     table_schema_deleted: {
       column: 'TABLE_SCHEMA_DELETED',
       timeframes: [],
