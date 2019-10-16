@@ -23,7 +23,6 @@
       type: 1,
       reportOptions: {
         modelName: 'consolidated_marketing',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -58,7 +57,6 @@
       type: 1,
       reportOptions: {
         modelName: 'consolidated_marketing',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -93,7 +91,6 @@
       type: 1,
       reportOptions: {
         modelName: 'consolidated_marketing',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -128,7 +125,6 @@
       type: 1,
       reportOptions: {
         modelName: 'consolidated_marketing',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -163,7 +159,6 @@
       type: 1,
       reportOptions: {
         modelName: 'consolidated_marketing',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -198,7 +193,6 @@
       type: 1,
       reportOptions: {
         modelName: 'consolidated_marketing',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -233,7 +227,6 @@
       type: 1,
       reportOptions: {
         modelName: 'consolidated_marketing',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -268,7 +261,6 @@
       type: 1,
       reportOptions: {
         modelName: 'consolidated_marketing',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -303,7 +295,6 @@
       type: 1,
       reportOptions: {
         modelName: 'consolidated_marketing',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -338,7 +329,6 @@
       type: 1,
       reportOptions: {
         modelName: 'consolidated_marketing',
-        filter: null,
         dimensions: [],
         measures: [
           {
@@ -373,7 +363,6 @@
       type: 1,
       reportOptions: {
         modelName: 'consolidated_marketing',
-        filter: null,
         dimensions: [],
         measures: [
           {

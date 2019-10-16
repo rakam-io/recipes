@@ -1,5 +1,5 @@
 {
-  name: 'snowflake.storage_metrics',
+  name: 'snowflake_storage_metrics',
   target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'TABLE_STORAGE_METRICS' },
   label: 'storage_usage',
   measures: {
@@ -26,14 +26,14 @@
     },
   },
   dimensions: {
-    id: {
-      column: 'ID',
+    database_id: {
+      column: 'DATABASE_ID',
     },
     deleted: {
       column: 'DELETED',
     },
-    catalog: {
-      column: 'TABLE_CATALOG',
+    database_name: {
+      column: 'DATABASE_NAME',
     },
     usage: {
       column: 'USAGE_DATE',
