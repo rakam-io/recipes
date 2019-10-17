@@ -35,5 +35,4 @@ if __name__ == "__main__":
         bucket = client.get_bucket('rakam-public')
         blob = bucket.blob('rakam-recipes.index.json')
         blob.upload_from_string(json.dumps(result), "application/json")
-        blob.make_public()
         print("Successfully updated!")
