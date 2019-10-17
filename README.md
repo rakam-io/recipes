@@ -10,4 +10,5 @@ You can convert the JSON dump that you exported from Rakam using the following c
 `python convert-rakam-export.py -f output.json -d ./`
 
 `-d` where you want all the jsonnet files
+
 `-f` the location of the JSON dump
