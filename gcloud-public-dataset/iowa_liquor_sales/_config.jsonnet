@@ -1,5 +1,5 @@
 {
-  version: '1.0',
+  version: 1.0,
   label: 'IOWA Liquor Sales',
   description: 'See details from https://console.cloud.google.com/marketplace/details/iowa-department-of-commerce/iowa-liquor-sales?filter=solution-type:dataset&q=liqour&id=18f0a495-8e20-4124-a349-0c4c167b60ab',
   tags: ['public-dataset'],
