@@ -213,7 +213,7 @@
       type: 'double',
       hidden: false,
     },
-    '': {
+    answering_ratio: {
       label: 'Answering_Ratio',
       reportOptions: {
         formatNumbers: true,
