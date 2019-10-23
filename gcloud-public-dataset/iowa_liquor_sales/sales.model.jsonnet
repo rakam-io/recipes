@@ -150,7 +150,7 @@
       type: 'double',
       hidden: false,
     },
-    '': {
+    sold_liquor_types: {
       label: 'Count of Sold Liquor Types',
       reportOptions: {
         formatNumbers: true,
@@ -160,7 +160,7 @@
       type: 'double',
       hidden: false,
     },
-    'Max sales in Bottle': {
+    max_sales_in_bottle: {
       reportOptions: {
         formatNumbers: true,
       },
