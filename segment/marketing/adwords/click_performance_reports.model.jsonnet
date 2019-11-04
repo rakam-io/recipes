@@ -1,6 +1,5 @@
 {
   name: 'adwords_click_performance_reports',
-  hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'click_performance_reports' }),
   label: 'Adwords Click Performance',
   description: 'Includes stats at the click level, including both valid and invalid clicks.',
