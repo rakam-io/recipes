@@ -25,6 +25,7 @@
     },
     date: {
       sql: 'cast(start_time as date)',
+      timeframes: [],
     },
     buying_type: {
       pivot: false,
