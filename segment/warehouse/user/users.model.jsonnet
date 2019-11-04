@@ -16,5 +16,8 @@
       type: 'timestamp',
       column: 'received_at',
     },
+    user_id: {
+      column: 'id',
+    },
   },
 }
