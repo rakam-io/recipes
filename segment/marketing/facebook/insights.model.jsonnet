@@ -62,17 +62,10 @@ local mappingForConsolidatedMarketing = {
     },
   },
   dimensions: mappingForConsolidatedMarketing {
-    date_stop: {
+    date: {
       pivot: false,
       type: 'timestamp',
-      column: 'date_stop',
-      hidden: false,
-    },
-    date_start: {
-      pivot: false,
-      type: 'timestamp',
-      column: 'date_start',
-      hidden: false,
+      sql: 'CAST({{TABLE}}.date_start AS DATE)',
     },
     ad_id: {
       pivot: false,
