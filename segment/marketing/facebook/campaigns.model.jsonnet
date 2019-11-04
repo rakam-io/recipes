@@ -24,10 +24,7 @@
       hidden: false,
     },
     date: {
-      pivot: false,
-      type: 'timestamp',
       sql: 'cast(start_time as date)',
-      hidden: true,
     },
     buying_type: {
       pivot: false,
