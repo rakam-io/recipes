@@ -18,6 +18,7 @@
     impressions: { dimension: { hidden: true, column: 'impressions' }, variable: { default: 'impressions' } },
 
     // dimensions
+    date: { dimension: { column: 'date' }, variable: { default: 'date' } },
     ad_name: { dimension: { column: 'ad_name' }, variable: { default: 'ad_name' } },
     ad_group_name: { dimension: { column: 'ad_group_name' }, variable: { default: 'ad_group_name' } },
     campaign_name: { dimension: { column: 'campaign_name', type: 'string' }, variable: { default: 'campaign_name' } },
