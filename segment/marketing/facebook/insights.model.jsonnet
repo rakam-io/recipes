@@ -66,7 +66,6 @@ local mappingForConsolidatedMarketing = {
   },
   dimensions: mappingForConsolidatedMarketing {
     date: {
-      pivot: false,
       type: 'timestamp',
       sql: 'CAST({{TABLE}}.date_start AS DATE)',
     },
