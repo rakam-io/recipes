@@ -31,6 +31,9 @@ local mappingForConsolidatedMarketing = {
     {{model.facebook_ads.relation.facebook_ad_accounts}}
   ||| % { target: util.generate_target_reference(std.mergePatch(std.extVar('schema'), { table: 'insights' })) },
   category: 'Marketing',
+  mappings: {
+    eventTimestamp: 'date',
+  },
   relations: {
     facebook_ads: {
       relationType: 'manyToOne',
