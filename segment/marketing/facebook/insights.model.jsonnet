@@ -119,9 +119,8 @@ local mappingForConsolidatedMarketing = {
     },
     total_spend: {
       description: 'The estimated total amount of money you’ve spent on your campaign, ad set or ad during its schedule.',
-      column: 'spend',
+      sql: 'coalesce(spend, 0)',
       aggregation: 'sum',
-      hidden: false,
       reportOptions: {
         prefix: '$',
       },

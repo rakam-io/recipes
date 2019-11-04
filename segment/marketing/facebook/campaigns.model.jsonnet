@@ -4,11 +4,14 @@
   target: std.mergePatch(std.extVar('schema'), { table: 'campaigns' }),
   mappings: {},
   category: 'Marketing',
+  mappings: {
+    eventTimestamp: 'date'
+  },
   dimensions: {
-     is_active: {
-        type: 'boolean',
-        sql: 'CASE WHEN {{TABLE}}.effective_status = "ACTIVE" then TRUE else FALSE END'
-      },
+    is_active: {
+      type: 'boolean',
+      sql: 'CASE WHEN {{TABLE}}.effective_status = "ACTIVE" then TRUE else FALSE END',
+    },
     id: {
       pivot: false,
       type: 'string',
@@ -21,17 +24,11 @@
       column: 'name',
       hidden: false,
     },
-    start_time: {
+    date: {
       pivot: false,
       type: 'timestamp',
-      column: 'start_time',
-      hidden: false,
-    },
-    stop_time: {
-      pivot: false,
-      type: 'timestamp',
-      column: 'stop_time',
-      hidden: false,
+      sql: 'cast(start_time as date)',
+      hidden: true,
     },
     buying_type: {
       pivot: false,
