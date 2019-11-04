@@ -66,7 +66,6 @@ local mappingForConsolidatedMarketing = {
   },
   dimensions: mappingForConsolidatedMarketing {
     date: {
-      type: 'timestamp',
       sql: 'CAST({{TABLE}}.date_start AS DATE)',
     },
     ad_id: {
