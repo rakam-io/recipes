@@ -29,7 +29,7 @@
       aggregation: 'maximum',
       hidden: false,
     },
-    Balance: {
+    balance: {
       description: 'Bill amount due.',
       reportOptions: {
         prefix: '$',
