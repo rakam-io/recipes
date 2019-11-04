@@ -2,10 +2,9 @@
   name: 'facebook_campaigns',
   hidden: true,
   target: std.mergePatch(std.extVar('schema'), { table: 'campaigns' }),
-  mappings: {},
   category: 'Marketing',
   mappings: {
-    eventTimestamp: 'date'
+    eventTimestamp: 'date',
   },
   dimensions: {
     is_active: {
