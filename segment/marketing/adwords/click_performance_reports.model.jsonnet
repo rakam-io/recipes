@@ -68,11 +68,9 @@
       column: 'ad_group_id',
       hidden: true,
     },
-    date_start: {
-      column: 'date_start',
-    },
-    date_stop: {
-      column: 'date_stop',
+    date: {
+      sql: 'cast(date_start as date)',
+      timeframes: [],
     },
     ad_format: {
       column: 'ad_format',

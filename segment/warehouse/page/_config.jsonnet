@@ -15,7 +15,7 @@
       label: 'Segment Pageview Table',
       type: 'table',
       default: { table: 'pages' },
-      description: 'The pages table in your Segment Destionation. See: https://segment.com/docs/destinations/#warehouse-schemas',
+      description: 'The pages table in your Segment Destination. See: https://segment.com/docs/destinations/#warehouse-schemas',
     },
     user_model: {
       label: 'Segment user model',
