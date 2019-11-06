@@ -2,6 +2,11 @@
   name: 'snowplow_page_views',
   target: std.extVar('snowplow_page_views'),
   mappings: {},
+  measures: {
+    all_rows: {
+      aggregation: 'count'
+    },
+  },
   dimensions: {
     app_cache_time_in_ms: {
       label: '',
