@@ -383,7 +383,7 @@
       column: 'page_view_index',
       category: ''
     },
-    page_view_local_day_of_week: {
+    /*page_view_local_day_of_week: {
       label: '',
       column: 'page_view_local_day_of_week',
       category: ''
@@ -397,8 +397,8 @@
       label: '',
       column: 'page_view_local_hour_of_day',
       category: ''
-    },
-    page_view_local_time: {
+    },*/
+    /*page_view_local_time: {
       label: '',
       column: 'page_view_local_time',
       category: ''
@@ -422,7 +422,7 @@
       label: '',
       column: 'page_view_quarter',
       category: ''
-    },
+    },*/
     page_view_start: {
       label: '',
       column: 'page_view_start',
