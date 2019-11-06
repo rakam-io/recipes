@@ -518,11 +518,11 @@
       column: 'session_index',
       category: ''
     },
-    user_bounced: {
+    /*user_bounced: {
       label: '',
       column: 'user_bounced',
       category: ''
-    },
+    },*/
     user_custom_id: {
       label: '',
       column: 'user_custom_id',
