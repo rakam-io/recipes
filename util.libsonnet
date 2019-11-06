@@ -4,6 +4,6 @@
   generate_model_name_from_file(name)::
     local parts = std.split(name, '/');
     std.strReplace(parts[std.length(parts) - 1], '.model.jsonnet', ''),
-  generate_target_reference(target, aq=std.extVar('_aq'))::
+  generate_target_reference(target, aq={})::
     std.join('.', std.filter(function(x) x != null, [aq + target.database + aq, aq + target.schema + aq, aq + target.table + aq])),
 }

@@ -22,7 +22,7 @@ local generateVariableForChannel(name) = {
   },
   [name + '_mapping']: {
     parent: name + '_model',
-    type: 'modelMapping',
+    type: 'model-mapping',
     options: { dimensions: variable_mapping },
   },
 };
