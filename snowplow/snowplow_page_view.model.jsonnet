@@ -433,7 +433,7 @@
       column: 'page_view_start_local',
       category: ''
     },
-    page_view_time: {
+    /*page_view_time: {
       label: '',
       column: 'page_view_time',
       category: ''
@@ -447,7 +447,7 @@
       label: '',
       column: 'page_view_year',
       category: ''
-    },
+    },*/
     referer_medium: {
       label: '',
       column: 'referer_medium',
