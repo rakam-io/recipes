@@ -15,12 +15,12 @@
     },
     distinct_users: {
         category: '',
-        sql: '{{TABLE}}.inferred_user_id}}',
+        sql: '{{TABLE}}.inferred_user_id',
         aggregation: 'sum'
     },
     average_time_engaged_in_s: {
         category: '',
-        sql: '{{TABLE}}.time_engaged_in_s}}',
+        sql: '{{TABLE}}.time_engaged_in_s',
         aggregation: 'sum'
     },
     sessions_from_new_visitors: {  // Measure filter new_vs_returning -> new
@@ -35,12 +35,12 @@
     },
     percent_new_visitors: {
         category: '',
-        sql: '{{TABLE}}.sessions_from_new_visitors}}::float / nullif({{TABLE}}.sessions}}, 0)',
+        sql: '{{TABLE}}.sessions_from_new_visitors::float / nullif({{TABLE}}.sessions, 0)',
         aggregation: 'sum'
     },
     percent_returning_visitors: {
         category: '',
-        sql: '{{TABLE}}.sessions_from_returning_visitors}}::float / nullif({{TABLE}}.sessions}}, 0)',
+        sql: '{{TABLE}}.sessions_from_returning_visitors::float / nullif({{TABLE}}.sessions, 0)',
         aggregation: 'sum'
     },
     bounced_sessions: { // Measure filter user_bounced -> yes
@@ -50,12 +50,12 @@
     },
     bounce_rate: {
         category: '',
-        sql: '{{TABLE}}.bounced_sessions}}::float / nullif({{TABLE}}.sessions}}, 0)',
+        sql: '{{TABLE}}.bounced_sessions::float / nullif({{TABLE}}.sessions, 0)',
         aggregation: 'sum'
     },
     sessions_per_user: {
         category: '',
-        sql: '{{TABLE}}.sessions}}::float / nullif({{TABLE}}.distinct_users}}, 0) ;;',
+        sql: '{{TABLE}}.sessions::float / nullif({{TABLE}}.distinct_users, 0) ;;',
         aggregation: 'sum'
     },
   },
