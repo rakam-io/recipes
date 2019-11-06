@@ -168,11 +168,6 @@
       column: 'geo_zipcode',
       category: ''
     },
-    geo_latlong: {
-      label: '',
-      column: 'geo_latlong',
-      category: ''
-    },
     horizontal_percentage_scrolled: {
       label: '',
       column: 'horizontal_percentage_scrolled',
