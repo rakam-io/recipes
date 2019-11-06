@@ -195,11 +195,11 @@
         column: 'geo_zipcode',
         category: ''
     },
-    geo_latlong: {
+    /*geo_latlong: {
         label: '',
         column: 'geo_latlong',
         category: ''
-    },
+    },*/
     marketing_campaign: {
         label: '',
         column: 'marketing_campaign',
