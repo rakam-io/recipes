@@ -335,11 +335,11 @@
         column: 'device_type',
         category: ''
     },
-    engaged_page_views: {
+    /*engaged_page_views: {
         label: '',
         column: 'engaged_page_views',
         category: ''
-    },
+    },*/
     os: {
       label: '',
       column: 'os',
