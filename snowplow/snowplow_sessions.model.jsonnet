@@ -415,11 +415,11 @@
         column: 'user_bounced',
         category: ''
     },
-    user_engaged: {
+    /*user_engaged: {
         label: '',
         column: 'user_engaged',
         category: ''
-    },
+    },*/
     /*new_vs_returning: {
         label: '',
         column: 'new_vs_returning',
