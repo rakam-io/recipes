@@ -420,10 +420,10 @@
         column: 'user_engaged',
         category: ''
     },
-    new_vs_returning: {
+    /*new_vs_returning: {
         label: '',
         column: 'new_vs_returning',
         category: ''
-    },
+    },*/
   },
 }
