@@ -7,7 +7,7 @@
         dbt_utils.safe_cast(
             dbt_utils.dateadd(
                 'hour',
-                -sessionization_trailing_window,
+                -2,
                 'max(session_start_tstamp)'),
             'timestamp') }}
     from {{this}}
@@ -36,7 +36,7 @@ with
         dbt_utils.safe_cast(
         dbt_utils.dateadd(
         'hour',
-        -sessionization_trailing_window,
+        -2,
         'max(session_start_tstamp)'),
         'timestamp') }}
         from {{ this }})
@@ -166,7 +166,7 @@ with
       dbt_utils.safe_cast(
       dbt_utils.dateadd(
       'hour',
-      -sessionization_trailing_window,
+      -2,
       'max(session_start_tstamp)'),
       'timestamp') }}
       from {{ this }})
