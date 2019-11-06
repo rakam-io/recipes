@@ -363,11 +363,11 @@
       column: 'page_view_end_local',
       category: ''
     },
-    page_view_hour: {
+    /*page_view_hour: {
       label: '',
       column: 'page_view_hour',
       category: ''
-    },
+    },*/
     page_view_id: {
       label: '',
       column: 'page_view_id',
