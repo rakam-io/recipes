@@ -348,11 +348,11 @@
       column: 'page_url_scheme',
       category: ''
     },
-    page_view_date: {
+    /*page_view_date: {
       label: '',
       column: 'page_view_date',
       category: ''
-    },
+    },*/
     page_view_end: {
       label: '',
       column: 'page_view_end',
