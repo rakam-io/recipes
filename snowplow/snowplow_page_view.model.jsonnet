@@ -547,5 +547,5 @@
     label: '',
     column: 'user_snowplow_domain_id',
     category: ''
-  }
+  },
 }

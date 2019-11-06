@@ -1,6 +1,6 @@
 {
   name: 'snowplow_sessions',
-  target: std.extVar('table'),
+  target: std.extVar('snowplow_sessions'),
   mappings: {},
   measures: {
     sessions: {
@@ -425,5 +425,5 @@
         column: 'new_vs_returning',
         category: ''
     },
-  }
+  },
 }

@@ -2,7 +2,7 @@
   version: 1.0,
   label: 'Snowplow Analytics',
   description: 'It implements sessions and pageview models for Snowplow web page event',
-  image: 'https://github.com/rakam-io/recipes/raw/master/segment/logo.png',
+  image: 'https://github.com/rakam-io/recipes/raw/master/snowplow/logo.png',
   variables: {
     snowplow_sessions: {
       label: 'Snowplow DBT sessions table',
