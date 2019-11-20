@@ -112,7 +112,7 @@
     },
   },
   measures: {
-    'Unique Devices': {
+    unique_devices: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -121,7 +121,7 @@
       type: 'double',
       hidden: false,
     },
-    'Unique Users': {
+    unique_users: {
       reportOptions: {
         formatNumbers: true,
       },

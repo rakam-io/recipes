@@ -58,7 +58,7 @@
     },
   },
   measures: {
-    'Total Sessions': {
+    total_sessions: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -67,7 +67,7 @@
       type: 'double',
       hidden: false,
     },
-    'Total Installs': {
+    total_installs: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -76,7 +76,7 @@
       type: 'double',
       hidden: false,
     },
-    'Total Impressions': {
+    total_impressions: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -85,7 +85,7 @@
       type: 'double',
       hidden: false,
     },
-    'Total Spend': {
+    total_spent: {
       reportOptions: {
         prefix: '$',
         formatNumbers: true,
@@ -95,7 +95,7 @@
       type: 'double',
       hidden: false,
     },
-    'Total In-App Purchase': {
+    in_app_purchase: {
       reportOptions: {
         formatNumbers: true,
       },

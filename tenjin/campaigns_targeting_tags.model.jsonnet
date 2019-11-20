@@ -30,15 +30,5 @@
       hidden: false,
     },
   },
-  measures: {
-    all_rows: {
-      label: 'All campaigns_targeting_tags',
-      reportOptions: {
-        formatNumbers: true,
-      },
-      aggregation: 'count',
-      type: 'double',
-      hidden: false,
-    },
-  },
+  measures: [],
 }

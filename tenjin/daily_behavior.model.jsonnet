@@ -52,7 +52,7 @@
       type: 'double',
       hidden: false,
     },
-    'Monthly Users': {
+    monthly_users: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -61,7 +61,7 @@
       type: 'double',
       hidden: false,
     },
-    'Total Sessions': {
+    total_sessions: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -70,7 +70,7 @@
       type: 'double',
       hidden: false,
     },
-    Revenue: {
+    revenue: {
       reportOptions: {
         prefix: '$',
         formatNumbers: true,
@@ -80,7 +80,7 @@
       type: 'double',
       hidden: false,
     },
-    'Total Users': {
+    total_users: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -89,7 +89,7 @@
       type: 'double',
       hidden: false,
     },
-    'Total Transactions': {
+    total_transactions: {
       reportOptions: {
         formatNumbers: true,
       },
