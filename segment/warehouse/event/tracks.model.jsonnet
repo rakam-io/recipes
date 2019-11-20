@@ -42,8 +42,8 @@ local commonDimensions = import '../common_dimensions.jsonnet';
     context_app_version: {
       label: 'App Version',
       description: 'It helps you to identify deprecated events',
-      aggregation: 'maximum',
-      column: 'context_app_version',
+      sql: 'max(context_app_version order by received_at desc)',
+      type: 'string',
     },
   },
   dimensions: commonDimensions {
