@@ -30,5 +30,5 @@
       hidden: false,
     },
   },
-  measures: [],
+  measures: {},
 }
