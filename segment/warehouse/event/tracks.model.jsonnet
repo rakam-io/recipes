@@ -37,10 +37,10 @@ local commonDimensions = import '../common_dimensions.jsonnet';
     context_library_name: {
       label: 'Platforms',
       type: 'arrayString',
-      sql: 'array_agg(context_library_name)',
+      sql: 'array_agg({{TABLE}}.context_library_name)',
     },
     context_app_version: {
-      label: 'Last Seen App Version',
+      label: 'App Version',
       description: 'It helps you to identify deprecated events',
       aggregation: 'maximum',
       column: 'context_app_version',

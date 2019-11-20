@@ -110,6 +110,7 @@
       hidden: false,
     },
     day2_ltv: {
+      label: 'Day 2 LTV',
       reportOptions: {
         formatNumbers: true,
       },
@@ -118,6 +119,7 @@
       hidden: false,
     },
     day3_ltv: {
+      label: 'Day 3 LTV',
       reportOptions: {
         formatNumbers: true,
       },
