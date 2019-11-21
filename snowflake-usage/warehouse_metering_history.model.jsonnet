@@ -1,6 +1,9 @@
 {
   name: 'snowflake_warehouse_metering_history',
   target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'WAREHOUSE_METERING_HISTORY' },
+  mappings: {
+    eventTimestamp: 'start_time',
+  },
   measures: {
     count: {
       aggregation: 'count',
@@ -12,14 +15,6 @@
     total_credits_used: {
       aggregation: 'sum',
       column: 'CREDITS_USED',
-    },
-    current_month_credits_used: {
-      aggregation: 'sum',
-      column: 'CREDITS_USED',
-      filters: [{ dimension: 'start_date', operator: 'between', value: 'P1M', valueType: 'timestamp' }],
-      reportOptions: {
-        suffix: 'credit/hour',
-      },
     },
   },
   dimensions: {
