@@ -7,18 +7,18 @@
     },
     average_credits_used: {
       aggregation: 'average',
-      column: 'credits_used',
+      column: 'CREDITS_USED',
     },
     total_credits_used: {
       aggregation: 'sum',
-      column: 'credits_used',
+      column: 'CREDITS_USED',
     },
     current_month_credits_used: {
       aggregation: 'sum',
-      column: 'credits_used',
+      column: 'CREDITS_USED',
       filters: [{ dimension: 'start_date', operator: 'between', value: 'P1M', valueType: 'timestamp' }],
       reportOptions: {
-        prefix: '$',
+        suffix: 'credit/hour',
       },
     },
   },
