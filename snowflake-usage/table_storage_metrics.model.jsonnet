@@ -27,7 +27,7 @@
   },
   dimensions: {
     database_id: {
-      column: 'DATABASE_ID',
+      column: 'TABLE_CATALOG_ID',
     },
     deleted: {
       column: 'DELETED',
