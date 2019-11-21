@@ -17,7 +17,11 @@
       column: 'CREDITS_USED',
     },
     total_credits_used_usd: {
-      sql: "SUM({{dimension.credits_used}} * 2.5) || '$'",
+      aggregation: 'sum',
+      sql: "{{dimension.credits_used_usd}}",
+      reportOptions: {
+        suffix: '$',
+      },
     },
   },
   dimensions: {
@@ -25,7 +29,10 @@
       column: 'CREDITS_USED'
     },
     credits_used_usd: {
-      sql: "{{dimension.credits_used}} * 2.5 || '$'",
+      sql: "{{dimension.credits_used}} * 2.5",
+      reportOptions: {
+        suffix: '$',
+      },
     },
     start_time: {
       column: 'START_TIME',
