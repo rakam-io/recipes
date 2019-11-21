@@ -24,7 +24,7 @@
     },
     average_queued_overload_time: {
       aggregation: 'average',
-      sql: '1.0*{{queued_overload_time}}',
+      sql: '1.0*{{dimension.queued_overload_time}}',
       filters: [{ dimension: 'has_overload_time', operator: 'is', value: true, valueType: 'boolean' }],
     },
     total_elapsed_time: {
@@ -65,12 +65,6 @@
     query_context: {
       hidden: true,
       sql: "PARSE_JSON(regexp_substr(regexp_substr({{TABLE}}.query_text, 'Query\\sContext\\s\\'\\{.*\\}\\''),'\\{.*}'))",
-    },
-    looker_history_id: {
-      sql: '{{dimension.looker_history_id}}:history_id',
-    },
-    looker_user_id: {
-      sql: '{{dimension.looker_history_id}}:user_id',
     },
     database_name: {
       column: 'DATABASE_NAME',
