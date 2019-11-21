@@ -33,7 +33,7 @@
       column: 'DELETED',
     },
     database_name: {
-      column: 'DATABASE_NAME',
+      column: 'TABLE_CATALOG',
     },
     usage: {
       column: 'USAGE_DATE',
