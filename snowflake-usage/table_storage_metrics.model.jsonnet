@@ -40,10 +40,10 @@
       timeframes: [],
     },
     storage_bytes: {
-      column: 'AVERAGE_DATABASE_BYTES',
+      column: 'ACTIVE_BYTES',
     },
     failsafe_bytes: {
-      column: 'AVERAGE_FAILSAFE_BYTES',
+      column: 'FAILSAFE_BYTES',
     },
     storage_tb: {
       sql: '{{dimension.storage_bytes}} / power(1024,4) ',
