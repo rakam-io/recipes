@@ -1,5 +1,5 @@
 {
-  name: 'snowflake.login_history',
+  name: 'snowflake_login_history',
   target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'LOGIN_HISTORY' },
   mappings: {
     eventTimestamp: 'event_timestamp',

@@ -1,5 +1,5 @@
 {
-  name: 'snowflake.stages',
+  name: 'snowflake_stages',
   target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'STAGES' },
   measures: {
     count: {

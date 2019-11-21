@@ -1,5 +1,5 @@
 {
-  name: 'snowflake.warehouse_metering_history',
+  name: 'snowflake_warehouse_metering_history',
   target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'WAREHOUSE_METERING_HISTORY' },
   measures: {
     count: {

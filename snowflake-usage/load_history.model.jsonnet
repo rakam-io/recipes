@@ -1,5 +1,5 @@
 {
-  name: 'snowflake.load_history',
+  name: 'snowflake_load_history',
   target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'LOAD_HISTORY' },
   measures: {
     total_row_count: {
