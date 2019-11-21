@@ -9,8 +9,7 @@
     userId: 'advertising_id',
   },
   relations: {
-    apps: {
-      label: 'App',
+    app: {
       relationType: 'oneToOne',
       joinType: 'leftJoin',
       modelName: 'apps',
@@ -69,7 +68,6 @@
       hidden: false,
     },
     os_version: {
-      label: 'Device OS Version',
       pivot: false,
       type: 'string',
       column: 'os_version',
@@ -79,7 +77,6 @@
       hidden: false,
     },
     app_version: {
-      label: 'App Version',
       pivot: false,
       type: 'string',
       column: 'app_version',
@@ -245,7 +242,7 @@
       type: 'double',
       hidden: false,
     },
-    'Unique Users': {
+    unique_users: {
       label: 'Unique Users',
       reportOptions: {
         formatNumbers: true,
@@ -255,8 +252,7 @@
       type: 'double',
       hidden: false,
     },
-    'Unique Devices': {
-      label: 'Unique Devices',
+    unique_devices: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -265,7 +261,7 @@
       type: 'double',
       hidden: false,
     },
-    Revenue: {
+    revenue: {
       label: 'Net Revenue',
       description: 'net revenue for the purchase event in USD cents\t',
       reportOptions: {
@@ -276,7 +272,7 @@
       type: 'double',
       hidden: false,
     },
-    Price: {
+    price: {
       label: 'Price',
       description: 'raw purchase price for the purchase event',
       reportOptions: {
@@ -287,8 +283,7 @@
       type: 'double',
       hidden: false,
     },
-    'Gross Revenue': {
-      label: 'Gross Revenue',
+    gross_revenue: {
       description: 'gross revenue for the purchase event in USD cents',
       reportOptions: {
         formatNumbers: true,
@@ -298,7 +293,7 @@
       type: 'double',
       hidden: false,
     },
-    'Unique Events': {
+    unique_events: {
       reportOptions: {
         formatNumbers: true,
       },

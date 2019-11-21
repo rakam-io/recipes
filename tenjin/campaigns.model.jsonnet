@@ -12,7 +12,7 @@
       targetColumn: 'id',
       hidden: false,
     },
-    App: {
+    app: {
       relationType: 'manyToOne',
       joinType: 'innerJoin',
       modelName: 'apps',
@@ -30,7 +30,6 @@
   },
   dimensions: {
     name: {
-      label: 'Campaign Name',
       pivot: false,
       type: 'string',
       column: 'name',

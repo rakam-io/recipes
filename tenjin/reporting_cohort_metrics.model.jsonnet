@@ -6,7 +6,7 @@
     eventTimestamp: 'install_date',
   },
   relations: {
-    App: {
+    app: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
       modelName: 'apps',
@@ -26,13 +26,6 @@
       joinType: 'leftJoin',
       modelName: 'campaign_buckets',
       sourceColumn: 'campaign_id',
-      targetColumn: 'id',
-    },
-    apps: {
-      relationType: 'manyToOne',
-      joinType: 'leftJoin',
-      modelName: 'apps',
-      sourceColumn: 'app_id',
       targetColumn: 'id',
     },
     countries: {
@@ -86,7 +79,7 @@
     },
   },
   measures: {
-    'Average Daily Active Users': {
+    daily_active_users: {
       label: 'Daily Active Users',
       reportOptions: {
         formatNumbers: true,
@@ -96,7 +89,7 @@
       type: 'double',
       hidden: false,
     },
-    Revenue: {
+    revenue: {
       label: 'In-app Purchase Revenue',
       description: 'sum of in-app purchase revenue in USD cents\t',
       reportOptions: {
@@ -107,7 +100,7 @@
       type: 'double',
       hidden: false,
     },
-    'Day 1 LTV': {
+    day1_ltv: {
       label: 'Day 1 LTV',
       reportOptions: {
         formatNumbers: true,
@@ -116,7 +109,8 @@
       type: 'double',
       hidden: false,
     },
-    'Day 2 LTV': {
+    day2_ltv: {
+      label: 'Day 2 LTV',
       reportOptions: {
         formatNumbers: true,
       },
@@ -124,7 +118,8 @@
       type: 'double',
       hidden: false,
     },
-    'Day 3 LTV': {
+    day3_ltv: {
+      label: 'Day 3 LTV',
       reportOptions: {
         formatNumbers: true,
       },
@@ -132,7 +127,7 @@
       type: 'double',
       hidden: false,
     },
-    'Day 1 Retained Users': {
+    day1_retained_users: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -140,7 +135,7 @@
       type: 'double',
       hidden: false,
     },
-    'Day 2 Retained Users': {
+    day2_retained_users: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -148,7 +143,7 @@
       type: 'double',
       hidden: false,
     },
-    'Day 3 Retained Users': {
+    day3_retained_users: {
       reportOptions: {
         formatNumbers: true,
       },

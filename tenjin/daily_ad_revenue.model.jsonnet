@@ -42,7 +42,7 @@
     },
   },
   measures: {
-    'Total Revenue': {
+    total_revenue: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -51,7 +51,7 @@
       type: 'double',
       hidden: false,
     },
-    'Total Impressions': {
+    total_impressions: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -60,7 +60,7 @@
       type: 'double',
       hidden: false,
     },
-    'Total Clicks': {
+    total_clicks: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -69,7 +69,7 @@
       type: 'double',
       hidden: false,
     },
-    'Total Conversions': {
+    total_conversions: {
       reportOptions: {
         formatNumbers: true,
       },

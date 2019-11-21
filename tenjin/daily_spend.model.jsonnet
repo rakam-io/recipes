@@ -45,8 +45,7 @@
     },
   },
   measures: {
-    all_rows: {
-      label: 'Total Spend',
+    total_spent: {
       reportOptions: {
         prefix: '$',
         formatNumbers: true,
@@ -56,7 +55,7 @@
       type: 'double',
       hidden: false,
     },
-    'Total Installs': {
+    total_installs: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -65,7 +64,7 @@
       type: 'double',
       hidden: false,
     },
-    'Total Clicks': {
+    total_clicks: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -74,7 +73,7 @@
       type: 'double',
       hidden: false,
     },
-    'Total Impressions': {
+    total_impressions: {
       reportOptions: {
         formatNumbers: true,
       },
