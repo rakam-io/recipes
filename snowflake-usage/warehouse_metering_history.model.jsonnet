@@ -24,18 +24,18 @@
     credits_used: {
       column: 'CREDITS_USED'
     },
-    credits_usd: {
+    credits_used_usd: {
       sql: "{{dimension.credits_used}} * 2.5 || '$'",
     },
     start_time: {
       column: 'START_TIME',
       timeframes: [],
-      fieldType: 'timestamp'
+      field: 'timestamp'
     },
     end_time: {
       column: 'END_TIME',
       timeframes: [],
-      fieldType: 'timestamp'
+      field: 'timestamp'
     },
     warehouse_name: {
       column: 'WAREHOUSE_NAME',
