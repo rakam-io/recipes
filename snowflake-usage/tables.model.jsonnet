@@ -74,10 +74,10 @@
       column: 'USER_DEFINED_TYPE_NAME',
     },
     user_defined_catalog_type: {
-      column: 'USER_DEFINED_CATALOG_TYPE',
+      column: 'USER_DEFINED_TYPE_CATALOG',
     },
     user_defined_schema_type: {
-      column: 'USER_DEFINED_SCHEMA_TYPE',
+      column: 'USER_DEFINED_TYPE_SCHEMA',
     },
   },
 }
