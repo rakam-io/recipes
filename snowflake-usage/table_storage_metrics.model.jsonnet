@@ -19,11 +19,11 @@
       sql: '{{dimension.total_tb}}',
       filters: [],
     },
-    prior_month_billable_in_tb: {
+    /*prior_month_billable_in_tb: {
       aggregation: 'average',
       sql: '{{dimension.storage_tb}} + {{dimension.failsafe_tb}}',
       filters: [{ dimension: 'usage', operator: 'lessThan', value: 'P1M', valueType: 'timestamp' }],
-    },
+    },*/
   },
   dimensions: {
     database_id: {
@@ -32,13 +32,13 @@
     deleted: {
       column: 'DELETED',
     },
-    database_name: {
+    table_catalog: {
       column: 'TABLE_CATALOG',
     },
-    usage: {
+    /*usage: {
       column: 'USAGE_DATE',
       timeframes: [],
-    },
+    },*/
     storage_bytes: {
       column: 'ACTIVE_BYTES',
     },
