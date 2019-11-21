@@ -30,12 +30,12 @@
     start_time: {
       column: 'START_TIME',
       timeframes: [],
-      field: 'timestamp'
+      type: 'timestamp'
     },
     end_time: {
       column: 'END_TIME',
       timeframes: [],
-      field: 'timestamp'
+      type: 'timestamp'
     },
     warehouse_name: {
       column: 'WAREHOUSE_NAME',
