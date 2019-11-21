@@ -38,7 +38,7 @@
       sql: "CASE WHEN {{TABLE}}.IS_SECURE = 'YES' THEN TRUE ELSE FALSE END",
     },
     is_updatable: {
-      sql: "CASE WHEN {{TABLE}}}.IS_UPDATABLE = 'YES' THEN TRUE ELSE FALSE END",
+      sql: "CASE WHEN {{TABLE}}.IS_UPDATABLE = 'YES' THEN TRUE ELSE FALSE END",
     },
     table_name: {
       column: 'TABLE_NAME',
