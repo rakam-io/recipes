@@ -16,8 +16,17 @@
       aggregation: 'sum',
       column: 'CREDITS_USED',
     },
+    total_credits_used_usd: {
+      sql: "SUM({{dimension.credits_used}} * 2.5) || '$'",
+    },
   },
   dimensions: {
+    credits_used: {
+      column: 'CREDITS_USED'
+    },
+    credits_usd: {
+      sql: "{{dimension.credits_used}} * 2.5 || '$'",
+    },
     start_time: {
       column: 'START_TIME',
       timeframes: [],
