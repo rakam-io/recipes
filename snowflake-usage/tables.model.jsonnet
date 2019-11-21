@@ -8,7 +8,7 @@
   },
   dimensions: {
     id: {
-      column: 'table_id',
+      column: 'TABLE_ID',
     },
     bytes: {
       column: 'BYTES',
