@@ -25,9 +25,6 @@
       column: 'LAST_ALTERED',
       timeframes: [],
     },
-    commit_action: {
-      column: 'COMMIT_ACTION',
-    },
     table_catalog: {
       column: 'TABLE_CATALOG',
     },
