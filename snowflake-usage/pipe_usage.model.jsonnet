@@ -8,10 +8,6 @@
     count: {
       aggregation: 'count',
     },
-    average_credits_used: {
-      aggregation: 'average',
-      column: 'CREDITS_USED',
-    },
     total_credits_used: {
       aggregation: 'sum',
       column: 'CREDITS_USED',
@@ -22,6 +18,14 @@
       reportOptions: {
         suffix: '$',
       },
+    },
+    total_bytes_inserted: {
+      aggregation: 'sum',
+      column: 'BYTES_INSERTED',
+    },
+    total_files_inserted: {
+      aggregation: 'sum',
+      column: 'FILES_INSERTED',
     },
   },
   dimensions: {
