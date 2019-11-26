@@ -123,6 +123,7 @@
     start: {
       column: 'START_TIME',
       timeframes: [],
+      type: 'timestamp'
     },
     elapsed_time: {
       column: 'TOTAL_ELAPSED_TIME',
