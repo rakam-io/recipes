@@ -1,5 +1,5 @@
 {
-  name: 'snowflake.views',
+  name: 'snowflake_views',
   target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'VIEWS' },
   measures: {
     count: {
@@ -25,9 +25,6 @@
       column: 'LAST_ALTERED',
       timeframes: [],
     },
-    commit_action: {
-      column: 'COMMIT_ACTION',
-    },
     table_catalog: {
       column: 'TABLE_CATALOG',
     },
@@ -38,7 +35,7 @@
       sql: "CASE WHEN {{TABLE}}.IS_SECURE = 'YES' THEN TRUE ELSE FALSE END",
     },
     is_updatable: {
-      sql: "CASE WHEN {{TABLE}}}.IS_UPDATABLE = 'YES' THEN TRUE ELSE FALSE END",
+      sql: "CASE WHEN {{TABLE}}.IS_UPDATABLE = 'YES' THEN TRUE ELSE FALSE END",
     },
     table_name: {
       column: 'TABLE_NAME',

@@ -1,5 +1,5 @@
 {
-  name: 'snowflake.storage_usage',
+  name: 'snowflake_storage_usage',
   target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'DATABASE_STORAGE_USAGE_HISTORY' },
   measures: {
     average_storage_tb: {
@@ -12,11 +12,6 @@
     billable_tb: {
       aggregation: 'average',
       sql: '{{dimension.total_tb}}',
-    },
-    current_month_billable_tb: {
-      aggregation: 'average',
-      sql: '{{dimension.total_tb}}',
-      filters: [],
     },
     prior_month_billable_tb: {
       aggregation: 'average',
@@ -34,9 +29,10 @@
     database_name: {
       column: 'DATABASE_NAME',
     },
-    usage: {
+    usage_date: {
       column: 'USAGE_DATE',
       timeframes: [],
+      type: 'timestamp'
     },
     storage_bytes: {
       column: 'AVERAGE_DATABASE_BYTES',

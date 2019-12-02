@@ -1,5 +1,5 @@
 {
-  name: 'snowflake.tables',
+  name: 'snowflake_tables',
   target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'TABLES' },
   measures: {
     count: {
@@ -8,7 +8,7 @@
   },
   dimensions: {
     id: {
-      column: 'table_id',
+      column: 'TABLE_ID',
     },
     bytes: {
       column: 'BYTES',
@@ -74,10 +74,10 @@
       column: 'USER_DEFINED_TYPE_NAME',
     },
     user_defined_catalog_type: {
-      column: 'USER_DEFINED_CATALOG_TYPE',
+      column: 'USER_DEFINED_TYPE_CATALOG',
     },
     user_defined_schema_type: {
-      column: 'USER_DEFINED_SCHEMA_TYPE',
+      column: 'USER_DEFINED_TYPE_SCHEMA',
     },
   },
 }
