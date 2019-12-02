@@ -12,10 +12,9 @@
     },
     event_types: {
       label: 'Event types',
-      type: 'table',
+      type: 'multiple-table',
       description: 'Select the event types that you want to create models from',
       options: {
-        multiple: true,
         exclude: ['aliases', 'groups', 'identifies', 'pages', 'screens', 'tracks'],
       },
     },

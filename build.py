@@ -10,6 +10,7 @@ example_values = {
     'schema': {"database": "database", "schema": "schema"},
     'string': 'value',
     'table': {"database": "database", "schema": "schema", "table": "table"},
+    'multiple-table': {"database": "database", "schema": "schema", "table": ["table1", "table2"]},
     'target': {"database": "database", "schema": "schema", "table": "table"},
     "table-column": {"column": {"type": "string", "column": "column"}},
     "numeric": 1,
