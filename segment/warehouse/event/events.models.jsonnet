@@ -29,6 +29,6 @@ std.map(function(event_table) {
       column: 'context_ip',
     },
   },
-  dimensions: null,  // let the server discover
+  dimensions: [],  // let the server discover
   // }, ['app_opened'])
 }, event_types.table)
