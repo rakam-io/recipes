@@ -1,4 +1,5 @@
 local util = import '../../../util.libsonnet';
+local commonDimensions = import '../common_dimensions.jsonnet';
 
 local event_types = std.extVar('event_types');
 
@@ -29,6 +30,5 @@ std.map(function(event_table) {
       column: 'context_ip',
     },
   },
-  dimensions: {},  // let the server discover
-  // }, ['app_opened'])
+  dimensions: commonDimensions,
 }, event_types.table)
