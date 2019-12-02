@@ -4,7 +4,7 @@
   name: 'segment_users',
   target: std.extVar('users_target'),
   mappings: {
-    userId: 'id',
+    userId: 'user_id',
   },
   measures: {
     total_users: {

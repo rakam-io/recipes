@@ -121,7 +121,7 @@ local mappingForConsolidatedMarketing = std.mapWithKey(function(key, value) { hi
         prefix: '$',
         formatNumbers: true,
       },
-      column: 'amount',
+      column: 'cost',
       aggregation: 'sum',
     },
     viewability: {
