@@ -13,10 +13,9 @@
     attributes: {
       label: 'Event attributes',
       parent: 'screens_target',
-      type: 'table-column',
+      type: 'table-multiple-column',
       description: 'Select the attributes that you want to turn into dimensions',
       options: {
-        multiple: true,
         exclude: [
           'context_app_version',
           'context_screen_height',
