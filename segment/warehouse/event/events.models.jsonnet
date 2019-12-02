@@ -9,7 +9,7 @@ std.map(function(event_table) {
     eventTimestamp: 'received_at',
     userId: 'user_id',
     deviceId: 'context_device_id',
-    incrementalColumn: 'received_at',
+    incremental: 'received_at',
   },
   description: 'Custom event defined in Segment SDK',
   measures: {
