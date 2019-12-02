@@ -1,7 +1,7 @@
 local util = import '../../../util.libsonnet';
 
 std.map(function(event_table) {
-  target: util.generate_target_reference(event_table),
+  target: { database: std.extVar('event_types').database, schema: std.extVar('event_types').schema, table: event_table },
   name: 'event_' + event_table.table,
   mappings: {
     eventTimestamp: 'received_at',
@@ -29,4 +29,4 @@ std.map(function(event_table) {
   },
   dimensions: null,  // let the server discover
   // }, ['app_opened'])
-}, std.extVar('event_types'))
+}, std.extVar('event_types').table)
