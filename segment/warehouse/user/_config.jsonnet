@@ -24,5 +24,5 @@
       description: 'The attributions that will be attached as dimensions to user model',
     },
   },
-  tags: ['segment', 'attribution'],
+  tags: ['attribution'],
 }

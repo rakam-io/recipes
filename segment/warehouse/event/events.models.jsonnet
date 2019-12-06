@@ -10,7 +10,7 @@ std.map(function(event_table) {
     deviceId: 'context_device_id',
     incremental: 'received_at',
   },
-  description: 'Custom event defined in Segment SDK',
+  description: 'A custom event defined in Segment SDK',
   measures: {
     events: {
       aggregation: 'count',
