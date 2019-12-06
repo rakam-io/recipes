@@ -2,6 +2,10 @@
   name: 'cohort_behavior',
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'cohort_behavior' }),
+  description: |||
+    Pre-aggregated view from events table. It includes cohort metrics(such as ltv, retained users) by date, campaign, country, and site. 
+    “xday” is day of user's lifetime (relative to acquisition timestamp, starting with 0). So “revenue” on xday = 1 means revenue generated on day 1 after the acquisition.
+  |||,
   mappings: {
     eventTimestamp: 'date',
   },
@@ -21,33 +25,25 @@
       targetColumn: 'id',
     },
   },
-  dimensions: {
-    date: {
-      pivot: false,
-      type: 'date',
-      column: 'date',
-      reportOptions: {
-        formatNumbers: true,
-      },
-      hidden: false,
-    },
-    site_id: {
-      pivot: false,
-      type: 'string',
-      column: 'site_id',
-      reportOptions: {
-        formatNumbers: true,
-      },
-      hidden: false,
-    },
-  },
   measures: {
     total_users: {
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'users',
       aggregation: 'sum',
+      description: 'The number of unique users',
+      type: 'double',
+      hidden: false,
+    },
+    weekly_users: {
+      column: 'weekly_users',
+      aggregation: 'sum',
+      description: 'the number of unique users in the week',
+      type: 'double',
+      hidden: false,
+    },
+    monthly_users: {
+      column: 'monthly_users',
+      aggregation: 'sum',
+      description: 'the number of unique users in the month',
       type: 'double',
       hidden: false,
     },
@@ -76,6 +72,35 @@
       column: 'transactions',
       aggregation: 'sum',
       type: 'double',
+      hidden: false,
+    },
+  },
+  dimensions: {
+    date: {
+      pivot: false,
+      type: 'date',
+      column: 'date',
+      reportOptions: {
+        formatNumbers: true,
+      },
+      hidden: false,
+    },
+    xday: {
+      label: "User's Lifetime In days",
+      description: 'Relative to acquisition timestamp, starting with 0',
+      column: 'xday',
+      reportOptions: {
+        suffix: ' days',
+      },
+      hidden: false,
+    },
+    site_id: {
+      pivot: false,
+      type: 'string',
+      column: 'site_id',
+      reportOptions: {
+        formatNumbers: true,
+      },
       hidden: false,
     },
   },

@@ -2,6 +2,7 @@
   name: 'bucket_campaign_info',
   hidden: true,
   target: std.mergePatch(std.extVar('schema'), { table: 'bucket_campaign_info' }),
+  description: 'A view that joins campaign buckets and campaigns table',
   mappings: {},
   relations: {
     ad_networks: {

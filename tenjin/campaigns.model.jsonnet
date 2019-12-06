@@ -2,6 +2,7 @@
   name: 'campaigns',
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'campaigns' }),
+  description: 'Campaigns that users are attributed to, or campaigns from ad-networks API',
   mappings: {},
   relations: {
     ad_networks: {
@@ -10,7 +11,6 @@
       modelName: 'ad_networks',
       sourceColumn: 'ad_network_id',
       targetColumn: 'id',
-      hidden: false,
     },
     app: {
       relationType: 'manyToOne',
@@ -18,7 +18,6 @@
       modelName: 'apps',
       sourceColumn: 'app_id',
       targetColumn: 'id',
-      hidden: false,
     },
     campaign_buckets: {
       relationType: 'oneToOne',
@@ -36,7 +35,6 @@
       reportOptions: {
         formatNumbers: true,
       },
-      hidden: false,
     },
   },
 }

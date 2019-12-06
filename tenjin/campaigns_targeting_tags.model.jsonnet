@@ -2,6 +2,7 @@
   name: 'campaigns_targeting_tags',
   hidden: true,
   target: std.mergePatch(std.extVar('schema'), { table: 'campaigns_targeting_tags' }),
+  description: 'Includes targeting tag information for each campaign.',
   mappings: {},
   relations: {
     campaigns: {

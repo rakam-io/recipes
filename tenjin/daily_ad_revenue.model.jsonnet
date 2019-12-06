@@ -2,6 +2,7 @@
   name: 'daily_ad_revenue',
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'daily_ad_revenue' }),
+  description: 'Includes ad revenue data by publisher campaigns, date, and country',
   mappings: {
     eventTimestamp: 'updated_at',
   },
@@ -43,10 +44,8 @@
   },
   measures: {
     total_revenue: {
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'revenue',
+      description: 'Ad revenue amount in USD cents',
       aggregation: 'count',
       type: 'double',
       hidden: false,

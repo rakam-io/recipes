@@ -2,6 +2,7 @@
   name: 'daily_behavior',
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'daily_behavior' }),
+  description: 'Pre-aggregated view from events table. It includes non-cohort metrics(such as dau, arpdau) by date, campaign, country, and site',
   mappings: {
     eventTimestamp: 'date',
   },
@@ -42,49 +43,36 @@
     },
   },
   measures: {
-    all_rows: {
-      label: 'Weekly Users',
-      reportOptions: {
-        formatNumbers: true,
-      },
+    weekly_users: {
       column: 'weekly_users',
       aggregation: 'average',
+      description: 'the number of unique users in the week',
       type: 'double',
-      hidden: false,
     },
     monthly_users: {
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'monthly_users',
+      description: 'the number of unique users in the month',
       aggregation: 'average',
       type: 'double',
-      hidden: false,
     },
     total_sessions: {
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'sessions',
       aggregation: 'sum',
+      description: 'the number of sessions',
       type: 'double',
-      hidden: false,
     },
     revenue: {
       reportOptions: {
         prefix: '$',
-        formatNumbers: true,
       },
       column: 'revenue',
       aggregation: 'sum',
+      description: 'revenue amount in USD cents'.
       type: 'double',
-      hidden: false,
     },
     total_users: {
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'users',
+      description: 'the number of unique users',
       aggregation: 'sum',
       type: 'double',
       hidden: false,
@@ -94,6 +82,7 @@
         formatNumbers: true,
       },
       column: 'transactions',
+      description: 'the number of purchase transactions',
       aggregation: 'sum',
       type: 'double',
       hidden: false,

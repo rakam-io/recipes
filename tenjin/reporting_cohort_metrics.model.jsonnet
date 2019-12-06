@@ -2,6 +2,7 @@
   name: 'reporting_cohort_metrics',
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'reporting_cohort_metrics' }),
+  descriptions: 'Includes all cohorted metrics that are synced with dashboard data',
   mappings: {
     eventTimestamp: 'install_date',
   },
@@ -38,7 +39,6 @@
   },
   dimensions: {
     event_date: {
-      label: 'Event Date',
       pivot: false,
       type: 'date',
       column: 'event_date',
@@ -48,7 +48,6 @@
       hidden: false,
     },
     install_date: {
-      label: 'Install Date',
       pivot: false,
       type: 'date',
       column: 'install_date',
@@ -58,7 +57,6 @@
       hidden: false,
     },
     platform: {
-      label: 'Platform',
       pivot: false,
       type: 'string',
       column: 'platform',
@@ -68,7 +66,6 @@
       hidden: false,
     },
     site_id: {
-      label: 'Site',
       pivot: false,
       type: 'string',
       column: 'site_id',
@@ -93,17 +90,27 @@
       label: 'In-app Purchase Revenue',
       description: 'sum of in-app purchase revenue in USD cents\t',
       reportOptions: {
-        formatNumbers: true,
+        prefix: '$',
       },
       column: 'iap_revenue',
       aggregation: 'sum',
       type: 'double',
       hidden: false,
     },
+    publisher_ad_revenue: {
+      column: 'publisher_ad_revenue',
+      description: 'allocated sum of publisher ad revenue from ad network reporting API in USD cents',
+      aggregation: 'sum',
+      reportOptions: {
+        prefix: '$',
+      },
+      type: 'double',
+      hidden: false,
+    },
     day1_ltv: {
       label: 'Day 1 LTV',
       reportOptions: {
-        formatNumbers: true,
+        prefix: '$',
       },
       sql: 'SUM(CASE WHEN "days_since_install" <= 1 THEN ("publisher_ad_revenue" + "iap_revenue") / 100.0 ELSE 0 END)',
       type: 'double',
@@ -112,7 +119,7 @@
     day2_ltv: {
       label: 'Day 2 LTV',
       reportOptions: {
-        formatNumbers: true,
+        prefix: '$',
       },
       sql: 'SUM(CASE WHEN "days_since_install" <= 2 THEN ("publisher_ad_revenue" + "iap_revenue") / 100.0 ELSE 0 END)',
       type: 'double',
@@ -121,7 +128,7 @@
     day3_ltv: {
       label: 'Day 3 LTV',
       reportOptions: {
-        formatNumbers: true,
+        prefix: '$',
       },
       sql: 'SUM(CASE WHEN "days_since_install" <= 3 THEN ("publisher_ad_revenue" + "iap_revenue") / 100.0 ELSE 0 END)',
       type: 'double',
@@ -129,7 +136,7 @@
     },
     day1_retained_users: {
       reportOptions: {
-        formatNumbers: true,
+        prefix: '$',
       },
       sql: 'SUM(CASE WHEN "days_since_install" = 1 THEN "daily_active_users" ELSE 0 END)',
       type: 'double',
@@ -137,7 +144,7 @@
     },
     day2_retained_users: {
       reportOptions: {
-        formatNumbers: true,
+        prefix: '$',
       },
       sql: 'SUM(CASE WHEN "days_since_install" = 2 THEN "daily_active_users" ELSE 0 END)',
       type: 'double',
@@ -145,7 +152,7 @@
     },
     day3_retained_users: {
       reportOptions: {
-        formatNumbers: true,
+        prefix: '$',
       },
       sql: 'SUM(CASE WHEN "days_since_install" = 3 THEN "daily_active_users" ELSE 0 END)',
       type: 'double',

@@ -2,6 +2,7 @@
   name: 'apps',
   hidden: true,
   target: std.mergePatch(std.extVar('schema'), { table: 'apps' }),
+  description: 'List of apps',
   mappings: {},
   dimensions: {
     name: {
@@ -35,6 +36,7 @@
       pivot: false,
       type: 'string',
       column: 'bundle_id',
+      description: 'ex. com.tenjin.wordfinder',
       reportOptions: {
         formatNumbers: true,
       },

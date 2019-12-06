@@ -2,6 +2,7 @@
   name: 'daily_spend',
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'daily_spend' }),
+  description: 'Includes pre-install metrics(such as imps, clicks, installs, and spend) by campaign and date. “spend” is spend amount converted to USD, and “original_spend” is spend amount in “original_currency”',
   mappings: {
     eventTimestamp: 'date',
     incremental: 'updated_at',
@@ -48,7 +49,6 @@
     total_spent: {
       reportOptions: {
         prefix: '$',
-        formatNumbers: true,
       },
       column: 'spend',
       aggregation: 'sum',
@@ -56,27 +56,18 @@
       hidden: false,
     },
     total_installs: {
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'installs',
       aggregation: 'sum',
       type: 'double',
       hidden: false,
     },
     total_clicks: {
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'clicks',
       aggregation: 'sum',
       type: 'double',
       hidden: false,
     },
     total_impressions: {
-      reportOptions: {
-        formatNumbers: true,
-      },
       column: 'impressions',
       aggregation: 'sum',
       type: 'double',

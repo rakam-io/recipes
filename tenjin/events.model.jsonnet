@@ -3,6 +3,7 @@
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'events' }),
   label: 'Raw Events',
+  description: 'Device level data that comes from Tenjin SDK or 3rd party attribution provider',
   mappings: {
     eventTimestamp: 'created_at',
     incremental: 'created_at',
@@ -22,7 +23,7 @@
       relationType: 'oneToOne',
       joinType: 'innerJoin',
       modelName: 'campaigns',
-      sourceColumn: 'limit_ad_tracking',
+      sourceColumn: 'source_campaign_id',
       targetColumn: 'id',
       hidden: false,
     },
@@ -95,15 +96,9 @@
       },
       hidden: false,
     },
-    event: {
-      label: 'internal_event_type',
-      pivot: false,
-      type: 'string',
-      column: 'event_type',
-      reportOptions: {
-        formatNumbers: true,
-      },
-      hidden: false,
+    is_purchase: {
+      type: 'boolean',
+      sql: "CASE WHEN {{TABLE}}.event_type = 'purchase' THEN TRUE ELSE FALSE END",
     },
     source_campaign_id: {
       pivot: false,
@@ -128,6 +123,7 @@
       pivot: false,
       type: 'string',
       column: 'product_id',
+      description: 'Product id for the purchase event\t(ex. com.tenjin.wordfinder.package50)',
       reportOptions: {
         formatNumbers: true,
       },
@@ -137,6 +133,7 @@
       pivot: false,
       type: 'string',
       column: 'currency',
+      description: 'Currency code for the purchase event. (i.e. USD)',
       reportOptions: {
         formatNumbers: true,
       },
@@ -155,6 +152,7 @@
       pivot: false,
       type: 'string',
       column: 'site_id',
+      description: "campaign's publisher ID if the campaign is paid campaign",
       reportOptions: {
         formatNumbers: true,
       },
@@ -164,6 +162,7 @@
       pivot: false,
       type: 'string',
       column: 'developer_device_id',
+      description: 'IDFV for iOS. Empty for Android. Lower case, without hyphen.',
       reportOptions: {
         formatNumbers: true,
       },
@@ -291,7 +290,6 @@
       column: 'total_revenue',
       aggregation: 'sum',
       type: 'double',
-      hidden: false,
     },
     unique_events: {
       reportOptions: {
@@ -300,7 +298,6 @@
       column: 'uuid',
       aggregation: 'countUnique',
       type: 'double',
-      hidden: false,
     },
   },
 }

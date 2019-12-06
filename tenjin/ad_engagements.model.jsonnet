@@ -2,6 +2,7 @@
   name: 'ad_engagements',
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'ad_engagements' }),
+  description: 'Includes click or impression data for each device. It only has data for non-self attributing ad-networks. We don’t store click or impression data for Google or Facebook.',
   mappings: {
     eventTimestamp: 'created_at',
   },
@@ -49,21 +50,17 @@
     advertising_id: {
       pivot: false,
       type: 'string',
+      description: 'IDFA for iOS or Google advertising ID for Android. Lower case, without hyphen.',
       column: 'advertising_id',
-      reportOptions: {
-        formatNumbers: true,
-      },
-      hidden: false,
+    },
+    attributable: {
+      description: 'if the click/impression is used for attribution or not. true or false\t',
+      column: 'attributable',
     },
     event_type: {
       description: 'either clicks or impressions',
-      pivot: false,
       type: 'string',
       column: 'event_type',
-      reportOptions: {
-        formatNumbers: true,
-      },
-      hidden: false,
     },
     bundle_id: {
       pivot: false,
@@ -75,22 +72,14 @@
       hidden: false,
     },
     platform: {
-      pivot: false,
       type: 'string',
+      description: 'ios or android',
       column: 'platform',
-      reportOptions: {
-        formatNumbers: true,
-      },
-      hidden: false,
     },
     ip_address: {
-      pivot: false,
       type: 'string',
+      description: 'ex. 71.165.85.114',
       column: 'ip_address',
-      reportOptions: {
-        formatNumbers: true,
-      },
-      hidden: false,
     },
     site_id: {
       pivot: false,
@@ -104,11 +93,8 @@
     user_agent: {
       pivot: false,
       type: 'string',
+      description: 'ex. Dalvik/2.1.0 (Linux; U; Android 8.0.0; SM-G570M Build/R16NW)',
       column: 'user_agent',
-      reportOptions: {
-        formatNumbers: true,
-      },
-      hidden: false,
     },
   },
   measures: {
@@ -129,6 +115,12 @@
       aggregation: 'countUnique',
       type: 'double',
       hidden: false,
+    },
+    unique_clicks: {
+      column: 'remote_click_id',
+      aggregation: 'countUnique',
+      description: 'DSGfaa',
+      type: 'double',
     },
   },
 }
