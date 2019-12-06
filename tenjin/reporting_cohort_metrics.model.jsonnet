@@ -2,7 +2,7 @@
   name: 'reporting_cohort_metrics',
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'reporting_cohort_metrics' }),
-  descriptions: 'Includes all cohorted metrics that are synced with dashboard data',
+  description: 'Includes all cohorted metrics that are synced with dashboard data',
   mappings: {
     eventTimestamp: 'install_date',
   },
