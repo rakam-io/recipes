@@ -12,6 +12,7 @@ example_values = {
     'table': {"database": "database", "schema": "schema", "table": "table"},
     'multiple-table': {"database": "database", "schema": "schema", "table": ["table1", "table2"]},
     'target': {"database": "database", "schema": "schema", "table": "table"},
+    'table-multiple-column': {"column": {"type": "string", "column": "column"}},
     "table-column": {"column": {"type": "string", "column": "column"}},
     "numeric": 1,
     'boolean': True,
