@@ -67,7 +67,7 @@
       },
       column: 'revenue',
       aggregation: 'sum',
-      description: 'revenue amount in USD cents'.
+      description: 'revenue amount in USD cents',
       type: 'double',
     },
     total_users: {
