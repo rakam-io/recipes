@@ -94,17 +94,28 @@ local sessionsModel = import './rakam_segment_web_sessions.model.jsonnet';
       category: 'Website',
       sql: |||
         CASE
-          WHEN {{TABLE}}.context_user_agent LIKE '%Firefox/%' THEN LEFT(RIGHT({{TABLE}}.context_user_agent + ' ', LEN({{TABLE}}.context_user_agent + ' ') - CHARINDEX('Firefox/', {{TABLE}}.context_user_agent + ' ') - 6), CHARINDEX(' ', RIGHT({{TABLE}}.context_user_agent + ' ', LEN({{TABLE}}.context_user_agent + ' ') - CHARINDEX('Firefox/', {{TABLE}}.context_user_agent + ' ') - 6)) - 1)
-          WHEN {{TABLE}}.context_user_agent LIKE '%Chrome/%' THEN LEFT(RIGHT({{TABLE}}.context_user_agent, LEN({{TABLE}}.context_user_agent) - CHARINDEX('Chrome/', {{TABLE}}.context_user_agent) - 6), CHARINDEX(' ', RIGHT({{TABLE}}.context_user_agent, LEN({{TABLE}}.context_user_agent) - CHARINDEX('Chrome/', {{TABLE}}.context_user_agent) - 6)) - 1)
-          WHEN {{TABLE}}.context_user_agent LIKE '%MSIE %' THEN LEFT(RIGHT({{TABLE}}.context_user_agent + ';', LEN({{TABLE}}.context_user_agent + ';') - CHARINDEX('MSIE ', {{TABLE}}.context_user_agent + ';') - 4), CHARINDEX(';', RIGHT({{TABLE}}.context_user_agent + ';', LEN({{TABLE}}.context_user_agent + ';') - CHARINDEX('MSIE ', {{TABLE}}.context_user_agent + ';') - 4)) - 1)
-          WHEN {{TABLE}}.context_user_agent LIKE '%MSIE+%' THEN LEFT(RIGHT({{TABLE}}.context_user_agent + ';', LEN({{TABLE}}.context_user_agent + ';') - CHARINDEX('MSIE+', {{TABLE}}.context_user_agent + ';') - 4), CHARINDEX(';', RIGHT({{TABLE}}.context_user_agent + ';', LEN({{TABLE}}.context_user_agent + ';') - CHARINDEX('MSIE+', {{TABLE}}.context_user_agent + ';') - 4)) - 1)
-          WHEN {{TABLE}}.context_user_agent LIKE '%iPhone%' AND {{TABLE}}.context_user_agent LIKE '%Version/%' THEN LEFT(RIGHT({{TABLE}}.context_user_agent, LEN({{TABLE}}.context_user_agent) - CHARINDEX('Version/', {{TABLE}}.context_user_agent) - 7), CHARINDEX(' ', RIGHT({{TABLE}}.context_user_agent, LEN({{TABLE}}.context_user_agent) - CHARINDEX('Version/', {{TABLE}}.context_user_agent) - 7)) - 1)
-          WHEN {{TABLE}}.context_user_agent LIKE '%iPad%' AND {{TABLE}}.context_user_agent LIKE '%Version/%' THEN LEFT(RIGHT({{TABLE}}.context_user_agent, LEN({{TABLE}}.context_user_agent) - CHARINDEX('Version/', {{TABLE}}.context_user_agent) - 7), CHARINDEX(' ', RIGHT({{TABLE}}.context_user_agent, LEN({{TABLE}}.context_user_agent) - CHARINDEX('Version/', {{TABLE}}.context_user_agent) - 7)) - 1)
-          WHEN {{TABLE}}.context_user_agent LIKE '%Opera%' THEN LEFT(RIGHT({{TABLE}}.context_user_agent + ' ', LEN({{TABLE}}.context_user_agent + ' ') - CHARINDEX('Opera/', {{TABLE}}.context_user_agent + ' ') - 4), CHARINDEX(' ', RIGHT({{TABLE}}.context_user_agent + ' ', LEN({{TABLE}}.context_user_agent + ' ') - CHARINDEX('Opera/', {{TABLE}}.context_user_agent + ' ') - 4)) - 1)
-          WHEN {{TABLE}}.context_user_agent LIKE '%BlackBerry%' AND {{TABLE}}.context_user_agent LIKE '%Version/%' THEN LEFT(RIGHT({{TABLE}}.context_user_agent, LEN({{TABLE}}.context_user_agent) - CHARINDEX('Version/', {{TABLE}}.context_user_agent) - 7), CHARINDEX(' ', RIGHT({{TABLE}}.context_user_agent, LEN({{TABLE}}.context_user_agent) - CHARINDEX('Version/', {{TABLE}}.context_user_agent) - 7)) - 1)
-          WHEN {{TABLE}}.context_user_agent LIKE '%BlackBerry%' THEN RIGHT(LEFT({{TABLE}}.context_user_agent + ' ', CHARINDEX(' ', {{TABLE}}.context_user_agent + ' ') - 1), LEN(LEFT({{TABLE}}.context_user_agent + ' ', CHARINDEX(' ', {{TABLE}}.context_user_agent + ' ') - 1)) - CHARINDEX('/', LEFT({{TABLE}}.context_user_agent + ' ', CHARINDEX(' ', {{TABLE}}.context_user_agent + ' ') - 1)))
-          WHEN {{TABLE}}.context_user_agent LIKE '%Android%' THEN LEFT(RIGHT({{TABLE}}.context_user_agent + ';', LEN({{TABLE}}.context_user_agent + ';') - CHARINDEX('Android ', {{TABLE}}.context_user_agent + ';') - 7), CHARINDEX(';', RIGHT({{TABLE}}.context_user_agent + ';', LEN({{TABLE}}.context_user_agent + ';') - CHARINDEX('Android ', {{TABLE}}.context_user_agent + ';') - 7)) - 1)
-          WHEN {{TABLE}}.context_user_agent LIKE '%Safari%' AND {{TABLE}}.context_user_agent LIKE '%Version/%' THEN LEFT(RIGHT({{TABLE}}.context_user_agent, LEN({{TABLE}}.context_user_agent) - CHARINDEX('Version/', {{TABLE}}.context_user_agent) - 7), CHARINDEX(' ', RIGHT({{TABLE}}.context_user_agent, LEN({{TABLE}}.context_user_agent) - CHARINDEX('Version/', {{TABLE}}.context_user_agent) - 7)) - 1)
+          WHEN {{dimension.browser}} = 'Firefox'
+            THEN SUBSTRING({{dimension.browser}}, POSITION('Firefox' IN {{dimension.browser}}) + 8, 100)
+          WHEN ${browser} = 'Safari'
+            THEN SUBSTRING({{dimension.browser}}, POSITION('Safari' IN {{dimension.browser}}) + 7, 100)
+          WHEN ${browser} = 'Chrome'
+            THEN LEFT(
+                      SUBSTRING({{dimension.browser}}
+                                , POSITION('Chrome' IN {{dimension.browser}}) + 7
+                                , 100)
+                      , POSITION(' ' IN SUBSTRING({{dimension.browser}}
+                                                  , POSITION('Chrome' IN {{dimension.browser}}) + 7
+                                                  , 100)
+                                )
+                      )
+          WHEN {{dimension.browser}} LIKE '%Trident%'
+            THEN '11.0'
+          WHEN ${browser} = 'IE'
+            THEN SUBSTRING({{dimension.browser}}, POSITION('MSIE' IN {{dimension.browser}}) + 5, 4)
+          WHEN ${browser} = 'iPhone Safari'
+            THEN SUBSTRING({{dimension.browser}}, POSITION('Safari' IN {{dimension.browser}}) + 7, 100)
+          WHEN ${browser} = 'iPad Safari'
+            THEN SUBSTRING({{dimension.browser}}, POSITION('Safari' IN {{dimension.browser}}) + 7, 100)
           ELSE 'Unknown'
         END
       |||,
