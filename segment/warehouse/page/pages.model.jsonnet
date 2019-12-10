@@ -143,18 +143,12 @@ local sessionsModel = import './rakam_segment_web_sessions.model.jsonnet';
       label: 'Page Path',
       category: 'Website',
       type: 'string',
-      column: 'path',
+      column: 'context_page_path',
     },
     referrer: {
       category: 'Website',
       type: 'string',
-      column: 'referrer',
-    },
-    search: {
-      label: 'Page Search Parameter',
-      category: 'Website',
-      type: 'string',
-      column: 'search',
+      column: 'context_page_referrer',
     },
   },
 }
