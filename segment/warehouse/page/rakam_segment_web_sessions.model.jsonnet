@@ -16,6 +16,7 @@ local first_values = {
   context_campaign_name: { column: 'utm_campaign' },
   context_page_url: { column: 'first_page_url' },
   context_page_path: { column: 'first_page_url_path' },
+  context_page_referrer: { column: 'first_referrer' },
 };
 
 /* We will extract the last values of the events in a given session from pageview events and materialize it in our model. */
@@ -112,10 +113,9 @@ local last_values = {
     },
     page_views: {
       column: 'page_views',
-
     },
-    referrer: {
-      column: 'context_page_referrer',
+    first_referrer: {
+      column: 'first_referrer',
     },
     session_end_tstamp: {
       column: 'session_end_tstamp',
