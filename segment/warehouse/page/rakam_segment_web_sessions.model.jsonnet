@@ -105,12 +105,6 @@ local last_values = {
     //    gclid: {
     //
     //    },
-    device: {
-      column: 'device',
-    },
-    device_category: {
-      column: 'device_category',
-    },
     duration_in_s: {
       column: 'duration_in_s',
     },
