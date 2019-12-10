@@ -96,9 +96,9 @@ local sessionsModel = import './rakam_segment_web_sessions.model.jsonnet';
         CASE
           WHEN {{dimension.browser}} = 'Firefox'
             THEN SUBSTRING({{dimension.browser}}, POSITION('Firefox' IN {{dimension.browser}}) + 8, 100)
-          WHEN ${browser} = 'Safari'
+          WHEN {{dimension.browser}} = 'Safari'
             THEN SUBSTRING({{dimension.browser}}, POSITION('Safari' IN {{dimension.browser}}) + 7, 100)
-          WHEN ${browser} = 'Chrome'
+          WHEN {{dimension.browser}} = 'Chrome'
             THEN LEFT(
                       SUBSTRING({{dimension.browser}}
                                 , POSITION('Chrome' IN {{dimension.browser}}) + 7
@@ -110,11 +110,11 @@ local sessionsModel = import './rakam_segment_web_sessions.model.jsonnet';
                       )
           WHEN {{dimension.browser}} LIKE '%Trident%'
             THEN '11.0'
-          WHEN ${browser} = 'IE'
+          WHEN {{dimension.browser}} = 'IE'
             THEN SUBSTRING({{dimension.browser}}, POSITION('MSIE' IN {{dimension.browser}}) + 5, 4)
-          WHEN ${browser} = 'iPhone Safari'
+          WHEN {{dimension.browser}} = 'iPhone Safari'
             THEN SUBSTRING({{dimension.browser}}, POSITION('Safari' IN {{dimension.browser}}) + 7, 100)
-          WHEN ${browser} = 'iPad Safari'
+          WHEN {{dimension.browser}} = 'iPad Safari'
             THEN SUBSTRING({{dimension.browser}}, POSITION('Safari' IN {{dimension.browser}}) + 7, 100)
           ELSE 'Unknown'
         END
