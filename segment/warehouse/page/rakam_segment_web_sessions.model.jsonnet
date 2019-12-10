@@ -14,16 +14,15 @@ local first_values = {
   context_campaign_content: { column: 'utm_content' },
   context_campaign_medium: { column: 'utm_medium' },
   context_campaign_name: { column: 'utm_campaign' },
-  url: { column: 'first_page_url' },
-  path: { column: 'first_page_url_path' },
-  search: { column: 'first_page_url_query' },
+  context_page_url: { column: 'first_page_url' },
+  context_page_path: { column: 'first_page_url_path' },
 };
 
 /* We will extract the last values of the events in a given session from pageview events and materialize it in our model. */
 local last_values = {
-  url: { column: 'last_url' },
-  path: { column: 'last_path' },
-  search: { column: 'last_search' },
+  context_page_url: { column: 'last_url' },
+  context_page_path: { column: 'last_path' },
+  context_page_search: { column: 'last_search' },
 };
 
 
@@ -116,28 +115,19 @@ local last_values = {
 
     },
     referrer: {
-      column: 'referrer',
-
-    },
-    referrer_host: {
-      column: 'referrer_host',
-
+      column: 'context_page_referrer',
     },
     session_end_tstamp: {
       column: 'session_end_tstamp',
-
     },
     session_id: {
       column: 'session_id',
-
     },
     session_number: {
       column: 'session_number',
-
     },
     session_start_tstamp: {
       column: 'session_start_tstamp',
-
     },
   },
 }
