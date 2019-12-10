@@ -68,14 +68,14 @@ local sessionsModel = import './rakam_segment_web_sessions.model.jsonnet';
       sql: |||
         CASE
           WHEN {{TABLE}}.context_user_agent LIKE '%Firefox/%' THEN 'Firefox'
-          WHEN {{TABLE}}.context_user_agent LIKE '%Chrome/%' OR ${user_agent} LIKE '%CriOS%' THEN 'Chrome'
+          WHEN {{TABLE}}.context_user_agent LIKE '%Chrome/%' OR {{TABLE}}.context_user_agent LIKE '%CriOS%' THEN 'Chrome'
           WHEN {{TABLE}}.context_user_agent LIKE '%MSIE %' THEN 'IE'
           WHEN {{TABLE}}.context_user_agent LIKE '%MSIE+%' THEN 'IE'
           WHEN {{TABLE}}.context_user_agent LIKE '%Trident%' THEN 'IE'
           WHEN {{TABLE}}.context_user_agent LIKE '%iPhone%' THEN 'iPhone Safari'
           WHEN {{TABLE}}.context_user_agent LIKE '%iPad%' THEN 'iPad Safari'
           WHEN {{TABLE}}.context_user_agent LIKE '%Opera%' THEN 'Opera'
-          WHEN {{TABLE}}.context_user_agent LIKE '%BlackBerry%' AND ${user_agent} LIKE '%Version/%' THEN 'BlackBerry WebKit'
+          WHEN {{TABLE}}.context_user_agent LIKE '%BlackBerry%' AND {{TABLE}}.context_user_agent LIKE '%Version/%' THEN 'BlackBerry WebKit'
           WHEN {{TABLE}}.context_user_agent LIKE '%BlackBerry%' THEN 'BlackBerry'
           WHEN {{TABLE}}.context_user_agent LIKE '%Android%' THEN 'Android'
           WHEN {{TABLE}}.context_user_agent LIKE '%Safari%' THEN 'Safari'
