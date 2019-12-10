@@ -4,6 +4,7 @@ local event_types = std.extVar('event_types');
 std.map(function(event_table) {
   target: { database: event_types.database, schema: event_types.schema, table: event_table },
   name: 'event_' + event_table,
+  category: 'Segment Events',
   mappings: {
     eventTimestamp: 'received_at',
     userId: 'user_id',

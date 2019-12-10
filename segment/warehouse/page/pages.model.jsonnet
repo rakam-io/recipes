@@ -62,67 +62,104 @@ local sessionsModel = import './rakam_segment_web_sessions.model.jsonnet';
       type: 'string',
       column: 'url',
     },
-    device: {
-      description: 'The device type',
+    browser: {
+      description: 'The browser type parsed from the user agent',
+      category: 'Website',
       sql: |||
         CASE
-            WHEN lower({{TABLE}}.context_user_agent) ~~ '%android%'::text THEN 'Android'
-            ELSE replace(split_part(split_part({{TABLE}}.context_user_agent, '(', 2), ' ', 1), ';', '')
+          WHEN {{TABLE}}.context_user_agent LIKE '%Firefox/%' THEN 'Firefox'
+          WHEN {{TABLE}}.context_user_agent LIKE '%Chrome/%' OR ${user_agent} LIKE '%CriOS%' THEN 'Chrome'
+          WHEN {{TABLE}}.context_user_agent LIKE '%MSIE %' THEN 'IE'
+          WHEN {{TABLE}}.context_user_agent LIKE '%MSIE+%' THEN 'IE'
+          WHEN {{TABLE}}.context_user_agent LIKE '%Trident%' THEN 'IE'
+          WHEN {{TABLE}}.context_user_agent LIKE '%iPhone%' THEN 'iPhone Safari'
+          WHEN {{TABLE}}.context_user_agent LIKE '%iPad%' THEN 'iPad Safari'
+          WHEN {{TABLE}}.context_user_agent LIKE '%Opera%' THEN 'Opera'
+          WHEN {{TABLE}}.context_user_agent LIKE '%BlackBerry%' AND ${user_agent} LIKE '%Version/%' THEN 'BlackBerry WebKit'
+          WHEN {{TABLE}}.context_user_agent LIKE '%BlackBerry%' THEN 'BlackBerry'
+          WHEN {{TABLE}}.context_user_agent LIKE '%Android%' THEN 'Android'
+          WHEN {{TABLE}}.context_user_agent LIKE '%Safari%' THEN 'Safari'
+          WHEN {{TABLE}}.context_user_agent LIKE '%bot%' THEN 'Bot'
+          WHEN {{TABLE}}.context_user_agent LIKE '%http://%' THEN 'Bot'
+          WHEN {{TABLE}}.context_user_agent LIKE '%www.%' THEN 'Bot'
+          WHEN {{TABLE}}.context_user_agent LIKE '%Wget%' THEN 'Bot'
+          WHEN {{TABLE}}.context_user_agent LIKE '%curl%' THEN 'Bot'
+          WHEN {{TABLE}}.context_user_agent LIKE '%urllib%' THEN 'Bot'
+          ELSE 'Unknown'
         END
       |||,
     },
-    context_campaign_content: {
+    browser_version: {
+      description: 'The browser type parsed from the user agent',
+      category: 'Website',
+      sql: |||
+        CASE
+          WHEN {{TABLE}}.context_user_agent LIKE '%Firefox/%' THEN LEFT(RIGHT({{TABLE}}.context_user_agent + ' ', LEN({{TABLE}}.context_user_agent + ' ') - CHARINDEX('Firefox/', {{TABLE}}.context_user_agent + ' ') - 6), CHARINDEX(' ', RIGHT({{TABLE}}.context_user_agent + ' ', LEN({{TABLE}}.context_user_agent + ' ') - CHARINDEX('Firefox/', {{TABLE}}.context_user_agent + ' ') - 6)) - 1)
+          WHEN {{TABLE}}.context_user_agent LIKE '%Chrome/%' THEN LEFT(RIGHT({{TABLE}}.context_user_agent, LEN({{TABLE}}.context_user_agent) - CHARINDEX('Chrome/', {{TABLE}}.context_user_agent) - 6), CHARINDEX(' ', RIGHT({{TABLE}}.context_user_agent, LEN({{TABLE}}.context_user_agent) - CHARINDEX('Chrome/', {{TABLE}}.context_user_agent) - 6)) - 1)
+          WHEN {{TABLE}}.context_user_agent LIKE '%MSIE %' THEN LEFT(RIGHT({{TABLE}}.context_user_agent + ';', LEN({{TABLE}}.context_user_agent + ';') - CHARINDEX('MSIE ', {{TABLE}}.context_user_agent + ';') - 4), CHARINDEX(';', RIGHT({{TABLE}}.context_user_agent + ';', LEN({{TABLE}}.context_user_agent + ';') - CHARINDEX('MSIE ', {{TABLE}}.context_user_agent + ';') - 4)) - 1)
+          WHEN {{TABLE}}.context_user_agent LIKE '%MSIE+%' THEN LEFT(RIGHT({{TABLE}}.context_user_agent + ';', LEN({{TABLE}}.context_user_agent + ';') - CHARINDEX('MSIE+', {{TABLE}}.context_user_agent + ';') - 4), CHARINDEX(';', RIGHT({{TABLE}}.context_user_agent + ';', LEN({{TABLE}}.context_user_agent + ';') - CHARINDEX('MSIE+', {{TABLE}}.context_user_agent + ';') - 4)) - 1)
+          WHEN {{TABLE}}.context_user_agent LIKE '%iPhone%' AND {{TABLE}}.context_user_agent LIKE '%Version/%' THEN LEFT(RIGHT({{TABLE}}.context_user_agent, LEN({{TABLE}}.context_user_agent) - CHARINDEX('Version/', {{TABLE}}.context_user_agent) - 7), CHARINDEX(' ', RIGHT({{TABLE}}.context_user_agent, LEN({{TABLE}}.context_user_agent) - CHARINDEX('Version/', {{TABLE}}.context_user_agent) - 7)) - 1)
+          WHEN {{TABLE}}.context_user_agent LIKE '%iPad%' AND {{TABLE}}.context_user_agent LIKE '%Version/%' THEN LEFT(RIGHT({{TABLE}}.context_user_agent, LEN({{TABLE}}.context_user_agent) - CHARINDEX('Version/', {{TABLE}}.context_user_agent) - 7), CHARINDEX(' ', RIGHT({{TABLE}}.context_user_agent, LEN({{TABLE}}.context_user_agent) - CHARINDEX('Version/', {{TABLE}}.context_user_agent) - 7)) - 1)
+          WHEN {{TABLE}}.context_user_agent LIKE '%Opera%' THEN LEFT(RIGHT({{TABLE}}.context_user_agent + ' ', LEN({{TABLE}}.context_user_agent + ' ') - CHARINDEX('Opera/', {{TABLE}}.context_user_agent + ' ') - 4), CHARINDEX(' ', RIGHT({{TABLE}}.context_user_agent + ' ', LEN({{TABLE}}.context_user_agent + ' ') - CHARINDEX('Opera/', {{TABLE}}.context_user_agent + ' ') - 4)) - 1)
+          WHEN {{TABLE}}.context_user_agent LIKE '%BlackBerry%' AND {{TABLE}}.context_user_agent LIKE '%Version/%' THEN LEFT(RIGHT({{TABLE}}.context_user_agent, LEN({{TABLE}}.context_user_agent) - CHARINDEX('Version/', {{TABLE}}.context_user_agent) - 7), CHARINDEX(' ', RIGHT({{TABLE}}.context_user_agent, LEN({{TABLE}}.context_user_agent) - CHARINDEX('Version/', {{TABLE}}.context_user_agent) - 7)) - 1)
+          WHEN {{TABLE}}.context_user_agent LIKE '%BlackBerry%' THEN RIGHT(LEFT({{TABLE}}.context_user_agent + ' ', CHARINDEX(' ', {{TABLE}}.context_user_agent + ' ') - 1), LEN(LEFT({{TABLE}}.context_user_agent + ' ', CHARINDEX(' ', {{TABLE}}.context_user_agent + ' ') - 1)) - CHARINDEX('/', LEFT({{TABLE}}.context_user_agent + ' ', CHARINDEX(' ', {{TABLE}}.context_user_agent + ' ') - 1)))
+          WHEN {{TABLE}}.context_user_agent LIKE '%Android%' THEN LEFT(RIGHT({{TABLE}}.context_user_agent + ';', LEN({{TABLE}}.context_user_agent + ';') - CHARINDEX('Android ', {{TABLE}}.context_user_agent + ';') - 7), CHARINDEX(';', RIGHT({{TABLE}}.context_user_agent + ';', LEN({{TABLE}}.context_user_agent + ';') - CHARINDEX('Android ', {{TABLE}}.context_user_agent + ';') - 7)) - 1)
+          WHEN {{TABLE}}.context_user_agent LIKE '%Safari%' AND {{TABLE}}.context_user_agent LIKE '%Version/%' THEN LEFT(RIGHT({{TABLE}}.context_user_agent, LEN({{TABLE}}.context_user_agent) - CHARINDEX('Version/', {{TABLE}}.context_user_agent) - 7), CHARINDEX(' ', RIGHT({{TABLE}}.context_user_agent, LEN({{TABLE}}.context_user_agent) - CHARINDEX('Version/', {{TABLE}}.context_user_agent) - 7)) - 1)
+          ELSE 'Unknown'
+        END
+      |||,
+    },
+    user_agent: {
+      column: 'context_user_agent',
+      category: 'Website',
+    },
+    campaign_content: {
       label: 'Campaign Content',
       category: 'Marketing',
       column: 'context_campaign_content',
     },
-    context_campaign_medium: {
+    campaign_medium: {
       label: 'Campaign Medium',
       category: 'Marketing',
       type: 'string',
       column: 'context_campaign_medium',
     },
-    context_campaign_name: {
+    campaign_name: {
       label: 'Campaign Name',
       category: 'Marketing',
       type: 'string',
       column: 'context_campaign_name',
     },
-    context_campaign_source: {
+    campaign_source: {
       label: 'Campaign Source',
       category: 'Marketing',
       type: 'string',
       column: 'context_campaign_source',
     },
-    context_page_path: {
+    page_path: {
       category: 'Website',
       type: 'string',
       column: 'context_page_path',
     },
-    context_page_referrer: {
+    page_referrer: {
       category: 'Marketing',
       type: 'string',
       column: 'context_page_referrer',
     },
-    context_page_search: {
+    page_search: {
       category: 'Website',
       type: 'string',
       column: 'context_page_search',
     },
-    context_page_title: {
+    page_title: {
       category: 'Website',
       type: 'string',
       column: 'context_page_title',
     },
-    context_page_url: {
+    page_url: {
       category: 'Website',
       type: 'string',
       column: 'context_page_url',
-    },
-    context_user_agent: {
-      category: 'Website',
-      type: 'string',
-      column: 'context_user_agent',
     },
     device_category: {
       description: 'The device category',
