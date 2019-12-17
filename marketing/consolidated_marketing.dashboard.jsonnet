@@ -155,7 +155,7 @@
       y: 2,
       h: 2,
       w: 2,
-      component: 'r-segmentation-chart',
+      component: 'r-chart',
       type: 1,
       reportOptions: {
         modelName: 'consolidated_marketing',
@@ -189,7 +189,7 @@
       y: 3,
       h: 2,
       w: 2,
-      component: 'r-segmentation-chart',
+      component: 'r-number',
       type: 1,
       reportOptions: {
         modelName: 'consolidated_marketing',
@@ -201,16 +201,6 @@
             relationName: null,
           },
         ],
-        reportOptions: {
-          chartOptions: {
-            type: null,
-            columnOptions: [],
-          },
-          tableOptions: {
-            columnOptions: [],
-          },
-          columnOptions: null,
-        },
         defaultDateRange: 'P14D',
         limit: 1000,
         filters: null,
@@ -223,7 +213,7 @@
       y: 2,
       h: 2,
       w: 2,
-      component: 'r-segmentation-chart',
+      component: 'r-number',
       type: 1,
       reportOptions: {
         modelName: 'consolidated_marketing',
@@ -235,16 +225,6 @@
             relationName: null,
           },
         ],
-        reportOptions: {
-          chartOptions: {
-            type: null,
-            columnOptions: [],
-          },
-          tableOptions: {
-            columnOptions: [],
-          },
-          columnOptions: null,
-        },
         defaultDateRange: 'P14D',
         limit: 1000,
         filters: null,
@@ -269,16 +249,6 @@
             relationName: null,
           },
         ],
-        reportOptions: {
-          chartOptions: {
-            type: null,
-            columnOptions: [],
-          },
-          tableOptions: {
-            columnOptions: [],
-          },
-          columnOptions: null,
-        },
         defaultDateRange: 'P14D',
         limit: 1000,
         filters: null,
