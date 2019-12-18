@@ -1,6 +1,25 @@
+local util = import '../util.libsonnet';
+
 {
   name: 'events',
-  sql: 'SELECT * FROM `analytics_163124468`.`events_*`',
+  sql: 'SELECT * FROM `%(target)s`' % { target: util.generate_target_reference(std.mergePatch(std.extVar('schema'), { table: 'events_*' })) },
+  mappings: {
+    eventTimestamp: 'event_timestamp',
+    userId: 'firebase_user_id',
+    deviceId: 'advertising_id',
+  },
+  relations: {
+    rel_sessions: {
+      relationType: 'oneToOne',
+      joinType: 'leftJoin',
+      modelName: 'sessions',
+      sql: |||
+        {{dimension.user_pseudo_id}} = sessions.user_pseudo_id
+        AND {{dimension.event_timestamp}} >= {{model.sessions.dimension.session_start.filter}}
+        AND {{dimension.event_timestamp}} <= {{model.sessions.dimension.session_end.filter}}
+      |||,
+    },
+  },
   dimensions: {
     // App Info
     id: {
@@ -215,6 +234,15 @@
     firebase_user_id: {
       description: 'either user_id or user_pseudo_id',
       sql: 'COALESCE({{dimension.user_pseudo_id}},{{dimension.user_id}})',
+    },
+  },
+  measures: {
+    number_of_users: {
+      sql: '{{dimension.firebase_user_id}}',
+      aggregation: 'countUnique',
+    },
+    number_of_events: {
+      aggregation: 'count',
     },
   },
 }

@@ -1,3 +1,5 @@
+local util = import '../util.libsonnet';
+
 {
   name: 'sessions',
   hidden: false,
@@ -23,12 +25,16 @@
                 SELECT user_pseudo_id,
                         event_timestamp,
                         LAG(event_timestamp,1) OVER (PARTITION BY user_pseudo_id ORDER BY event_timestamp) AS last_event
-                    FROM `analytics_163124468.events_*`
+                    FROM `%(target)s`
                 ) last
         ) final
         ) session
     GROUP BY 1,2,3
-  |||,
+  ||| % { target: util.generate_target_reference(std.mergePatch(std.extVar('schema'), { table: 'events_*' })) },
+  mappings: {
+    eventTimestamp: 'session_start',
+    userId: 'user_pseudo_id',
+  },
   dimensions: {
     user_pseudo_id: {
       type: 'string',
