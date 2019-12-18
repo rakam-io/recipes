@@ -210,7 +210,7 @@
     user_pseudo_id: {
       description: 'The pseudonymous id (e.g., app instance ID) for the user.',
       column: 'user_pseudo_id',
-      type: 'string ',
+      type: 'string',
     },
     firebase_user_id: {
       description: 'either user_id or user_pseudo_id',
