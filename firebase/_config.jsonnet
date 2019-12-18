@@ -9,6 +9,9 @@
     schema: {
       label: 'Schema',
       type: 'schema',
+      options: {
+        placeholder: 'analytics_54353',
+      },
     },
   },
 }
