@@ -7,7 +7,7 @@
       value: {
         name: 'eventTimestamp',
       },
-      defaultValue: 'P1D',
+      defaultValue: 'P1Y',
       isRequired: true,
     },
     {
@@ -16,6 +16,7 @@
       value: {
         name: 'userId',
       },
+      defaultValue: ['NJKJ0HU20P'],
       isRequired: true,
     },
   ],
@@ -53,28 +54,6 @@
         reportOptions: null,
         defaultDateRange: 'P14D',
         limit: 1000,
-        filters: [
-          {
-            type: 'metricFilter',
-            value: {
-              metricType: 'dimension',
-              metricValue: {
-                name: 'user_id',
-                modelName: 'tracks',
-                relationName: null,
-                postOperation: null,
-                pivot: null,
-              },
-              filters: [
-                {
-                  valueType: 'string',
-                  operator: 'equals',
-                  value: 'fsdf',
-                },
-              ],
-            },
-          },
-        ],
       },
     },
     {

@@ -8,6 +8,7 @@
         model: 'facebook_ad_sets',
         dimension: 'end_time',
       },
+      defaultValue: 'P14D',
       isRequired: true,
     },
   ],
@@ -83,8 +84,8 @@
       ttl: 'PT1H',
       x: 0,
       y: 2,
-      h: 2,
-      w: 4,
+      h: 1,
+      w: 6,
       component: 'r-segmentation-chart',
       type: 1,
       reportOptions: {
@@ -230,7 +231,7 @@
       x: 0,
       y: 1,
       h: 1,
-      w: 2,
+      w: 4,
       component: 'r-number',
       type: 1,
       reportOptions: {

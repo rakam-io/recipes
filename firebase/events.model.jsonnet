@@ -1,5 +1,12 @@
 local util = import '.././util.libsonnet';
 
+local test = [{
+  property_name: 'user_id',
+  snake_case_property_name: 'user_id',
+  rakam_type: 'string',
+  value_type: 'string_value',
+}];
+
 {
   name: 'events',
   sql: 'SELECT * FROM `%(target)s`' % { target: util.generate_target_reference(std.mergePatch(std.extVar('schema'), { table: 'events_*' })) },
