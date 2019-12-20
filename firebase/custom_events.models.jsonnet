@@ -28,11 +28,11 @@ std.map(function(event_type)
       SELECT *
       %(user_props)s
       %(event_params)s
-      FROM %(dataset)s.events_*
-      {%% if in_query.user_* %%} LEFT JOIN UNNEST(user_properties) as user_properties {%% endif %%}
-      {%% if in_query.event_* %%} LEFT JOIN UNNEST(event_params) as event_params {%% endif %%}
+      FROM `%(dataset)s`.`events_*`
+      {%% if in_query.user_ %%} LEFT JOIN UNNEST(user_properties) as user_properties {%% endif %%}
+      {%% if in_query.event_ %%} LEFT JOIN UNNEST(event_params) as event_params {%% endif %%}
       WHERE event_name = '%(event)s'
-    ||| % { user_props: std.join(', \n', user_props_jinja), event_params: std.join(', \n', event_params_jinja), dataset: 'firebase', event: 'AppOpened' },
+    ||| % { user_props: std.join(', \n', user_props_jinja), event_params: std.join(', \n', event_params_jinja), dataset: 'analytics_163124468', event: 'AppOpened' },
     dimensions: std.foldl(function(a, b) a + b, std.map(function(attr) {
                   ['user_' + attr.name]: {
                     category: 'User Attribute',
