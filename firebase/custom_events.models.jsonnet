@@ -6,7 +6,7 @@ local user_props = [{ name: 'user_type', prop_db: 'userType', type: 'string', va
 
 local user_props_jinja = std.map(function(prop)
   |||
-    {%% if in_query.%(name)s %%}
+    {%% if in_query.user_%(name)s %%}
        , CASE WHEN user_properties.key = '%(prop_db)s' THEN user_properties.value.%(value_type)s END as %(name)s
     {%% endif %%}
   ||| % prop, user_props);
@@ -18,7 +18,7 @@ std.map(function(event_type)
 
   local event_params_jinja = std.map(function(prop)
     |||
-      {%% if in_query.%(name)s %%}
+      {%% if in_query.event_%(name)s %%}
         , CASE WHEN event_params.key = '%(prop_db)s' THEN event_params.value.%(value_type)s END as %(name)s
       {%% endif %%}
     ||| % prop, current_event_props);
