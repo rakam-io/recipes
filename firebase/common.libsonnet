@@ -2,7 +2,9 @@
   generate_jinja_for_user_properties(user_props)::
     std.map(function(prop)
       |||
-        {%% if in_query.user_%(name)s %%}, CASE WHEN user_properties.key = '%(prop_db)s' THEN user_properties.value.%(value_type)s END as %(name)s {%% endif %%}
+        {%% if in_query.user_%(name)s %%}
+          , CASE WHEN user_properties.key = '%(prop_db)s' THEN user_properties.value.%(value_type)s END as %(name)s
+        {%% endif %%}
       ||| % prop, user_props),
   mappings: {
     eventTimestamp: 'event_timestamp',
@@ -22,15 +24,28 @@
     },
   },
   measures: {
-    number_of_users: {
+    active_users: {
       sql: '{{dimension.firebase_user_id}}',
       aggregation: 'countUnique',
     },
     number_of_events: {
       aggregation: 'count',
     },
+    returning_users: {
+      aggregation: 'countUnique',
+      sql: '{{dimension.returning_user_id}}',
+    },
+    new_users: {
+      aggregation: 'countUnique',
+      sql: '{{TABLE}}.first_open_time IS NULL',
+    },
   },
   dimensions: {
+    returning_user_id: {
+      sql: 'IFNULL({{TABLE}}.first_open_time, {{dimension.firebase_user_id}})',
+      type: 'string',
+      hidden: true,
+    },
     // App Info
     id: {
       description: 'The package name or bundle ID of the app.',
