@@ -2,9 +2,7 @@
   generate_jinja_for_user_properties(user_props)::
     std.map(function(prop)
       |||
-        {%% if in_query.user_%(name)s %%}
-          , CASE WHEN user_properties.key = '%(prop_db)s' THEN user_properties.value.%(value_type)s END as %(name)s
-        {%% endif %%}
+        {%% if in_query.user_%(name)s %%}, CASE WHEN user_properties.key = '%(prop_db)s' THEN user_properties.value.%(value_type)s END as %(name)s {%% endif %%}
       ||| % prop, user_props),
   mappings: {
     eventTimestamp: 'event_timestamp',
