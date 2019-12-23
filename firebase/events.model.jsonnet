@@ -12,7 +12,6 @@ local user_props = std.extVar('user_properties');
   sql: |||
     SELECT *
     %(user_props)s
-    %(event_params)s
     FROM `%(target.project)s`.`%(target.schema)s`.`events_*`
     WHERE event_name = '%(event)s'
     {%% if partitioned %%} AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}'
