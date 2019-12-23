@@ -18,7 +18,21 @@
       parent: 'schema',
       options: {
         sql: |||
-          select 1,1,1
+          SELECT DISTINCT user_properties.key as prop_db,
+          LOWER(LTRIM(REGEXP_REPLACE(REGEXP_REPLACE(user_properties.key, r'([a-z])([A-Z])', r'\1_\2'), r'[^a-zA-Z0-9_]', ''), '_')) as name,
+          CASE WHEN user_properties.value.string_value IS NOT NULL THEN 'string'
+              WHEN user_properties.value.int_value IS NOT NULL THEN 'integer'
+              WHEN user_properties.value.double_value IS NOT NULL THEN 'double'
+              WHEN user_properties.value.float_value IS NOT NULL THEN 'decimal'
+          END as type,
+          CASE WHEN user_properties.value.string_value IS NOT NULL THEN 'string_value'
+              WHEN user_properties.value.int_value IS NOT NULL THEN 'int_value'
+              WHEN user_properties.value.double_value IS NOT NULL THEN 'double_value'
+              WHEN user_properties.value.float_value IS NOT NULL THEN 'float_value'
+          END as value_type
+          FROM `red-lion-43515070.analytics_193028004.events_*` AS events
+          LEFT JOIN UNNEST(events.user_properties) AS user_properties
+          WHERE user_properties.key NOT LIKE '_ltv%'
         |||,
       },
     },
@@ -27,7 +41,24 @@
       parent: 'schema',
       options: {
         sql: |||
-          select 1,1,1
+          SELECT DISTINCT
+          event_name as event_db,
+          event_params.key as prop_db,
+          LOWER(LTRIM(REGEXP_REPLACE(REGEXP_REPLACE(event_name, r'([a-z])([A-Z])', r'\1_\2'), r'[^a-zA-Z0-9_]', ''), '_')) as event_name,
+          LOWER(LTRIM(REGEXP_REPLACE(REGEXP_REPLACE(event_params.key, r'([a-z])([A-Z])', r'\1_\2'), r'[^a-zA-Z0-9_]', ''), '_')) as name,
+          CASE WHEN event_params.value.string_value IS NOT NULL THEN 'string'
+              WHEN event_params.value.int_value IS NOT NULL THEN 'integer'
+              WHEN event_params.value.double_value IS NOT NULL THEN 'double'
+              WHEN event_params.value.float_value IS NOT NULL THEN 'decimal'
+          END as type,
+          CASE WHEN event_params.value.string_value IS NOT NULL THEN 'string_value'
+              WHEN event_params.value.int_value IS NOT NULL THEN 'int_value'
+              WHEN event_params.value.double_value IS NOT NULL THEN 'double_value'
+              WHEN event_params.value.float_value IS NOT NULL THEN 'float_value'
+          END as value_type,
+          FROM `red-lion-43515070.analytics_193028004.events_*` AS events
+          LEFT JOIN UNNEST(events.event_params) as event_params
+          ORDER BY 1
         |||,
       },
     },
