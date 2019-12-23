@@ -31,7 +31,7 @@ std.map(function(event_type)
       FROM `%(dataset)s`.`events_*`
       {%% if in_query.user_ %%} LEFT JOIN UNNEST(user_properties) as user_properties {%% endif %%}
       {%% if in_query.event_ %%} LEFT JOIN UNNEST(event_params) as event_params {%% endif %%}
-      WHERE event_name = '%(event)s'
+      WHERE event_name = '%(event)s' {%% if partitioned %%} AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
     ||| % { user_props: std.join(', \n', user_props_jinja), event_params: std.join(', \n', event_params_jinja), dataset: 'analytics_163124468', event: 'AppOpened' },
     dimensions: std.foldl(function(a, b) a + b, std.map(function(attr) {
                   ['user_' + attr.name]: {
