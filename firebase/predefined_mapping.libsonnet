@@ -4,13 +4,13 @@
       paying_users: {
         aggregation: 'countUnique',
         sql: '{{dimension.firebase_user_id}}',
-        filters: [{ dimension: 'is_paying', operator: 'equals', value: true, valueType: 'boolean' }],
+        filters: [{ dimension: 'is_paying', operator: 'is', value: true, valueType: 'boolean' }],
       },
       whales_playing: {
         aggregation: 'countUnique',
         sql: '{{dimension.firebase_user_id}}',
         filters: [
-          { dimension: 'is_whale', operator: 'equals', value: true, valueType: 'boolean' },
+          { dimension: 'is_whale', operator: 'is', value: true, valueType: 'boolean' },
         ],
       },
       revenue: {
@@ -28,18 +28,18 @@
     revenue_from_returning_users: {
       aggregation: 'sum',
       sql: '{{dimension.price}}/1000000',
-      filters: [{ dimension: 'is_returning_user', operator: 'equals', value: true, valueType: 'boolean' }],
+      filters: [{ dimension: 'is_returning_user', operator: 'is', value: true, valueType: 'boolean' }],
       reportOptions: { prefix: '$' },
     },
     revenue_from_new_users: {
       aggregation: 'sum',
       sql: '{{dimension.price}}/1000000',
-      filters: [{ dimension: 'is_returning_user', operator: 'equals', value: false, valueType: 'boolean' }],
+      filters: [{ dimension: 'is_returning_user', operator: 'is', value: false, valueType: 'boolean' }],
       reportOptions: { prefix: '$' },
     },
     revenue_from_whales: {
       sql: '{{measure.revenue}}',
-      filters: [{ dimension: 'is_whale', operator: 'equals', value: true, valueType: 'boolean' }],
+      filters: [{ dimension: 'is_whale', operator: 'is', value: true, valueType: 'boolean' }],
     },
     revenue_whales_ratio: {
       sql: '{{measure.revenue_from_whales}} / {{measure.revenue}}',

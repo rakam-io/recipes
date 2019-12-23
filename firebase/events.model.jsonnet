@@ -27,7 +27,7 @@ local user_props = std.extVar('user_properties');
     paying_and_returning_users: {
       sql: '{{dimension.firebase_user_id}}',
       aggregation: 'countUnique',
-      filters: [{ dimension: 'returning_user_id', operator: 'isSet', valueType: 'unknown' }, { dimension: 'is_paying', operator: 'equals', value: true, valueType: 'boolean' }],
+      filters: [{ dimension: 'returning_user_id', operator: 'isSet', valueType: 'unknown' }, { dimension: 'is_paying', operator: 'is', value: true, valueType: 'boolean' }],
       type: 'double',
       hidden: true,
     },
