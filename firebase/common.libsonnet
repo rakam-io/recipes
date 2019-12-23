@@ -37,12 +37,12 @@
     },
     new_users: {
       aggregation: 'countUnique',
-      sql: '{{TABLE}}.first_open_time IS NULL',
+      sql: '{{dimension.user_first_open_time}} IS NULL',
     },
   },
   dimensions: {
     returning_user_id: {
-      sql: 'IFNULL({{TABLE}}.first_open_time, {{dimension.firebase_user_id}})',
+      sql: 'IFNULL({{dimension.user_first_open_time}}, {{dimension.firebase_user_id}})',
       type: 'string',
       hidden: true,
     },
