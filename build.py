@@ -15,6 +15,7 @@ example_values = {
     'table-multiple-column': {"column": {"type": "string", "column": "column"}},
     "table-column": {"column": {"type": "string", "column": "column"}},
     "numeric": 1,
+    "sql": [],
     'boolean': True,
     'model-mapping': {}
 }

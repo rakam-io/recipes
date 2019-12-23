@@ -13,5 +13,23 @@
         placeholder: 'analytics_54353',
       },
     },
+    user_properties: {
+      type: 'sql',
+      parent: 'schema',
+      options: {
+        sql: |||
+          select 1,1,1
+        |||,
+      },
+    },
+    event_properties: {
+      type: 'sql',
+      parent: 'schema',
+      options: {
+        sql: |||
+          select 1,1,1
+        |||,
+      },
+    },
   },
 }
