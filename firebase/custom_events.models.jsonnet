@@ -31,7 +31,8 @@ std.map(function(event_type)
       FROM `%(target.project)s`.`%(target.schema)s`.`events_*`
       {%% if in_query.user_ %%} LEFT JOIN UNNEST(user_properties) as user_properties {%% endif %%}
       {%% if in_query.event_ %%} LEFT JOIN UNNEST(event_params) as event_params {%% endif %%}
-      WHERE event_name = '%(event)s'
+      WHERE event_name = '%(event)s 
+      {%% if partitioned %%} AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}'
     ||| % { user_props: std.join(', \n', common.generate_jinja_for_user_properties(user_props)), event_params: std.join(', \n', event_params_jinja), target: target, event: event_db_name },
     dimensions: common.dimensions + std.foldl(function(a, b) a + b, std.map(function(attr) {
                   ['user_' + attr.name]: {
