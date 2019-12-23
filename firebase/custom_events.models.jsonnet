@@ -28,7 +28,7 @@ std.map(function(event_type)
       SELECT *
       %(user_props)s
       %(event_params)s
-      FROM `%(target.project)s`.`%(target.schema)s`.`events_*`
+      FROM `%(target.database)s`.`%(target.schema)s`.`events_*`
       {%% if in_query.user_ %%} LEFT JOIN UNNEST(user_properties) as user_properties {%% endif %%}
       {%% if in_query.event_ %%} LEFT JOIN UNNEST(event_params) as event_params {%% endif %%}
       WHERE event_name = '%(event)s 

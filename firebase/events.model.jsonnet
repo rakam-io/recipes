@@ -12,7 +12,7 @@ local user_props = std.extVar('user_properties');
   sql: |||
     SELECT *
     %(user_props)s
-    FROM `%(target.project)s`.`%(target.schema)s`.`events_*`
+    FROM `%(target.database)s`.`%(target.schema)s`.`events_*`
     WHERE event_name = '%(event)s'
     {%% if partitioned %%} AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}'
   ||| % { user_props: std.join(', \n', common.generate_jinja_for_user_properties(user_props)), target: target },
