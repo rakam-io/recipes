@@ -1,5 +1,5 @@
 local util = import '.././util.libsonnet';
-local common = import './common.libsonnet';
+local common = import '././common.libsonnet';
 
 local event_props = std.extVar('event_properties');
 local target = std.extVar('schema');
