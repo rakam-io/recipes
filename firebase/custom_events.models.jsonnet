@@ -15,22 +15,22 @@ std.map(function(event_type)
   local defined = common.predefined[event_type];
 
   local dimensions_for_event = std.foldl(function(a, b) a + b, std.map(function(attr) {
-                       ['user__' + attr.name]: {
-                         category: 'User Attribute',
-                         sql: '{{TABLE}}.__`' + attr.name + '`',
-                         type: attr.type,
-                       },
-                     }, user_props), {})
-                     +
-                     std.foldl(function(a, b) a + b, std.map(function(attr) {
-                       ['event__' + attr.name]: {
-                         category: 'Event Attribute',
-                         sql: '{{TABLE}}.event__`' + attr.name + '`',
-                         type: attr.type,
-                       },
-                     }, current_event_props), {})
-                     +
-                     if defined != null && std.objectHas(defined, 'dimensions') then defined.dimensions else {};
+                                 ['user__' + attr.name]: {
+                                   category: 'User Attribute',
+                                   sql: '{{TABLE}}.__`' + attr.name + '`',
+                                   type: attr.type,
+                                 },
+                               }, user_props), {})
+                               +
+                               std.foldl(function(a, b) a + b, std.map(function(attr) {
+                                 ['event__' + attr.name]: {
+                                   category: 'Event Attribute',
+                                   sql: '{{TABLE}}.event__`' + attr.name + '`',
+                                   type: attr.type,
+                                 },
+                               }, current_event_props), {})
+                               +
+                               if defined != null && std.objectHas(defined, 'dimensions') then defined.dimensions else {};
 
   {
     name: event_type,
@@ -46,12 +46,12 @@ std.map(function(event_type)
       {%% if in_query.event_ %%} LEFT JOIN UNNEST(event_params) as event_params {%% endif %%}
       WHERE event_name = '%(event)s'
       {%% if partitioned %%} AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
-    ||| % { 
-      user_jinja: std.join('\n', common.generate_jinja_for_user_properties(user_props)), 
-      event_jinja: std.join('\n', common.generate_jinja_for_event_properties(current_event_props), 
-      project: target.database, 
-      dataset: target.schema, 
-      event: event_db_name 
+    ||| % {
+      user_jinja: std.join('\n', common.generate_jinja_for_user_properties(user_props)),
+      event_jinja: std.join('\n', common.generate_jinja_for_event_properties(current_event_props)),
+      project: target.database,
+      dataset: target.schema,
+      event: event_db_name,
     },
     dimensions: common.dimensions + dimensions_for_event,
   }, unique_events)
