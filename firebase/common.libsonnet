@@ -80,7 +80,7 @@ local predefined = {
       },
       revenue_from_new_users: {
         aggregation: 'sum',
-        sql: '{{dimension.event_price}} / 1000000',
+        sql: '{{dimension.event__price}} / 1000000',
         filters: [{ dimension: 'returning_user_id', operator: 'isNotSet', valueType: 'unknown' }],
         reportOptions: { prefix: '$' },
       },
