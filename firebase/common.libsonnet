@@ -75,13 +75,13 @@ local predefined = {
       revenue_from_returning_users: {
         aggregation: 'sum',
         sql: '{{dimension.event_price}} / 1000000',
-        filters: [{ dimension: 'returning_user_id', operator: 'isSet', value: true, valueType: 'unknown' }],
+        filters: [{ dimension: 'returning_user_id', operator: 'isSet', valueType: 'unknown' }],
         reportOptions: { prefix: '$' },
       },
       revenue_from_new_users: {
         aggregation: 'sum',
         sql: '{{dimension.event_price}} / 1000000',
-        filters: [{ dimension: 'returning_user_id', operator: 'isSet', value: true, valueType: 'unknown' }],
+        filters: [{ dimension: 'returning_user_id', operator: 'isNotSet', valueType: 'unknown' }],
         reportOptions: { prefix: '$' },
       },
       revenue_from_whales: {
