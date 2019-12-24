@@ -403,7 +403,7 @@ local predefined = {
     },
     firebase_user_id: {
       description: 'either user_id or user_pseudo_id',
-      sql: 'COALESCE({{dimension.user_pseudo_id}},{{dimension.user_id}})',
+      sql: 'COALESCE({{dimension.user_id}}, {{dimension.user_pseudo_id}})',
     },
   },
   predefined: predefined,

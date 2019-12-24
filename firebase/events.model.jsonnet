@@ -5,28 +5,35 @@ local target = std.extVar('schema');
 
 local custom_measures = {
   average_revenue_per_user: {
-    sql: '{{measure.revenue}}/{{measure.active_users}}',
+    sql: '1.0 * ({{measure.revenue}}/{{measure.active_users}})',
     type: 'double',
     reportOptions: { prefix: '$' },
   },
   average_revenue_per_new_user: {
-    sql: '{{measure.revenue}}/{{measure.new_users}}',
+    aggregation: 'average',
+    sql: '{{dimension.event__price}} / 1000000',
     type: 'double',
+    filters: [
+      { dimension: 'user__first_open_time', operator: 'isNotSet', valueType: 'unknown' },
+    ],
     reportOptions: { prefix: '$' },
   },
   average_revenue_per_returning_user: {
-    sql: '{{measure.revenue}}/{{measure.returning_users}}',
+    aggregation: 'average',
+    sql: '{{dimension.event__price}} / 1000000',
     type: 'double',
+    filters: [
+      { dimension: 'user__first_open_time', operator: 'isSet', valueType: 'unknown' },
+    ],
     reportOptions: { prefix: '$' },
-  },
-  paying_and_returning_user_ratio: {
-    sql: '{{measure.paying_users}}/{{measure.returning_users}}',
-    type: 'double',
   },
   paying_and_returning_users: {
     sql: '{{dimension.firebase_user_id}}',
     aggregation: 'countUnique',
-    filters: [{ dimension: 'returning_user_id', operator: 'isSet', valueType: 'unknown' }, { dimension: 'is_paying', operator: 'is', value: true, valueType: 'boolean' }],
+    filters: [
+      { dimension: 'returning_user_id', operator: 'isSet', valueType: 'unknown' },
+      { dimension: 'is_paying', operator: 'is', value: true, valueType: 'boolean' },
+    ],
     type: 'double',
     hidden: true,
   },
