@@ -75,13 +75,17 @@ local predefined = {
       revenue_from_returning_users: {
         aggregation: 'sum',
         sql: '{{dimension.event__price}} / 1000000',
-        filters: [{ dimension: 'returning_user_id', operator: 'isSet', valueType: 'unknown' }],
+        filters: [
+          { dimension: 'is_returning', operator: 'is', value: true, valueType: 'boolean' },
+        ],
         reportOptions: { prefix: '$' },
       },
       revenue_from_new_users: {
         aggregation: 'sum',
         sql: '{{dimension.event__price}} / 1000000',
-        filters: [{ dimension: 'returning_user_id', operator: 'isNotSet', valueType: 'unknown' }],
+        filters: [
+          { dimension: 'is_returning', operator: 'is', value: false, valueType: 'boolean' },
+        ],
         reportOptions: { prefix: '$' },
       },
       revenue_from_whales: {
@@ -130,7 +134,6 @@ local predefined = {
   get_user_properties()::
     // if std.extVar('user_properties') != null then std.extVar('user_properties') else
     [
-      { name: 'first_open_time', type: 'string', value_type: 'string_value', prop_db: 'first_open_time', description: 'UTC time when the user first launched the app (in milliseconds rounded to the nearest full hour)' },
       { name: 'last_deep_link_referrer', type: 'string', value_type: 'string_value', prop_db: 'last_deep_link_referrer', description: 'Last deep-link referrer value (2K-character limit)' },
     ],
   get_event_properties()::
@@ -164,16 +167,30 @@ local predefined = {
     },
     returning_users: {
       aggregation: 'countUnique',
-      sql: '{{dimension.returning_user_id}}',
+      sql: '{{dimension.firebase_user_id}}',
+      filters: [
+        { dimension: 'is_returning', operator: 'is', value: true, valueType: 'boolean' },
+      ],
     },
     new_users: {
       aggregation: 'countUnique',
-      sql: '{{dimension.user__first_open_time}} IS NULL',
+      sql: '{{dimension.firebase_user_id}}',
+      filters: [
+        { dimension: 'is_returning', operator: 'is', value: false, valueType: 'boolean' },
+      ],
     },
   },
   dimensions: {
     is_whale: {
       sql: "{{TABLE}}.`user_ltv`.`revenue` > 99 AND {{TABLE}}.`user_ltv`.`currency` = 'USD'",
+    },
+    user_first_touch: {
+      description: 'The time at which the user first opened the app.',
+      type: 'timestamp',
+      sql: 'TIMESTAMP_MICROS({{TABLE}}.`user_first_touch_timestamp`)',
+    },
+    is_returning: {
+      sql: 'TIMESTAMP_DIFF(CURRENT_TIMESTAMP(), {{dimension.user_first_touch}}, DAY) > 2',
     },
     is_paying: {
       sql: '{{TABLE}}.`user_ltv`.`revenue` > 0',
@@ -184,11 +201,6 @@ local predefined = {
     },
     ltv_currency: {
       sql: '{{TABLE}}.`user_ltv`.`currency`',
-      hidden: true,
-    },
-    returning_user_id: {
-      sql: 'IFNULL({{dimension.user__first_open_time}}, {{dimension.firebase_user_id}})',
-      type: 'string',
       hidden: true,
     },
     // App Info
@@ -377,11 +389,6 @@ local predefined = {
     traffic_source: {
       hidden: true,
       column: 'traffic_source',
-    },
-    user_first_touch: {
-      description: 'The time at which the user first opened the app.',
-      type: 'timestamp',
-      sql: 'TIMESTAMP_MICROS({{TABLE}}.`user_first_touch_timestamp`)',
     },
     user_id: {
       description: 'The user ID set via the setUserId API.',

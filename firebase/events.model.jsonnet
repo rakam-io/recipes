@@ -14,7 +14,7 @@ local custom_measures = {
     sql: '{{dimension.event__price}} / 1000000',
     type: 'double',
     filters: [
-      { dimension: 'user__first_open_time', operator: 'isNotSet', valueType: 'unknown' },
+      { dimension: 'is_returning', operator: 'is', value: false, valueType: 'boolean' },
     ],
     reportOptions: { prefix: '$' },
   },
@@ -23,7 +23,7 @@ local custom_measures = {
     sql: '{{dimension.event__price}} / 1000000',
     type: 'double',
     filters: [
-      { dimension: 'user__first_open_time', operator: 'isSet', valueType: 'unknown' },
+      { dimension: 'is_returning', operator: 'is', value: true, valueType: 'boolean' },
     ],
     reportOptions: { prefix: '$' },
   },
@@ -31,7 +31,7 @@ local custom_measures = {
     sql: '{{dimension.firebase_user_id}}',
     aggregation: 'countUnique',
     filters: [
-      { dimension: 'returning_user_id', operator: 'isSet', valueType: 'unknown' },
+      { dimension: 'is_returning', operator: 'is', value: true, valueType: 'boolean' },
       { dimension: 'is_paying', operator: 'is', value: true, valueType: 'boolean' },
     ],
     type: 'double',
