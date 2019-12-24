@@ -1,8 +1,7 @@
 local util = import '.././util.libsonnet';
 local common = import 'common.libsonnet';
-local target = std.extVar('schema');
-
-local user_props = common.get_user_properties();
+local target = { database: '', schema: '' };
+// local target = std.extVar('schema');
 
 local custom_measures = {
   average_revenue_per_user: {
@@ -33,21 +32,24 @@ local custom_measures = {
   },
 };
 
-local user_properties = std.foldl(function(a, b) a + b, std.map(function(attr) {
+local user_props = common.get_user_properties();
+local embedded_event = common.predefined.in_app_purchase;
+
+local user_dimensions = std.foldl(function(a, b) a + b, std.map(function(attr) {
   ['user_' + attr.name]: {
     category: 'User Attribute',
-    sql: '{{TABLE}}.`' + attr.name + '`',
+    sql: '{{TABLE}}.user__`' + attr.name + '`',
     type: attr.type,
   },
 }, user_props), {});
 
-local embedded_event = common.predefined.in_app_purchase;
-local event_params_jinja = std.map(function(prop)
-  |||
-    {%% if in_query.event_%(name)s %%}
-      , CASE WHEN event_params.key = '%(prop_db)s' THEN event_params.value.%(value_type)s END as %(name)s
-    {%% endif %%}
-  ||| % prop, embedded_event.properties);
+local event_dimensions = std.foldl(function(a, b) a + b, std.map(function(attr) {
+  ['event_' + attr.name]: {
+    category: 'Event Attribute',
+    sql: '{{TABLE}}.`event__' + attr.name + '`',
+    type: attr.type,
+  },
+}, embedded_event.properties), {});
 
 {
   name: 'firebase_events',
@@ -56,18 +58,17 @@ local event_params_jinja = std.map(function(prop)
   relations: common.relations,
   sql: |||
     SELECT *
-    %(user_props)s
-    %(event_params)s
+    %(user_jinja)s
+    %(event_jinja)s
     FROM `%(project)s`.`%(dataset)s`.`events_*`
     {%% if in_query.user_ %%} LEFT JOIN UNNEST(user_properties) as user_properties {%% endif %%}
     {%% if in_query.event_ %%} LEFT JOIN UNNEST(event_params) as event_params {%% endif %%}
     {%% if partitioned %%} WHERE _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
-  ||| % { user_props: std.join('\n', common.generate_jinja_for_user_properties(user_props)), project: target.database, dataset: target.schema, event_params: std.join('\n', event_params_jinja) },
-  dimensions: common.dimensions + user_properties + std.foldl(function(a, b) a + b, std.map(function(attr) {
-    ['event_' + attr.name]: {
-      category: 'Event Attribute',
-      sql: '{{TABLE}}.`' + attr.name + '`',
-      type: attr.type,
-    },
-  }, embedded_event.properties), {}),
+  ||| % {
+    project: target.database,
+    dataset: target.schema,
+    user_jinja: std.join('\n', common.generate_jinja_for_user_properties(user_props)),
+    event_jinja: std.join('\n', common.generate_jinja_for_event_properties(embedded_event.properties)),
+  },
+  dimensions: common.dimensions + user_dimensions + event_dimensions,
 }
