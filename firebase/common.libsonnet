@@ -101,7 +101,7 @@ local predefined = {
     std.foldl(function(a, b) a + b, std.map(function(attr) {
       ['user__' + attr.name]: {
         category: 'User Attribute',
-        sql: '{{TABLE}}.__`user__' + attr.name + '`',
+        sql: '{{TABLE}}.`user__' + attr.name + '`',
         type: attr.type,
       },
     }, user_props), {}),
