@@ -7,14 +7,14 @@
         {%% endif %%}
       ||| % prop, user_props),
   get_user_properties()::
-    // if std.extVar('user_properties') then std.extVar('user_properties') else
-    [
-      { name: 'first_open_time', type: 'string', value_type: 'string_value', prop_db: 'first_open_time', description: 'UTC time when the user first launched the app (in milliseconds rounded to the nearest full hour)' },
-      { name: 'last_deep_link_referrer', type: 'string', value_type: 'string_value', prop_db: 'last_deep_link_referrer', description: 'Last deep-link referrer value (2K-character limit)' },
-    ],
+    if std.extVar('user_properties') then std.extVar('user_properties') else
+      [
+        { name: 'first_open_time', type: 'string', value_type: 'string_value', prop_db: 'first_open_time', description: 'UTC time when the user first launched the app (in milliseconds rounded to the nearest full hour)' },
+        { name: 'last_deep_link_referrer', type: 'string', value_type: 'string_value', prop_db: 'last_deep_link_referrer', description: 'Last deep-link referrer value (2K-character limit)' },
+      ],
   get_event_properties()::
-    // if std.extVar('event_properties') then std.extVar('event_properties') else
-    std.flattenArrays(std.map(function(event_type) std.map(function(prop) { event_name: event_type, event_db: event_type, name: prop.name, prop_db: prop.prop_db, type: prop.type, value_type: prop.value_type }, predefined[event_type].properties), std.objectFields(predefined)))
+    if std.extVar('event_properties') then std.extVar('event_properties') else
+      std.flattenArrays(std.map(function(event_type) std.map(function(prop) { event_name: event_type, event_db: event_type, name: prop.name, prop_db: prop.prop_db, type: prop.type, value_type: prop.value_type }, predefined[event_type].properties), std.objectFields(predefined)))
   ,
   mappings: {
     eventTimestamp: 'event_timestamp',
