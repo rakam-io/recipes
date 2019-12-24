@@ -1,4 +1,4 @@
-local predefined = import 'predefined_mapping.libsonnet';
+local predefined = import './predefined_mapping.libsonnet';
 
 {
   predefined: predefined,
