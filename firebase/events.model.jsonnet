@@ -7,14 +7,17 @@ local custom_measures = {
   average_revenue_per_user: {
     sql: '{{measure.revenue}}/{{measure.active_users}}',
     type: 'double',
+    reportOptions: { prefix: '$' },
   },
   average_revenue_per_new_user: {
     sql: '{{measure.revenue}}/{{measure.new_users}}',
     type: 'double',
+    reportOptions: { prefix: '$' },
   },
   average_revenue_per_returning_user: {
     sql: '{{measure.revenue}}/{{measure.returning_users}}',
     type: 'double',
+    reportOptions: { prefix: '$' },
   },
   paying_and_returning_user_ratio: {
     sql: '{{measure.paying_users}}/{{measure.returning_users}}',
