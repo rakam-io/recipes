@@ -1,6 +1,7 @@
 local predefined = import 'predefined_mapping.libsonnet';
 
 {
+  predefined: predefined,
   generate_jinja_for_user_properties(user_props)::
     std.map(function(prop)
       |||

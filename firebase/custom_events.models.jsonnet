@@ -1,6 +1,5 @@
 local util = import '.././util.libsonnet';
 local common = import '././common.libsonnet';
-local predefined = import 'predefined_mapping.libsonnet';
 
 local event_props = common.get_event_properties();
 local target = std.extVar('schema');
@@ -19,7 +18,7 @@ std.map(function(event_type)
       {%% endif %%}
     ||| % prop, current_event_props);
 
-  local defined = predefined[event_type];
+  local defined = common.predefined[event_type];
 
   local dimensions = std.foldl(function(a, b) a + b, std.map(function(attr) {
                        ['user_' + attr.name]: {
