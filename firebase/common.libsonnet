@@ -63,7 +63,7 @@ local predefined = {
       },
       revenue: {
         aggregation: 'sum',
-        sql: '{{dimension.event_price}} / 1000000',
+        sql: '{{dimension.event__price}} / 1000000',
         reportOptions: { prefix: '$', formatNumbers: true },
       },
       transaction_count_per_paying_user: {
@@ -74,7 +74,7 @@ local predefined = {
       },
       revenue_from_returning_users: {
         aggregation: 'sum',
-        sql: '{{dimension.event_price}} / 1000000',
+        sql: '{{dimension.event__price}} / 1000000',
         filters: [{ dimension: 'returning_user_id', operator: 'isSet', valueType: 'unknown' }],
         reportOptions: { prefix: '$' },
       },
@@ -86,7 +86,7 @@ local predefined = {
       },
       revenue_from_whales: {
         aggregation: 'sum',
-        sql: '{{dimension.event_price}} / 1000000',
+        sql: '{{dimension.event__price}} / 1000000',
         filters: [{ dimension: 'is_whale', operator: 'is', value: true, valueType: 'boolean' }],
       },
       revenue_whales_ratio: {
@@ -116,14 +116,14 @@ local predefined = {
   generate_jinja_for_user_properties(user_props)::
     std.map(function(prop)
       |||
-        {%% if in_query.user_%(name)s %%}
+        {%% if in_query.user__%(name)s %%}
           , CASE WHEN user_properties.key = '%(prop_db)s' THEN user_properties.value.%(value_type)s END as %(name)s
         {%% endif %%}
       ||| % prop, user_props),
   generate_jinja_for_event_properties(event_props)::
     std.map(function(prop)
       |||
-        {%% if in_query.event_%(name)s %%}
+        {%% if in_query.event__%(name)s %%}
           , CASE WHEN event_params.key = '%(prop_db)s' THEN event_params.value.%(value_type)s END as %(name)s
         {%% endif %%}
       ||| % prop, event_props),
@@ -168,12 +168,12 @@ local predefined = {
     },
     new_users: {
       aggregation: 'countUnique',
-      sql: '{{dimension.user_first_open_time}} IS NULL',
+      sql: '{{dimension.user__first_open_time}} IS NULL',
     },
   },
   dimensions: {
     returning_user_id: {
-      sql: 'IFNULL({{dimension.user_first_open_time}}, {{dimension.firebase_user_id}})',
+      sql: 'IFNULL({{dimension.user__first_open_time}}, {{dimension.firebase_user_id}})',
       type: 'string',
       hidden: true,
     },
@@ -389,7 +389,7 @@ local predefined = {
     },
     firebase_user_id: {
       description: 'either user_id or user_pseudo_id',
-      sql: 'COALESCE({{dimension.user_pseudo_id}},{{dimension.user_id}})',
+      sql: 'COALESCE({{_pseudo_id}},{{dimension.user_id}})',
     },
   },
   predefined: predefined,

@@ -1,20 +1,21 @@
 local util = import '.././util.libsonnet';
 local common = import '././common.libsonnet';
 
-local event_props = common.get_event_properties();
-local target = std.extVar('schema');
-local user_props = common.get_user_properties();
 
-local unique_events = std.uniq(std.map(function(attr) attr.event_name, event_props));
+local all_event_props = common.get_event_properties();
+local unique_events = std.uniq(std.map(function(attr) attr.event_name, all_event_props));
+
+local user_props = common.get_user_properties();
+local target = std.extVar('schema');
 
 std.map(function(event_type)
-  local current_event_props = std.filter(function(p) p.event_name == event_type, event_props);
-  local event_db_name = std.filter(function(attr) attr.event_name == event_type, event_props)[0].event_db;
+  local current_event_props = std.filter(function(p) p.event_name == event_type, all_event_props);
+  local event_db_name = std.filter(function(attr) attr.event_name == event_type, all_event_props)[0].event_db;
 
   local defined = common.predefined[event_type];
 
   local dimensions_for_event = std.foldl(function(a, b) a + b, std.map(function(attr) {
-                       ['user_' + attr.name]: {
+                       ['user__' + attr.name]: {
                          category: 'User Attribute',
                          sql: '{{TABLE}}.__`' + attr.name + '`',
                          type: attr.type,
@@ -22,12 +23,12 @@ std.map(function(event_type)
                      }, user_props), {})
                      +
                      std.foldl(function(a, b) a + b, std.map(function(attr) {
-                       ['event_' + attr.name]: {
+                       ['event__' + attr.name]: {
                          category: 'Event Attribute',
                          sql: '{{TABLE}}.event__`' + attr.name + '`',
                          type: attr.type,
                        },
-                     }, event_props), {})
+                     }, current_event_props), {})
                      +
                      if defined != null && std.objectHas(defined, 'dimensions') then defined.dimensions else {};
 

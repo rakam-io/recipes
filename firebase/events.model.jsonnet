@@ -36,7 +36,7 @@ local user_props = common.get_user_properties();
 local embedded_event = common.predefined.in_app_purchase;
 
 local user_dimensions = std.foldl(function(a, b) a + b, std.map(function(attr) {
-  ['user_' + attr.name]: {
+  ['user__' + attr.name]: {
     category: 'User Attribute',
     sql: '{{TABLE}}.user__`' + attr.name + '`',
     type: attr.type,
@@ -44,7 +44,7 @@ local user_dimensions = std.foldl(function(a, b) a + b, std.map(function(attr) {
 }, user_props), {});
 
 local event_dimensions = std.foldl(function(a, b) a + b, std.map(function(attr) {
-  ['event_' + attr.name]: {
+  ['event__' + attr.name]: {
     category: 'Event Attribute',
     sql: '{{TABLE}}.`event__' + attr.name + '`',
     type: attr.type,
@@ -61,8 +61,8 @@ local event_dimensions = std.foldl(function(a, b) a + b, std.map(function(attr) 
     %(user_jinja)s
     %(event_jinja)s
     FROM `%(project)s`.`%(dataset)s`.`events_*`
-    {%% if in_query.user_ %%} LEFT JOIN UNNEST(user_properties) as user_properties {%% endif %%}
-    {%% if in_query.event_ %%} LEFT JOIN UNNEST(event_params) as event_params {%% endif %%}
+    {%% if in_query.user__ %%} LEFT JOIN UNNEST(user_properties) as user_properties {%% endif %%}
+    {%% if in_query.event__ %%} LEFT JOIN UNNEST(event_params) as event_params {%% endif %%}
     {%% if partitioned %%} WHERE _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
   ||| % {
     project: target.database,
