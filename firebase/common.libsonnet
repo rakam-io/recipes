@@ -93,22 +93,6 @@ local predefined = {
         sql: '{{measure.revenue_from_whales}} / {{measure.revenue}}',
       },
     },
-    dimensions: {
-      is_whale: {
-        sql: "{{TABLE}}.`user_ltv`.`revenue` > 99 AND {{TABLE}}.`user_ltv`.`currency` = 'USD'",
-      },
-      is_paying: {
-        sql: '{{TABLE}}.`user_ltv`.`revenue` > 0',
-      },
-      ltv_revenue: {
-        sql: '{{TABLE}}.`user_ltv`.`revenue`',
-        hidden: true,
-      },
-      ltv_currency: {
-        sql: '{{TABLE}}.`user_ltv`.`currency`',
-        hidden: true,
-      },
-    },
   },
 };
 
@@ -172,6 +156,20 @@ local predefined = {
     },
   },
   dimensions: {
+    is_whale: {
+      sql: "{{TABLE}}.`user_ltv`.`revenue` > 99 AND {{TABLE}}.`user_ltv`.`currency` = 'USD'",
+    },
+    is_paying: {
+      sql: '{{TABLE}}.`user_ltv`.`revenue` > 0',
+    },
+    ltv_revenue: {
+      sql: '{{TABLE}}.`user_ltv`.`revenue`',
+      hidden: true,
+    },
+    ltv_currency: {
+      sql: '{{TABLE}}.`user_ltv`.`currency`',
+      hidden: true,
+    },
     returning_user_id: {
       sql: 'IFNULL({{dimension.user__first_open_time}}, {{dimension.firebase_user_id}})',
       type: 'string',
