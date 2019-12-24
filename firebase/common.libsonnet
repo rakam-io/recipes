@@ -117,14 +117,14 @@ local predefined = {
     std.map(function(prop)
       |||
         {%% if in_query.user__%(name)s %%}
-          , CASE WHEN user_properties.key = '%(prop_db)s' THEN user_properties.value.%(value_type)s END as %(name)s
+          , CASE WHEN user_properties.key = '%(prop_db)s' THEN user_properties.value.%(value_type)s END as user__%(name)s
         {%% endif %%}
       ||| % prop, user_props),
   generate_jinja_for_event_properties(event_props)::
     std.map(function(prop)
       |||
         {%% if in_query.event__%(name)s %%}
-          , CASE WHEN event_params.key = '%(prop_db)s' THEN event_params.value.%(value_type)s END as %(name)s
+          , CASE WHEN event_params.key = '%(prop_db)s' THEN event_params.value.%(value_type)s END as event__%(name)s
         {%% endif %%}
       ||| % prop, event_props),
   get_user_properties()::
