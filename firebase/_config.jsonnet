@@ -2,7 +2,7 @@
   version: 1.0,
   label: 'Firebase Analytics',
   description: 'Analytics models for Firebase BigQuery Export.',
-  image: 'https://github.com/rakam-io/recipes/raw/master//logo.png',
+  image: 'https://github.com/rakam-io/recipes/raw/master/firebase/logo.png',
   tags: ['event-analytics'],
   databases: ['bigQuery'],
   variables: {
