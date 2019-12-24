@@ -63,7 +63,7 @@ local predefined = {
       },
       revenue: {
         aggregation: 'sum',
-        sql: '{{dimension.price}} / 1000000',
+        sql: '{{dimension.event_price}} / 1000000',
         reportOptions: { prefix: '$', formatNumbers: true },
       },
       transaction_count_per_paying_user: {
@@ -74,19 +74,19 @@ local predefined = {
       },
       revenue_from_returning_users: {
         aggregation: 'sum',
-        sql: '{{dimension.price}} / 1000000',
+        sql: '{{dimension.event_price}} / 1000000',
         filters: [{ dimension: 'is_returning_user', operator: 'is', value: true, valueType: 'boolean' }],
         reportOptions: { prefix: '$' },
       },
       revenue_from_new_users: {
         aggregation: 'sum',
-        sql: '{{dimension.price}} / 1000000',
+        sql: '{{dimension.event_price}} / 1000000',
         filters: [{ dimension: 'is_returning_user', operator: 'is', value: false, valueType: 'boolean' }],
         reportOptions: { prefix: '$' },
       },
       revenue_from_whales: {
         aggregation: 'sum',
-        sql: '{{dimension.price}} / 1000000',
+        sql: '{{dimension.event_price}} / 1000000',
         filters: [{ dimension: 'is_whale', operator: 'is', value: true, valueType: 'boolean' }],
       },
       revenue_whales_ratio: {
