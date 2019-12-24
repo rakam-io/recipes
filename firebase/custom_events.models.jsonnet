@@ -1,6 +1,6 @@
 local util = import '.././util.libsonnet';
 local common = import '././common.libsonnet';
-local predefined = import 'predefined_mapping.libsonnet';
+local predefined = import '././predefined_mapping.libsonnet';
 
 local event_props = common.get_event_properties();
 local target = std.extVar('schema');
