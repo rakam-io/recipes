@@ -1,7 +1,6 @@
 local util = import '.././util.libsonnet';
 local common = import 'common.libsonnet';
-local target = { database: '', schema: '' };
-// local target = std.extVar('schema');
+local target = std.extVar('schema');
 
 local custom_measures = {
   average_revenue_per_user: {

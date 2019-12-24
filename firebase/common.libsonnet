@@ -173,7 +173,7 @@ local predefined = {
   },
   dimensions: {
     returning_user_id: {
-      sql: 'IFNULL({{dimension.user__first_open_time}}, {{dimension.firebase_user_id}})',
+      sql: 'IFNULL({{dimension.user_first_open_time}}, {{dimension.firebase_user_id}})',
       type: 'string',
       hidden: true,
     },
@@ -389,7 +389,7 @@ local predefined = {
     },
     firebase_user_id: {
       description: 'either user_id or user_pseudo_id',
-      sql: 'COALESCE({{_pseudo_id}},{{dimension.user_id}})',
+      sql: 'COALESCE({{dimension.user_pseudo_id}},{{dimension.user_id}})',
     },
   },
   predefined: predefined,
