@@ -1,15 +1,15 @@
 local util = import '.././util.libsonnet';
 local common = import '././common.libsonnet';
+local predefined = import 'predefined_mapping.libsonnet';
 
-local event_props = std.extVar('event_properties');
+local event_props = common.get_event_properties();
 local target = std.extVar('schema');
-local user_props = std.extVar('user_properties');
+local user_props = common.get_user_properties();
 
 local unique_events = std.uniq(std.map(function(attr) attr.event_name, event_props));
 
 std.map(function(event_type)
   local current_event_props = std.filter(function(p) p.event_name == event_type, event_props);
-
   local event_db_name = std.filter(function(attr) attr.event_name == event_type, event_props)[0].event_db;
 
   local event_params_jinja = std.map(function(prop)
@@ -19,11 +19,31 @@ std.map(function(event_type)
       {%% endif %%}
     ||| % prop, current_event_props);
 
+  local defined = predefined[event_type];
+
+  local dimensions = std.foldl(function(a, b) a + b, std.map(function(attr) {
+                       ['user_' + attr.name]: {
+                         category: 'User Attribute',
+                         sql: '{{TABLE}}.`' + attr.name + '`',
+                         type: attr.type,
+                       },
+                     }, user_props), {})
+                     +
+                     std.foldl(function(a, b) a + b, std.map(function(attr) {
+                       ['event_' + attr.name]: {
+                         category: 'Event Attribute',
+                         sql: '{{TABLE}}.`' + attr.name + '`',
+                         type: attr.type,
+                       },
+                     }, event_props), {})
+                     +
+                     if defined != null && std.objectHas(defined, 'dimensions') then defined.dimensions else {};
+
   {
     name: event_type,
-    measures: common.measures,
+    measures: common.measures + if defined != null && std.objectHas(defined, 'measures') then defined.measures else {},
     mappings: common.mappings,
-    relations: common.relations,
+    relations: common.relations + if defined != null && std.objectHas(defined, 'relations') then defined.relations else {},
     sql: |||
       SELECT *
       %(user_props)s
@@ -34,19 +54,5 @@ std.map(function(event_type)
       WHERE event_name = '%(event)s'
       {%% if partitioned %%} AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
     ||| % { user_props: std.join('\n', common.generate_jinja_for_user_properties(user_props)), event_params: std.join('\n', event_params_jinja), project: target.database, dataset: target.schema, event: event_db_name },
-    dimensions: common.dimensions + std.foldl(function(a, b) a + b, std.map(function(attr) {
-                  ['user_' + attr.name]: {
-                    category: 'User Attribute',
-                    sql: '{{TABLE}}.`' + attr.name + '`',
-                    type: attr.type,
-                  },
-                }, user_props), {})
-                +
-                std.foldl(function(a, b) a + b, std.map(function(attr) {
-                  ['event_' + attr.name]: {
-                    category: 'Event Attribute',
-                    sql: '{{TABLE}}.`' + attr.name + '`',
-                    type: attr.type,
-                  },
-                }, event_props), {}),
+    dimensions: common.dimensions + dimensions,
   }, unique_events)
