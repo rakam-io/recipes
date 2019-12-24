@@ -97,6 +97,22 @@ local predefined = {
 };
 
 {
+  generate_user_dimensions(user_props)::
+    std.foldl(function(a, b) a + b, std.map(function(attr) {
+      ['user__' + attr.name]: {
+        category: 'User Attribute',
+        sql: '{{TABLE}}.__`user__' + attr.name + '`',
+        type: attr.type,
+      },
+    }, user_props), {}),
+  generate_event_dimensions(event_props)::
+    std.foldl(function(a, b) a + b, std.map(function(attr) {
+      ['event__' + attr.name]: {
+        category: 'Event Attribute',
+        sql: '{{TABLE}}.`event__' + attr.name + '`',
+        type: attr.type,
+      },
+    }, event_props), {}),
   generate_jinja_for_user_properties(user_props)::
     std.map(function(prop)
       |||

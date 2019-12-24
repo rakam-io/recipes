@@ -14,21 +14,9 @@ std.map(function(event_type)
 
   local defined = common.predefined[event_type];
 
-  local dimensions_for_event = std.foldl(function(a, b) a + b, std.map(function(attr) {
-                                 ['user__' + attr.name]: {
-                                   category: 'User Attribute',
-                                   sql: '{{TABLE}}.__`' + attr.name + '`',
-                                   type: attr.type,
-                                 },
-                               }, user_props), {})
+  local dimensions_for_event = common.generate_user_dimensions(user_props)
                                +
-                               std.foldl(function(a, b) a + b, std.map(function(attr) {
-                                 ['event__' + attr.name]: {
-                                   category: 'Event Attribute',
-                                   sql: '{{TABLE}}.event__`' + attr.name + '`',
-                                   type: attr.type,
-                                 },
-                               }, current_event_props), {})
+                               common.generate_event_dimensions(current_event_props)
                                +
                                if defined != null && std.objectHas(defined, 'dimensions') then defined.dimensions else {};
 

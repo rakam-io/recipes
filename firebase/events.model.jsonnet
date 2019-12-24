@@ -38,22 +38,6 @@ local custom_measures = {
 local user_props = common.get_user_properties();
 local embedded_event = common.predefined.in_app_purchase;
 
-local user_dimensions = std.foldl(function(a, b) a + b, std.map(function(attr) {
-  ['user__' + attr.name]: {
-    category: 'User Attribute',
-    sql: '{{TABLE}}.`user__' + attr.name + '`',
-    type: attr.type,
-  },
-}, user_props), {});
-
-local event_dimensions = std.foldl(function(a, b) a + b, std.map(function(attr) {
-  ['event__' + attr.name]: {
-    category: 'Event Attribute',
-    sql: '{{TABLE}}.`event__' + attr.name + '`',
-    type: attr.type,
-  },
-}, embedded_event.properties), {});
-
 {
   name: 'firebase_events',
   measures: common.predefined.in_app_purchase.measures + common.measures + custom_measures,
@@ -73,5 +57,5 @@ local event_dimensions = std.foldl(function(a, b) a + b, std.map(function(attr) 
     user_jinja: std.join('\n', common.generate_jinja_for_user_properties(user_props)),
     event_jinja: std.join('\n', common.generate_jinja_for_event_properties(embedded_event.properties)),
   },
-  dimensions: common.dimensions + user_dimensions + event_dimensions,
+  dimensions: common.dimensions + common.generate_user_dimensions(user_props) + common.generate_event_dimensions(embedded_event.properties),
 }
