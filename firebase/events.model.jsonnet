@@ -37,7 +37,7 @@ local embedded_event = common.predefined.in_app_purchase;
 local user_dimensions = std.foldl(function(a, b) a + b, std.map(function(attr) {
   ['user__' + attr.name]: {
     category: 'User Attribute',
-    sql: '{{TABLE}}.user__`' + attr.name + '`',
+    sql: '{{TABLE}}.`user__' + attr.name + '`',
     type: attr.type,
   },
 }, user_props), {});
