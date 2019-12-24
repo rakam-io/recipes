@@ -1,4 +1,4 @@
-local predefined = import './predefined_mapping.libsonnet';
+local predefined = import './././predefined_mapping.libsonnet';
 
 {
   generate_jinja_for_user_properties(user_props)::
