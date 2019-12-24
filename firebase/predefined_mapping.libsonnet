@@ -12,7 +12,7 @@
     },
   },
   session_start: {
-    description: 'Periodically triggered, while the app is in the foreground.',
+    description: 'when a user engages the app for more than the minimum session duration after a period of inactivity that exceeds the session timeout duration.\t',
     properties: [],
   },
   ad_impression: {
