@@ -2,6 +2,7 @@ local util = import '.././util.libsonnet';
 local common = import 'common.libsonnet';
 local target = std.extVar('schema');
 
+
 local custom_measures = {
   average_revenue_per_user: {
     sql: '{{measure.revenue}}/{{measure.active_users}}',
@@ -42,6 +43,14 @@ local user_dimensions = std.foldl(function(a, b) a + b, std.map(function(attr) {
   },
 }, user_props), {});
 
+local event_dimensions = std.foldl(function(a, b) a + b, std.map(function(attr) {
+  ['event__' + attr.name]: {
+    category: 'Event Attribute',
+    sql: '{{TABLE}}.`event__' + attr.name + '`',
+    type: attr.type,
+  },
+}, embedded_event.properties), {});
+
 {
   name: 'firebase_events',
   measures: common.predefined.in_app_purchase.measures + common.measures + custom_measures,
@@ -61,5 +70,5 @@ local user_dimensions = std.foldl(function(a, b) a + b, std.map(function(attr) {
     user_jinja: std.join('\n', common.generate_jinja_for_user_properties(user_props)),
     event_jinja: std.join('\n', common.generate_jinja_for_event_properties(embedded_event.properties)),
   },
-  dimensions: common.dimensions + user_dimensions,
+  dimensions: common.dimensions + user_dimensions + event_dimensions,
 }
