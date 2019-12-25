@@ -22,7 +22,7 @@ std.map(function(event_type)
                                if defined != null && std.objectHas(defined, 'dimensions') then defined.dimensions else {};
 
   {
-    name: 'firebase_custom_' + event_type,
+    name: 'firebase_event_' + event_type,
     label: event_type,
     measures: common.measures + if defined != null && std.objectHas(defined, 'measures') then defined.measures else {},
     mappings: common.mappings,

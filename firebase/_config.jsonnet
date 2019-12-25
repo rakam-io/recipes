@@ -16,8 +16,8 @@
     user_properties: {
       type: 'sql',
       required: false,
+      description: 'You can run the query above in order to add custom user properties as dimensions',
       parent: 'schema',
-      description: 'You can run the query above in order to add your custom events as models',
       options: {
         sql: |||
           SELECT DISTINCT user_properties.key as prop_db,
@@ -42,7 +42,7 @@
       type: 'sql',
       parent: 'schema',
       required: false,
-      description: 'You can run the query above in order to add custom user properties as dimensions',
+      description: 'You can run the query above in order to add your custom events as models',
       options: {
         sql: |||
           SELECT DISTINCT
