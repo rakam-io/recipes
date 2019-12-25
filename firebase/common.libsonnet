@@ -1,4 +1,4 @@
-local predefined = import './predefined.jsonnet';
+local predefined = import 'predefined.jsonnet';
 
 {
   generate_user_dimensions(user_props)::

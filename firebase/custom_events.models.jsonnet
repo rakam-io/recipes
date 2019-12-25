@@ -1,6 +1,6 @@
 local util = import '.././util.libsonnet';
 local common = import '././common.libsonnet';
-local predefined = import './predefined.jsonnet';
+local predefined = import '././predefined.jsonnet';
 
 
 local all_event_props = common.get_event_properties();
