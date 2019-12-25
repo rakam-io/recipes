@@ -1,5 +1,6 @@
 local util = import '.././util.libsonnet';
 local common = import '././common.libsonnet';
+local predefined = import './predefined.jsonnet';
 
 
 local all_event_props = common.get_event_properties();
@@ -12,7 +13,7 @@ std.map(function(event_type)
   local current_event_props = std.filter(function(p) p.event_name == event_type, all_event_props);
   local event_db_name = std.filter(function(attr) attr.event_name == event_type, all_event_props)[0].event_db;
 
-  local defined = common.predefined[event_type];
+  local defined = predefined[event_type];
 
   local dimensions_for_event = common.generate_user_dimensions(user_props)
                                +
@@ -21,7 +22,8 @@ std.map(function(event_type)
                                if defined != null && std.objectHas(defined, 'dimensions') then defined.dimensions else {};
 
   {
-    name: event_type,
+    name: 'firebase_custom_' + event_type,
+    label: event_type,
     measures: common.measures + if defined != null && std.objectHas(defined, 'measures') then defined.measures else {},
     mappings: common.mappings,
     relations: common.relations + if defined != null && std.objectHas(defined, 'relations') then defined.relations else {},

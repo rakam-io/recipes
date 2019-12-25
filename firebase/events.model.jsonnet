@@ -1,6 +1,7 @@
 local util = import '.././util.libsonnet';
 local common = import 'common.libsonnet';
 local target = std.extVar('schema');
+local predefined = import './predefined.jsonnet';
 
 
 local custom_measures = {
@@ -43,11 +44,11 @@ local custom_measures = {
 };
 
 local user_props = common.get_user_properties();
-local embedded_event = common.predefined.in_app_purchase;
+local embedded_event = predefined.in_app_purchase;
 
 {
   name: 'firebase_events',
-  measures: common.predefined.in_app_purchase.measures + common.measures + custom_measures,
+  measures: predefined.in_app_purchase.measures + common.measures + custom_measures,
   mappings: common.mappings,
   relations: common.relations,
   sql: |||
