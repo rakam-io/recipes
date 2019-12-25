@@ -404,13 +404,14 @@ local predefined = {
       column: 'user_properties',
     },
     user_pseudo_id: {
-      description: 'The pseudonymous id (e.g., app instance ID) for the user.',
+      description: 'The pseudonymous id (e.g., app instance ID) which is unique for user install.',
       column: 'user_pseudo_id',
       type: 'string',
     },
     firebase_user_id: {
       description: 'either user_id or user_pseudo_id',
-      sql: 'COALESCE({{dimension.user_id}}, {{dimension.user_pseudo_id}})',
+      // sql: 'COALESCE({{dimension.user_id}}, {{dimension.user_pseudo_id}})',
+      sql: '{{dimension.user_pseudo_id}}',
     },
   },
   predefined: predefined,
