@@ -45,18 +45,18 @@ local predefined = import 'predefined.jsonnet';
     userId: 'firebase_user_id',
     deviceId: 'advertising_id',
   },
-  relations: {
-    //   rel_sessions: {
-    //     relationType: 'oneToOne',
-    //     joinType: 'leftJoin',
-    //     modelName: 'sessions',
-    //     sql: |||
-    //       {{dimension.user_pseudo_id}} = sessions.user_pseudo_id
-    //       AND {{dimension.event_timestamp}} >= {{model.sessions.dimension.session_start.filter}}
-    //       AND {{dimension.event_timestamp}} <= {{model.sessions.dimension.session_end.filter}}
-    //     |||,
-    //   },
-  },
+  // relations: {
+  //   rel_sessions: {
+  //     relationType: 'oneToOne',
+  //     joinType: 'leftJoin',
+  //     modelName: 'sessions',
+  //     sql: |||
+  //       {{dimension.user_pseudo_id}} = sessions.user_pseudo_id
+  //       AND {{dimension.event_timestamp}} >= {{model.sessions.dimension.session_start.filter}}
+  //       AND {{dimension.event_timestamp}} <= {{model.sessions.dimension.session_end.filter}}
+  //     |||,
+  //   },
+  // },
   measures: {
     all_users: {
       sql: '{{dimension.firebase_user_id}}',
