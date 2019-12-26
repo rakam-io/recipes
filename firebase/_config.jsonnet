@@ -34,7 +34,7 @@
           END as value_type
           FROM `red-lion-43515070.analytics_193028004.events_*` AS events
           LEFT JOIN UNNEST(events.user_properties) AS user_properties
-          WHERE user_properties.key NOT LIKE '_ltv%'
+          WHERE user_properties.key NOT LIKE '_ltv%' AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%Y%m%d", DATE_SUB(current_date(), INTERVAL 15 DAY)) and FORMAT_DATE("%Y%m%d", current_date())
         |||,
       },
     },
@@ -62,6 +62,7 @@
           END as value_type,
           FROM `red-lion-43515070.analytics_193028004.events_*` AS events
           LEFT JOIN UNNEST(events.event_params) as event_params
+          WHERE _TABLE_SUFFIX BETWEEN FORMAT_DATE("%Y%m%d", DATE_SUB(current_date(), INTERVAL 15 DAY)) and FORMAT_DATE("%Y%m%d", current_date())
           ORDER BY 1
         |||,
       },
