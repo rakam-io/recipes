@@ -19,7 +19,7 @@ local custom_measures = {
     ],
     reportOptions: { prefix: '$' },
   },
-  average_revenue_per_returning_user: {
+  average_revenue_per_retained_user: {
     aggregation: 'average',
     sql: '{{dimension.event__price}} / 1000000',
     type: 'double',
@@ -28,7 +28,7 @@ local custom_measures = {
     ],
     reportOptions: { prefix: '$' },
   },
-  paying_and_returning_users: {
+  paying_and_retained_users: {
     sql: '{{dimension.firebase_user_id}}',
     aggregation: 'countUnique',
     filters: [
@@ -39,7 +39,7 @@ local custom_measures = {
     hidden: true,
   },
   revenue_from_paying_users: {
-    sql: '{{measure.paying_and_returning_users}}/{{measure.returning_users}}',
+    sql: '{{measure.paying_and_retained_users}}/{{measure.retained_users}}',
   },
 };
 
