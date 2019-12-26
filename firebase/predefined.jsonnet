@@ -74,6 +74,7 @@
       },
       average_transaction_per_paying_user: {
         sql: '{{measure.revenue}}/{{measure.paying_users}}',
+        reportOptions: { prefix: '$' },
       },
       revenue_from_retained_users: {
         aggregation: 'sum',

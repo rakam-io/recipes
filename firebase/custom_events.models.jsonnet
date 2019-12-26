@@ -33,8 +33,8 @@ std.map(function(event_type)
       %(user_jinja)s
       %(event_jinja)s
       FROM `%(project)s`.`%(dataset)s`.`events_*`
-      {%% if in_query.user_ %%} LEFT JOIN UNNEST(user_properties) as user_properties {%% endif %%}
-      {%% if in_query.event_ %%} LEFT JOIN UNNEST(event_params) as event_params {%% endif %%}
+      {%% if in_query.user__ %%} LEFT JOIN UNNEST(user_properties) as user_properties {%% endif %%}
+      {%% if in_query.event__ %%} LEFT JOIN UNNEST(event_params) as event_params {%% endif %%}
       WHERE event_name = '%(event)s'
       {%% if partitioned %%} AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
     ||| % {
