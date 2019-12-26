@@ -13,7 +13,7 @@ std.map(function(event_type)
   local current_event_props = std.filter(function(p) p.event_name == event_type, all_event_props);
   local event_db_name = std.filter(function(attr) attr.event_name == event_type, all_event_props)[0].event_db;
 
-  local defined = predefined[event_type];
+  local defined = if std.objectHas(predefined, event_type) then predefined[event_type] else null;
 
   local dimensions_for_event = common.generate_user_dimensions(user_props)
                                +
