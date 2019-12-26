@@ -48,6 +48,7 @@ local embedded_event = predefined.in_app_purchase;
 
 {
   name: 'firebase_events',
+  label: 'All events',
   measures: predefined.in_app_purchase.measures + common.measures + custom_measures,
   mappings: common.mappings,
   relations: common.relations,

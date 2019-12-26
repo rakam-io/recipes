@@ -26,6 +26,7 @@ std.map(function(event_type)
     label: event_type,
     measures: common.measures + if defined != null && std.objectHas(defined, 'measures') then defined.measures else {},
     mappings: common.mappings,
+    category: if defined != null then 'Firebase events' else 'Custom events',
     relations: common.relations + if defined != null && std.objectHas(defined, 'relations') then defined.relations else {},
     sql: |||
       SELECT *
