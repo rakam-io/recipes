@@ -81,6 +81,22 @@ local predefined = import 'predefined.jsonnet';
     },
   },
   dimensions: {
+    event_timestamp: {
+      sql: 'TIMESTAMP_MICROS({{TABLE}}.`event_timestamp`)',
+      type: 'timestamp',
+    },
+    firebase_user_id: {
+      label: 'User Id',
+      description: 'either user_id or user_pseudo_id',
+      // sql: 'COALESCE({{dimension.user_id}}, {{dimension.user_pseudo_id}})',
+      sql: '{{dimension.user_pseudo_id}}',
+    },
+    platform: {
+      type: 'string',
+      category: 'Event',
+      column: 'platform',
+    },
+
     // Revenue
     is_whale: {
       type: 'boolean',
@@ -120,18 +136,6 @@ local predefined = import 'predefined.jsonnet';
       category: 'Event',
       sql: 'TIMESTAMP_MICROS({{TABLE}}.`user_first_touch_timestamp`)',
     },
-    platform: {
-      type: 'string',
-      category: 'Event',
-      column: 'platform',
-    },
-    firebase_user_id: {
-      label: 'User Id',
-      category: 'Event',
-      description: 'either user_id or user_pseudo_id',
-      // sql: 'COALESCE({{dimension.user_id}}, {{dimension.user_pseudo_id}})',
-      sql: '{{dimension.user_pseudo_id}}',
-    },
     user_id: {
       description: 'The user ID set via the setUserId API.',
       type: 'string',
@@ -145,11 +149,6 @@ local predefined = import 'predefined.jsonnet';
       hidden: true,
       category: 'Event',
       type: 'string',
-    },
-    event_timestamp: {
-      sql: 'TIMESTAMP_MICROS({{TABLE}}.`event_timestamp`)',
-      type: 'timestamp',
-      category: 'Event',
     },
     event_server_timestamp_offset: {
       label: 'Server timestamp offset',
@@ -220,11 +219,13 @@ local predefined = import 'predefined.jsonnet';
     mobile_os_hardware_model: {
       description: 'The device model information retrieved directly from the operating system.',
       type: 'string',
+      category: 'Device',
       sql: '{{TABLE}}.`device`.`mobile_os_hardware_model`',
     },
     mobile_model_name: {
       description: 'The device model name.',
       type: 'string',
+      category: 'Device',
       sql: '{{TABLE}}.`device`.`mobile_model_name`',
     },
     mobile_marketing_name: {
