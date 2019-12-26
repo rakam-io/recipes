@@ -52,7 +52,7 @@ local custom_measures = {
     hidden: true,
   },
   percent_retained_users_paying: {
-    sql: '{{measure.paying_and_retained_users}}/{{measure.retained_users}}',
+    sql: '{{measure.paying_and_retained_users}}/{{measure.active_users}}',
   },
   percent_new_users_paying: {
     sql: '{{measure.paying_and_new_users}}/{{measure.new_users}}',
