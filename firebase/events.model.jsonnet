@@ -6,7 +6,7 @@ local predefined = import './predefined.jsonnet';
 
 local custom_measures = {
   average_revenue_per_user: {
-    sql: '1.0 * ({{measure.revenue}}/{{measure.active_users}})',
+    sql: '1.0 * ({{measure.revenue}}/{{measure.all_users}})',
     type: 'double',
     reportOptions: { prefix: '$' },
   },
@@ -15,7 +15,7 @@ local custom_measures = {
     sql: '{{dimension.event__price}} / 1000000',
     type: 'double',
     filters: [
-      { dimension: 'is_returning', operator: 'is', value: false, valueType: 'boolean' },
+      { dimension: 'is_retained', operator: 'is', value: false, valueType: 'boolean' },
     ],
     reportOptions: { prefix: '$' },
   },
@@ -24,7 +24,7 @@ local custom_measures = {
     sql: '{{dimension.event__price}} / 1000000',
     type: 'double',
     filters: [
-      { dimension: 'is_returning', operator: 'is', value: true, valueType: 'boolean' },
+      { dimension: 'is_retained', operator: 'is', value: true, valueType: 'boolean' },
     ],
     reportOptions: { prefix: '$' },
   },
@@ -32,7 +32,7 @@ local custom_measures = {
     sql: '{{dimension.firebase_user_id}}',
     aggregation: 'countUnique',
     filters: [
-      { dimension: 'is_returning', operator: 'is', value: true, valueType: 'boolean' },
+      { dimension: 'is_retained', operator: 'is', value: true, valueType: 'boolean' },
       { dimension: 'is_paying', operator: 'is', value: true, valueType: 'boolean' },
     ],
     type: 'double',

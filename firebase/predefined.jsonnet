@@ -72,11 +72,11 @@
       average_transaction_per_paying_user: {
         sql: '{{measure.revenue}}/{{measure.paying_users}}',
       },
-      revenue_from_returning_users: {
+      revenue_from_retained_users: {
         aggregation: 'sum',
         sql: '{{dimension.event__price}} / 1000000',
         filters: [
-          { dimension: 'is_returning', operator: 'is', value: true, valueType: 'boolean' },
+          { dimension: 'is_retained', operator: 'is', value: true, valueType: 'boolean' },
         ],
         reportOptions: { prefix: '$' },
       },
@@ -84,7 +84,7 @@
         aggregation: 'sum',
         sql: '{{dimension.event__price}} / 1000000',
         filters: [
-          { dimension: 'is_returning', operator: 'is', value: false, valueType: 'boolean' },
+          { dimension: 'is_retained', operator: 'is', value: false, valueType: 'boolean' },
         ],
         reportOptions: { prefix: '$' },
       },

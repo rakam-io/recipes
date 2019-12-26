@@ -58,25 +58,25 @@ local predefined = import 'predefined.jsonnet';
     },
   },
   measures: {
-    active_users: {
+    all_users: {
       sql: '{{dimension.firebase_user_id}}',
       aggregation: 'countUnique',
     },
     number_of_events: {
       aggregation: 'count',
     },
-    returning_users: {
+    active_users: {
       aggregation: 'countUnique',
       sql: '{{dimension.firebase_user_id}}',
       filters: [
-        { dimension: 'is_returning', operator: 'is', value: true, valueType: 'boolean' },
+        { dimension: 'is_retained', operator: 'is', value: true, valueType: 'boolean' },
       ],
     },
     new_users: {
       aggregation: 'countUnique',
       sql: '{{dimension.firebase_user_id}}',
       filters: [
-        { dimension: 'is_returning', operator: 'is', value: false, valueType: 'boolean' },
+        { dimension: 'is_retained', operator: 'is', value: false, valueType: 'boolean' },
       ],
     },
   },
@@ -89,7 +89,7 @@ local predefined = import 'predefined.jsonnet';
       type: 'timestamp',
       sql: 'TIMESTAMP_MICROS({{TABLE}}.`user_first_touch_timestamp`)',
     },
-    is_returning: {
+    is_retained: {
       sql: 'TIMESTAMP_DIFF(CURRENT_TIMESTAMP(), {{dimension.user_first_touch}}, DAY) > 2',
     },
     is_paying: {
