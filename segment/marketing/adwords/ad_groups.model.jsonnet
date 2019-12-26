@@ -1,5 +1,5 @@
 {
-  name: 'adwords_ad_groups',
+  name: 'adwords_ad_groups_t',
   hidden: true,
   target: std.mergePatch(std.extVar('schema'), { table: 'ad_groups' }),
   mappings: {},
