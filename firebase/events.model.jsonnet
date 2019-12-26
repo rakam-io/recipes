@@ -82,5 +82,9 @@ local embedded_event = predefined.in_app_purchase;
     user_jinja: std.join('\n', common.generate_jinja_for_user_properties(user_props)),
     event_jinja: std.join('\n', common.generate_jinja_for_event_properties(embedded_event.properties)),
   },
-  dimensions: common.dimensions + common.generate_user_dimensions(user_props) + common.generate_event_dimensions(embedded_event.properties),
+  dimensions: {
+    event_name: {
+      sql: '{{TABLE}}.`event_name`',
+    },
+  } + common.dimensions + common.generate_user_dimensions(user_props) + common.generate_event_dimensions(embedded_event.properties),
 }
