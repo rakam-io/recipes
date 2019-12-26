@@ -6,12 +6,14 @@ local predefined = import './predefined.jsonnet';
 
 local custom_measures = {
   average_revenue_per_user: {
+    label: 'ARPU [All]',
     sql: '1.0 * ({{measure.revenue}}/{{measure.all_users}})',
     type: 'double',
     reportOptions: { prefix: '$' },
   },
   average_revenue_per_new_user: {
     aggregation: 'average',
+    label: 'ARPU [New users]',
     sql: '{{dimension.event__price}} / 1000000',
     type: 'double',
     filters: [
@@ -21,6 +23,7 @@ local custom_measures = {
   },
   average_revenue_per_retained_user: {
     aggregation: 'average',
+    label: 'ARPU [Retained users]',
     sql: '{{dimension.event__price}} / 1000000',
     type: 'double',
     filters: [
