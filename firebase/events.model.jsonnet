@@ -41,8 +41,21 @@ local custom_measures = {
     type: 'double',
     hidden: true,
   },
-  revenue_from_paying_users: {
+  paying_and_new_users: {
+    sql: '{{dimension.firebase_user_id}}',
+    aggregation: 'countUnique',
+    filters: [
+      { dimension: 'is_retained', operator: 'is', value: false, valueType: 'boolean' },
+      { dimension: 'is_paying', operator: 'is', value: true, valueType: 'boolean' },
+    ],
+    type: 'double',
+    hidden: true,
+  },
+  percent_retained_users_paying: {
     sql: '{{measure.paying_and_retained_users}}/{{measure.retained_users}}',
+  },
+  percent_new_users_paying: {
+    sql: '{{measure.paying_and_new_users}}/{{measure.new_users}}',
   },
 };
 
