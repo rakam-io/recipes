@@ -49,6 +49,9 @@
       { name: 'free_trial', prop_db: 'free_trial', type: 'integer', value_type: 'int_value' },
     ],
     measures: {
+      total_transactions: {
+        aggregation: 'count',
+      },
       paying_users: {
         aggregation: 'countUnique',
         sql: '{{dimension.firebase_user_id}}',
@@ -67,7 +70,7 @@
         reportOptions: { prefix: '$', formatNumbers: true },
       },
       transaction_count_per_paying_user: {
-        sql: 'count(*)/{{count(distinct {{dimension.firebase_user_id}})}}',
+        sql: '{{measure.total_transactions}}/{{measure.paying_users}}',
       },
       average_transaction_per_paying_user: {
         sql: '{{measure.revenue}}/{{measure.paying_users}}',
