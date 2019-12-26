@@ -81,28 +81,81 @@ local predefined = import 'predefined.jsonnet';
     },
   },
   dimensions: {
+    event_timestamp: {
+      sql: 'TIMESTAMP_MICROS({{TABLE}}.`event_timestamp`)',
+      type: 'timestamp',
+    },
+    firebase_user_id: {
+      label: 'User Id',
+      description: 'either user_id or user_pseudo_id',
+      // sql: 'COALESCE({{dimension.user_id}}, {{dimension.user_pseudo_id}})',
+      sql: '{{dimension.user_pseudo_id}}',
+    },
+    platform: {
+      type: 'string',
+      category: 'Event',
+      column: 'platform',
+    },
+
+    // Revenue
     is_whale: {
+      type: 'boolean',
+      category: 'Revenue',
       sql: "{{TABLE}}.`user_ltv`.`revenue` > 99 AND {{TABLE}}.`user_ltv`.`currency` = 'USD'",
     },
-    user_first_touch: {
-      description: 'The time at which the user first opened the app.',
-      type: 'timestamp',
-      sql: 'TIMESTAMP_MICROS({{TABLE}}.`user_first_touch_timestamp`)',
-    },
     is_retained: {
+      type: 'boolean',
+      category: 'Revenue',
       sql: 'TIMESTAMP_DIFF(CURRENT_TIMESTAMP(), {{dimension.user_first_touch}}, DAY) > 2',
     },
     is_paying: {
+      type: 'boolean',
+      category: 'Revenue',
       sql: '{{TABLE}}.`user_ltv`.`revenue` > 0',
     },
     ltv_revenue: {
+      category: 'Revenue',
       sql: '{{TABLE}}.`user_ltv`.`revenue`',
       hidden: true,
     },
     ltv_currency: {
+      category: 'Revenue',
       sql: '{{TABLE}}.`user_ltv`.`currency`',
       hidden: true,
     },
+
+    // Event related
+    traffic_source: {
+      hidden: true,
+      category: 'Event',
+      column: 'traffic_source',
+    },
+    user_first_touch: {
+      description: 'The time at which the user first opened the app.',
+      type: 'timestamp',
+      category: 'Event',
+      sql: 'TIMESTAMP_MICROS({{TABLE}}.`user_first_touch_timestamp`)',
+    },
+    user_id: {
+      description: 'The user ID set via the setUserId API.',
+      type: 'string',
+      column: 'user_id',
+      category: 'Event',
+      hidden: true,
+    },
+    user_pseudo_id: {
+      description: 'The pseudonymous id (e.g., app instance ID) which is unique for user install.',
+      column: 'user_pseudo_id',
+      hidden: true,
+      category: 'Event',
+      type: 'string',
+    },
+    event_server_timestamp_offset: {
+      label: 'Server timestamp offset',
+      sql: '{{TABLE}}.`event_server_timestamp_offset`',
+      category: 'Event',
+    },
+
     // App Info
     id: {
       description: 'The package name or bundle ID of the app.',
@@ -166,11 +219,13 @@ local predefined = import 'predefined.jsonnet';
     mobile_os_hardware_model: {
       description: 'The device model information retrieved directly from the operating system.',
       type: 'string',
+      category: 'Device',
       sql: '{{TABLE}}.`device`.`mobile_os_hardware_model`',
     },
     mobile_model_name: {
       description: 'The device model name.',
       type: 'string',
+      category: 'Device',
       sql: '{{TABLE}}.`device`.`mobile_model_name`',
     },
     mobile_marketing_name: {
@@ -210,33 +265,6 @@ local predefined = import 'predefined.jsonnet';
       sql: '{{TABLE}}.`device`.`vendor_id`',
     },
 
-    // Event related
-    event_name: {
-      sql: '{{TABLE}}.`event_name`',
-    },
-    event_timestamp: {
-      sql: 'TIMESTAMP_MICROS({{TABLE}}.`event_timestamp`)',
-      type: 'timestamp',
-    },
-    event_bundle_sequence_id: {
-      sql: '{{TABLE}}.`event_bundle_sequence_id`',
-    },
-    event_dimensions: {
-      sql: '{{TABLE}}.`event_dimensions`',
-    },
-    event_params: {
-      sql: '{{TABLE}}.`event_params`',
-    },
-    event_previous_timestamp: {
-      sql: '{{TABLE}}.`event_previous_timestamp`',
-    },
-    event_server_timestamp_offset: {
-      sql: '{{TABLE}}.`event_server_timestamp_offset`',
-    },
-    event_value_in_usd: {
-      sql: '{{TABLE}}.`event_value_in_usd`',
-    },
-
     // Geo
     city: {
       description: 'The city from which events were reported, based on IP address.',
@@ -273,45 +301,6 @@ local predefined = import 'predefined.jsonnet';
       category: 'User Location',
       type: 'string',
       sql: '{{TABLE}}.`geo`.`sub_continent`',
-    },
-
-    // End of GEO
-
-    platform: {
-      type: 'string',
-      column: 'platform',
-    },
-    stream_id: {
-      type: 'string',
-      column: 'stream_id',
-      hidden: true,
-    },
-    traffic_source: {
-      hidden: true,
-      column: 'traffic_source',
-    },
-    user_id: {
-      description: 'The user ID set via the setUserId API.',
-      type: 'string',
-      column: 'user_id',
-    },
-    user_ltv: {
-      hidden: true,
-      column: 'user_ltv',
-    },
-    user_properties: {
-      hidden: true,
-      column: 'user_properties',
-    },
-    user_pseudo_id: {
-      description: 'The pseudonymous id (e.g., app instance ID) which is unique for user install.',
-      column: 'user_pseudo_id',
-      type: 'string',
-    },
-    firebase_user_id: {
-      description: 'either user_id or user_pseudo_id',
-      // sql: 'COALESCE({{dimension.user_id}}, {{dimension.user_pseudo_id}})',
-      sql: '{{dimension.user_pseudo_id}}',
     },
   },
 }
