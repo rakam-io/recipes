@@ -106,7 +106,7 @@ local predefined = import 'predefined.jsonnet';
     is_retained: {
       type: 'boolean',
       category: 'Revenue',
-      sql: 'TIMESTAMP_DIFF(CURRENT_TIMESTAMP(), {{dimension.user_first_touch}}, DAY) > 2',
+      sql: 'TIMESTAMP_DIFF({{dimension.event_timestamp}}, {{dimension.user_first_touch}}, DAY) > 2',
     },
     is_paying: {
       type: 'boolean',
