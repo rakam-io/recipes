@@ -16,16 +16,19 @@
       modelName: 'apps',
       sourceColumn: 'app_id',
       targetColumn: 'id',
-      hidden: false,
     },
     campaign: {
-      label: 'Campaign',
       relationType: 'oneToOne',
       joinType: 'innerJoin',
       modelName: 'campaigns',
       sourceColumn: 'source_campaign_id',
       targetColumn: 'id',
-      hidden: false,
+    },
+    ad_network: {
+      relationType: 'manyToOne',
+      joinType: 'leftJoin',
+      modelName: 'ad_networks',
+      sql: '{{TARGET}}.id = {{relation.campaign.dimension.ad_network_id}}',
     },
     ad_engagements: {
       relationType: 'oneToOne',
