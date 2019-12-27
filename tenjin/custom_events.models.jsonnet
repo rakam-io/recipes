@@ -7,7 +7,7 @@ std.map(function(row) {
   name: 'tenjin_event_' + row.event,
   label: row.event,
   category: 'Custom Event',
-  target: "SELECT * FROM %(target)s WHERE event = '%(event)s' " % {
+  sql: "SELECT * FROM %(target)s WHERE event = '%(event)s' " % {
     target: util.generate_target_reference(std.mergePatch(std.extVar('schema'), { table: 'events' })),
     event: row.event,
   },
