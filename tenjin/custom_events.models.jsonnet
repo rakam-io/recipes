@@ -8,7 +8,7 @@ std.map(function(row) {
   label: row.event,
   category: 'Custom Event',
   target: "SELECT * FROM %(target)s WHERE event = '%(event)s' " % {
-    target: util.generate_target_reference(std.mergePatch(std.extVar('schema')), { table: 'events' }),
+    target: util.generate_target_reference(std.mergePatch(std.extVar('schema'), { table: 'events' })),
     event: row.event,
   },
   description: 'User event data that comes from Tenjin SDK or 3rd party attribution provider',
