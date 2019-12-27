@@ -3,7 +3,7 @@
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'events' }),
   label: 'Raw Events',
-  description: 'Device level data that comes from Tenjin SDK or 3rd party attribution provider',
+  description: 'User event data that comes from Tenjin SDK or 3rd party attribution provider',
   mappings: {
     eventTimestamp: 'created_at',
     incremental: 'created_at',
