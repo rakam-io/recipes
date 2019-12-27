@@ -1,5 +1,5 @@
 {
-  name: 'countries',
+  name: 'tenjin_countries',
   hidden: true,
   target: std.mergePatch(std.extVar('schema'), { table: 'countries' }),
   mappings: {},

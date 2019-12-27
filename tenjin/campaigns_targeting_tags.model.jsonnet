@@ -1,5 +1,5 @@
 {
-  name: 'campaigns_targeting_tags',
+  name: 'tenjin_campaigns_targeting_tags',
   hidden: true,
   target: std.mergePatch(std.extVar('schema'), { table: 'campaigns_targeting_tags' }),
   description: 'Includes targeting tag information for each campaign.',
@@ -8,14 +8,14 @@
     campaigns: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'campaigns',
+      modelName: 'tenjin_campaigns',
       sourceColumn: 'campaign_id',
       targetColumn: 'id',
     },
     targeting_tags: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'targeting_tags',
+      modelName: 'tenjin_targeting_tags',
       sourceColumn: 'targeting_tag_id',
       targetColumn: 'id',
     },

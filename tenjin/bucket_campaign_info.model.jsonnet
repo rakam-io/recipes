@@ -1,5 +1,5 @@
 {
-  name: 'bucket_campaign_info',
+  name: 'tenjin_bucket_campaign_info',
   hidden: true,
   target: std.mergePatch(std.extVar('schema'), { table: 'bucket_campaign_info' }),
   description: 'A view that joins campaign buckets and campaigns table',
@@ -8,14 +8,14 @@
     ad_networks: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'ad_networks',
+      modelName: 'tenjin_ad_networks',
       sourceColumn: 'ad_network_id',
       targetColumn: 'id',
     },
     apps: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'apps',
+      modelName: 'tenjin_apps',
       sourceColumn: 'app_id',
       targetColumn: 'id',
     },

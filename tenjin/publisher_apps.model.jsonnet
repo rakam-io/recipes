@@ -1,5 +1,5 @@
 {
-  name: 'publisher_apps',
+  name: 'tenjin_publisher_apps',
   hidden: true,
   target: std.mergePatch(std.extVar('schema'), { table: 'publisher_apps' }),
   description: 'Publisher campaigns that we get from ad-network API',
@@ -8,7 +8,7 @@
     apps: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'apps',
+      modelName: 'tenjin_apps',
       sourceColumn: 'app_id',
       targetColumn: 'id',
     },

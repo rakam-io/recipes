@@ -1,6 +1,6 @@
 {
-  name: 'daily_spend',
-  hidden: false,
+  name: 'tenjin_daily_spend',
+  label: 'Daily Spend'
   target: std.mergePatch(std.extVar('schema'), { table: 'daily_spend' }),
   description: 'Includes pre-install metrics(such as imps, clicks, installs, and spend) by campaign and date. “spend” is spend amount converted to USD, and “original_spend” is spend amount in “original_currency”',
   mappings: {
@@ -11,7 +11,7 @@
     campaigns: {
       relationType: 'oneToOne',
       joinType: 'leftJoin',
-      modelName: 'campaigns',
+      modelName: 'tenjin_campaigns',
       sourceColumn: 'campaign_id',
       targetColumn: 'id',
     },

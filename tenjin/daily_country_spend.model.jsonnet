@@ -1,6 +1,6 @@
 {
-  name: 'daily_country_spend',
-  hidden: false,
+  name: 'tenjin_daily_country_spend',
+  label: 'Daily Country Spend',
   target: std.mergePatch(std.extVar('schema'), { table: 'daily_country_spend' }),
   description: "Includes pre-install metrics(such as imps, clicks, installs, and spend) by date, campaign, and country. “spend” is spend amount converted to USD, and “original_spend” is spend amount in “original_currency”. The model doesn't contain all the spend of daily_spend because some ad-networks don’t have spend by country breakdown.",
   mappings: {
@@ -10,14 +10,14 @@
     campaigns: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'campaigns',
+      modelName: 'tenjin_campaigns',
       sourceColumn: 'campaign_id',
       targetColumn: 'id',
     },
     countries: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'countries',
+      modelName: 'tenjin_countries',
       sourceColumn: 'country',
       targetColumn: 'code',
     },

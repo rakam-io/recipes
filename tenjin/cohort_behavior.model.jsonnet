@@ -1,6 +1,6 @@
 {
-  name: 'cohort_behavior',
-  hidden: false,
+  name: 'tenjin_cohort_behavior',
+  label: 'Cohort Behavior',
   target: std.mergePatch(std.extVar('schema'), { table: 'cohort_behavior' }),
   description: |||
     Pre-aggregated view from events table. It includes cohort metrics(such as ltv, retained users) by date, campaign, country, and site. 
@@ -13,14 +13,14 @@
     countries: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'countries',
+      modelName: 'tenjin_countries',
       sourceColumn: 'campaign_id',
       targetColumn: 'code',
     },
     campaigns: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'campaigns',
+      modelName: 'tenjin_campaigns',
       sourceColumn: 'campaign_id',
       targetColumn: 'id',
     },

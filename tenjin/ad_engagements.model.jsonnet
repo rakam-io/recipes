@@ -1,5 +1,6 @@
 {
-  name: 'ad_engagements',
+  name: 'tenjin_ad_engagements',
+  label: 'Ad Engagements',
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'ad_engagements' }),
   description: 'Includes click or impression data for each device. It only has data for non-self attributing ad-networks. We don’t store click or impression data for Google or Facebook.',
@@ -10,7 +11,7 @@
     campaigns: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'campaigns',
+      modelName: 'tenjin_campaigns',
       sourceColumn: 'id',
       targetColumn: 'campaign_id',
       hidden: false,
@@ -18,21 +19,21 @@
     countries: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'countries',
+      modelName: 'tenjin_countries',
       sourceColumn: 'code',
       targetColumn: 'country',
     },
     apps: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'apps',
+      modelName: 'tenjin_apps',
       sourceColumn: 'id',
       targetColumn: 'app_id',
     },
     events: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'events',
+      modelName: 'tenjin_events',
       sourceColumn: 'source_uuid',
       targetColumn: 'uuid',
     },

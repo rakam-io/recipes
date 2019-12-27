@@ -1,6 +1,6 @@
 {
-  name: 'reporting_metrics',
-  hidden: false,
+  name: 'tenjin_reporting_metrics',
+  label: 'Reporting Metrics',
   target: std.mergePatch(std.extVar('schema'), { table: 'reporting_metrics' }),
   description: 'Includes all non-cohorted metrics that are synced with dashboard data',
   mappings: {
@@ -10,21 +10,21 @@
     campaigns: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'campaigns',
+      modelName: 'tenjin_campaigns',
       sourceColumn: 'campaign_id',
       targetColumn: 'id',
     },
     apps: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'apps',
+      modelName: 'tenjin_apps',
       sourceColumn: 'app_id',
       targetColumn: 'id',
     },
     countries: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'countries',
+      modelName: 'tenjin_countries',
       sourceColumn: 'country',
       targetColumn: 'code',
     },

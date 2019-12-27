@@ -1,6 +1,6 @@
 {
-  name: 'daily_ad_revenue',
-  hidden: false,
+  name: 'tenjin_daily_ad_revenue',
+  label: 'Daily Ad Revenue',
   target: std.mergePatch(std.extVar('schema'), { table: 'daily_ad_revenue' }),
   description: 'Includes ad revenue data by publisher campaigns, date, and country',
   mappings: {
@@ -10,14 +10,14 @@
     countries: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'countries',
+      modelName: 'tenjin_countries',
       sourceColumn: 'country',
       targetColumn: 'code',
     },
     publisher_apps: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'publisher_apps',
+      modelName: 'tenjin_publisher_apps',
       sourceColumn: 'publisher_app_id',
       targetColumn: 'id',
     },

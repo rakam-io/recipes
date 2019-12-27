@@ -1,6 +1,7 @@
 {
-  name: 'apps',
+  name: 'tenjin_apps',
   hidden: true,
+  label: 'Apps',
   target: std.mergePatch(std.extVar('schema'), { table: 'apps' }),
   description: 'List of apps',
   mappings: {},

@@ -1,6 +1,7 @@
 {
-  name: 'daily_behavior',
+  name: 'tenjin_daily_behavior',
   hidden: false,
+  label: 'Daily Behavior',
   target: std.mergePatch(std.extVar('schema'), { table: 'daily_behavior' }),
   description: 'Pre-aggregated view from events table. It includes non-cohort metrics(such as dau, arpdau) by date, campaign, country, and site',
   mappings: {
@@ -10,14 +11,14 @@
     campaigns: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'campaigns',
+      modelName: 'tenjin_campaigns',
       sourceColumn: 'campaign_id',
       targetColumn: 'id',
     },
     countries: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'countries',
+      modelName: 'tenjin_countries',
       sourceColumn: 'country',
       targetColumn: 'code',
     },

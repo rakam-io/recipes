@@ -1,5 +1,5 @@
 {
-  name: 'targeting_tags',
+  name: 'tenjin_targeting_tags',
   hidden: true,
   target: std.mergePatch(std.extVar('schema'), { table: 'targeting_tags' }),
   description: 'Includes targeting tag information',
