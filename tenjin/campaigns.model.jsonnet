@@ -36,5 +36,9 @@
         formatNumbers: true,
       },
     },
+    ad_network_id: {
+      column: 'ad_network_id',
+      hidden: true,
+    },
   },
 }

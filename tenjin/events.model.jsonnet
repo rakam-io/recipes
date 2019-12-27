@@ -149,7 +149,6 @@
       reportOptions: {
         formatNumbers: true,
       },
-      hidden: false,
     },
     site_id: {
       pivot: false,
@@ -245,14 +244,9 @@
       hidden: false,
     },
     unique_users: {
-      label: 'Unique Users',
-      reportOptions: {
-        formatNumbers: true,
-      },
-      column: 'advertising_id',
       aggregation: 'countUnique',
+      sql: 'coalesce({{TABLE}}.advertising_id, {{TABLE}}.developer_device_id)',
       type: 'double',
-      hidden: false,
     },
     unique_devices: {
       reportOptions: {
@@ -300,7 +294,10 @@
       },
       column: 'uuid',
       aggregation: 'countUnique',
-      type: 'double',
+    },
+    sum_of_value: {
+      column: 'value',
+      aggregation: 'sum',
     },
   },
 }
