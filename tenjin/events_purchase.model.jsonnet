@@ -1,4 +1,4 @@
-local events = import './events.model.jsonnet';
+local events = import '././events.model.jsonnet';
 
 {
   name: 'tenjin_event_purchase',
