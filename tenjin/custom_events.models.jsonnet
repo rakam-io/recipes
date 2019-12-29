@@ -1,4 +1,3 @@
-local util = import '../util.libsonnet';
 local events = import './events.model.jsonnet';
 
 local custom_events = if std.extVar('custom_events') != null then std.extVar('custom_events') else [];
