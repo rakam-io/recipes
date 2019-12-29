@@ -17,7 +17,7 @@
       targetColumn: 'id',
     },
     campaign: {
-      relationType: 'oneToOne',
+      relationType: 'manyToOne',
       joinType: 'leftJoin',
       modelName: 'tenjin_campaigns',
       sourceColumn: 'source_campaign_id',

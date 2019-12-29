@@ -11,6 +11,14 @@ std.map(function(event_table) {
     deviceId: 'context_device_id',
     incremental: 'received_at',
   },
+  relations: if std.extVar('user_model') != null then
+    { user: {
+      relationType: 'manyToOne',
+      joinType: 'leftJoin',
+      modelName: std.extVar('user_model'),
+      sourceColumn: 'user_id',
+      targetColumn: 'id',
+    } } else {},
   description: 'A custom event defined in Segment SDK',
   measures: {
     events: {

@@ -15,7 +15,7 @@
       parent: 'schema',
       required: false,
       options: {
-        sql: 'select distinct event from events where event is not null',
+        sql: "select distinct event from events where event is not null and event_type = 'event'",
       },
       description: 'If you want to add your custom events as models, you can run the SQL query.',
     },
