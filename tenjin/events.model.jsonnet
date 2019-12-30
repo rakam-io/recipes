@@ -39,7 +39,6 @@
   },
   dimensions: {
     created_at: {
-      label: 'Created',
       description: 'timestamp when the event was created',
       pivot: false,
       type: 'timestamp',
@@ -50,7 +49,6 @@
       hidden: false,
     },
     bundle_id: {
-      label: 'Bundle',
       description: "App's bundle ID. Ex: com.tenjin.wordfinder",
       pivot: false,
       type: 'string',
