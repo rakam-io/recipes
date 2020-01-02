@@ -73,8 +73,6 @@ local embedded_event = predefined.in_app_purchase;
     %(user_jinja)s
     %(event_jinja)s
     FROM `%(project)s`.`%(dataset)s`.`events_*`
-    {%% if in_query.user__ %%} LEFT JOIN UNNEST(user_properties) as user_properties {%% endif %%}
-    {%% if in_query.event__ %%} LEFT JOIN UNNEST(event_params) as event_params {%% endif %%}
     {%% if partitioned %%} WHERE _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
   ||| % {
     project: target.database,
