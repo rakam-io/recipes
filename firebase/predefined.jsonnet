@@ -4,9 +4,9 @@
       event__difficulty_readable: {
         sql: |||
           CASE WHEN {{dimension.event__difficulty}} = 1 THEN 'Good'
-            WHEN CASE WHEN {{dimension.event__difficulty}} = 2 THEN 'Better'
-            WHEN CASE WHEN {{dimension.event__difficulty}} = 3 THEN 'Best'
-            WHEN CASE WHEN {{dimension.event__difficulty}} = 4 THEN 'Grind'
+           WHEN {{dimension.event__difficulty}} = 2 THEN 'Better'
+           WHEN {{dimension.event__difficulty}} = 3 THEN 'Best'
+           WHEN {{dimension.event__difficulty}} = 4 THEN 'Grind'
           END
         |||,
       },
