@@ -29,7 +29,7 @@
       superboosters_use_ratio: {
         sql: 'IEEE_DIVIDE(SUM({{dimension.event__count_superboosts}}), SUM({{dimension.event__number_times_played}}))'
       },
-      moves_left_ratio: {
+      average_moves_left: {
         sql: 'IEEE_DIVIDE(SUM({{dimension.event__moves_left}}), COUNTIF({{dimension.event__level_outcome}} = 1))',
       },
       strategic_assist_enabled_ratio: {
