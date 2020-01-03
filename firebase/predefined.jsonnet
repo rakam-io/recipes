@@ -29,22 +29,68 @@
         filters: [{ dimension: 'event__level_outcome', operator: 'equals', value: 3, valueType: 'integer' }],
       },
       win_ratio: {
+        label: 'Win Ratio %',
         sql: 'IEEE_DIVIDE({{measure.total_wins}}, ({{measure.total_wins}} + {{measure.total_losses}}))',
       },
       number_of_times_5moves_bought_ratio: {
-        sql: 'IEEE_DIVIDE(SUM({{dimension.event__number_of_times_5moves_bought}}), SUM({{dimension.event__number_times_played}}))'
+        label: '+ 5 Moves in %',
+        sql: 'IEEE_DIVIDE(SUM({{dimension.event__number_of_times_5moves_bought}}), SUM({{dimension.event__number_times_played}})) * 100'
       },
       boosters_use_ratio: {
-        sql: 'IEEE_DIVIDE(SUM({{dimension.event__count_boosters_used}}), SUM({{dimension.event__number_times_played}}))'
+        label: 'Boosters %',
+        sql: 'IEEE_DIVIDE(SUM({{dimension.event__count_boosters_used}}), SUM({{dimension.event__number_times_played}})) * 100'
       },
       superboosters_use_ratio: {
-        sql: 'IEEE_DIVIDE(SUM({{dimension.event__count_superboosts}}), SUM({{dimension.event__number_times_played}}))'
+        label: 'SuperBoost %',
+        sql: 'IEEE_DIVIDE(SUM({{dimension.event__count_superboosts}}), SUM({{dimension.event__number_times_played}})) * 100'
       },
       average_moves_left: {
+        label: 'Avg. Moves Left',
         sql: 'IEEE_DIVIDE(SUM({{dimension.event__moves_left}}), COUNTIF({{dimension.event__level_outcome}} = 1))',
       },
       strategic_assist_enabled_ratio: {
-        sql: 'IEEE_DIVIDE(SUM({{dimension.event__strategic_assist_enabled}}), SUM({{dimension.event__number_times_played}}))',
+        label: 'SAS enabled %',
+        sql: 'IEEE_DIVIDE(SUM({{dimension.event__strategic_assist_enabled}}), SUM({{dimension.event__number_times_played}})) * 100',
+      },
+      average_tilekinds_percentage: {
+        label: 'TileKind %',
+        aggregation: 'avg',
+        sql: '{{dimension.event__goal_delta_percentage_tile_kinds}}'
+      },
+      average_score_percentage: {
+        label: 'Score %',
+        aggregation: 'avg',
+        sql: '{{dimension.event__goal_delta_percentage_score}}'
+      },
+      average_backgrounds_percentage: {
+        label: 'Backgrounds %',
+        aggregation: 'avg',
+        sql: '{{dimension.event__goal_delta_percentage_backgrounds}}'
+      },
+      average_drop_items_percentage: {
+        label: 'Drop Items%',
+        aggregation: 'avg',
+        sql: '{{dimension.event__goal_delta_percentage_drop_items}}'
+      },
+      average_crates_percentage: {
+        label: 'Crates %',
+        aggregation: 'avg',
+        sql: '{{dimension.event__goal_delta_percentage_stickers}}'
+      },
+      average_balloons_percentage: {
+        label: 'Balloons %',
+        aggregation: 'avg',
+        sql: '{{dimension.event__goal_delta_percentage_litters}}'
+      },
+      average_pinata_percentage: {
+        label: 'Pinata %',
+        aggregation: 'avg',
+        sql: '{{dimension.event__goal_delta_percentage_pinata}}'
+      },
+      average_furrypals_percentage: {
+        label: 'FurryPals %',
+        aggregation: 'avg',
+        sql: '{{dimension.event__goal_delta_percentage_animal}}'
       },
     },
   },
