@@ -34,63 +34,76 @@
       },
       number_of_times_5moves_bought_ratio: {
         label: '+ 5 Moves in %',
-        sql: 'IEEE_DIVIDE(SUM({{dimension.event__number_of_times_5moves_bought}}), SUM({{dimension.event__number_times_played}})) * 100'
+        sql: 'IEEE_DIVIDE(SUM({{dimension.event__number_of_times_5moves_bought}}), SUM({{dimension.event__number_times_played}})) * 100',
+        reportOptions: { formatNumbers: '0.0%' },
       },
       boosters_use_ratio: {
         label: 'Boosters %',
-        sql: 'IEEE_DIVIDE(SUM({{dimension.event__count_boosters_used}}), SUM({{dimension.event__number_times_played}})) * 100'
+        sql: 'IEEE_DIVIDE(SUM({{dimension.event__count_boosters_used}}), SUM({{dimension.event__number_times_played}})) * 100',
+        reportOptions: { formatNumbers: '0.0%' },
       },
       superboosters_use_ratio: {
         label: 'SuperBoost %',
-        sql: 'IEEE_DIVIDE(SUM({{dimension.event__count_superboosts}}), SUM({{dimension.event__number_times_played}})) * 100'
+        sql: 'IEEE_DIVIDE(SUM({{dimension.event__count_superboosts}}), SUM({{dimension.event__number_times_played}})) * 100',
+        reportOptions: { formatNumbers: '0.0%' },
       },
       average_moves_left: {
         label: 'Avg. Moves Left',
-        sql: 'IEEE_DIVIDE(SUM({{dimension.event__moves_left}}), COUNTIF({{dimension.event__level_outcome}} = 1))',
+        sql: 'IEEE_DIVIDE(SUM({{dimension.event__moves_left}}), COUNTIF({{dimension.event__level_outcome}} = 1))',,
+        reportOptions: { formatNumbers: '0.0%' },
       },
       strategic_assist_enabled_ratio: {
         label: 'SAS enabled %',
         sql: 'IEEE_DIVIDE(SUM({{dimension.event__strategic_assist_enabled}}), SUM({{dimension.event__number_times_played}})) * 100',
+        reportOptions: { formatNumbers: '0.0%' },
       },
       average_tilekinds_percentage: {
         label: 'TileKind %',
         aggregation: 'average',
-        sql: '{{dimension.event__goal_delta_percentage_tile_kinds}}'
+        sql: '{{dimension.event__goal_delta_percentage_tile_kinds}}',
+        reportOptions: { formatNumbers: '0.0%' },
       },
       average_score_percentage: {
         label: 'Score %',
         aggregation: 'average',
-        sql: '{{dimension.event__goal_delta_percentage_score}}'
+        sql: '{{dimension.event__goal_delta_percentage_score}}',
+        reportOptions: { formatNumbers: '0.0%' },
       },
       average_backgrounds_percentage: {
         label: 'Backgrounds %',
         aggregation: 'average',
-        sql: '{{dimension.event__goal_delta_percentage_backgrounds}}'
+        sql: '{{dimension.event__goal_delta_percentage_backgrounds}}',
+        reportOptions: { formatNumbers: '0.0%' },
       },
       average_drop_items_percentage: {
         label: 'Drop Items%',
         aggregation: 'average',
-        sql: '{{dimension.event__goal_delta_percentage_drop_items}}'
+        sql: '{{dimension.event__goal_delta_percentage_drop_items}}',
+        reportOptions: { formatNumbers: '0.0%' },
       },
       average_crates_percentage: {
         label: 'Crates %',
         aggregation: 'average',
-        sql: '{{dimension.event__goal_delta_percentage_stickers}}'
+        sql: '{{dimension.event__goal_delta_percentage_stickers}}',
+        reportOptions: { formatNumbers: '0.0%' },
       },
       average_balloons_percentage: {
         label: 'Balloons %',
         aggregation: 'average',
-        sql: '{{dimension.event__goal_delta_percentage_litters}}'
+        sql: '{{dimension.event__goal_delta_percentage_litters}}',
+        reportOptions: { formatNumbers: '0.0%' },
       },
       average_pinata_percentage: {
         label: 'Pinata %',
         aggregation: 'average',
-        sql: '{{dimension.event__goal_delta_percentage_pinata}}'
+        sql: '{{dimension.event__goal_delta_percentage_pinata}}',
+        reportOptions: { formatNumbers: '0.0%' },
       },
       average_furrypals_percentage: {
         label: 'FurryPals %',
         aggregation: 'average',
-        sql: '{{dimension.event__goal_delta_percentage_animal}}'
+        sql: '{{dimension.event__goal_delta_percentage_animal}}',
+        reportOptions: { formatNumbers: '0.0%' },
       },
     },
   },
