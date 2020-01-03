@@ -9,6 +9,14 @@
         aggregation: 'count',
         filters: [{ dimension: 'event__level_outcome', operator: 'equals', value: 0, valueType: 'integer' }],
       },
+      total_exists: {
+        aggregation: 'count',
+        filters: [{ dimension: 'event__level_outcome', operator: 'equals', value: 2, valueType: 'integer' }],
+      },
+      total_exists_without_playing: {
+        aggregation: 'count',
+        filters: [{ dimension: 'event__level_outcome', operator: 'equals', value: 3, valueType: 'integer' }],
+      },
       win_ratio: {
         sql: 'IEEE_DIVIDE({{measure.total_wins}}, ({{measure.total_wins}} + {{measure.total_losses}}))',
       },
