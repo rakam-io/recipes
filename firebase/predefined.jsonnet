@@ -54,42 +54,42 @@
       },
       average_tilekinds_percentage: {
         label: 'TileKind %',
-        aggregation: 'avg',
+        aggregation: 'average',
         sql: '{{dimension.event__goal_delta_percentage_tile_kinds}}'
       },
       average_score_percentage: {
         label: 'Score %',
-        aggregation: 'avg',
+        aggregation: 'average',
         sql: '{{dimension.event__goal_delta_percentage_score}}'
       },
       average_backgrounds_percentage: {
         label: 'Backgrounds %',
-        aggregation: 'avg',
+        aggregation: 'average',
         sql: '{{dimension.event__goal_delta_percentage_backgrounds}}'
       },
       average_drop_items_percentage: {
         label: 'Drop Items%',
-        aggregation: 'avg',
+        aggregation: 'average',
         sql: '{{dimension.event__goal_delta_percentage_drop_items}}'
       },
       average_crates_percentage: {
         label: 'Crates %',
-        aggregation: 'avg',
+        aggregation: 'average',
         sql: '{{dimension.event__goal_delta_percentage_stickers}}'
       },
       average_balloons_percentage: {
         label: 'Balloons %',
-        aggregation: 'avg',
+        aggregation: 'average',
         sql: '{{dimension.event__goal_delta_percentage_litters}}'
       },
       average_pinata_percentage: {
         label: 'Pinata %',
-        aggregation: 'avg',
+        aggregation: 'average',
         sql: '{{dimension.event__goal_delta_percentage_pinata}}'
       },
       average_furrypals_percentage: {
         label: 'FurryPals %',
-        aggregation: 'avg',
+        aggregation: 'average',
         sql: '{{dimension.event__goal_delta_percentage_animal}}'
       },
     },
