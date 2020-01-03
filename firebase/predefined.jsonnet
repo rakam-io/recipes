@@ -1,5 +1,16 @@
 {
   level: {
+    dimensions: {
+      event__difficulty_readable: {
+        sql: |||
+          CASE WHEN {{dimension.event__difficulty}} = 1 THEN 'Good'
+            WHEN CASE WHEN {{dimension.event__difficulty}} = 2 THEN 'Better'
+            WHEN CASE WHEN {{dimension.event__difficulty}} = 3 THEN 'Best'
+            WHEN CASE WHEN {{dimension.event__difficulty}} = 4 THEN 'Grind'
+          END
+        |||,
+      },
+    },
     measures: {
       total_wins: {
         aggregation: 'count',
