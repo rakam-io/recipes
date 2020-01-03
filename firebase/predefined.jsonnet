@@ -3,11 +3,11 @@
     measures: {
       total_wins: {
         aggregation: 'count',
-        filters: [{ dimension: 'level_outcome', operator: 'equals', value: 1, valueType: 'integer' }],
+        filters: [{ dimension: 'event__level_outcome', operator: 'equals', value: 1, valueType: 'integer' }],
       },
       total_losses: {
         aggregation: 'count',
-        filters: [{ dimension: 'level_outcome', operator: 'equals', value: 0, valueType: 'integer' }],
+        filters: [{ dimension: 'event__level_outcome', operator: 'equals', value: 0, valueType: 'integer' }],
       },
       win_ratio: {
         sql: 'IEEE_DIVIDE({{measure.total_wins}}, ({{measure.total_wins}} + {{measure.total_losses}}))',
