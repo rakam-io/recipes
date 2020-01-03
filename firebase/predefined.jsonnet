@@ -94,14 +94,14 @@
       revenue: {
         aggregation: 'sum',
         sql: '{{dimension.event__price}} / 1000000',
-        reportOptions: { prefix: '$', formatNumbers: true },
+        reportOptions: { formatNumbers: '$0,0' },
       },
       transaction_count_per_paying_user: {
         sql: '{{measure.total_transactions}}/{{measure.paying_users}}',
       },
       average_transaction_per_paying_user: {
         sql: '{{measure.revenue}}/{{measure.paying_users}}',
-        reportOptions: { prefix: '$' },
+        reportOptions: { formatNumbers: '$0,0' },
       },
       revenue_from_retained_users: {
         aggregation: 'sum',
@@ -109,7 +109,7 @@
         filters: [
           { dimension: 'is_retained', operator: 'is', value: true, valueType: 'boolean' },
         ],
-        reportOptions: { prefix: '$' },
+        reportOptions: { formatNumbers: '$0,0' },
       },
       revenue_from_new_users: {
         aggregation: 'sum',
@@ -117,16 +117,17 @@
         filters: [
           { dimension: 'is_retained', operator: 'is', value: false, valueType: 'boolean' },
         ],
-        reportOptions: { prefix: '$' },
+        reportOptions: { formatNumbers: '$0,0' },
       },
       revenue_from_whales: {
         aggregation: 'sum',
         sql: '{{dimension.event__price}} / 1000000',
         filters: [{ dimension: 'is_whale', operator: 'is', value: true, valueType: 'boolean' }],
-        reportOptions: { prefix: '$' },
+        reportOptions: { formatNumbers: '$0,0' },
       },
       revenue_whales_ratio: {
         sql: '{{measure.revenue_from_whales}} / {{measure.revenue}}',
+        reportOptions: { formatNumbers: '0.0%' },
       },
     },
   },

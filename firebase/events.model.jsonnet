@@ -9,7 +9,7 @@ local custom_measures = {
     label: 'ARPU [All]',
     sql: '1.0 * ({{measure.revenue}}/{{measure.all_users}})',
     type: 'double',
-    reportOptions: { prefix: '$' },
+    reportOptions: { formatNumbers: '$0,0.00' },
   },
   average_revenue_per_new_user: {
     aggregation: 'average',
@@ -19,7 +19,7 @@ local custom_measures = {
     filters: [
       { dimension: 'is_retained', operator: 'is', value: false, valueType: 'boolean' },
     ],
-    reportOptions: { prefix: '$' },
+    reportOptions: { formatNumbers: '$0,0.00' },
   },
   average_revenue_per_retained_user: {
     aggregation: 'average',
@@ -29,7 +29,7 @@ local custom_measures = {
     filters: [
       { dimension: 'is_retained', operator: 'is', value: true, valueType: 'boolean' },
     ],
-    reportOptions: { prefix: '$' },
+    reportOptions: { formatNumbers: '$0,0.00' },
   },
   paying_and_retained_users: {
     sql: '{{dimension.firebase_user_id}}',
@@ -53,9 +53,11 @@ local custom_measures = {
   },
   percent_retained_users_paying: {
     sql: '{{measure.paying_and_retained_users}}/{{measure.active_users}}',
+    reportOptions: { formatNumbers: '0.0%' },
   },
   percent_new_users_paying: {
     sql: '{{measure.paying_and_new_users}}/{{measure.new_users}}',
+    reportOptions: { formatNumbers: '0.0%' },
   },
 };
 
