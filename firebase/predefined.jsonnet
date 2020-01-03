@@ -50,7 +50,8 @@
       },
       average_moves_left: {
         label: 'Avg. Moves Left',
-        sql: 'IEEE_DIVIDE(SUM({{dimension.event__moves_left}}), COUNTIF({{dimension.event__level_outcome}} = 1))'
+        sql: 'IEEE_DIVIDE(SUM({{dimension.event__moves_left}}), COUNTIF({{dimension.event__level_outcome}} = 1))',
+        reportOptions: { formatNumbers: '0.00' },
       },
       strategic_assist_enabled_ratio: {
         label: 'SAS enabled %',
