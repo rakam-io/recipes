@@ -10,7 +10,19 @@
         filters: [{ dimension: 'level_outcome', operator: 'equals', value: 0, valueType: 'integer' }],
       },
       win_ratio: {
-        sql: '{{measure.total_wins}} / ({{measure.total_wins}} + {{measure.total_losses}})',
+        sql: 'IEEE_DIVIDE({{measure.total_wins}}, ({{measure.total_wins}} + {{measure.total_losses}}))',
+      },
+      number_of_times_5moves_bought_ratio: {
+        sql: 'IEEE_DIVIDE(SUM({{dimension.event__number_of_times_5moves_bought}}), SUM({{dimension.event__number_times_played}}))'
+      },
+      boosters_use_ratio: {
+        sql: 'IEEE_DIVIDE(SUM({{dimension.event__count_boosters_used}}), SUM({{dimension.event__number_times_played}}))'
+      },
+      superboosters_use_ratio: {
+        sql: 'IEEE_DIVIDE(SUM({{dimension.event__count_superboosts}}), SUM({{dimension.event__number_times_played}}))'
+      },
+      moves_left_ratio: {
+        sql: 'IEEE_DIVIDE(SUM({{dimension.event__event__moves_left}}) / COUNTIF({{dimension.level_outcome}} = 1))',
       },
     },
   },
