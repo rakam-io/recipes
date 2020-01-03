@@ -16,6 +16,10 @@
         aggregation: 'count',
         filters: [{ dimension: 'event__level_outcome', operator: 'equals', value: 1, valueType: 'integer' }],
       },
+      win_loss_ratio: {
+        sql: 'IEEE_DIVIDE(COUNTIF({{dimension.event__level_outcome}} = 1), COUNTIF({{dimension.event__level_outcome}} = 0))',
+        reportOptions: { formatNumbers: '0.00%' },
+      },
       total_losses: {
         aggregation: 'count',
         filters: [{ dimension: 'event__level_outcome', operator: 'equals', value: 0, valueType: 'integer' }],
