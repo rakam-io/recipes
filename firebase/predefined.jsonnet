@@ -1,4 +1,19 @@
 {
+  level: {
+    measures: {
+      total_wins: {
+        aggregation: 'count',
+        filters: [{ dimension: 'level_outcome', operator: 'equals', value: 1, valueType: 'integer' }],
+      },
+      total_losses: {
+        aggregation: 'count',
+        filters: [{ dimension: 'level_outcome', operator: 'equals', value: 0, valueType: 'integer' }],
+      },
+      win_ratio: {
+        sql: '{{measure.total_wins}} / ({{measure.total_wins}} + {{measure.total_losses}})',
+      },
+    },
+  },
   user_engagement: {
     description: 'When a user engages the app for more than the minimum session duration after a period of inactivity that exceeds the session timeout duration.',
     properties: [
