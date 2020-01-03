@@ -30,7 +30,8 @@
       },
       win_ratio: {
         label: 'Win Ratio %',
-        sql: 'IEEE_DIVIDE({{measure.total_wins}}, ({{measure.total_wins}} + {{measure.total_losses}}))',
+        sql: 'IEEE_DIVIDE({{measure.total_wins}}, ({{measure.total_wins}} + {{measure.total_losses}})) * 100',
+        reportOptions: { formatNumbers: '0.0%' },
       },
       number_of_times_5moves_bought_ratio: {
         label: '+ 5 Moves in %',
@@ -49,12 +50,11 @@
       },
       average_moves_left: {
         label: 'Avg. Moves Left',
-        sql: 'IEEE_DIVIDE(SUM({{dimension.event__moves_left}}), COUNTIF({{dimension.event__level_outcome}} = 1))',
-        reportOptions: { formatNumbers: '0.0%' },
+        sql: 'IEEE_DIVIDE(SUM({{dimension.event__moves_left}}), COUNTIF({{dimension.event__level_outcome}} = 1))'
       },
       strategic_assist_enabled_ratio: {
         label: 'SAS enabled %',
-        sql: 'IEEE_DIVIDE(SUM({{dimension.event__strategic_assist_enabled}}), SUM({{dimension.event__number_times_played}})) * 100',
+        sql: 'IEEE_DIVIDE(SUM({{dimension.event__strategic_assist_enabled}}), SUM({{dimension.event__number_times_played}}))',
         reportOptions: { formatNumbers: '0.0%' },
       },
       average_tilekinds_percentage: {
