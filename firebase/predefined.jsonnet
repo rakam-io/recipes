@@ -115,6 +115,7 @@
       },
       revenue_whales_ratio: {
         sql: '{{measure.revenue_from_whales}} / {{measure.revenue}}',
+        reportOptions: { formatNumbers: '0.0%' },
       },
     },
   },
