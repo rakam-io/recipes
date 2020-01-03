@@ -22,7 +22,7 @@
         sql: 'IEEE_DIVIDE(SUM({{dimension.event__count_superboosts}}), SUM({{dimension.event__number_times_played}}))'
       },
       moves_left_ratio: {
-        sql: 'IEEE_DIVIDE(SUM({{dimension.event__event__moves_left}}), COUNTIF({{dimension.event__level_outcome}} = 1))',
+        sql: 'IEEE_DIVIDE(SUM({{dimension.event__moves_left}}), COUNTIF({{dimension.event__level_outcome}} = 1))',
       },
       strategic_assist_enabled_ratio: {
         sql: 'IEEE_DIVIDE(SUM({{dimension.event__strategic_assist_enabled}}), SUM({{dimension.event__number_times_played}}))',
