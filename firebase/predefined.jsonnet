@@ -195,7 +195,7 @@
       },
       revenue_from_retained_users: {
         aggregation: 'sum',
-        sql: '{{dimension.event__price}} / 1000000)',
+        sql: '{{dimension.event__price}} / 1000000',
         filters: [
           { dimension: 'is_retained', operator: 'is', value: true, valueType: 'boolean' },
         ],
