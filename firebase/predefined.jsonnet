@@ -1,6 +1,10 @@
 {
   level: {
     dimensions: {
+      event__level_num_fl: {
+        sql: 'CAST({{dimension.event__level_num}} AS FLOAT64)',
+        type: 'double'
+      },
       event__difficulty_readable: {
         sql: |||
           CASE WHEN {{dimension.event__difficulty}} = 1 THEN 'Good'
@@ -9,6 +13,7 @@
            WHEN {{dimension.event__difficulty}} = 4 THEN 'Grind'
           END
         |||,
+        type: 'string'
       },
     },
     measures: {
