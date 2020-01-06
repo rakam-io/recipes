@@ -211,7 +211,7 @@
       },
       revenue_from_whales: {
         aggregation: 'sum',
-        sql: '{{dimension.event__price}} / 1000000)',
+        sql: '{{dimension.event__price}} / 1000000',
         filters: [{ dimension: 'is_whale', operator: 'is', value: true, valueType: 'boolean' }],
         reportOptions: { formatNumbers: '$0,0' },
       },
