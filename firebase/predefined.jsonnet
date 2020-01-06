@@ -3,7 +3,7 @@
     dimensions: {
       event__level_num_fl: {
         sql: 'CAST({{dimension.event__level_num}} AS FLOAT64)',
-        type: 'double'
+        type: 'double',
       },
       event__difficulty_readable: {
         sql: |||
@@ -13,7 +13,7 @@
            WHEN {{dimension.event__difficulty}} = 4 THEN 'Grind'
           END
         |||,
-        type: 'string'
+        type: 'string',
       },
     },
     measures: {
@@ -183,41 +183,37 @@
         ],
       },
       revenue: {
-        aggregation: 'sum',
-        sql: '{{dimension.event__price}} / 1000000',
+        sql: 'coalesce(sum({{dimension.event__price}} / 1000000), 0)',
         reportOptions: { formatNumbers: '$0,0' },
       },
       transaction_count_per_paying_user: {
-        sql: '{{measure.total_transactions}}/{{measure.paying_users}}',
+        sql: 'IEEE_DIVIDE({{measure.total_transactions}}, {{measure.paying_users}})',
       },
       average_transaction_per_paying_user: {
-        sql: '{{measure.revenue}}/{{measure.paying_users}}',
+        sql: 'IEEE_DIVIDE({{measure.revenue}}, {{measure.paying_users}})',
         reportOptions: { formatNumbers: '$0,0' },
       },
       revenue_from_retained_users: {
-        aggregation: 'sum',
-        sql: '{{dimension.event__price}} / 1000000',
+        sql: 'coalesce(sum({{dimension.event__price}} / 1000000), 0)',
         filters: [
           { dimension: 'is_retained', operator: 'is', value: true, valueType: 'boolean' },
         ],
         reportOptions: { formatNumbers: '$0,0' },
       },
       revenue_from_new_users: {
-        aggregation: 'sum',
-        sql: '{{dimension.event__price}} / 1000000',
+        sql: 'coalesce(sum({{dimension.event__price}} / 1000000), 0)',
         filters: [
           { dimension: 'is_retained', operator: 'is', value: false, valueType: 'boolean' },
         ],
         reportOptions: { formatNumbers: '$0,0' },
       },
       revenue_from_whales: {
-        aggregation: 'sum',
-        sql: '{{dimension.event__price}} / 1000000',
+        sql: 'coalesce(sum({{dimension.event__price}} / 1000000), 0)',
         filters: [{ dimension: 'is_whale', operator: 'is', value: true, valueType: 'boolean' }],
         reportOptions: { formatNumbers: '$0,0' },
       },
       revenue_whales_ratio: {
-        sql: '{{measure.revenue_from_whales}} / {{measure.revenue}}',
+        sql: 'IEEE_DIVIDE({{measure.revenue_from_whales}}, {{measure.revenue}})',
         reportOptions: { formatNumbers: '0.0%' },
       },
     },
