@@ -194,21 +194,24 @@
         reportOptions: { formatNumbers: '$0,0' },
       },
       revenue_from_retained_users: {
-        sql: 'coalesce(sum({{dimension.event__price}} / 1000000), 0)',
+        aggregation: 'sum',
+        sql: '{{dimension.event__price}} / 1000000)',
         filters: [
           { dimension: 'is_retained', operator: 'is', value: true, valueType: 'boolean' },
         ],
         reportOptions: { formatNumbers: '$0,0' },
       },
       revenue_from_new_users: {
-        sql: 'coalesce(sum({{dimension.event__price}} / 1000000), 0)',
+        aggregation: 'sum',
+        sql: '{{dimension.event__price}} / 1000000',
         filters: [
           { dimension: 'is_retained', operator: 'is', value: false, valueType: 'boolean' },
         ],
         reportOptions: { formatNumbers: '$0,0' },
       },
       revenue_from_whales: {
-        sql: 'coalesce(sum({{dimension.event__price}} / 1000000), 0)',
+        aggregation: 'sum',
+        sql: '{{dimension.event__price}} / 1000000)',
         filters: [{ dimension: 'is_whale', operator: 'is', value: true, valueType: 'boolean' }],
         reportOptions: { formatNumbers: '$0,0' },
       },
