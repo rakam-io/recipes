@@ -68,7 +68,7 @@ local revenue_measures = { [name]: in_app_purchase.measures[name] { filters: (if
 {
   name: 'firebase_events',
   label: 'All events',
-  measures: common.measures + custom_measures + revenue_measures,
+  measures: common.measures + custom_measures,
   mappings: common.mappings,
   relations: common.relations,
   sql: |||
