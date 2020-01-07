@@ -62,12 +62,13 @@ local custom_measures = {
 };
 
 local user_props = common.get_user_properties();
-local embedded_event = predefined.in_app_purchase;
+local in_app_purchase = predefined.in_app_purchase;
+local revenue_measures = { [name]: in_app_purchase.measures[name] { filters: (if std.objectHas(in_app_purchase.measures[name], 'filters') then in_app_purchase.measures[name].filters else []) + [{ dimension: 'event_name', operator: 'equals', value: 'in_app_purchase', valueType: 'string' }] } for name in std.objectFields(in_app_purchase.measures) };
 
 {
   name: 'firebase_events',
   label: 'All events',
-  measures: common.measures + custom_measures,
+  measures: common.measures + custom_measures + revenue_measures,
   mappings: common.mappings,
   relations: common.relations,
   sql: |||
@@ -80,11 +81,11 @@ local embedded_event = predefined.in_app_purchase;
     project: target.database,
     dataset: target.schema,
     user_jinja: std.join('\n', common.generate_jinja_for_user_properties(user_props)),
-    event_jinja: std.join('\n', common.generate_jinja_for_event_properties(embedded_event.properties)),
+    event_jinja: std.join('\n', common.generate_jinja_for_event_properties(in_app_purchase.properties)),
   },
   dimensions: {
     event_name: {
       sql: '{{TABLE}}.`event_name`',
     },
-  } + common.dimensions + common.generate_user_dimensions(user_props) + common.generate_event_dimensions(embedded_event.properties),
+  } + common.dimensions + common.generate_user_dimensions(user_props) + common.generate_event_dimensions(in_app_purchase.properties),
 }
