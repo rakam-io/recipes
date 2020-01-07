@@ -178,7 +178,8 @@
         ],
       },
       revenue: {
-        sql: 'coalesce(sum({{dimension.event__price}} / 1000000), 0)',
+        aggregation: 'sum',
+        column: 'event_value_in_usd',
         reportOptions: { formatNumbers: '$0,0' },
       },
       transaction_count_per_paying_user: {
@@ -190,7 +191,7 @@
       },
       revenue_from_retained_users: {
         aggregation: 'sum',
-        sql: '{{dimension.event__price}} / 1000000',
+        column: 'event_value_in_usd',
         filters: [
           { dimension: 'is_retained', operator: 'is', value: true, valueType: 'boolean' },
         ],
@@ -198,7 +199,7 @@
       },
       revenue_from_new_users: {
         aggregation: 'sum',
-        sql: '{{dimension.event__price}} / 1000000',
+        column: 'event_value_in_usd',
         filters: [
           { dimension: 'is_retained', operator: 'is', value: false, valueType: 'boolean' },
         ],
@@ -206,7 +207,7 @@
       },
       revenue_from_whales: {
         aggregation: 'sum',
-        sql: '{{dimension.event__price}} / 1000000',
+        column: 'event_value_in_usd',
         filters: [{ dimension: 'is_whale', operator: 'is', value: true, valueType: 'boolean' }],
         reportOptions: { formatNumbers: '$0,0' },
       },
