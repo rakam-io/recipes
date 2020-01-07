@@ -62,6 +62,11 @@ local predefined = import 'predefined.jsonnet';
       sql: '{{dimension.firebase_user_id}}',
       aggregation: 'countUnique',
     },
+    paying_users: {
+      aggregation: 'countUnique',
+      sql: '{{dimension.firebase_user_id}}',
+      filters: [{ dimension: 'is_paying', operator: 'is', value: true, valueType: 'boolean' }],
+    },
     number_of_events: {
       aggregation: 'count',
     },
