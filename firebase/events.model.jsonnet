@@ -63,12 +63,12 @@ local custom_measures = {
 
 local user_props = common.get_user_properties();
 local in_app_purchase = predefined.in_app_purchase;
+local revenue_measures = { [name]: in_app_purchase.measures[name] { filters: (if std.objectHas(in_app_purchase.measures[name], 'filters') then in_app_purchase.measures[name].filters else []) + [{ dimension: 'event_name', operator: 'equals', value: 'in_app_purchase', valueType: 'string' }] } for name in std.objectFields(in_app_purchase.measures) };
 
 {
   name: 'firebase_events',
   label: 'All events',
-  measures: common.measures + custom_measures +
-            std.map(function(measure) measure { filters: (if std.objectHas(measure, 'filters') then measure.filters else []) + { dimension: 'event_name', operator: 'equals', value: 'in_app_purchase', valueType: 'string' } }, in_app_purchase.measures),
+  measures: common.measures + custom_measures + revenue_measures,
   mappings: common.mappings,
   relations: common.relations,
   sql: |||
