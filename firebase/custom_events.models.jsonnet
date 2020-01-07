@@ -4,7 +4,7 @@ local predefined = import '././predefined.jsonnet';
 
 
 local all_event_props = common.get_event_properties();
-local unique_events = std.uniq(std.map(function(attr) attr.event_name, all_event_props));
+local unique_events = std.uniq(std.sort(std.map(function(attr) attr.event_name, all_event_props)));
 
 local user_props = common.get_user_properties();
 local target = std.extVar('schema');
