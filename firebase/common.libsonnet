@@ -101,8 +101,12 @@ local predefined = import 'predefined.jsonnet';
       category: 'Event',
       column: 'platform',
     },
-
     // Revenue
+    event_value_in_usd: {
+      type: 'double',
+      category: 'Revenue',
+      column: 'event_value_in_usd'
+    },
     is_whale: {
       type: 'boolean',
       category: 'Revenue',
