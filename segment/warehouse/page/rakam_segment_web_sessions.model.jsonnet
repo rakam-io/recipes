@@ -31,7 +31,7 @@ local last_values = {
   name: 'rakam_segment_web_sessions',
   label: '[Segment] Pageview Sessions',
   description: 'Website session information for the pageview event',
-  hidden: true,
+  hidden: false,
   target: std.extVar('model_target'),
   dbt: {
     model: util.generate_jinja_header({
@@ -70,7 +70,7 @@ local last_values = {
     users: {
       label: 'Distinct Users',
       aggregation: 'countUnique',
-      column: 'userId',
+      column: 'blended_user_id',
     },
     pages_per_session: {
       label: 'Pages Per Session',
