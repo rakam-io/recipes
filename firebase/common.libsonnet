@@ -62,6 +62,13 @@ local predefined = import 'predefined.jsonnet';
       sql: '{{dimension.firebase_user_id}}',
       aggregation: 'countUnique',
     },
+    whales_playing: {
+      aggregation: 'countUnique',
+      sql: '{{dimension.firebase_user_id}}',
+      filters: [
+        { dimension: 'is_whale', operator: 'is', value: true, valueType: 'boolean' },
+      ],
+    },
     paying_users: {
       aggregation: 'countUnique',
       sql: '{{dimension.firebase_user_id}}',
@@ -105,7 +112,7 @@ local predefined = import 'predefined.jsonnet';
     event_value_in_usd: {
       type: 'double',
       category: 'Revenue',
-      column: 'event_value_in_usd'
+      column: 'event_value_in_usd',
     },
     is_whale: {
       type: 'boolean',

@@ -170,13 +170,6 @@
       total_transactions: {
         aggregation: 'count',
       },
-      whales_playing: {
-        aggregation: 'countUnique',
-        sql: '{{dimension.firebase_user_id}}',
-        filters: [
-          { dimension: 'is_whale', operator: 'is', value: true, valueType: 'boolean' },
-        ],
-      },
       revenue: {
         aggregation: 'sum',
         column: 'event_value_in_usd',
