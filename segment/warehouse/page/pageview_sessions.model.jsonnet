@@ -49,7 +49,7 @@ local last_values = {
     updateInterval: 'PT3H',
   },
   mappings: {
-    eventTimestamp: 'session_start_tstamp',
+    eventTimestamp: 'session_start_timestamp',
     incremental: 'received_at',
     userId: 'blended_user_id',
   },
@@ -120,7 +120,7 @@ local last_values = {
     first_referrer: {
       column: 'first_referrer',
     },
-    session_end_tstamp: {
+    session_end_timestamp: {
       column: 'session_end_tstamp',
     },
     session_id: {
@@ -129,7 +129,7 @@ local last_values = {
     session_number: {
       column: 'session_number',
     },
-    session_start_tstamp: {
+    session_start_timestamp: {
       column: 'session_start_tstamp',
     },
   },
