@@ -1,3 +1,5 @@
+local attrs = std.extVar('attributions');
+
 {
   name: 'Users Overview',
   filterSchema: [
@@ -7,14 +9,13 @@
       value: {
         name: 'eventTimestamp',
       },
-      defaultValue: 'P5Y',
+      defaultValue: 'P1Y',
       isRequired: true,
     },
   ],
   reports: [
     {
       name: 'Total Attributions',
-      ttl: 'PT1H',
       x: 2,
       y: 0,
       h: 2,
@@ -59,7 +60,6 @@
     },
     {
       name: '7-Day Active Users',
-      ttl: 'PT1H',
       x: 0,
       y: 1,
       h: 1,
@@ -107,7 +107,7 @@
                 {
                   valueType: 'timestamp',
                   operator: 'greaterThan',
-                  value: '2019-08-28T14:00:56.369Z',
+                  value: 'P7D',
                 },
               ],
             },
@@ -116,50 +116,7 @@
       },
     },
     {
-      name: 'By Device',
-      ttl: 'PT1H',
-      x: 0,
-      y: 2,
-      h: 1,
-      w: 2,
-      component: 'r-segmentation-chart',
-      type: 1,
-      reportOptions: {
-        modelName: 'segment_users',
-        dimensions: [
-          {
-            name: 'context_device_type',
-            modelName: 'segment_users',
-            relationName: null,
-            postOperation: null,
-            pivot: false,
-          },
-        ],
-        measures: [
-          {
-            name: 'total_users',
-            modelName: 'segment_users',
-            relationName: null,
-          },
-        ],
-        reportOptions: {
-          chartOptions: {
-            type: 'line',
-            columnOptions: [],
-          },
-          tableOptions: {
-            columnOptions: [],
-          },
-          columnOptions: null,
-        },
-        defaultDateRange: 'P14D',
-        limit: 1000,
-        filters: null,
-      },
-    },
-    {
       name: 'Total Users',
-      ttl: 'PT1H',
       x: 0,
       y: 0,
       h: 1,
@@ -193,7 +150,6 @@
     },
     {
       name: '30-day Active Users',
-      ttl: 'PT1H',
       x: 1,
       y: 1,
       h: 1,
@@ -241,13 +197,51 @@
                 {
                   valueType: 'timestamp',
                   operator: 'greaterThan',
-                  value: '2019-08-28T14:00:56.369Z',
+                  value: 'P30D',
                 },
               ],
             },
           },
         ],
       },
-    },
+    } + std.map(function(attr) {
+      name: 'By ' + attr,
+      h: 1,
+      w: 2,
+      component: 'r-segmentation-chart',
+      type: 1,
+      reportOptions: {
+        modelName: 'segment_users',
+        dimensions: [
+          {
+            name: attr,
+            modelName: 'segment_users',
+            relationName: null,
+            postOperation: null,
+            pivot: false,
+          },
+        ],
+        measures: [
+          {
+            name: 'total_users',
+            modelName: 'segment_users',
+            relationName: null,
+          },
+        ],
+        reportOptions: {
+          chartOptions: {
+            type: 'line',
+            columnOptions: [],
+          },
+          tableOptions: {
+            columnOptions: [],
+          },
+          columnOptions: null,
+        },
+        defaultDateRange: 'P14D',
+        limit: 1000,
+        filters: null,
+      },
+    }, std.objectFields(attrs)),
   ],
 }
