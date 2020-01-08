@@ -1,9 +1,9 @@
 local commonDimensions = import '../common_dimensions.jsonnet';
-local sessionsModel = import './rakam_segment_web_sessions.model.jsonnet';
+local sessionsModel = import './pageview_sessions.model.jsonnet';
 
 
 {
-  name: 'pages',
+  name: 'segment_pages',
   label: '[Segment] Pageview',
   description: "The pageview data that's collected via Segment Javascript SDK",
   target: std.extVar('pages_target'),

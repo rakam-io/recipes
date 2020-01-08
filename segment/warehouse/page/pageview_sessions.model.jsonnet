@@ -28,7 +28,7 @@ local last_values = {
 
 
 {
-  name: 'rakam_segment_web_sessions',
+  name: 'segment_rakam_pageview_sessions',
   label: '[Segment] Pageview Sessions',
   description: 'Website session information for the pageview event',
   hidden: false,
