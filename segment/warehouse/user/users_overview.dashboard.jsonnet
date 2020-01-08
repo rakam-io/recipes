@@ -1,4 +1,4 @@
-local attrs = std.extVar('attributions');
+local attrs = {};
 
 {
   name: 'Users Overview',
@@ -204,44 +204,44 @@ local attrs = std.extVar('attributions');
           },
         ],
       },
-    } + std.map(function(attr) {
-      name: 'By ' + attr,
-      h: 1,
-      w: 2,
-      component: 'r-segmentation-chart',
-      type: 1,
-      reportOptions: {
-        modelName: 'segment_users',
-        dimensions: [
-          {
-            name: attr,
-            modelName: 'segment_users',
-            relationName: null,
-            postOperation: null,
-            pivot: false,
-          },
-        ],
-        measures: [
-          {
-            name: 'total_users',
-            modelName: 'segment_users',
-            relationName: null,
-          },
-        ],
-        reportOptions: {
-          chartOptions: {
-            type: 'line',
-            columnOptions: [],
-          },
-          tableOptions: {
-            columnOptions: [],
-          },
-          columnOptions: null,
+    },
+  ] + std.map(function(attr) {
+    name: 'By ' + attr,
+    h: 1,
+    w: 2,
+    component: 'r-segmentation-chart',
+    type: 1,
+    reportOptions: {
+      modelName: 'segment_users',
+      dimensions: [
+        {
+          name: attr,
+          modelName: 'segment_users',
+          relationName: null,
+          postOperation: null,
+          pivot: false,
         },
-        defaultDateRange: 'P14D',
-        limit: 1000,
-        filters: null,
+      ],
+      measures: [
+        {
+          name: 'total_users',
+          modelName: 'segment_users',
+          relationName: null,
+        },
+      ],
+      reportOptions: {
+        chartOptions: {
+          type: 'line',
+          columnOptions: [],
+        },
+        tableOptions: {
+          columnOptions: [],
+        },
+        columnOptions: null,
       },
-    }, std.objectFields(attrs)),
-  ],
+      defaultDateRange: 'P14D',
+      limit: 1000,
+      filters: null,
+    },
+  }, std.objectFields(attrs)),
 }
