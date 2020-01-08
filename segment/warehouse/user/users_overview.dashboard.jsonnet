@@ -1,4 +1,4 @@
-local attrs = {};
+local attrs = std.extVar('attributions');
 
 {
   name: 'Users Overview',
@@ -106,7 +106,7 @@ local attrs = {};
               filters: [
                 {
                   valueType: 'timestamp',
-                  operator: 'greaterThan',
+                  operator: 'between',
                   value: 'P7D',
                 },
               ],
@@ -196,7 +196,7 @@ local attrs = {};
               filters: [
                 {
                   valueType: 'timestamp',
-                  operator: 'greaterThan',
+                  operator: 'between',
                   value: 'P30D',
                 },
               ],
