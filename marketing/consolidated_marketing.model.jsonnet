@@ -51,9 +51,7 @@ local data = std.mapWithKey(function(channel, mapping) mapping, channels.options
       label: 'Cost per conversion',
       description: 'Cost per conversion',
       sql: '{{dimension.total_cost}}*1.0 / NULLIF({{dimension.total_conversions}},0)',
-      reportOptions: {
-        prefix: '$',
-      },
+      reportOptions: { formatNumbers: '$0,0' },
     },
     average_value_per_conversion: {
       label: 'Value per Conversion',
@@ -62,40 +60,38 @@ local data = std.mapWithKey(function(channel, mapping) mapping, channels.options
     average_cost_per_click: {
       label: 'Cost per Click',
       sql: '{{measure.total_cost}}*1.0 / NULLIF({{measure.total_clicks}},0)',
+      reportOptions: { formatNumbers: '$0,00' },
     },
     average_value_per_click: {
       label: 'Value per Click',
       sql: '{{measure.total_conversion_value}}*1.0 / NULLIF({{measure.total_clicks}},0)',
-      reportOptions: {
-        prefix: '$',
-      },
+      reportOptions: { formatNumbers: '$0,0' },
     },
     average_cost_per_impression: {
       label: 'CPM',
       description: 'Average cost per ad impression viewed.',
       sql: '{{measure.total_cost}}*1.0 / NULLIF({{measure.total_impressions}},0) * 1000.0',
-      reportOptions: {
-        prefix: '$',
-      },
+      reportOptions: { formatNumbers: '$0,0' },
     },
     average_value_per_impression: {
       label: 'Value per Impression',
       description: 'Average value per ad impression viewed.',
       sql: '{{measure.total_conversion_value}}*1.0 / NULLIF({{measure.total_impressions}},0)',
-      reportOptions: { prefix: '$' },
+      reportOptions: { formatNumbers: '$0,0' },
     },
 
     average_value_per_cost: {
       label: 'ROAS',
       description: 'Average Return on Ad Spend.',
       sql: '{{measure.total_conversion_value}}*1.0 / NULLIF({{measure.total_cost}},0)',
+      reportOptions: { formatNumbers: '$0,0' },
     },
 
     average_conversion_rate: {
       label: 'Conversion Rate',
       description: 'Percent of people that convert after they interact with an ad.',
       sql: '{{measure.total_conversions}}*1.0 / NULLIF({{measure.total_clicks}},0)',
-      reportOptions: { prefix: '%' },
+      reportOptions: { formatNumbers: '0.0%' },
     },
 
     //         cumulative_spend : {
@@ -158,13 +154,13 @@ local data = std.mapWithKey(function(channel, mapping) mapping, channels.options
     },
     cost_per_conversion: {
       sql: '{{dimension.cost}}*1.0 / NULLIF({{dimension.conversions}},0)',
-      reportOptions: { prefix: '$' },
+      reportOptions: { formatNumbers: '$0,0' },
     },
     cost_per_click: {
       label: 'CPC',
       description: 'Cost per click',
       sql: '{{dimension.cost}}*1.0 / NULLIF({{dimension.clicks}},0)',
-      reportOptions: { prefix: '$' },
+      reportOptions: { formatNumbers: '$0,0' },
     },
     cost_per_impression: {
       label: 'CPM',
@@ -173,11 +169,12 @@ local data = std.mapWithKey(function(channel, mapping) mapping, channels.options
     },
     conversion_rate: {
       sql: '{{dimension.conversions}}*1.0 / NULLIF({{dimension.clicks}},0)',
+      reportOptions: { formatNumbers: '0.0%' },
     },
     value_per_cost: {
       label: 'ROAS',
       description: 'Return on ad spend',
-      sql: '{{dimension.conversion_value}}*1.0 / NULLIF({{dimension.cost}},0) ',
+      sql: '{{dimension.conversion_value}}*1.0 / NULLIF({{dimension.cost}}, 0)',
     },
   },
 }
