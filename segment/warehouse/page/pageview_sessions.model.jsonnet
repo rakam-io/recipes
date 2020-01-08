@@ -32,6 +32,7 @@ local last_values = {
   label: '[Segment] Pageview Sessions',
   description: 'Website session information for the pageview event',
   hidden: false,
+  category: 'Segment Events',
   target: std.extVar('model_target'),
   dbt: {
     model: util.generate_jinja_header({
@@ -74,19 +75,21 @@ local last_values = {
     },
     pages_per_session: {
       label: 'Pages Per Session',
-      sql: '1.0 * "page_views" / nullif(count(*), 0)',
+      sql: '1.0 * sum({{TABLE}}.page_views) / nullif(count(*), 0)',
     },
     bounce_rate: {
-      sql: '1.0 * sum(case when "page_views" = 1 then 1 else 0 end) /\n            nullif(count(*), 0)',
+      sql: '1.0 * sum(case when {{TABLE}}.page_views = 1 then 1 else 0 end) / nullif(count(*), 0)',
       label: 'Bounce Rate',
     },
     new_sessions: {
       label: 'New Sessions',
-      sql: 'sum(case when "session_number" = 1 then 1 else 0 end)',
+      aggregation: 'sum',
+      sql: 'case when {{TABLE}}."session_number" = 1 then 1 else 0 end',
     },
     returning_sessions: {
       label: 'Returning Sessions',
-      sql: 'sum(case when "session_number" > 1 then 1 else 0 end)',
+      aggregation: 'sum',
+      sql: 'case when "session_number" > 1 then 1 else 0 end',
     },
     average_session_count_per_user: {
       label: 'Average Session Per User',
