@@ -5,6 +5,11 @@ local predefined = import './predefined.jsonnet';
 
 
 local custom_measures = {
+  revenue: {
+    aggregation: 'sum',
+    column: 'event_value_in_usd',
+    reportOptions: { formatNumbers: '$0,0' },
+  },
   average_revenue_per_user: {
     label: 'ARPU [All]',
     sql: '1.0 * ({{measure.revenue}}/{{measure.all_users}})',
@@ -14,7 +19,7 @@ local custom_measures = {
   average_revenue_per_new_user: {
     aggregation: 'average',
     label: 'ARPU [New users]',
-    sql: '{{dimension.event__price}} / 1000000',
+    column: 'event_value_in_usd',
     type: 'double',
     filters: [
       { dimension: 'is_retained', operator: 'is', value: false, valueType: 'boolean' },
@@ -24,7 +29,7 @@ local custom_measures = {
   average_revenue_per_retained_user: {
     aggregation: 'average',
     label: 'ARPU [Retained users]',
-    sql: '{{dimension.event__price}} / 1000000',
+    column: 'event_value_in_usd',
     type: 'double',
     filters: [
       { dimension: 'is_retained', operator: 'is', value: true, valueType: 'boolean' },
