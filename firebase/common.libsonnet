@@ -127,7 +127,7 @@ local predefined = import 'predefined.jsonnet';
     is_paying: {
       type: 'boolean',
       category: 'Revenue',
-      sql: '{{TABLE}}.`user_ltv`.`revenue` > 0',
+      sql: 'coalesce({{TABLE}}.`user_ltv`.`revenue` > 0, false)',
     },
     ltv_revenue: {
       category: 'Revenue',
