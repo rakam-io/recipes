@@ -114,11 +114,32 @@ local predefined = import 'predefined.jsonnet';
       category: 'Revenue',
       column: 'event_value_in_usd',
     },
+    is_whale: {
+      type: 'boolean',
+      category: 'Revenue',
+      sql: "{{TABLE}}.`user_ltv`.`revenue` > 99 AND {{TABLE}}.`user_ltv`.`currency` = 'USD'",
+    },
     is_retained: {
       type: 'boolean',
       category: 'Revenue',
       sql: 'TIMESTAMP_DIFF({{dimension.event_timestamp}}, {{dimension.user_first_touch}}, DAY) > 1',
     },
+    is_paying: {
+      type: 'boolean',
+      category: 'Revenue',
+      sql: 'coalesce({{TABLE}}.`user_ltv`.`revenue` > 0, false)',
+    },
+    ltv_revenue: {
+      category: 'Revenue',
+      sql: '{{TABLE}}.`user_ltv`.`revenue`',
+      hidden: true,
+    },
+    ltv_currency: {
+      category: 'Revenue',
+      sql: '{{TABLE}}.`user_ltv`.`currency`',
+      hidden: true,
+    },
+
     // Event related
     traffic_source: {
       hidden: true,
