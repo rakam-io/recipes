@@ -67,5 +67,10 @@
         |||,
       },
     },
+    installRevenue: {
+      label: 'Install Revenue Metrics',
+      type: 'boolean',
+      description: "If you're sending the in app purchases to Firebase, you can enable this toggle in order to see metrics related to your revenue.",
+    },
   },
 }
