@@ -81,10 +81,10 @@ local in_app_purchase = predefined.in_app_purchase;
     %(event_jinja)s
     FROM (
       SELECT * FROM `%(project)s`.`%(dataset)s`.`events_*`
-      {%% if partitioned %%} WHERE _TABLE_SUFFIX BETWEEN FORMAT_DATE("%Y%m%d", DATE '{{date.start}}') and FORMAT_DATE("%Y%m%d", DATE '{{date.end}}') {%% endif %%}
+      {%% if partitioned %%} WHERE _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
       {%% if include_today %%}
       UNION ALL
-      SELECT * FROM `%(project)s`.`%(dataset)s`.`events_intraday_*` WHERE _TABLE_SUFFIX BETWEEN FORMAT_DATE("%Y%m%d", CURRENT_DATE()) AND FORMAT_DATE("%Y%m%d", DATE_ADD(CURRENT_DATE(), INTERVAL 1 DAY))
+      SELECT * FROM `%(project)s`.`%(dataset)s`.`events_intraday_*` WHERE _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", CURRENT_DATE()) AND FORMAT_DATE("%%Y%%m%%d", DATE_ADD(CURRENT_DATE(), INTERVAL 1 DAY))
       {%% endif %%}
     ) events
   ||| % {
