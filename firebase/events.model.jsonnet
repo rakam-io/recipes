@@ -3,76 +3,20 @@ local common = import 'common.libsonnet';
 local target = std.extVar('schema');
 local predefined = import './predefined.jsonnet';
 
-
-local custom_measures = {
-  revenue: {
-    aggregation: 'sum',
-    column: 'event_value_in_usd',
-    reportOptions: { formatNumbers: '$0,0' },
-  },
-  average_revenue_per_user: {
-    label: 'ARPU [All]',
-    sql: '1.0 * ({{measure.revenue}}/{{measure.all_users}})',
-    type: 'double',
-    reportOptions: { formatNumbers: '$0,0.00' },
-  },
-  average_revenue_per_new_user: {
-    aggregation: 'average',
-    label: 'ARPU [New users]',
-    column: 'event_value_in_usd',
-    type: 'double',
-    filters: [
-      { dimension: 'is_retained', operator: 'is', value: false, valueType: 'boolean' },
-    ],
-    reportOptions: { formatNumbers: '$0,0.00' },
-  },
-  average_revenue_per_retained_user: {
-    aggregation: 'average',
-    label: 'ARPU [Retained users]',
-    column: 'event_value_in_usd',
-    type: 'double',
-    filters: [
-      { dimension: 'is_retained', operator: 'is', value: true, valueType: 'boolean' },
-    ],
-    reportOptions: { formatNumbers: '$0,0.00' },
-  },
-  paying_and_retained_users: {
-    sql: '{{dimension.firebase_user_id}}',
-    aggregation: 'countUnique',
-    filters: [
-      { dimension: 'is_retained', operator: 'is', value: true, valueType: 'boolean' },
-      { dimension: 'is_paying', operator: 'is', value: true, valueType: 'boolean' },
-    ],
-    type: 'double',
-    hidden: true,
-  },
-  paying_and_new_users: {
-    sql: '{{dimension.firebase_user_id}}',
-    aggregation: 'countUnique',
-    filters: [
-      { dimension: 'is_retained', operator: 'is', value: false, valueType: 'boolean' },
-      { dimension: 'is_paying', operator: 'is', value: true, valueType: 'boolean' },
-    ],
-    type: 'double',
-    hidden: true,
-  },
-  percent_retained_users_paying: {
-    sql: '{{measure.paying_and_retained_users}}/{{measure.active_users}}',
-    reportOptions: { formatNumbers: '0.0%' },
-  },
-  percent_new_users_paying: {
-    sql: '{{measure.paying_and_new_users}}/{{measure.new_users}}',
-    reportOptions: { formatNumbers: '0.0%' },
-  },
-};
+local installRevenue = std.extVar('installRevenue');
 
 local user_props = common.get_user_properties();
 local in_app_purchase = predefined.in_app_purchase;
+local common_dimensions_all = common.dimensions + common.generate_event_dimensions(in_app_purchase.properties);
+local common_measures_all = common.measures + common.all_events_revenue_measures;
+
+local common_dimensions = if (!installRevenue) then std.filter(function(dimension) dimension.category != 'Revenue', common_dimensions_all) else common_dimensions_all;
+local common_measures = if (!installRevenue) then std.filter(function(measure) measure.category != 'Revenue', common_measures_all) else common_measures_all;
 
 {
   name: 'firebase_events',
   label: 'All events',
-  measures: common.measures + custom_measures,
+  measures: common_measures,
   mappings: common.mappings,
   relations: common.relations,
   sql: |||
@@ -91,5 +35,5 @@ local in_app_purchase = predefined.in_app_purchase;
     event_name: {
       sql: '{{TABLE}}.`event_name`',
     },
-  } + common.dimensions + common.generate_user_dimensions(user_props) + common.generate_event_dimensions(in_app_purchase.properties),
+  } + common.generate_user_dimensions(user_props) + common_dimensions,
 }

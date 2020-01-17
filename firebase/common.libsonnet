@@ -62,18 +62,6 @@ local predefined = import 'predefined.jsonnet';
       sql: '{{dimension.firebase_user_id}}',
       aggregation: 'countUnique',
     },
-    whales_playing: {
-      aggregation: 'countUnique',
-      sql: '{{dimension.firebase_user_id}}',
-      filters: [
-        { dimension: 'is_whale', operator: 'is', value: true, valueType: 'boolean' },
-      ],
-    },
-    paying_users: {
-      aggregation: 'countUnique',
-      sql: '{{dimension.firebase_user_id}}',
-      filters: [{ dimension: 'is_paying', operator: 'is', value: true, valueType: 'boolean' }],
-    },
     number_of_events: {
       aggregation: 'count',
     },
@@ -90,6 +78,20 @@ local predefined = import 'predefined.jsonnet';
       filters: [
         { dimension: 'is_retained', operator: 'is', value: false, valueType: 'boolean' },
       ],
+    },
+    whales_playing: {
+      aggregation: 'countUnique',
+      sql: '{{dimension.firebase_user_id}}',
+      category: 'Revenue',
+      filters: [
+        { dimension: 'is_whale', operator: 'is', value: true, valueType: 'boolean' },
+      ],
+    },
+    paying_users: {
+      aggregation: 'countUnique',
+      sql: '{{dimension.firebase_user_id}}',
+      category: 'Revenue',
+      filters: [{ dimension: 'is_paying', operator: 'is', value: true, valueType: 'boolean' }],
     },
   },
   dimensions: {
@@ -317,6 +319,67 @@ local predefined = import 'predefined.jsonnet';
       category: 'User Location',
       type: 'string',
       sql: '{{TABLE}}.`geo`.`sub_continent`',
+    },
+  },
+  all_events_revenue_measures: {
+    revenue: {
+      aggregation: 'sum',
+      column: 'event_value_in_usd',
+      reportOptions: { formatNumbers: '$0,0' },
+    },
+    average_revenue_per_user: {
+      label: 'ARPU [All]',
+      sql: '1.0 * ({{measure.revenue}}/{{measure.all_users}})',
+      type: 'double',
+      reportOptions: { formatNumbers: '$0,0.00' },
+    },
+    average_revenue_per_new_user: {
+      aggregation: 'average',
+      label: 'ARPU [New users]',
+      column: 'event_value_in_usd',
+      type: 'double',
+      filters: [
+        { dimension: 'is_retained', operator: 'is', value: false, valueType: 'boolean' },
+      ],
+      reportOptions: { formatNumbers: '$0,0.00' },
+    },
+    average_revenue_per_retained_user: {
+      aggregation: 'average',
+      label: 'ARPU [Retained users]',
+      column: 'event_value_in_usd',
+      type: 'double',
+      filters: [
+        { dimension: 'is_retained', operator: 'is', value: true, valueType: 'boolean' },
+      ],
+      reportOptions: { formatNumbers: '$0,0.00' },
+    },
+    paying_and_retained_users: {
+      sql: '{{dimension.firebase_user_id}}',
+      aggregation: 'countUnique',
+      filters: [
+        { dimension: 'is_retained', operator: 'is', value: true, valueType: 'boolean' },
+        { dimension: 'is_paying', operator: 'is', value: true, valueType: 'boolean' },
+      ],
+      type: 'double',
+      hidden: true,
+    },
+    paying_and_new_users: {
+      sql: '{{dimension.firebase_user_id}}',
+      aggregation: 'countUnique',
+      filters: [
+        { dimension: 'is_retained', operator: 'is', value: false, valueType: 'boolean' },
+        { dimension: 'is_paying', operator: 'is', value: true, valueType: 'boolean' },
+      ],
+      type: 'double',
+      hidden: true,
+    },
+    percent_retained_users_paying: {
+      sql: '{{measure.paying_and_retained_users}}/{{measure.active_users}}',
+      reportOptions: { formatNumbers: '0.0%' },
+    },
+    percent_new_users_paying: {
+      sql: '{{measure.paying_and_new_users}}/{{measure.new_users}}',
+      reportOptions: { formatNumbers: '0.0%' },
     },
   },
 }
