@@ -38,7 +38,9 @@ local predefined = import 'predefined.jsonnet';
       ],
   get_event_properties()::
     if std.extVar('event_properties') != null then std.extVar('event_properties') else
-      std.flattenArrays(std.map(function(event_type) std.map(function(prop) { event_name: event_type, event_db: event_type, name: prop.name, prop_db: prop.prop_db, type: prop.type, value_type: prop.value_type }, predefined[event_type].properties), std.objectFields(predefined)))
+      std.flattenArrays(std.map(function(event_type) std.map(function(prop)
+                                                               { event_name: event_type, event_db: event_type, name: prop.name, prop_db: prop.prop_db, type: prop.type, value_type: prop.value_type },
+                                                             if std.objectHas(predefined, event_type) then predefined[event_type].properties else []), std.objectFields(predefined)))
   ,
   mappings: {
     eventTimestamp: 'event_timestamp',
