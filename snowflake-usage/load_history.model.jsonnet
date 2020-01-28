@@ -1,6 +1,7 @@
 {
   name: 'snowflake_load_history',
   target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'LOAD_HISTORY' },
+  category: 'Snowflake Data-warehouse',
   measures: {
     total_row_count: {
       aggregation: 'sum',

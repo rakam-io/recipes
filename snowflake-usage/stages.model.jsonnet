@@ -1,6 +1,8 @@
 {
   name: 'snowflake_stages',
   target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'STAGES' },
+  category: 'Snowflake Data-warehouse',
+
   measures: {
     count: {
       aggregation: 'count',

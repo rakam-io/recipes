@@ -1,6 +1,16 @@
 {
   name: 'snowflake_warehouse_metering_history',
   target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'WAREHOUSE_METERING_HISTORY' },
+  category: 'Snowflake Data-warehouse',
+  relations: {
+    pipe_usage: {
+      relationType: 'oneToOne',
+      joinType: 'leftJoin',
+      modelName: 'snowflake_pipe_usage',
+      sourceColumn: 'start_time',
+      targetColumn: 'start_time',
+    },
+  },
   mappings: {
     eventTimestamp: 'start_time',
   },
@@ -18,7 +28,7 @@
     },
     total_credits_used_usd: {
       aggregation: 'sum',
-      sql: "{{dimension.credits_used_usd}}",
+      sql: '{{dimension.credits_used_usd}}',
       reportOptions: {
         suffix: '$',
       },
@@ -26,10 +36,10 @@
   },
   dimensions: {
     credits_used: {
-      column: 'CREDITS_USED'
+      column: 'CREDITS_USED',
     },
     credits_used_usd: {
-      sql: "{{dimension.credits_used}} * 2.5",
+      sql: '{{dimension.credits_used}} * 2.5',
       reportOptions: {
         suffix: '$',
       },
@@ -37,12 +47,12 @@
     start_time: {
       column: 'START_TIME',
       timeframes: [],
-      type: 'timestamp'
+      type: 'timestamp',
     },
     end_time: {
       column: 'END_TIME',
       timeframes: [],
-      type: 'timestamp'
+      type: 'timestamp',
     },
     warehouse_name: {
       column: 'WAREHOUSE_NAME',

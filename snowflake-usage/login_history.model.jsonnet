@@ -4,6 +4,7 @@
   mappings: {
     eventTimestamp: 'event_timestamp',
   },
+  category: 'Snowflake Data-warehouse',
   measures: {
     logins: {
       aggregation: 'count',

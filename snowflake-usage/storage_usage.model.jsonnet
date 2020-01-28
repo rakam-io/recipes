@@ -1,6 +1,8 @@
 {
   name: 'snowflake_storage_usage',
   target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'DATABASE_STORAGE_USAGE_HISTORY' },
+  category: 'Snowflake Data-warehouse',
+
   measures: {
     average_storage_tb: {
       aggregation: 'average',
@@ -32,7 +34,7 @@
     usage_date: {
       column: 'USAGE_DATE',
       timeframes: [],
-      type: 'timestamp'
+      type: 'timestamp',
     },
     storage_bytes: {
       column: 'AVERAGE_DATABASE_BYTES',

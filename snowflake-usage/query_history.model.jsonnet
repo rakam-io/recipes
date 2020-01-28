@@ -1,6 +1,8 @@
 {
   name: 'snowflake_query_history',
   target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'QUERY_HISTORY' },
+  category: 'Snowflake Data-warehouse',
+
   measures: {
     query_count: {
       aggregation: 'count',
@@ -123,7 +125,7 @@
     start: {
       column: 'START_TIME',
       timeframes: [],
-      type: 'timestamp'
+      type: 'timestamp',
     },
     elapsed_time: {
       column: 'TOTAL_ELAPSED_TIME',

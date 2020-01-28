@@ -1,6 +1,8 @@
 {
   name: 'snowflake_storage_metrics',
   target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'TABLE_STORAGE_METRICS' },
+  category: 'Snowflake Data-warehouse',
+
   measures: {
     average_storage_tb: {
       aggregation: 'average',

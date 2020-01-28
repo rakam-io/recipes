@@ -1,6 +1,8 @@
 {
   name: 'snowflake_table_constraints',
   target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'TABLE_CONSTRAINTS' },
+  category: 'Snowflake Data-warehouse',
+
   measures: {
     count: {
       aggregation: 'count',

@@ -2,8 +2,9 @@
   name: 'snowflake_pipe_usage',
   target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'PIPE_USAGE_HISTORY' },
   mappings: {
-      eventTimestamp: 'start_time'
+    eventTimestamp: 'start_time',
   },
+  category: 'Snowflake Data-warehouse',
   measures: {
     count: {
       aggregation: 'count',
@@ -14,7 +15,7 @@
     },
     total_credits_used_usd: {
       aggregation: 'sum',
-      sql: "{{dimension.credits_used_usd}}",
+      sql: '{{dimension.credits_used_usd}}',
       reportOptions: {
         suffix: '$',
       },
@@ -42,7 +43,7 @@
       column: 'CREDITS_USED',
     },
     credits_used_usd: {
-      sql: "{{dimension.credits_used}} * 2.5",
+      sql: '{{dimension.credits_used}} * 2.5',
       reportOptions: {
         suffix: '$',
       },
@@ -50,12 +51,12 @@
     start_time: {
       column: 'START_TIME',
       timeframes: [],
-      type: 'timestamp'
+      type: 'timestamp',
     },
     end_time: {
       column: 'START_TIME',
       timeframes: [],
-      type: 'timestamp'
+      type: 'timestamp',
     },
   },
 }

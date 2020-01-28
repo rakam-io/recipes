@@ -1,6 +1,7 @@
 {
   name: 'snowflake_databases',
   target: { database: 'SNOWFLAKE', schema: 'ACCOUNT_USAGE', table: 'DATABASES' },
+  category: 'Snowflake Data-warehouse',
   measures: {
     count: {
       aggregation: 'count',
