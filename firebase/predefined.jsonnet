@@ -1,5 +1,6 @@
 {
   level: {
+    properties: [],
     dimensions: {
       event__level_num_fl: {
         sql: 'CAST({{dimension.event__level_num}} AS FLOAT64)',
