@@ -14,7 +14,7 @@ local common_dimensions = if (!installRevenue) then std.filter(function(dimensio
 local common_measures = if (!installRevenue) then std.filter(function(measure) measure.category != 'Revenue', common_measures_all) else common_measures_all;
 
 {
-  name: 'firebase_events',
+  name: 'firebase_events2',
   label: 'All events',
   measures: common_measures,
   mappings: common.mappings,
