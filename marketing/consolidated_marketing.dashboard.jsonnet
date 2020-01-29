@@ -159,7 +159,7 @@
       type: 1,
       reportOptions: {
         modelName: 'consolidated_marketing',
-        dimensions: [],
+        dimensions: [{ modelName: 'consolidated_marketing', relationName: null, postOperation: null, name: 'date' }],
         measures: [
           {
             name: 'total_cost',
@@ -167,16 +167,7 @@
             relationName: null,
           },
         ],
-        reportOptions: {
-          chartOptions: {
-            type: null,
-            columnOptions: [],
-          },
-          tableOptions: {
-            columnOptions: [],
-          },
-          columnOptions: null,
-        },
+        reportOptions: { chartOptions: { columnOptions: [], type: 'line' }, tableOptions: { columnOptions: [] } },
         defaultDateRange: 'P14D',
         limit: 1000,
         filters: null,
@@ -189,11 +180,11 @@
       y: 3,
       h: 2,
       w: 2,
-      component: 'r-number',
+      component: 'r-chart',
       type: 1,
       reportOptions: {
         modelName: 'consolidated_marketing',
-        dimensions: [],
+        dimensions: [{ modelName: 'consolidated_marketing', relationName: null, postOperation: null, name: 'date' }],
         measures: [
           {
             name: 'total_cost',
@@ -203,6 +194,7 @@
         ],
         defaultDateRange: 'P14D',
         limit: 1000,
+        reportOptions: { chartOptions: { columnOptions: [], type: 'line' }, tableOptions: { columnOptions: [] } },
         filters: null,
       },
     },
@@ -213,11 +205,11 @@
       y: 2,
       h: 2,
       w: 2,
-      component: 'r-number',
+      component: 'r-chart',
       type: 1,
       reportOptions: {
         modelName: 'consolidated_marketing',
-        dimensions: [],
+        dimensions: [{ modelName: 'consolidated_marketing', relationName: null, postOperation: null, name: 'date' }],
         measures: [
           {
             name: 'total_cost',
@@ -228,6 +220,7 @@
         defaultDateRange: 'P14D',
         limit: 1000,
         filters: null,
+        reportOptions: { chartOptions: { columnOptions: [], type: 'line' }, tableOptions: { columnOptions: [] } },
       },
     },
     {
@@ -323,7 +316,7 @@
       },
     },
     {
-      name: 'Overal ROAS',
+      name: 'Overall ROAS',
       ttl: 'PT1H',
       x: 2,
       y: 1,
