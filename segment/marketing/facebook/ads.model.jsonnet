@@ -2,7 +2,6 @@
   name: 'facebook_ads',
   hidden: true,
   target: std.mergePatch(std.extVar('schema'), { table: 'ads' }),
-  mappings: {},
   category: 'Marketing',
   relations: {
     facebook_campaigns: {
@@ -66,7 +65,7 @@
     },
     is_active: {
       type: 'boolean',
-      sql: "CASE WHEN {{TABLE}}.status = 'ACTIVE' then TRUE else FALSE END"
+      sql: "CASE WHEN {{TABLE}}.status = 'ACTIVE' then TRUE else FALSE END",
     },
     status: {
       pivot: false,

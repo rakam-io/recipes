@@ -1,9 +1,8 @@
 {
   name: 'adwords_campaigns',
   hidden: true,
-  target: std.mergePatch(std.extVar('schema'), {table: 'campaigns'}),
+  target: std.mergePatch(std.extVar('schema'), { table: 'campaigns' }),
   category: 'Marketing',
-  mappings: {},
   dimensions: {
     id: {
       pivot: false,

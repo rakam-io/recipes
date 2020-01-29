@@ -2,7 +2,6 @@
   name: 'facebook_ad_accounts',
   hidden: true,
   target: std.mergePatch(std.extVar('schema'), { table: 'ad_accounts' }),
-  mappings: {},
   category: 'Marketing',
   dimensions: {
     id: {

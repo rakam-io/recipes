@@ -2,7 +2,6 @@
   name: 'adwords_ads',
   hidden: true,
   target: std.mergePatch(std.extVar('schema'), { table: 'ads' }),
-  mappings: {},
   category: 'Marketing',
   relations: {
     adwords_ad_groups: {

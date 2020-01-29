@@ -1,5 +1,6 @@
 {
   name: 'Google Adwords',
+  category: 'Marketing',
   filterSchema: [
     {
       name: 'dateRange',

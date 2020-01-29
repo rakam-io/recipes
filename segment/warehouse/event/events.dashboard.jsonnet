@@ -1,5 +1,6 @@
 {
   name: 'Events Overview',
+  category: 'Segment Events',
   filterSchema: [
     {
       name: 'dateRange',

@@ -1,5 +1,6 @@
 {
   name: 'Facebook Ads',
+  category: 'Marketing',
   filterSchema: [
     {
       name: 'dateRange',

@@ -1,5 +1,6 @@
 {
   name: 'Website Overview',
+  category: 'Segment Events',
   filterSchema: [
     {
       name: 'Date',

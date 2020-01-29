@@ -135,6 +135,7 @@ local data = std.mapWithKey(function(channel, mapping) mapping, channels.options
       description: 'Total cost.',
       aggregation: 'sum',
       sql: '{{dimension.cost}}',
+      reportOptions: { formatNumbers: '$0,00' },
     },
 
     total_impressions: {

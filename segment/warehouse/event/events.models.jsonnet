@@ -20,7 +20,6 @@ std.map(function(event_table) {
       sourceColumn: 'user_id',
       targetColumn: 'id',
     } } else {},
-  description: 'A custom event defined in Segment SDK',
   measures: {
     events: {
       aggregation: 'count',

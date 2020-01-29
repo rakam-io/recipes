@@ -1,5 +1,6 @@
 {
   name: 'User Detail',
+  category: 'Segment Users',
   filterSchema: [
     {
       name: 'Date',

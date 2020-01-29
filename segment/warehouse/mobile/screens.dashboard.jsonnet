@@ -1,8 +1,6 @@
 {
   name: 'Mobile Overview',
-  filterSchema: [
-  
-  ],
+  category: 'Segment Events',
   reports: [
     {
       name: 'Devices',

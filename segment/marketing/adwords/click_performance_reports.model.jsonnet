@@ -4,7 +4,6 @@
   label: 'Adwords Click Performance',
   description: 'Includes stats at the click level, including both valid and invalid clicks.',
   category: 'Marketing',
-  mappings: {},
   relations: {
     adwords_campaigns: {
       relationType: 'manyToOne',
