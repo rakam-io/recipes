@@ -1,7 +1,7 @@
 {
   label: 'All Segment Users',
   name: 'segment_users',
-  category: 'Users',
+  category: 'Segment Users',
   target: std.extVar('users_target'),
   mappings: {
     userId: 'user_id',

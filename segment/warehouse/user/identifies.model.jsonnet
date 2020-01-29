@@ -2,7 +2,7 @@
   label: 'User Attributions',
   name: 'identifies',
   target: std.extVar('identifies_target'),
-  category: 'Segemnt Events',
+  category: 'Segment Events',
   mappings: {
     userId: 'id',
     eventTimestamp: 'received_at',
