@@ -1,6 +1,6 @@
 {
   measures: {
-    count_of_pageviews: {
+    total_pageviews: {
       aggregation: 'count',
     },
     unique_visitors: {
