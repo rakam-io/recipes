@@ -112,7 +112,7 @@
       type: 'double',
     },
     transaction_conversion_rate: {
-      sql: '1.0 * (transactions_count/NULLIF({{measure.count_of_sessions}},0))',
+      sql: '1.0 * ({{measure.total_transactions}}/NULLIF({{measure.count_of_sessions}},0))',
       type: 'double',
     },
     average_revenue_per_transaction: {
