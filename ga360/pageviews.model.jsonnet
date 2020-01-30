@@ -19,7 +19,7 @@ local pageviews = import 'hits.jsonnet';
   name: 'ga_pageviews',
   category: 'Google Analytics',
   sql: |||
-    SELECT * FROM `%(project)s`.`%(dataset)s`.`ga_sessions_*`, UNNEST(hits) AS hits
+    SELECT sessions.* except(customDimensions, hits), hits.* FROM `%(project)s`.`%(dataset)s`.`ga_sessions_*` as sessions, UNNEST(hits) AS hits
     {%% if partitioned %%} WHERE _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
     {%% if include_today and false %%}
     UNION ALL
