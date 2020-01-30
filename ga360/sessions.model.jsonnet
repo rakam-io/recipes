@@ -13,7 +13,7 @@ local sessions = import 's.jsonnet';
   sql: |||
     SELECT * FROM `%(project)s`.`%(dataset)s`.`ga_sessions_*`
     {%% if partitioned %%} WHERE _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
-    {%% if include_today %%}
+    {%% if include_today and false %%}
     UNION ALL
     SELECT * FROM `%(project)s`.`%(dataset)s`.`ga_sessions_intraday_*` WHERE _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", CURRENT_DATE()) AND FORMAT_DATE("%%Y%%m%%d", DATE_ADD(CURRENT_DATE(), INTERVAL 1 DAY))
     {%% endif %%}
