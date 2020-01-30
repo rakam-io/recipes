@@ -75,12 +75,13 @@
       hidden: false,
     },
     time_on_site: {
-      sql: '({{dimension.time_on_site}}) / 86400.0',
+      sql: '{{dimension.time_on_site}} / 86400.0',
       aggregation: 'sum',
       type: 'double',
+      description: 'Total time of the session expressed in seconds.',
     },
     average_time_on_site_per_session: {
-      sql: '1.0 * {{measure.time_on_site}}, / NULLIF({{measure.count_of_sessions}},0)',
+      sql: '({{measure.time_on_site}}) / NULLIF({{measure.count_of_sessions}},0)',
       type: 'double',
       hidden: false,
     },
