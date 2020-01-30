@@ -1,5 +1,11 @@
+local customDimensions = import 's_custom_dimensions.jsonnet';
+local device = import 's_device.jsonnet';
+local geoNetwork = import 's_geonetwork.jsonnet';
+local totals = import 's_totals.jsonnet';
+local trafficSource = import 's_trafficsource.jsonnet';
+
 {
-  measures: {
+  measures: totals.measures {
     min_visit_start: {
       sql: 'DATE(TIMESTAMP_SECONDS({{TABLE}}.visitStarttime))',
       aggregation: 'minimum',
@@ -47,7 +53,7 @@
       ],
     },
   },
-  dimensions: {
+  dimensions: device.dimensions + geoNetwork.dimensions + totals.dimensions + trafficSource.dimensions + customDimensions.dimensions {
     id: {
       type: 'string',
       hidden: true,

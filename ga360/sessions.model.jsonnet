@@ -1,10 +1,5 @@
 local target = std.extVar('schema');
 
-local device = import '././././././s_device.jsonnet';
-local geoNetwork = import 's_geonetwork.jsonnet';
-local totals = import 's_totals.jsonnet';
-local trafficSource = import 's_trafficsource.jsonnet';
-local customDimensions = import 's_custom_dimensions.jsonnet';
 local sessions = import 's.jsonnet';
 
 {
@@ -25,6 +20,6 @@ local sessions = import 's.jsonnet';
     userId: 'user_id',
     eventTimestamp: 'visit_start_time',
   },
-  dimensions: device.dimensions + geoNetwork.dimensions + totals.dimensions + trafficSource.dimensions + customDimensions.dimensions + sessions.dimensions,
-  measures: sessions.measures + totals.measures,
+  dimensions: sessions.dimensions,
+  measures: sessions.measures,
 }
