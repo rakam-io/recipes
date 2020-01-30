@@ -1,6 +1,6 @@
 local target = std.extVar('schema');
 
-local device = import './s_device.libsonnet';
+local device = import '././././././s_device.jsonnet';
 local geoNetwork = import 's_geonetwork.jsonnet';
 local totals = import 's_totals.jsonnet';
 local trafficSource = import 's_trafficsource.jsonnet';
