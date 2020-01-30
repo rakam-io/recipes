@@ -1,6 +1,6 @@
 local target = std.extVar('schema');
 
-local sessions = import 's.jsonnet';
+local sessions = import './s.jsonnet';
 
 {
   label: 'Sessions',
