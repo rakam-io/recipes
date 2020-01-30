@@ -38,12 +38,14 @@
     latitude: {
       type: 'double',
       category: 'Location',
-      column: 'CAST(geoNetwork.latitude as FLOAT64)',
+      // column: 'CAST(geoNetwork.latitude as FLOAT64)',
+      column: 'geoNetwork.latitude',
       description: 'The approximate latitude of user city, derived from their IP addresses or Geographical IDs. Locations north of the equator have positive latitudes and locations south of the equator have negative latitudes.',
     },
     longitude: {
       category: 'Location',
-      column: 'CAST(geoNetwork.longitude as FLOAT64)',
+      type: 'double',
+      column: 'geoNetwork.longitude',
       description: 'The approximate longitude of user city, derived from their IP addresses or Geographical IDs. Locations east of the prime meridian have positive longitudes and locations west of the prime meridian have negative longitudes.',
     },
     network_location: {
