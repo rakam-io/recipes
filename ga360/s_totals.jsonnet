@@ -6,6 +6,7 @@
       sql: '{{TABLE}}.totals.timeOnSite',
       description: 'Total time of the session expressed in seconds',
       reportOptions: { suffix: 's' },
+      hidden: true,
     },
     is_bounced: {
       type: 'boolean',
@@ -15,6 +16,7 @@
       type: 'integer',
       sql: '{{TABLE}}.totals.hits',
       description: 'Total number of hits within the session',
+      hidden: true,
     },
     is_new_visit: {
       type: 'boolean',
@@ -24,6 +26,7 @@
       type: 'integer',
       sql: '{{TABLE}}.totals.pageviews',
       description: 'Total number of pageviews within the session',
+      hidden: true,
     },
     session_quality: {
       type: 'integer',
@@ -36,11 +39,13 @@
       sql: '{{TABLE}}.totals.totalTransactionRevenue/1000000',
       description: 'Total time of the session expressed in seconds',
       reportOptions: { formatNumbers: '$0,0' },
+      hidden: true,
     },
     total_transactions: {
       type: 'integer',
       sql: '{{TABLE}}.totals.transactions',
       description: 'Total number of ecommerce transactions within the session',
+      hidden: true,
     },
     is_interaction_visit: {
       type: 'boolean',

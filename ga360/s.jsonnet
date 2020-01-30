@@ -88,7 +88,7 @@ local trafficSource = import 's_trafficsource.jsonnet';
       description: 'Overridden User ID sent to Analytics.',
       column: 'userId',
     },
-    channel_grouping: {
+    channel: {
       description: "The Default Channel Group associated with an end user's session for this View.",
       column: 'channelGrouping',
     },

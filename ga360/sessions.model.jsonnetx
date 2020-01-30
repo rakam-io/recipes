@@ -16,6 +16,7 @@ local sessions = import './s.jsonnet';
     project: target.database,
     dataset: target.schema,
   },
+  category: 'Google Analytics',
   mappings: {
     userId: 'user_id',
     eventTimestamp: 'visit_start_time',

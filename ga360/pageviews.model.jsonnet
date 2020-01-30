@@ -17,6 +17,7 @@ local pageviews = import 'hits.jsonnet';
 {
   label: 'Pageviews',
   name: 'ga_pageviews',
+    category: 'Google Analytics',
   sql: |||
     SELECT * FROM `%(project)s`.`%(dataset)s`.`ga_sessions_*`
     {%% if partitioned %%} WHERE _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
