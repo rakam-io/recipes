@@ -1,4 +1,4 @@
-local device = import '../ga360/s_device.jsonnet';
+local device = import '../ga360/././././././././s_device.jsonnet';
 local customDimensions = import 's_custom_dimensions.jsonnet';
 local geoNetwork = import 's_geonetwork.jsonnet';
 local totals = import 's_totals.jsonnet';
