@@ -11,6 +11,7 @@
   dimensions: {
     pageview_time: {
       sql: 'TIMESTAMP_SECONDS(CAST({{TABLE}}.visitStartTime + ({{TABLE}}.time / 1000) as INT64))',
+      type: 'timestamp',
     },
     seconds_since_session_start: {
       sql: 'time',
