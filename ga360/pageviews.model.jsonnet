@@ -12,7 +12,7 @@ local product = import 'hits_product.jsonnet';
 local publisher = import 'hits_publisher.jsonnet';
 local social = import 'hits_social.jsonnet';
 
-local sessions = import 's.jsonnet';
+// local sessions = import 's.jsonnet';
 local pageviews = import 'hits.jsonnet';
 
 {
@@ -37,11 +37,11 @@ local pageviews = import 'hits.jsonnet';
   measures: item.measures +
             // product.measures +
             publisher.dimensions +
-            {
-              [k]: sessions.measures[k]
-                   { category: if (std.objectHas(sessions.measures[k], 'category')) then 'Session ' + sessions.measures[k].category else 'Session' }
-              for k in std.objectFields(sessions.measures)
-            } +
+            // {
+            //   [k]: sessions.measures[k]
+            //        { category: if (std.objectHas(sessions.measures[k], 'category')) then 'Session ' + sessions.measures[k].category else 'Session' }
+            //   for k in std.objectFields(sessions.measures)
+            // } +
             pageviews.measures
   ,
   dimensions: appInfo.dimensions +
@@ -55,10 +55,10 @@ local pageviews = import 'hits.jsonnet';
               publisher.dimensions +
               publisher.dimensions +
               social.dimensions +
-              {
-                [k]: sessions.dimensions[k]
-                     { category: if (std.objectHas(sessions.dimensions[k], 'category')) then 'Session ' + sessions.dimensions[k].category else 'Session' }
-                for k in std.objectFields(sessions.dimensions)
-              } +
+              // {
+              //   [k]: sessions.dimensions[k]
+              //        { category: if (std.objectHas(sessions.dimensions[k], 'category')) then 'Session ' + sessions.dimensions[k].category else 'Session' }
+              //   for k in std.objectFields(sessions.dimensions)
+              // } +
               pageviews.dimensions,
 }
