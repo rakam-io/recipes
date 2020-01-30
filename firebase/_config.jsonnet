@@ -32,7 +32,7 @@
               WHEN JSON_EXTRACT(TO_JSON_STRING(user_properties.value), '$.double_value')  IS NOT NULL THEN 'double_value'
               WHEN JSON_EXTRACT(TO_JSON_STRING(user_properties.value), '$.float_value') IS NOT NULL THEN 'float_value'
           END as value_type
-          FROM `selamvpn`.`analytics_163124468`.`events_*` AS events
+          FROM `events_*` AS events
           LEFT JOIN UNNEST(events.user_properties) AS user_properties
           WHERE user_properties.key NOT LIKE '_ltv%' AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%Y%m%d", DATE_SUB(current_date(), INTERVAL 15 DAY)) and FORMAT_DATE("%Y%m%d", current_date())
         |||,
