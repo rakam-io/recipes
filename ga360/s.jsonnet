@@ -41,7 +41,6 @@
       reportOptions: { formatNumbers: '0.0%' },
     },
     returning_visitors: {
-      sql: 'returning_visitors',
       aggregation: 'count',
       filters: [
         { dimension: 'visit_number', operator: 'greaterThan', value: 1, valueType: 'integer' },
