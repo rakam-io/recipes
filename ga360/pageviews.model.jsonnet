@@ -11,7 +11,7 @@ local product = import 'hits_product.jsonnet';
 local publisher = import 'hits_publisher.jsonnet';
 local social = import 'hits_social.jsonnet';
 
-local sessions = import 's.jsonnet';
+local sessions = import './s.jsonnet';
 local pageviews = import 'hits.jsonnet';
 
 {
