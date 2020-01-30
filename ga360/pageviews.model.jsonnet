@@ -7,6 +7,7 @@ local eventInfo = import 'hits_event_info.jsonnet';
 local item = import 'hits_item.jsonnet';
 local latencyTracking = import 'hits_latency.jsonnet';
 local page = import 'hits_page.jsonnet';
+// TODO: it's an array.
 local product = import 'hits_product.jsonnet';
 local publisher = import 'hits_publisher.jsonnet';
 local social = import 'hits_social.jsonnet';
@@ -33,8 +34,8 @@ local pageviews = import 'hits.jsonnet';
     userId: 'user_id',
     eventTimestamp: 'pageview_time',
   },
-  measures: item.dimensions +
-            product.dimensions +
+  measures: item.measures +
+            // product.measures +
             publisher.dimensions +
             {
               [k]: sessions.measures[k]
@@ -43,21 +44,21 @@ local pageviews = import 'hits.jsonnet';
             } +
             pageviews.measures
   ,
-  dimensions: appInfo.dimensions
-              + customDimensions.dimensions
-              + customMetrics.dimensions
-              + eventInfo.dimensions
-              + item.dimensions
-              + latencyTracking.dimensions
-              + page.dimensions
-              + product.dimensions
-              + publisher.dimensions
-              + publisher.dimensions
-              + social.dimensions
-                {
+  dimensions: appInfo.dimensions +
+              customDimensions.dimensions +
+              customMetrics.dimensions +
+              eventInfo.dimensions +
+              item.dimensions +
+              latencyTracking.dimensions +
+              page.dimensions +
+              // + product.dimensions
+              publisher.dimensions +
+              publisher.dimensions +
+              social.dimensions +
+              {
                 [k]: sessions.dimensions[k]
                      { category: if (std.objectHas(sessions.dimensions[k], 'category')) then 'Session ' + sessions.dimensions[k].category else 'Session' }
                 for k in std.objectFields(sessions.dimensions)
-              }
-              + pageviews.dimensions,
+              } +
+              pageviews.dimensions,
 }
