@@ -10,7 +10,7 @@
   },
   dimensions: {
     pageview_time: {
-      sql: 'time',
+      sql: 'TIMESTAMP_SECONDS(CAST({{TABLE}}.visitStartTime + ({{TABLE}}.time / 1000) as INT64))',
     },
     seconds_since_session_start: {
       sql: 'time',
