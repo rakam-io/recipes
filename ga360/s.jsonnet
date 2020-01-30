@@ -31,7 +31,6 @@
       type: 'double',
     },
     new_users: {
-      sql: 'first_time_visitors',
       aggregation: 'count',
       filters: [
         { dimension: 'visit_number', operator: 'equals', value: 1, valueType: 'integer' },
