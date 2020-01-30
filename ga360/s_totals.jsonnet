@@ -50,8 +50,10 @@
   },
   measures: {
     total_visits: {
-      sql: '{{dimension.total_visits}}',
-      aggregation: 'sum',
+      aggregation: 'count',
+      filters: [
+        { dimension: 'is_interaction_visit', operator: 'is', value: true, valueType: 'boolean' },
+      ],
       type: 'integer',
     },
     total_hits: {
