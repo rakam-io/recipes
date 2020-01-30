@@ -1,82 +1,100 @@
 {
-  domainLookupTime: {
-    type: 'integer',
-    sql: '{{TABLE}}.hits.latencyTracking.domainLookupTime',
-    description: 'The total time (in milliseconds) all samples spent in DNS lookup for this page.',
-  },
-  domContentLoadedTime: {
-    type: 'integer',
-    sql: '{{TABLE}}.hits.latencyTracking.domContentLoadedTime',
-    description: "The time (in milliseconds), including the network time from users' locations to the site's server, the browser takes to parse the document and execute deferred and parser-inserted scripts (DOMContentLoaded).",
-  },
-  domInteractiveTime: {
-    type: 'integer',
-    sql: '{{TABLE}}.hits.latencyTracking.domInteractiveTime',
-    description: "The time (in milliseconds), including the network time from users' locations to the site's server, the browser takes to parse the document (DOMInteractive).",
-  },
-  domLatencyMetricsSample: {
-    type: 'integer',
-    sql: '{{TABLE}}.hits.latencyTracking.domLatencyMetricsSample',
-    description: 'Sample set (or count) of pageviews used to calculate the averages for site speed DOM metrics.',
-  },
-  pageDownloadTime: {
-    type: 'integer',
-    sql: '{{TABLE}}.hits.latencyTracking.pageDownloadTime',
-    description: 'The total time (in milliseconds) to download this page among all samples.',
-  },
-  pageLoadSample: {
-    type: 'integer',
-    sql: '{{TABLE}}.hits.latencyTracking.pageLoadSample',
-    description: 'The sample set (or count) of pageviews used to calculate the average page load time.',
-  },
-  pageLoadTime: {
-    type: 'integer',
-    sql: '{{TABLE}}.hits.latencyTracking.pageLoadTime',
-    description: 'Total time (in milliseconds), from pageview initiation (e.g., a click on a page link) to page load completion in the browser, the pages in the sample set take to load.',
-  },
-  redirectionTime: {
-    type: 'integer',
-    sql: '{{TABLE}}.hits.latencyTracking.redirectionTime',
-    description: 'The total time (in milliseconds) all samples spent in redirects before fetching this page. If there are no redirects, this is 0.',
-  },
-  serverConnectionTime: {
-    type: 'integer',
-    sql: '{{TABLE}}.hits.latencyTracking.serverConnectionTime',
-    description: 'Total time (in milliseconds) all samples spent in establishing a TCP connection to this page.',
-  },
-  serverResponseTime: {
-    type: 'integer',
-    sql: '{{TABLE}}.hits.latencyTracking.serverResponseTime',
-    description: "The total time (in milliseconds) the site's server takes to respond to users' requests among all samples; this includes the network time from users' locations to the server",
-  },
-  speedMetricsSample: {
-    type: 'integer',
-    sql: '{{TABLE}}.hits.latencyTracking.speedMetricsSample',
-    description: 'The sample set (or count) of pageviews used to calculate the averages of site speed metrics.',
-  },
-  userTimingCategory: {
-    type: 'string',
-    sql: '{{TABLE}}.hits.latencyTracking.userTimingCategory',
-    description: 'For easier reporting purposes, this is used to categorize all user timing variables into logical groups.',
-  },
-  userTimingLabel: {
-    type: 'string',
-    sql: '{{TABLE}}.hits.latencyTracking.userTimingLabel',
-    description: "The name of the resource's action being tracked.",
-  },
-  userTimingSample: {
-    type: 'integer',
-    sql: '{{TABLE}}.hits.latencyTracking.userTimingSample',
-    description: 'The number of hits sent for a particular userTimingCategory, userTimingLabel, or userTimingVariable.',
-  },
-  userTimingValue: {
-    type: 'integer',
-    sql: '{{TABLE}}.hits.latencyTracking.userTimingValue',
-    description: 'Total number of milliseconds for user timing.',
-  },
-  userTimingVariable: {
-    type: 'string',
-    sql: '{{TABLE}}.hits.latencyTracking.userTimingVariable',
-    description: 'Variable used to add flexibility to visualize user timings in the reports.',
+  dimensions: {
+    domain_lookup_time: {
+      category: 'Latency',
+      type: 'integer',
+      sql: '{{TABLE}}.hits.latencyTracking.domainLookupTime',
+      description: 'The total time (in milliseconds) all samples spent in DNS lookup for this page.',
+    },
+    dom_content_loaded_time: {
+      category: 'Latency',
+      type: 'integer',
+      sql: '{{TABLE}}.hits.latencyTracking.domContentLoadedTime',
+      description: "The time (in milliseconds), including the network time from users' locations to the site's server, the browser takes to parse the document and execute deferred and parser-inserted scripts (DOMContentLoaded).",
+    },
+    dom_interactive_time: {
+      category: 'Latency',
+      type: 'integer',
+      sql: '{{TABLE}}.hits.latencyTracking.domInteractiveTime',
+      description: "The time (in milliseconds), including the network time from users' locations to the site's server, the browser takes to parse the document (DOMInteractive).",
+    },
+    dom_latency_metrics_sample: {
+      category: 'Latency',
+      type: 'integer',
+      sql: '{{TABLE}}.hits.latencyTracking.domLatencyMetricsSample',
+      description: 'Sample set (or count) of pageviews used to calculate the averages for site speed DOM metrics.',
+    },
+    page_download_time: {
+      category: 'Latency',
+      type: 'integer',
+      sql: '{{TABLE}}.hits.latencyTracking.pageDownloadTime',
+      description: 'The total time (in milliseconds) to download this page among all samples.',
+    },
+    page_load_sample: {
+      category: 'Latency',
+      type: 'integer',
+      sql: '{{TABLE}}.hits.latencyTracking.pageLoadSample',
+      description: 'The sample set (or count) of pageviews used to calculate the average page load time.',
+    },
+    page_load_time: {
+      category: 'Latency',
+      type: 'integer',
+      sql: '{{TABLE}}.hits.latencyTracking.pageLoadTime',
+      description: 'Total time (in milliseconds), from pageview initiation (e.g., a click on a page link) to page load completion in the browser, the pages in the sample set take to load.',
+    },
+    redirection_time: {
+      category: 'Latency',
+      type: 'integer',
+      sql: '{{TABLE}}.hits.latencyTracking.redirectionTime',
+      description: 'The total time (in milliseconds) all samples spent in redirects before fetching this page. If there are no redirects, this is 0.',
+    },
+    server_connection_time: {
+      category: 'Latency',
+      type: 'integer',
+      sql: '{{TABLE}}.hits.latencyTracking.serverConnectionTime',
+      description: 'Total time (in milliseconds) all samples spent in establishing a TCP connection to this page.',
+    },
+    server_response_time: {
+      category: 'Latency',
+      type: 'integer',
+      sql: '{{TABLE}}.hits.latencyTracking.serverResponseTime',
+      description: "The total time (in milliseconds) the site's server takes to respond to users' requests among all samples; this includes the network time from users' locations to the server",
+    },
+    speed_metrics_sample: {
+      category: 'Latency',
+      type: 'integer',
+      sql: '{{TABLE}}.hits.latencyTracking.speedMetricsSample',
+      description: 'The sample set (or count) of pageviews used to calculate the averages of site speed metrics.',
+    },
+    user_timing_category: {
+      category: 'Latency',
+      type: 'string',
+      sql: '{{TABLE}}.hits.latencyTracking.userTimingCategory',
+      description: 'For easier reporting purposes, this is used to categorize all user timing variables into logical groups.',
+    },
+    user_timing_label: {
+      category: 'Latency',
+      type: 'string',
+      sql: '{{TABLE}}.hits.latencyTracking.userTimingLabel',
+      description: "The name of the resource's action being tracked.",
+    },
+    user_timing_sample: {
+      category: 'Latency',
+      type: 'integer',
+      sql: '{{TABLE}}.hits.latencyTracking.userTimingSample',
+      description: 'The number of hits sent for a particular userTimingCategory, userTimingLabel, or userTimingVariable.',
+    },
+    user_timing_value: {
+      category: 'Latency',
+      type: 'integer',
+      sql: '{{TABLE}}.hits.latencyTracking.userTimingValue',
+      description: 'Total number of milliseconds for user timing.',
+    },
+    user_timing_variable: {
+      category: 'Latency',
+      type: 'string',
+      sql: '{{TABLE}}.hits.latencyTracking.userTimingVariable',
+      description: 'Variable used to add flexibility to visualize user timings in the reports.',
+    },
   },
 }

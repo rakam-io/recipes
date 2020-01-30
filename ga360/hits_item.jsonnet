@@ -1,6 +1,7 @@
 {
   dimensions: {
     item_transaction_id: {
+      category: 'E-commerce Product Item',
       sql: '{{TABLE}}.hits.item.transactionId',
     },
     item_product_name: {

@@ -1,0 +1,3 @@
+hits.customVariables.index	INTEGER	The index of the custom variable.
+hits.customVariables.customVarName	STRING	The custom variable name.
+hits.customVariables.customVarValue	STRING	The custom variable value.

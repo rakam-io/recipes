@@ -11,6 +11,9 @@ local product = import 'hits_product.jsonnet';
 local publisher = import 'hits_publisher.jsonnet';
 local social = import 'hits_social.jsonnet';
 
+local sessions = import 'sessions.model.jsonnet';
+local pageviews = import 'hits.jsonnet';
+
 {
   label: 'Pageviews',
   name: 'ga_pageviews',
@@ -27,8 +30,18 @@ local social = import 'hits_social.jsonnet';
   },
   mappings: {
     userId: 'user_id',
-    eventTimestamp: 'fullVisitorId',
+    eventTimestamp: 'pageview_time',
   },
+  measures: item.dimensions +
+            product.dimensions +
+            publisher.dimensions +
+            {
+              [k]: sessions.measures[k]
+                   { category: if (std.objectHas(sessions.measures[k], 'category')) then 'Session ' + sessions.measures[k].category else 'Session' }
+              for k in std.objectFields(sessions.measures)
+            } +
+            pageviews.measures
+  ,
   dimensions: appInfo.dimensions
               + customDimensions.dimensions
               + customMetrics.dimensions
@@ -41,53 +54,9 @@ local social = import 'hits_social.jsonnet';
               + publisher.dimensions
               + social.dimensions
                 {
-                time: {
-                  sql: 'time',
-                },
-                seconds_since_session_start: {
-                  sql: 'time',
-                  description: 'The number of milliseconds after the visitStartTime when this hit was registered. The first hit has a hits.time of 0',
-                },
-                dataSource: {
-                  sql: 'dataSource',
-                  description: 'The data source of a hit. By default, hits sent from analytics.js are reported as "web" and hits sent from the mobile SDKs are reported as "app".',
-                },
-                hitNumber: {
-                  sql: 'hitNumber',
-                  description: 'The sequenced hit number. For the first hit of each session, this is set to 1.',
-                },
-                isEntrance: {
-                  sql: 'isEntrance',
-                  description: 'If this hit was the first pageview or screenview hit of a session, this is set to true.',
-                },
-                isExit: {
-                  sql: 'isExit',
-                  description: 'If this hit was the last pageview or screenview hit of a session, this is set to true.',
-                },
-                isInteraction: {
-                  sql: 'isInteraction',
-                  description: 'If this hit was an interaction, this is set to true. If this was a non-interaction hit (i.e., an event with interaction set to false), this is false.',
-                },
-                type: {
-                  sql: 'type',
-                  description: 'The type of hit. One of: "PAGE", "TRANSACTION", "ITEM", "EVENT", "SOCIAL", "APPVIEW", "EXCEPTION".',
-                },
-                referer: {
-                  sql: 'referer',
-                  description: 'The referring page, if the session has a goal completion or transaction. If this page is from the same domain, this is blank.',
-                },
-              },
-  measures:
-    item.dimensions +
-    product.dimensions +
-    publisher.dimensions
-    {
-      count_of_pageviews: {
-        aggregation: 'count',
-      },
-      unique_visitors: {
-        column: 'fullVisitorId',
-        aggregation: 'countUnique',
-      },
-    },
+                [k]: sessions.dimensions[k]
+                     { category: if (std.objectHas(sessions.dimensions[k], 'category')) then 'Session ' + sessions.dimensions[k].category else 'Session' }
+                for k in std.objectFields(sessions.dimensions)
+              }
+              + pageviews.dimensions,
 }
