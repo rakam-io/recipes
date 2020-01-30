@@ -30,7 +30,7 @@
       sql: '{{TABLE}}.device.mobileDeviceInfo',
       description: 'The branding, model, and marketing name used to identify the mobile device.',
     },
-    mobileDeviceMarketingName: {
+    mobile_device_marketing_name: {
       category: 'Device',
       type: 'string',
       sql: '{{TABLE}}.device.mobileDeviceMarketingName',
