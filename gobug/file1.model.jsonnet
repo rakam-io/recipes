@@ -1,5 +1,5 @@
 local test = import 'common.jsonnet';
-local common = import 'inside/common1.jsonnet';
+local common = import 'inside/common.jsonnet';
 
 {
   name: 'test1',
