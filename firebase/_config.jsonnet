@@ -10,7 +10,7 @@
       label: 'Schema',
       type: 'schema',
       options: {
-        placeholder: 'analytics_54353',
+        placeholder: '(ex: analytics_54353)',
       },
     },
     user_properties: {
