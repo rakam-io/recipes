@@ -60,7 +60,7 @@
       type: 'integer',
     },
     hits_average_per_session: {
-      sql: '1.0 * {{measure.total_hits}} / NULLIF({{measure.session_count}},0)',
+      sql: '1.0 * {{measure.total_hits}} / NULLIF({{measure.count_of_sessions}},0)',
       type: 'double',
     },
     total_pageviews: {
@@ -80,12 +80,12 @@
       type: 'double',
     },
     average_time_on_site_per_session: {
-      sql: '1.0 * {{measure.time_on_site}}, / NULLIF({{measure.session_count}},0)',
+      sql: '1.0 * {{measure.time_on_site}}, / NULLIF({{measure.count_of_sessions}},0)',
       type: 'double',
       hidden: false,
     },
     page_views_per_session: {
-      sql: '1.0 * {{measure.total_pageviews}} / NULLIF({{measure.session_count}},0)',
+      sql: '1.0 * {{measure.total_pageviews}} / NULLIF({{measure.count_of_sessions}},0)',
       type: 'double',
       hidden: false,
     },
@@ -95,7 +95,7 @@
       type: 'integer',
     },
     bounce_rate: {
-      sql: '1.0 * {{measure.total_bounces}} / NULLIF({{measure.session_count}},0)',
+      sql: '1.0 * {{measure.total_bounces}} / NULLIF({{measure.count_of_sessions}},0)',
       type: 'double',
     },
     total_transactions: {
@@ -109,7 +109,7 @@
       type: 'double',
     },
     transaction_conversion_rate: {
-      sql: '1.0 * (transactions_count/NULLIF({{measure.session_count}},0))',
+      sql: '1.0 * (transactions_count/NULLIF({{measure.count_of_sessions}},0))',
       type: 'double',
     },
     average_revenue_per_transaction: {
@@ -127,7 +127,7 @@
       hidden: false,
     },
     average_sessions_per_user: {
-      sql: '1.0 * ({{measure.session_count}}/NULLIF({{measure.unique_visitors}},0))',
+      sql: '1.0 * ({{measure.count_of_sessions}}/NULLIF({{measure.unique_visitors}},0))',
       type: 'double',
       hidden: false,
     },
