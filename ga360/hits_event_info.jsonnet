@@ -1,16 +1,16 @@
 {
   dimensions: {
     event_category: {
-      sql: '{{TABLE}}.hits.eventInfo.eventCategory',
+      sql: '{{TABLE}}.eventInfo.eventCategory',
     },
     event_action: {
-      sql: '{{TABLE}}.hits.eventInfo.eventAction',
+      sql: '{{TABLE}}.eventInfo.eventAction',
     },
     event_label: {
-      sql: '{{TABLE}}.hits.eventInfo.eventLabel',
+      sql: '{{TABLE}}.eventInfo.eventLabel',
     },
     event_value: {
-      sql: '{{TABLE}}.hits.eventInfo.eventValue',
+      sql: '{{TABLE}}.eventInfo.eventValue',
     },
   },
 }

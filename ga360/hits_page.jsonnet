@@ -3,19 +3,19 @@ local util = import '../util.libsonnet';
 {
   dimensions: {
     page_path: {
-      sql: '{{TABLE}}.hits.page.pagePath',
+      sql: '{{TABLE}}.page.pagePath',
     },
     host_hame: {
-      sql: '{{TABLE}}.hits.page.hostName',
+      sql: '{{TABLE}}.page.hostName',
     },
     page_title: {
-      sql: '{{TABLE}}.hits.page.pageTitle',
+      sql: '{{TABLE}}.page.pageTitle',
     },
     page_search_keyword: {
-      sql: '{{TABLE}}.hits.page.searchKeyword',
+      sql: '{{TABLE}}.page.searchKeyword',
     },
     page_search_category: {
-      sql: '{{TABLE}}.hits.page.searchCategory',
+      sql: '{{TABLE}}.page.searchCategory',
     },
   },
 }

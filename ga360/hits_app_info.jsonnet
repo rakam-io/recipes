@@ -1,28 +1,28 @@
 {
   dimensions: {
     app_name: {
-      sql: '{{TABLE}}.hits.appInfo.appName',
+      sql: '{{TABLE}}.appInfo.appName',
     },
     app_installer_id: {
-      sql: '{{TABLE}}.hits.appInfo.appInstallerId',
+      sql: '{{TABLE}}.appInfo.appInstallerId',
     },
     app_version: {
-      sql: '{{TABLE}}.hits.appInfo.appVersion',
+      sql: '{{TABLE}}.appInfo.appVersion',
     },
     app_id: {
-      sql: '{{TABLE}}.hits.appInfo.appId',
+      sql: '{{TABLE}}.appInfo.appId',
     },
     screen_name: {
-      sql: '{{TABLE}}.hits.appInfo.screenName',
+      sql: '{{TABLE}}.appInfo.screenName',
     },
     landing_screen_name: {
-      sql: '{{TABLE}}.hits.appInfo.landingScreenName',
+      sql: '{{TABLE}}.appInfo.landingScreenName',
     },
     exit_screen_name: {
-      sql: '{{TABLE}}.hits.appInfo.exitScreenName',
+      sql: '{{TABLE}}.appInfo.exitScreenName',
     },
     screen_depth: {
-      sql: '{{TABLE}}.hits.appInfo.screenDepth',
+      sql: '{{TABLE}}.appInfo.screenDepth',
       description: 'The number of screenviews per session reported as a string. Can be useful for histograms.',
     },
   },

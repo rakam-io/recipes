@@ -1,22 +1,22 @@
 {
   dimensions: {
     social_interaction_network: {
-      sql: '{{TABLE}}.hits.social.socialInteractionNetwork',
+      sql: '{{TABLE}}.social.socialInteractionNetwork',
     },
     social_interaction_action: {
-      sql: '{{TABLE}}.hits.social.socialInteractionAction',
+      sql: '{{TABLE}}.social.socialInteractionAction',
     },
     social_interactions: {
-      sql: '{{TABLE}}.hits.social.socialInteractions',
+      sql: '{{TABLE}}.social.socialInteractions',
     },
     social_interaction_target: {
-      sql: '{{TABLE}}.hits.social.socialInteractionTarget',
+      sql: '{{TABLE}}.social.socialInteractionTarget',
     },
     unique_social_interactions: {
-      sql: '{{TABLE}}.hits.social.uniqueSocialInteractions',
+      sql: '{{TABLE}}.social.uniqueSocialInteractions',
     },
     social_interaction_network_action: {
-      sql: '{{TABLE}}.hits.social.socialInteractionNetworkAction',
+      sql: '{{TABLE}}.social.socialInteractionNetworkAction',
     },
   },
 }

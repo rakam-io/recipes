@@ -4,47 +4,47 @@ local util = import '../util.libsonnet';
   dimensions: {
     product_sku: {
       label: 'Product SKU',
-      sql: '{{TABLE}}.hits.product.productSKU',
+      sql: '{{TABLE}}.product.productSKU',
     },
     product_name: {
-      sql: '{{TABLE}}.hits.product.v2ProductName',
+      sql: '{{TABLE}}.product.v2ProductName',
     },
     product_revenue: {
       type: 'string',
-      sql: '{{TABLE}}.hits.product.productRevenue',
+      sql: '{{TABLE}}.product.productRevenue',
     },
     product_category: {
-      sql: '{{TABLE}}.hits.product.v2ProductCategory',
+      sql: '{{TABLE}}.product.v2ProductCategory',
     },
     product_variant: {
-      sql: '{{TABLE}}.hits.product.productVariant',
+      sql: '{{TABLE}}.product.productVariant',
     },
     product_brand: {
       label: 'Product Brand',
-      sql: '{{TABLE}}.hits.product.productBrand',
+      sql: '{{TABLE}}.product.productBrand',
     },
     product_revenue_local: {
       label: 'Product Revenue (Local Currency)',
-      sql: '{{TABLE}}.hits.product.localProductRevenue',
+      sql: '{{TABLE}}.product.localProductRevenue',
     },
     product_price: {
-      sql: '{{TABLE}}.hits.product.productPrice',
+      sql: '{{TABLE}}.product.productPrice',
     },
     product_price_local: {
       label: 'Product Price (Local Currency)',
-      sql: '{{TABLE}}.hits.product.localProductPrice',
+      sql: '{{TABLE}}.product.localProductPrice',
     },
     product_quantity: {
-      sql: '{{TABLE}}.hits.product.ProductQuantity',
+      sql: '{{TABLE}}.product.ProductQuantity',
     },
     product_refund_amount: {
-      sql: '{{TABLE}}.hits.product.productRefundAmount',
+      sql: '{{TABLE}}.product.productRefundAmount',
     },
     is_impression: {
-      sql: '{{TABLE}}.hits.product.isImpression',
+      sql: '{{TABLE}}.product.isImpression',
     },
     is_click: {
-      sql: '{{TABLE}}.hits.product.isClick',
+      sql: '{{TABLE}}.product.isClick',
     },
   },
   measures: {
