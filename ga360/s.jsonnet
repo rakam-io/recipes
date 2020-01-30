@@ -33,20 +33,20 @@
     new_users: {
       sql: 'first_time_visitors',
       aggregation: 'count',
-      type: 'double',
-      hidden: false,
+      filters: [
+        { dimension: 'visit_number', operator: 'equals', value: 1, valueType: 'integer' },
+      ],
     },
     percent_new_users: {
-      sql: '1.0 * ({{measure.new_users}} / NULLIF(unique_visitors,0))',
-      type: 'double',
-      hidden: false,
+      sql: '1.0 * ({{measure.new_users}} / NULLIF({{measure.unique_visitors}},0))',
+      reportOptions: { formatNumbers: '0.0%' },
     },
     returning_visitors: {
-      label: 'Returning Users',
       sql: 'returning_visitors',
       aggregation: 'count',
-      type: 'double',
-      hidden: false,
+      filters: [
+        { dimension: 'visit_number', operator: 'greaterThan', value: 1, valueType: 'integer' },
+      ],
     },
   },
   dimensions: {
