@@ -1,12 +1,12 @@
 {
   measures: {
     min_visit_start: {
-      column: 'DATE(TIMESTAMP_SECONDS({{TABLE}}.visitStarttime))',
+      sql: 'DATE(TIMESTAMP_SECONDS({{TABLE}}.visitStarttime))',
       aggregation: 'minimum',
       hidden: true,
     },
     max_visit_start: {
-      column: 'DATE(TIMESTAMP_SECONDS({{TABLE}}.visitStarttime))',
+      sql: 'DATE(TIMESTAMP_SECONDS({{TABLE}}.visitStarttime))',
       aggregation: 'maximum',
       hidden: true,
     },
@@ -73,7 +73,7 @@
     },
     visit_start_time: {
       type: 'timestamp',
-      column: 'TIMESTAMP_SECONDS(data.visitStarttime)',
+      sql: 'TIMESTAMP_SECONDS({{TABLE}}.visitStarttime)',
     },
     is_socially_engaged: {
       type: 'boolean',
