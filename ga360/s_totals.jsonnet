@@ -64,6 +64,7 @@
     hits_average_per_session: {
       sql: '1.0 * {{measure.total_hits}} / NULLIF({{measure.count_of_sessions}},0)',
       type: 'double',
+      reportOptions: { formatNumbers: '0.00' },
     },
     total_pageviews: {
       sql: '{{dimension.total_pageviews}}',
@@ -74,23 +75,24 @@
       label: 'Average Pageviews per User',
       sql: '1.0 * ({{measure.total_pageviews}} / NULLIF({{measure.unique_visitors}} ,0))',
       type: 'double',
-      hidden: false,
+      reportOptions: { formatNumbers: '0.00' },
     },
     time_on_site: {
       sql: '{{dimension.time_on_site}} / 86400.0',
       aggregation: 'sum',
       type: 'double',
       description: 'Total time of the session expressed in seconds.',
+      reportOptions: { formatNumbers: '0s' },
     },
     average_time_on_site_per_session: {
       sql: '({{measure.time_on_site}}) / NULLIF({{measure.count_of_sessions}},0)',
       type: 'double',
-      hidden: false,
+      reportOptions: { formatNumbers: '0s' },
     },
     page_views_per_session: {
       sql: '1.0 * {{measure.total_pageviews}} / NULLIF({{measure.count_of_sessions}},0)',
       type: 'double',
-      hidden: false,
+      reportOptions: { formatNumbers: '0.00' },
     },
     total_bounces: {
       sql: 'totals.bounces',
@@ -100,6 +102,7 @@
     bounce_rate: {
       sql: '1.0 * {{measure.total_bounces}} / NULLIF({{measure.count_of_sessions}},0)',
       type: 'double',
+      reportOptions: { formatNumbers: '0.00%' },
     },
     total_transactions: {
       sql: '{{dimension.total_transactions}}',
@@ -110,29 +113,32 @@
       sql: '({{dimension.total_revenue}}/1000000)',
       aggregation: 'sum',
       type: 'double',
+      reportOptions: { formatNumbers: '$0,0.0' },
     },
     transaction_conversion_rate: {
       sql: '1.0 * ({{measure.total_transactions}}/NULLIF({{measure.count_of_sessions}},0))',
       type: 'double',
+      reportOptions: { formatNumbers: '0.00%' },
     },
     average_revenue_per_transaction: {
       sql: '1.0 * ({{measure.total_transactions}}/NULLIF({{measure.total_transactions}},0))',
       type: 'double',
-      hidden: false,
+      reportOptions: { formatNumbers: '$0,0.0' },
     },
     average_revenue_per_user: {
       sql: '1.0 * ({{measure.total_revenue}}/NULLIF({{measure.unique_visitors}},0))',
       type: 'double',
+      reportOptions: { formatNumbers: '$0,0.0' },
     },
     average_transactions_per_user: {
       sql: '1.0 * ({{measure.total_transactions}}/NULLIF({{measure.unique_visitors}},0))',
       type: 'double',
-      hidden: false,
+      reportOptions: { formatNumbers: '0.00' },
     },
     average_sessions_per_user: {
       sql: '1.0 * ({{measure.count_of_sessions}}/NULLIF({{measure.unique_visitors}},0))',
       type: 'double',
-      hidden: false,
+      reportOptions: { formatNumbers: '0.00' },
     },
     total_new_visits: {
       sql: '{{TABLE}}.totals.newVisits',

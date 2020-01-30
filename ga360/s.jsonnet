@@ -35,6 +35,7 @@ local trafficSource = import 's_trafficsource.jsonnet';
     average_sessions_per_visitor: {
       sql: '1.0 * ({{measure.count_of_sessions}}/NULLIF({{measure.unique_visitors}},0))',
       type: 'double',
+      reportOptions: { formatNumbers: '0.00' },
     },
     new_users: {
       aggregation: 'count',
