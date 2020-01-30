@@ -6,25 +6,25 @@
       sql: '{{TABLE}}.device.browser',
       description: 'The browser used (e.g., "Chrome" or "Firefox")',
     },
-    browserSize: {
+    browser_size: {
       category: 'Device',
       type: 'string',
       sql: '{{TABLE}}.device.browser',
       description: "The viewport size of users' browsers. This captures the initial dimensions of the viewport in pixels and is formatted as width x height, for example, 1920x960.",
     },
-    browserVersion: {
+    browser_version: {
       category: 'Device',
       type: 'string',
       sql: '{{TABLE}}.device.browserVersion',
       description: 'The version of the browser used.',
     },
-    deviceCategory: {
+    device_category: {
       category: 'Device',
       type: 'string',
       sql: '{{TABLE}}.device.deviceCategory',
       description: 'The type of device (Mobile, Tablet, Desktop).',
     },
-    mobileDeviceInfo: {
+    mobile_device_info: {
       category: 'Device',
       type: 'string',
       sql: '{{TABLE}}.device.mobileDeviceInfo',
@@ -36,43 +36,43 @@
       sql: '{{TABLE}}.device.mobileDeviceMarketingName',
       description: 'The marketing name used for the mobile device.',
     },
-    mobileDeviceModel: {
+    mobile_device_model: {
       category: 'Device',
       type: 'string',
       sql: '{{TABLE}}.device.mobileDeviceModel',
       description: 'The mobile device model.',
     },
-    mobileInputSelector: {
+    mobile_input_selector: {
       category: 'Device',
       type: 'string',
       sql: '{{TABLE}}.device.mobileInputSelector',
       description: 'Selector (e.g., touchscreen, joystick, clickwheel, stylus) used on the mobile device.',
     },
-    operatingSystem: {
+    operating_system: {
       category: 'Device',
       type: 'string',
       sql: '{{TABLE}}.device.mobileDeviceModel',
       description: 'The operating system of the device (e.g., "Macintosh" or "Windows").',
     },
-    operatingSystemVersion: {
+    operating_system_version: {
       category: 'Device',
       type: 'string',
       sql: '{{TABLE}}.device.operatingSystemVersion',
       description: 'The version of the operating system.',
     },
-    mobileDeviceBranding: {
+    mobile_device_branding: {
       category: 'Device',
       type: 'string',
       sql: '{{TABLE}}.device.mobileDeviceModel',
       description: 'The brand or manufacturer of the device.',
     },
-    flashVersion: {
+    flash_version: {
       category: 'Device',
       type: 'string',
       sql: '{{TABLE}}.device.flashVersion',
       description: 'The version of the Adobe Flash plugin that is installed on the browser.',
     },
-    javaEnabled: {
+    java_enabled: {
       category: 'Device',
       type: 'boolean',
       sql: '{{TABLE}}.device.javaEnabled',
@@ -84,13 +84,13 @@
       sql: '{{TABLE}}.device.language',
       description: 'The language the device is set to use. Expressed as the IETF language code.',
     },
-    screenColors: {
+    screen_colors: {
       category: 'Device',
       type: 'boolean',
       sql: '{{TABLE}}.device.screenColors',
       description: 'Number of colors supported by the display, expressed as the bit-depth (e.g., "8-bit", "24-bit", etc.).',
     },
-    screenResolution: {
+    screen_resolution: {
       category: 'Device',
       type: 'boolean',
       sql: '{{TABLE}}.device.screenColors',
