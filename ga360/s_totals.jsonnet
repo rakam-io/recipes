@@ -3,7 +3,7 @@
     // TODO: duration
     time_on_site: {
       type: 'integer',
-      column: '{{TABLE}}.totals.timeOnSite',
+      sql: '{{TABLE}}.totals.timeOnSite',
       description: 'Total time of the session expressed in seconds',
       reportOptions: { suffix: 's' },
     },
@@ -13,7 +13,7 @@
     },
     total_hits: {
       type: 'integer',
-      column: '{{TABLE}}.totals.hits',
+      sql: '{{TABLE}}.totals.hits',
       description: 'Total number of hits within the session',
     },
     is_new_visit: {
@@ -22,12 +22,12 @@
     },
     total_pageviews: {
       type: 'integer',
-      column: '{{TABLE}}.totals.pageviews',
+      sql: '{{TABLE}}.totals.pageviews',
       description: 'Total number of pageviews within the session',
     },
     session_quality: {
       type: 'integer',
-      column: '{{TABLE}}.totals.sessionQualityDim',
+      sql: '{{TABLE}}.totals.sessionQualityDim',
       description: 'An estimate of how close a particular session was to transacting, ranging from 1 to 100, calculated for each session. A value closer to 1 indicates a low session quality, or far from transacting, while a value closer to 100 indicates a high session quality, or very close to transacting. A value of 0 indicates that Session Quality is not calculated for the selected time range.',
       reportOptions: { suffix: '%' },
     },
@@ -75,7 +75,7 @@
       hidden: false,
     },
     time_on_site: {
-      column: '({{dimension.time_on_site}}) / 86400.0',
+      sql: '({{dimension.time_on_site}}) / 86400.0',
       aggregation: 'sum',
       type: 'double',
     },
@@ -90,7 +90,7 @@
       hidden: false,
     },
     total_bounces: {
-      column: 'totals.bounces',
+      sql: 'totals.bounces',
       aggregation: 'sum',
       type: 'integer',
     },
@@ -132,7 +132,7 @@
       hidden: false,
     },
     total_new_visits: {
-      column: 'totals.newVisits',
+      sql: '{{TABLE}}.totals.newVisits',
       aggregation: 'sum',
       type: 'integer',
     },
