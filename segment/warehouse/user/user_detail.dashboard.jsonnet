@@ -54,6 +54,7 @@
         reportOptions: {
           chartOptions: {
             type: 'line',
+            columnOptions: [],
           },
           tableOptions: {
             columnOptions: [],
@@ -114,7 +115,7 @@
             relationName: null,
           },
         ],
-        reportOptions: null,
+        reportOptions: { chartOptions: { columnOptions: [], type: 'bar', orientation: 'h' }, tableOptions: { columnOptions: [] } },
         defaultDateRange: 'P14D',
         limit: 1000,
       },
