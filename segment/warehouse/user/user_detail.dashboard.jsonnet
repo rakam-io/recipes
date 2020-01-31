@@ -17,6 +17,7 @@
       value: {
         name: 'userId',
       },
+      defaultValue: ['NJKJ0HU20P'],
       isRequired: true,
     },
   ],
