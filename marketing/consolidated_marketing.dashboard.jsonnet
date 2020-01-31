@@ -1,5 +1,6 @@
 {
   name: 'Marketing Overview',
+  category: 'Marketing',
   filterSchema: [
     {
       name: 'dateRange',

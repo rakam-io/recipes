@@ -17,7 +17,6 @@
       value: {
         name: 'userId',
       },
-      defaultValue: ['NJKJ0HU20P'],
       isRequired: true,
     },
   ],
@@ -52,13 +51,17 @@
             relationName: null,
           },
         ],
-        reportOptions: null,
+        reportOptions: {
+          chartOptions: {
+            type: 'line',
+          },
+        },
         defaultDateRange: 'P14D',
         limit: 1000,
       },
     },
     {
-      name: 'New segmentation',
+      name: 'Attributes',
       ttl: 'PT1H',
       x: 0,
       y: 2,
@@ -68,39 +71,13 @@
       type: 1,
       reportOptions: {
         modelName: 'segment_users',
-        dimensions: [
-          {
-            name: 'context_device_type',
-            modelName: 'segment_users',
-            relationName: null,
-            postOperation: null,
-            pivot: false,
-          },
-          {
-            name: 'context_network_wifi',
-            modelName: 'segment_users',
-            relationName: null,
-            postOperation: null,
-            pivot: false,
-          },
-          {
-            name: 'context_device_model',
-            modelName: 'segment_users',
-            relationName: null,
-            postOperation: null,
-            pivot: false,
-          },
-          {
-            name: 'last_update',
-            modelName: 'segment_users',
-            relationName: null,
-            postOperation: {
-              type: 'timestamp',
-              value: 'hour',
-            },
-            pivot: false,
-          },
-        ],
+        dimensions: std.map(function(dimension) {
+          name: dimension,
+          modelName: 'segment_users',
+          relationName: null,
+          postOperation: null,
+          pivot: false,
+        }, std.objectFields(std.extVar('attributions'))),
         measures: [],
         reportOptions: null,
         defaultDateRange: 'P14D',
@@ -171,13 +148,6 @@
                 postOperation: null,
                 pivot: null,
               },
-              filters: [
-                {
-                  valueType: 'string',
-                  operator: 'equals',
-                  value: 'fsdf',
-                },
-              ],
             },
           },
         ],

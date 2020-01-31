@@ -25,5 +25,5 @@
       description: 'If you have installed the user recipe, select the `All users` model.',
     },
   },
-  tags: ['event'],
+  tags: ['event-analytics'],
 }
