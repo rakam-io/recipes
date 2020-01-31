@@ -55,6 +55,9 @@
           chartOptions: {
             type: 'line',
           },
+          tableOptions: {
+            columnOptions: [],
+          },
         },
         defaultDateRange: 'P14D',
         limit: 1000,
@@ -82,28 +85,6 @@
         reportOptions: null,
         defaultDateRange: 'P14D',
         limit: 1000,
-        filters: [
-          {
-            type: 'metricFilter',
-            value: {
-              metricType: 'dimension',
-              metricValue: {
-                name: 'user_id',
-                modelName: 'segment_users',
-                relationName: null,
-                postOperation: null,
-                pivot: null,
-              },
-              filters: [
-                {
-                  valueType: 'string',
-                  operator: 'equals',
-                  value: 'ahmet',
-                },
-              ],
-            },
-          },
-        ],
       },
     },
     {
