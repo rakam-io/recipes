@@ -207,7 +207,7 @@ local attrs = std.extVar('attributions');
       },
     },
   ] + std.map(function(attr) {
-    name: 'By ' + attr,
+    name: 'Distribution by ' + attr,
     h: 1,
     w: 2,
     component: 'r-segmentation-chart',
