@@ -39,8 +39,11 @@ if __name__ == "__main__":
                 variableValues = {}
                 if "variables" in config:
                     for variable_name, variable_value in config.get("variables").items():
-                        example_value = example_values[variable_value.get('type')]
-                        variableValues[variable_name] = json.dumps(example_value)
+                        if variable_value.get('required') == False:
+                            variableValues[variable_name] = None
+                        else:
+                            example_value = example_values[variable_value.get('type')]
+                            variableValues[variable_name] = json.dumps(example_value)
                 recipe_models = []
                 recipe_dashboards = []
                 for root_recipe, _, recipe_files in os.walk(root):
