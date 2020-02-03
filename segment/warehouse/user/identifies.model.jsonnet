@@ -1,5 +1,5 @@
 {
-  label: 'User Attributions',
+  label: '[Segment] User Attributions',
   name: 'identifies',
   target: std.extVar('identifies_target'),
   category: 'Segment Events',
