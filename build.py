@@ -39,8 +39,11 @@ if __name__ == "__main__":
                 variableValues = {}
                 if "variables" in config:
                     for variable_name, variable_value in config.get("variables").items():
-                        example_value = example_values[variable_value.get('type')]
-                        variableValues[variable_name] = json.dumps(example_value)
+                        if not variable_value.get('required', True):
+                            variableValues[variable_name] = json.dumps(None)
+                        else:
+                            example_value = example_values[variable_value.get('type')]
+                            variableValues[variable_name] = json.dumps(example_value)
                 recipe_models = []
                 recipe_dashboards = []
                 for root_recipe, _, recipe_files in os.walk(root):
@@ -53,7 +56,7 @@ if __name__ == "__main__":
                             try:
                                 data = _jsonnet.evaluate_file(recipe_file_path, ext_codes=variableValues)
                             except Exception as e:
-                                raise Exception("Unable to parse "+recipe_file_path+": "+e)
+                                raise Exception("Unable to parse "+recipe_file_path+": "+str(e))
                             if is_model: recipe_models.append(json.loads(data))
                             if is_models: recipe_models += json.loads(data)
                             if is_dashboard: recipe_dashboards.append(json.loads(data))
