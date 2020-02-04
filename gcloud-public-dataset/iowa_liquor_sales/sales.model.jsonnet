@@ -97,19 +97,19 @@
       },
       hidden: false,
     },
-    'Sold in Dollars': {
+    sold_in_dollars: {
       pivot: false,
       type: 'double',
       column: 'sale_dollars',
       hidden: false,
     },
-    'Sold in Bottles': {
+    sold_in_bottles: {
       pivot: false,
       type: 'integer',
       column: 'bottles_sold',
       hidden: false,
     },
-    'Sold in Liters': {
+    sold_in_liters: {
       pivot: false,
       type: 'double',
       column: 'volume_sold_liters',

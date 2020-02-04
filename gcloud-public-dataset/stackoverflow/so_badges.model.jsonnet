@@ -57,7 +57,7 @@
     },
   },
   measures: {
-    Total_Badge: {
+    total_badge: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -66,7 +66,7 @@
       type: 'double',
       hidden: false,
     },
-    User_Count: {
+    user_count: {
       reportOptions: {
         formatNumbers: true,
       },

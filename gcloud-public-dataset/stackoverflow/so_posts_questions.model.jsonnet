@@ -210,7 +210,7 @@
       type: 'double',
       hidden: false,
     },
-    Accepted_Answers_Count: {
+    accepted_answers_count: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -219,7 +219,7 @@
       type: 'double',
       hidden: false,
     },
-    Total_Comment: {
+    total_comment: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -228,7 +228,7 @@
       type: 'double',
       hidden: false,
     },
-    Total_Answer: {
+    total_answer: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -237,7 +237,7 @@
       type: 'double',
       hidden: false,
     },
-    Total_Accepted_Answer: {
+    total_accepted_answer: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -246,7 +246,7 @@
       type: 'double',
       hidden: false,
     },
-    Total_Questions: {
+    total_Questions: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -255,7 +255,7 @@
       type: 'double',
       hidden: false,
     },
-    Total_View: {
+    total_view: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -264,7 +264,7 @@
       type: 'double',
       hidden: false,
     },
-    Average_Answers: {
+    average_answers: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -273,7 +273,7 @@
       type: 'double',
       hidden: false,
     },
-    Average_Comments: {
+    average_comments: {
       reportOptions: {
         formatNumbers: true,
       },

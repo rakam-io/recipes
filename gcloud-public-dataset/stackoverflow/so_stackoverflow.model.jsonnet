@@ -149,7 +149,7 @@
     },
   },
   measures: {
-    Total_Post: {
+    total_post: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -158,7 +158,7 @@
       type: 'double',
       hidden: false,
     },
-    Total_Comments: {
+    total_comments: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -167,7 +167,7 @@
       type: 'double',
       hidden: false,
     },
-    Total_Answers: {
+    total_answers: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -176,7 +176,7 @@
       type: 'double',
       hidden: false,
     },
-    Average_Comment: {
+    average_comment: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -185,7 +185,7 @@
       type: 'double',
       hidden: false,
     },
-    Average_View: {
+    average_view: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -194,7 +194,7 @@
       type: 'double',
       hidden: false,
     },
-    Average_Answer: {
+    average_answer: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -203,7 +203,7 @@
       type: 'double',
       hidden: false,
     },
-    Total_Accepted_Answer: {
+    total_accepted_answer: {
       label: 'Total_Accepted_Answers',
       reportOptions: {
         formatNumbers: true,
@@ -222,7 +222,7 @@
       type: 'double',
       hidden: false,
     },
-    Max_View_Count: {
+    max_view_count: {
       reportOptions: {
         formatNumbers: true,
       },
@@ -231,7 +231,7 @@
       type: 'double',
       hidden: false,
     },
-    Total_View: {
+    total_view: {
       reportOptions: {
         formatNumbers: true,
       },
