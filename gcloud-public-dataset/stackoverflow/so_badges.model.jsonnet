@@ -49,7 +49,7 @@
       column: 'user_id',
       hidden: false,
     },
-    Badge_Type: {
+    badge_type: {
       pivot: false,
       type: 'integer',
       column: 'class',
