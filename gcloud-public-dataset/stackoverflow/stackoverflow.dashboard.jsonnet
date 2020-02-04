@@ -60,7 +60,7 @@
             value: {
               metricType: 'dimension',
               metricValue: {
-                name: 'Accepted_Answer',
+                name: 'accepted_answer',
                 modelName: 'so_posts_questions',
                 relationName: null,
                 postOperation: null,
