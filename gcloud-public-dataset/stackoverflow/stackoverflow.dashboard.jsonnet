@@ -108,17 +108,17 @@
             relationName: null
           },
           {
-            name: 'Total_Answer',
+            name: 'total_answer',
             modelName: 'so_posts_questions',
             relationName: null
           },
           {
-            name: 'Total_Accepted_Answer',
+            name: 'total_accepted_answer',
             modelName: 'so_posts_questions',
             relationName: null
           },
           {
-            name: 'Total_Comment',
+            name: 'total_comment',
             modelName: 'so_posts_questions',
             relationName: null
           }
@@ -165,7 +165,7 @@
         ],
         measures: [
           {
-            name: 'Total_Questions',
+            name: 'total_questions',
             modelName: 'so_posts_questions',
             relationName: null
           }
@@ -212,7 +212,7 @@
         ],
         measures: [
           {
-            name: 'Total_Post',
+            name: 'total_post',
             modelName: 'so_stackoverflow_posts',
             relationName: null
           }
@@ -259,7 +259,7 @@
         ],
         measures: [
           {
-            name: 'Total_View',
+            name: 'total_view',
             modelName: 'so_posts_questions',
             relationName: null
           }
@@ -306,7 +306,7 @@
         ],
         measures: [
           {
-            name: 'Total_View',
+            name: 'total_view',
             modelName: 'so_stackoverflow_posts',
             relationName: null
           }
@@ -353,12 +353,12 @@
         ],
         measures: [
           {
-            name: 'Average_Answers',
+            name: 'average_answers',
             modelName: 'so_posts_questions',
             relationName: null
           },
           {
-            name: 'Average_Comments',
+            name: 'average_comments',
             modelName: 'so_posts_questions',
             relationName: null
           }
@@ -405,12 +405,12 @@
         ],
         measures: [
           {
-            name: 'Total_Accepted_Answer',
+            name: 'total_accepted_answer',
             modelName: 'so_stackoverflow_posts',
             relationName: null
           },
           {
-            name: 'Total_Post',
+            name: 'total_post',
             modelName: 'so_stackoverflow_posts',
             relationName: null
           }
