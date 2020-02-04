@@ -1,5 +1,6 @@
 {
   name: 'so_stackoverflow_posts',
+  category: "Stackoverflow",
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'stackoverflow_posts' }),
   description: "Don't use this table - use posts_* instead",

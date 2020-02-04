@@ -1,5 +1,6 @@
 {
   name: 'Stackoverflow',
+  category: "Stackoverflow",
   filterSchema: [
     {
       name: 'Date',

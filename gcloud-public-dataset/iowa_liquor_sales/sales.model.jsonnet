@@ -4,7 +4,7 @@
   target: std.extVar('table'),
   label: 'Liquor Sales',
   description: 'Liquor sales in Iowa',
-  category: 'Marketing',
+  category: "IOWA Liquor Sales",
   mappings: {},
   dimensions: {
     date: {

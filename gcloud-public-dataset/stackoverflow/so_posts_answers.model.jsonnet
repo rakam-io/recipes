@@ -1,5 +1,6 @@
 {
   name: 'so_posts_answers',
+  category: "Stackoverflow",
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'posts_answers' }),
   mappings: {},

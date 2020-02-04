@@ -1,5 +1,6 @@
 {
   name: 'so_tags',
+  category: "Stackoverflow",
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'tags' }),
   mappings: {},

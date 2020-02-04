@@ -1,6 +1,7 @@
 {
   name: 'so_comments',
   hidden: false,
+  category: "Stackoverflow",
   target: std.mergePatch(std.extVar('schema'), { table: 'comments' }),
   mappings: {
     eventTimestamp: 'creation_date',

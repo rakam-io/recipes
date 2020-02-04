@@ -1,5 +1,6 @@
 {
   name: 'Liquor Sales',
+  category: "IOWA Liquor Sales",
   filterSchema: [
     {
       name: 'Date',
