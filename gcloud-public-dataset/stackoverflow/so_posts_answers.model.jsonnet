@@ -174,7 +174,7 @@
       },
       hidden: false,
     },
-    User_Id: {
+    user_id: {
       pivot: false,
       type: 'integer',
       column: 'owner_user_id',
