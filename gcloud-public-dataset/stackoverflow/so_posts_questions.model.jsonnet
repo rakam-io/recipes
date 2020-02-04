@@ -146,7 +146,7 @@
       },
       hidden: false,
     },
-    Accepted_Answer: {
+    accepted_answer: {
       pivot: false,
       type: 'integer',
       column: 'accepted_answer_id',
