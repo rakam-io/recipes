@@ -246,7 +246,7 @@
       type: 'double',
       hidden: false,
     },
-    total_Questions: {
+    total_questions: {
       reportOptions: {
         formatNumbers: true,
       },
