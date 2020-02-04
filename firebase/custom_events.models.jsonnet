@@ -20,7 +20,17 @@ std.map(function(event_type)
                                common.generate_event_dimensions(current_event_props)
                                +
                                if defined != null && std.objectHas(defined, 'dimensions') then defined.dimensions else {};
-
+  local intraday_query = if std.extVar('intradayAnalytics') == true then
+  |||
+    {%% if include_today %%}
+    UNION ALL
+    SELECT * FROM `%(project)s`.`%(dataset)s`.`events_intraday_*` WHERE event_name = '%(event)s' AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", CURRENT_DATE()) AND FORMAT_DATE("%%Y%%m%%d", DATE_ADD(CURRENT_DATE(), INTERVAL 1 DAY))
+    {%% endif %%}
+  ||| % {
+    project: target.database,
+    dataset: target.schema,
+    event: event_db_name,
+  } else "";
   {
     name: 'firebase_event_' + event_type,
     label: (if defined != null then '[Firebase] ' else '') + event_type,
@@ -35,10 +45,7 @@ std.map(function(event_type)
       FROM (
         SELECT * FROM `%(project)s`.`%(dataset)s`.`events_*`
         {%% if partitioned %%} WHERE event_name = '%(event)s' AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
-        {%% if include_today %%}
-        UNION ALL
-        SELECT * FROM `%(project)s`.`%(dataset)s`.`events_intraday_*` WHERE event_name = '%(event)s' AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", CURRENT_DATE()) AND FORMAT_DATE("%%Y%%m%%d", DATE_ADD(CURRENT_DATE(), INTERVAL 1 DAY))
-        {%% endif %%}
+        %(intraday_query)
       ) events
     ||| % {
       user_jinja: std.join('\n', common.generate_jinja_for_user_properties(user_props)),
@@ -46,6 +53,7 @@ std.map(function(event_type)
       project: target.database,
       dataset: target.schema,
       event: event_db_name,
+      intraday_query: intraday_query
     },
     dimensions: common.dimensions + dimensions_for_event,
   }, unique_events)

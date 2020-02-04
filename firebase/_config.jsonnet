@@ -73,5 +73,11 @@
       default: true,
       description: "If you're sending the in app purchases to Firebase, you can enable this toggle in order to see metrics related to your revenue.",
     },
+    intradayAnalytics: {
+      label: 'Enable Intraday Analytics',
+      type: 'boolean',
+      default: true,
+      description: "If enabled, will also union events_intraday_* tables",
+    },
   },
 }
