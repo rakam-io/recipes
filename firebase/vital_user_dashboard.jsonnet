@@ -1,5 +1,6 @@
     {
       "name": "VITAL (User)",
+      "category": "Firebase",
       "filterSchema": [
         {
           "name": "Date",

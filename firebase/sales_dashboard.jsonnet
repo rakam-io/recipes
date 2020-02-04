@@ -1,5 +1,6 @@
 {
   name: 'Sales',
+  category: "Firebase",
   filterSchema: [
     {
       name: 'Date',

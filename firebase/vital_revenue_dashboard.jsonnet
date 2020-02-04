@@ -1,5 +1,6 @@
     {
       "name": "VITAL (Revenue)",
+      "category": "Firebase",
       "filterSchema": [
         {
           "name": "Date",
