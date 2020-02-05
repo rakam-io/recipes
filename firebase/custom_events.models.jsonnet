@@ -22,10 +22,9 @@ std.map(function(event_type)
                                if defined != null && std.objectHas(defined, 'dimensions') then defined.dimensions else {};
   local intraday_query = if std.extVar('intradayAnalytics') == true then
   |||
-    {%% if include_today %%}
     UNION ALL
-    SELECT * FROM `%(project)s`.`%(dataset)s`.`events_intraday_*` WHERE event_name = '%(event)s' AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", CURRENT_DATE()) AND FORMAT_DATE("%%Y%%m%%d", DATE_ADD(CURRENT_DATE(), INTERVAL 1 DAY))
-    {%% endif %%}
+    SELECT * FROM `%(project)s`.`%(dataset)s`.`events_intraday_*`
+    {%% if partitioned %%} WHERE event_name = '%(event)s' AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
   ||| % {
     project: target.database,
     dataset: target.schema,
