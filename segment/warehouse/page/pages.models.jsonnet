@@ -1,8 +1,8 @@
 local commonDimensions = import '../common_dimensions.jsonnet';
-local sessionsModel = import './pageview_sessions.model.jsonnet';
+local sessionsModel = import './pageview_sessions.models.jsonnet';
 
 
-{
+if std.extVar('pages_target') != null then [{
   name: 'segment_pages',
   label: '[Segment] Pageview',
   description: "The pageview data that's collected via Segment Javascript SDK",
@@ -29,14 +29,14 @@ local sessionsModel = import './pageview_sessions.model.jsonnet';
       sourceColumn: 'anonymous_id',
       targetColumn: 'anonymous_id',
     },
-  } + if std.extVar('user_model') != null then
-    { user: {
+    user: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: std.extVar('user_model'),
+      modelName: 'segment_users',
       sourceColumn: 'user_id',
       targetColumn: 'id',
-    } } else {},
+    },
+  },
   dimensions: commonDimensions {
     page_url_host: {
       description: 'Host value extracted from the url',
@@ -199,4 +199,4 @@ local sessionsModel = import './pageview_sessions.model.jsonnet';
       column: 'context_page_referrer',
     },
   },
-}
+}] else []

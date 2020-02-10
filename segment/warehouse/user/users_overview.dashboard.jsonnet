@@ -16,50 +16,6 @@ local attrs = std.extVar('attributions');
   ],
   reports: [
     {
-      name: 'Total Attributions',
-      x: 2,
-      y: 0,
-      h: 2,
-      w: 4,
-      component: 'r-segmentation-chart',
-      type: 1,
-      reportOptions: {
-        modelName: 'identifies',
-        dimensions: [
-          {
-            name: 'received_at',
-            modelName: 'identifies',
-            relationName: null,
-            postOperation: {
-              type: 'timestamp',
-              value: 'day',
-            },
-            pivot: false,
-          },
-        ],
-        measures: [
-          {
-            name: 'total_identify',
-            modelName: 'identifies',
-            relationName: null,
-          },
-        ],
-        reportOptions: {
-          chartOptions: {
-            type: 'line',
-            columnOptions: [],
-          },
-          tableOptions: {
-            columnOptions: [],
-          },
-          columnOptions: null,
-        },
-        defaultDateRange: 'P14D',
-        limit: 1000,
-        filters: null,
-      },
-    },
-    {
       name: '7-Day Active Users',
       x: 0,
       y: 1,

@@ -12,14 +12,15 @@ std.map(function(event_table) {
     deviceId: 'context_device_id',
     incremental: 'received_at',
   },
-  relations: if std.extVar('user_model') != null then
-    { user: {
+  relations: {
+    user: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: std.extVar('user_model'),
+      modelName: 'segment_users',
       sourceColumn: 'user_id',
       targetColumn: 'id',
-    } } else {},
+    },
+  },
   measures: {
     events: {
       aggregation: 'count',

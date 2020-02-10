@@ -1,4 +1,30 @@
-{
+[
+  {
+    label: 'All Segment Users',
+    name: 'segment_users',
+    category: 'Segment Users',
+    target: std.extVar('users_target'),
+    mappings: {
+      userId: 'user_id',
+    },
+    measures: {
+      total_users: {
+        aggregation: 'count',
+      },
+    },
+    dimensions: std.extVar('attributions') {
+      last_update: {
+        type: 'timestamp',
+        column: 'received_at',
+      },
+      user_id: {
+        column: 'id',
+      },
+    },
+  },
+]
++
+if std.extVar('identifies_target') != null then [{
   label: '[Segment] User Attributions',
   name: 'identifies',
   target: std.extVar('identifies_target'),
@@ -26,4 +52,4 @@
       column: 'id',
     },
   },
-}
+}] else []

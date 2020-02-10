@@ -14,14 +14,15 @@ local commonDimensions = import '../common_dimensions.jsonnet';
     deviceId: null,
     sessionId: null,
   },
-  relations: if std.extVar('user_model') != null then
-    { user: {
+  relations: {
+    user: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: std.extVar('user_model'),
+      modelName: 'segment_users',
       sourceColumn: 'user_id',
       targetColumn: 'id',
-    } } else {},
+    },
+  },
   measures: {
     total_events: {
       aggregation: 'count',

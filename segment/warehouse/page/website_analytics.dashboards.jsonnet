@@ -1,4 +1,4 @@
-{
+if std.extVar('pages_target') != null then [{
   name: 'Website Overview',
   category: 'Segment Events',
   filterSchema: [
@@ -191,4 +191,4 @@
       },
     },
   ],
-}
+}] else []
