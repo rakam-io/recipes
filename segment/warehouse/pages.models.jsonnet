@@ -1,5 +1,5 @@
-local commonDimensions = import '../common_dimensions.jsonnet';
 local sessionsModel = import './pageview_sessions.models.jsonnet';
+local commonDimensions = import 'common_dimensions.jsonnet';
 
 
 if std.extVar('pages_target') != null then [{

@@ -1,6 +1,6 @@
-local config = import '../_config.jsonnet';
-local commonDimensions = import '../common_dimensions.jsonnet';
-local pages = import '../page/pages.model.jsonnet';
+local config = import '_config.jsonnet';
+local commonDimensions = import 'common_dimensions.jsonnet';
+local pages = import 'pages.models.jsonnet';
 
 local embeddedDimensions = config.variables.event_attributes.options.exclude;
 local screenDimensions = std.foldl(function(a, b) a { [b]: { column: b, category: 'Mobile' } }, embeddedDimensions, {});

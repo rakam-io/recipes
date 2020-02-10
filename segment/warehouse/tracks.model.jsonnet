@@ -1,5 +1,5 @@
-local util = import '../../../util.libsonnet';
-local commonDimensions = import '../common_dimensions.jsonnet';
+local util = import '../../util.libsonnet';
+local commonDimensions = import 'common_dimensions.jsonnet';
 
 {
   name: util.generate_model_name_from_file(std.thisFile),
