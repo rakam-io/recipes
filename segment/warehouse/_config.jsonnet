@@ -17,7 +17,7 @@
       parent: 'tracks_target',
       description: 'Select the event types that you want to create models from',
       options: {
-        exclude: ['aliases', 'groups', 'identifies', 'pages', 'screens', 'tracks'],
+        exclude: ['aliases', 'groups', 'identifies', 'pages', 'screens', 'tracks', 'users'],
       },
     },
     // mobile analytics
