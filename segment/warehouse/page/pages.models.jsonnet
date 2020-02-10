@@ -25,7 +25,7 @@ if std.extVar('pages_target') != null then [{
     session: {
       relationType: 'oneToMany',
       joinType: 'leftJoin',
-      modelName: sessionsModel.name,
+      modelName: 'segment_rakam_pageview_sessions',
       sourceColumn: 'anonymous_id',
       targetColumn: 'anonymous_id',
     },
