@@ -12,7 +12,6 @@
     },
     event_types: {
       label: 'Event types',
-      required: false,
       type: 'multiple-table',
       description: 'Select the event types that you want to create models from',
       options: {
