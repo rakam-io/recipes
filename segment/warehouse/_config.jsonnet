@@ -9,7 +9,7 @@
       label: 'Segment Tracks Table',
       type: 'table',
       default: { table: 'tracks' },
-      description: 'The tracks table in your Segment Destination. See: https://segment.com/docs/destinations/#warehouse-schemas',
+      description: "The tracks table in your Segment Destination if you're tracking the custom events. See: https://segment.com/docs/destinations/#warehouse-schemas",
     },
     event_types: {
       label: 'Event types',
@@ -26,7 +26,7 @@
       required: false,
       type: 'table',
       default: { table: 'screens' },
-      description: 'The pages table in your Segment Destination. See: https://segment.com/docs/destinations/#warehouse-schemas',
+      description: 'The screens table in your Segment Destination if you enabled the iOS or Android SDKs. See: https://segment.com/docs/destinations/#warehouse-schemas',
     },
     screens_event_attributes: {
       label: 'Screen Event attributes',
@@ -63,7 +63,7 @@
       label: 'Segment Pageview Table',
       type: 'table',
       default: { table: 'pages' },
-      description: 'The pages table in your Segment Destination. See: https://segment.com/docs/connections/warehouses/',
+      description: "The pages table in your Segment Destination if you're tracking the pageviews. See: https://segment.com/docs/connections/warehouses/",
     },
     session_model_target: {
       parent: 'pages_target',
@@ -84,7 +84,7 @@
       label: 'Segment User Table',
       type: 'table',
       default: { table: 'users' },
-      description: 'The users table in your Segment Destination. See: https://segment.com/docs/destinations/#warehouse-schemas',
+      description: "The users table in your Segment Destination if you're tracking the user attributes. See: https://segment.com/docs/destinations/#warehouse-schemas",
     },
     identifies_target: {
       label: 'Segment Identifies Table',
