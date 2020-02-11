@@ -12,7 +12,7 @@ if std.extVar('screens_target') != null then [{
   description: 'A model with all of your screen method calls. This table will include all of the properties you record for screens as top-level columns, for example <source>.screens.title.',
   target: std.extVar('screens_target'),
   dimensions: commonDimensions + screenDimensions + std.extVar('screens_event_attributes'),
-  mappings: pages.mappings,
+  mappings: pages[0].mappings,
   measures: {
     total_events: {
       aggregation: 'count',
