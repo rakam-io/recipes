@@ -10,6 +10,7 @@
     },
     event_schema: {
       type: 'sql',
+      parent: 'target',
       description: 'The event schema in your Snowflake Warehouse',
       options: {
         loadingMessage: 'Fetching all event types..',
