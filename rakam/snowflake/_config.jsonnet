@@ -24,7 +24,7 @@
                   LOWER(LTRIM(REGEXP_REPLACE(REGEXP_REPLACE(F.KEY, '([a-z])([A-Z])', '\1_\2'), '[^a-zA-Z0-9_]', ''), '_')) as PROP_NAME,
                   MODE(TYPEOF(f.VALUE)) OVER (PARTITION BY EVENT_DB, PROP_DB, TYPEOF(f.VALUE)) as TYPE
               FROM
-                  FIVETRAN.RAKAM_EVENTS.EVENTS E,
+                  EVENTS E,
                   LATERAL FLATTEN(PROPERTIES, RECURSIVE=>FALSE) F
               WHERE
                   _TIME > DATEADD(MINUTE, -50, current_timestamp)
