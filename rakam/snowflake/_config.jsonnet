@@ -26,10 +26,11 @@
                   EVENTS E,
                   LATERAL FLATTEN(PROPERTIES, RECURSIVE=>FALSE) F
               WHERE
-                  _TIME > DATEADD(MINUTE, -50, current_timestamp)
+                  _TIME > DATEADD(MINUTE, -10, current_timestamp)
                   AND TYPEOF(F.VALUE) IN ('BOOLEAN', 'DECIMAL', 'DOUBLE', 'INTEGER', 'VARCHAR')
                   --AND REGEXP_LIKE(F.KEY, '^[a-zA-Z0-9]*$')
-                  AND EVENT_TYPE NOT IN ('$invalid_schema', '$identify')    
+                  AND EVENT_TYPE NOT IN ('$invalid_schema', '$identify')
+              LIMIT 100    
           ) d
           GROUP BY 1, 2
         |||,
