@@ -14,7 +14,7 @@ std.map(function(event_type)
                                    sql: '{{TABLE}}.properties:"%(name)s"::%(type)s' % { type: prop.t, name: prop.db },
                                    category: if std.startsWith(prop.db, '_') then 'SDK' else 'Custom',
                                  },
-                               }, event_type.props), {})
+                               }, std.parseJson(event_type.props)), {})
                                +
                                if defined != null then defined.dimensions else {};
 
@@ -28,51 +28,4 @@ std.map(function(event_type)
     mappings: common.mappings,
     category: 'Rakam Events',
     dimensions: common.dimensions + dimensions_for_event,
-  }, [
-  {
-    db: 'select_type_phone',
-    n: 'select_type_phone',
-    props: [
-      {
-        db: 'aaid',
-        n: 'aaid',
-        t: 'VARCHAR',
-      },
-      {
-        db: 'lng',
-        n: 'lng',
-        t: 'VARCHAR',
-      },
-      {
-        db: 'address',
-        n: 'address',
-        t: 'VARCHAR',
-      },
-      {
-        db: 'source',
-        n: 'source',
-        t: 'VARCHAR',
-      },
-      {
-        db: 'phone',
-        n: 'phone',
-        t: 'VARCHAR',
-      },
-      {
-        db: 'city',
-        n: 'city',
-        t: 'VARCHAR',
-      },
-      {
-        db: 'lat',
-        n: 'lat',
-        t: 'VARCHAR',
-      },
-      {
-        db: 'country',
-        n: 'country',
-        t: 'VARCHAR',
-      },
-    ],
-  },
-])
+  }, std.extVar('event_schema'))
