@@ -15,11 +15,11 @@
   },
   dimensions: {
     time: {
-      column: '_time',
+      column: '_TIME',
       type: 'timestamp',
     },
     user: {
-      column: '_user',
+      column: '_USER',
     },
   },
   mappings: {
