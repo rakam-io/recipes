@@ -1,6 +1,6 @@
-local util = import '.././util.libsonnet';
-local common = import '././common.libsonnet';
-local predefined = import '././predefined.jsonnet';
+local util = import '../util.libsonnet';
+local common = import 'common.libsonnet';
+local predefined = import 'predefined.jsonnet';
 
 
 local all_event_props = common.get_event_properties();
@@ -21,15 +21,15 @@ std.map(function(event_type)
                                +
                                if defined != null && std.objectHas(defined, 'dimensions') then defined.dimensions else {};
   local intraday_query = if std.extVar('intradayAnalytics') == true then
-  |||
-    UNION ALL
-    SELECT * FROM `%(project)s`.`%(dataset)s`.`events_intraday_*`
-    {%% if partitioned %%} WHERE event_name = '%(event)s' AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
-  ||| % {
-    project: target.database,
-    dataset: target.schema,
-    event: event_db_name,
-  } else "";
+    |||
+      UNION ALL
+      SELECT * FROM `%(project)s`.`%(dataset)s`.`events_intraday_*`
+      {%% if partitioned %%} WHERE event_name = '%(event)s' AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
+    ||| % {
+      project: target.database,
+      dataset: target.schema,
+      event: event_db_name,
+    } else '';
   {
     name: 'firebase_event_' + event_type,
     label: (if defined != null then '[Firebase] ' else '') + event_type,
@@ -52,7 +52,7 @@ std.map(function(event_type)
       project: target.database,
       dataset: target.schema,
       event: event_db_name,
-      intraday_query: intraday_query
+      intraday_query: intraday_query,
     },
     dimensions: common.dimensions + dimensions_for_event,
   }, unique_events)
