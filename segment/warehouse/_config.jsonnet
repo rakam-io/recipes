@@ -62,6 +62,7 @@
     pages_target: {
       label: 'Segment Pageview Table',
       type: 'table',
+      required: false,
       default: { table: 'pages' },
       description: "The pages table in your Segment Destination if you're tracking the pageviews. See: https://segment.com/docs/connections/warehouses/",
     },
@@ -69,6 +70,7 @@
       parent: 'pages_target',
       label: 'The target of the sessionization model',
       type: 'target',
+      required: false,
       default: { table: 'rakam_segment_web_sessions' },
       description: 'We need to create an incremental model in your warehouse in order the sessionize your pageview table.',
     },
