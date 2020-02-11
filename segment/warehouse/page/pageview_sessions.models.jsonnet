@@ -1,4 +1,4 @@
-local util = import '../../util.libsonnet';
+local util = import '../../../util.libsonnet';
 
 local dbtModel = (importstr 'rakam_segment_web_sessions.sql');
 
