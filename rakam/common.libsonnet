@@ -3,17 +3,27 @@
   measures: {
     unique_users: {
       aggregation: 'countUnique',
-      column: '_user',
+      sql: '{{dimension.user}}',
+    },
+    unique_devices: {
+      aggregation: 'countUnique',
+      sql: '{{dimension.device_id}}',
     },
     total_events: {
       aggregation: 'count',
     },
   },
   dimensions: {
-
+    time: {
+      column: '_time',
+      type: 'timestamp',
+    },
+    user: {
+      column: '_user',
+    },
   },
   mappings: {
-    eventTimestamp: '_time',
-    userId: '_user',
+    eventTimestamp: 'time',
+    userId: 'user',
   },
 }
