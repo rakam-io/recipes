@@ -2,7 +2,7 @@ local config = import '../_config.jsonnet';
 local commonDimensions = import '../common_dimensions.jsonnet';
 local pages = import '../page/pages.models.jsonnet';
 
-local embeddedDimensions = config.variables.event_attributes.options.exclude;
+local embeddedDimensions = config.variables.screens_event_attributes.options.exclude;
 local screenDimensions = std.foldl(function(a, b) a { [b]: { column: b, category: 'Mobile' } }, embeddedDimensions, {});
 
 if std.extVar('screens_target') != null then [{
