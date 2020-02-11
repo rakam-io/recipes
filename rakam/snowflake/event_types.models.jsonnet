@@ -20,8 +20,8 @@ std.map(function(event_type)
     name: 'rakam_event_' + event_type,
     label: (if defined != null then '[Rakam] ' else '') + event_type,
     sql: |||
-      select * from events where event_type = '%(event_name)s'
-    ||| % { event_name: event_name },
+      select * from %(target) where event_type = '%(event_name)s'
+    ||| % { event_name: event_name, target: std.extVar('target') },
     measures: common.measures + if defined != null then defined.measures else {},
     mappings: common.mappings,
     category: 'Rakam Events',

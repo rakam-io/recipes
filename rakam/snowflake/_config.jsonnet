@@ -1,7 +1,13 @@
 {
   version: 1.1,
-  label: 'Rakam Event Type Extractor',
+  label: 'Rakam API',
+  description: 'It automatically creates models from your collections.',
   variables: {
+    target: {
+      label: 'Events Table',
+      type: 'table',
+      default: { table: 'EVENTS' },
+    },
     event_schema: {
       type: 'sql',
       description: 'The event schema in your Snowflake Warehouse',
