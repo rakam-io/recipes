@@ -152,7 +152,7 @@ if std.extVar('pages_target') != null then [{
     device_category: {
       description: 'The device category',
       sql: |||
-        case replace(split_part(split_part({{TABLE}}.context_user_agent, '(', 2), ' ', 1), ';', '')
+        (case replace(split_part(split_part({{TABLE}}.context_user_agent, '(', 2), ' ', 1), ';', '')
             when 'iPhone' then 'iPhone'
             when  'Android' then 'Android'
             when 'iPad' then 'Tablet'
@@ -161,7 +161,7 @@ if std.extVar('pages_target') != null then [{
             when 'Macintosh' then 'Desktop'
             when 'X11' then 'Desktop'
             else 'Uncategorized'
-        end
+        end)
       |||,
     },
     path: {

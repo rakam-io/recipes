@@ -82,12 +82,12 @@ if std.extVar('pages_target') != null then [{
     new_sessions: {
       label: 'New Sessions',
       aggregation: 'sum',
-      sql: 'case when {{TABLE}}."session_number" = 1 then 1 else 0 end',
+      sql: '(case when {{TABLE}}."session_number" = 1 then 1 else 0 end)',
     },
     returning_sessions: {
       label: 'Returning Sessions',
       aggregation: 'sum',
-      sql: 'case when "session_number" > 1 then 1 else 0 end',
+      sql: '(case when "session_number" > 1 then 1 else 0 end)',
     },
     average_session_count_per_user: {
       label: 'Average Session Per User',
