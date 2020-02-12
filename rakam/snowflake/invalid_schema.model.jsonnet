@@ -41,7 +41,7 @@ local dimensions = [
   sql: |||
     select * from "%(database)s"."%(schema)s"."%(table)s" where event_type = '$invalid_schema'
   ||| % { database: target.database, schema: target.schema, table: target.table },
-  measures: common.measures + if defined != null then defined.measures else {},
+  measures: common.measures,
   mappings: common.mappings,
   dimensions: common.dimensions + std.foldl(function(a, b) a + b, std.map(function(prop) {
     [prop.n]: {
