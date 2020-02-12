@@ -129,12 +129,12 @@ if std.extVar('pages_target') != null then [{
     //   category: 'Marketing',
     //   column: 'context_campaign_content',
     // },
-    campaign_medium: {
-      label: 'Campaign Medium',
-      category: 'Marketing',
-      type: 'string',
-      column: 'context_campaign_medium',
-    },
+    // campaign_medium: {
+    //   label: 'Campaign Medium',
+    //   category: 'Marketing',
+    //   type: 'string',
+    //   column: 'context_campaign_medium',
+    // },
     campaign_name: {
       label: 'Campaign Name',
       category: 'Marketing',
