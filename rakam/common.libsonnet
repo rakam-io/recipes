@@ -18,6 +18,10 @@
       column: '_TIME',
       type: 'timestamp',
     },
+    server_time: {
+      column: '_SERVER_TIME',
+      type: 'timestamp',
+    },
     user: {
       column: '_USER',
     },

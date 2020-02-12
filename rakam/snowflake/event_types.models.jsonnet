@@ -17,10 +17,9 @@ std.map(function(event_type)
                                }, std.parseJson(event_type.props)), {})
                                +
                                if defined != null then defined.dimensions else {};
-
   {
     name: 'rakam_event_' + event_name,
-    label: (if defined != null then '[Rakam] ' else '') + event_name,
+    label: (if defined != null then '[SDK] ' else '') + event_name,
     sql: |||
       select * from "%(database)s"."%(schema)s"."%(table)s" where event_type = '%(event_name)s'
     ||| % { event_name: event_name, database: target.database, schema: target.schema, table: target.table },
