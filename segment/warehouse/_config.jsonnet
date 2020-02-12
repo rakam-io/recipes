@@ -66,6 +66,16 @@
       default: { table: 'pages' },
       description: "The pages table in your Segment Destination if you're tracking the pageviews. See: https://segment.com/docs/connections/warehouses/",
     },
+    pages_campaign_columns: {
+      label: 'Campaign columns',
+      parent: 'pages_target',
+      type: 'table-multiple-column',
+      default: ['context_campaign_medium', 'context_campaign_content', 'context_campaign_content_name', 'context_campaign_source'],
+      options: {
+        category: 'Marketing',
+      },
+      description: 'If your website has visitors coming with UTM campaigns, Segment add context columns so that you can select them here.',
+    },
     session_model_target: {
       parent: 'pages_target',
       label: 'The target of the sessionization model',

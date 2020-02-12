@@ -37,7 +37,7 @@ if std.extVar('pages_target') != null then [{
       targetColumn: 'id',
     },
   },
-  dimensions: commonDimensions {
+  dimensions: commonDimensions + std.extVar('pages_campaign_columns') + {
     page_url_host: {
       description: 'Host value extracted from the url',
       sql: "split_part(split_part(replace(replace({{TABLE}}.url, 'http://', ''), 'https://', ''), '/', 1), '?', 1)",
@@ -135,18 +135,18 @@ if std.extVar('pages_target') != null then [{
     //   type: 'string',
     //   column: 'context_campaign_medium',
     // },
-    campaign_name: {
-      label: 'Campaign Name',
-      category: 'Marketing',
-      type: 'string',
-      column: 'context_campaign_name',
-    },
-    campaign_source: {
-      label: 'Campaign Source',
-      category: 'Marketing',
-      type: 'string',
-      column: 'context_campaign_source',
-    },
+    // campaign_name: {
+    //   label: 'Campaign Name',
+    //   category: 'Marketing',
+    //   type: 'string',
+    //   column: 'context_campaign_name',
+    // },
+    // campaign_source: {
+    //   label: 'Campaign Source',
+    //   category: 'Marketing',
+    //   type: 'string',
+    //   column: 'context_campaign_source',
+    // },
     page_path: {
       category: 'Website',
       type: 'string',
