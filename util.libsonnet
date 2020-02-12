@@ -5,5 +5,6 @@
     local parts = std.split(name, '/');
     std.strReplace(parts[std.length(parts) - 1], '.model.jsonnet', ''),
   generate_target_reference(target)::
-    std.join('.', std.filter(function(x) x != null, [target.database, target.schema, target.table])),
+    local alias_quote = std.extVar('_aq');
+    std.join('.', std.filter(function(x) x != null, [alias_quote + target.database + alias_quote, alias_quote + target.schema + alias_quote, alias_quote + target.table + alias_quote])),
 }
