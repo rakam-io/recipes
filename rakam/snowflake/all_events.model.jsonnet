@@ -8,7 +8,7 @@ local common = import '../common.libsonnet';
   measures: common.measures,
   dimensions: common.dimensions {
     event_type: {
-      column: 'event_type',
+      column: 'EVENT_TYPE',
     },
   },
 }
