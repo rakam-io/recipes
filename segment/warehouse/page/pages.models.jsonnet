@@ -66,7 +66,7 @@ if std.extVar('pages_target') != null then [{
       description: 'The browser type parsed from the user agent',
       category: 'Website',
       sql: |||
-        CASE
+        (CASE
           WHEN {{TABLE}}.context_user_agent LIKE '%Firefox/%' THEN 'Firefox'
           WHEN {{TABLE}}.context_user_agent LIKE '%Chrome/%' OR {{TABLE}}.context_user_agent LIKE '%CriOS%' THEN 'Chrome'
           WHEN {{TABLE}}.context_user_agent LIKE '%MSIE %' THEN 'IE'
@@ -86,14 +86,14 @@ if std.extVar('pages_target') != null then [{
           WHEN {{TABLE}}.context_user_agent LIKE '%curl%' THEN 'Bot'
           WHEN {{TABLE}}.context_user_agent LIKE '%urllib%' THEN 'Bot'
           ELSE 'Unknown'
-        END
+        END)
       |||,
     },
     browser_version: {
       description: 'The browser type parsed from the user agent',
       category: 'Website',
       sql: |||
-        CASE
+        (CASE
           WHEN {{dimension.browser}} = 'Firefox'
             THEN SUBSTRING({{dimension.browser}}, POSITION('Firefox' IN {{dimension.browser}}) + 8, 100)
           WHEN {{dimension.browser}} = 'Safari'
@@ -117,7 +117,7 @@ if std.extVar('pages_target') != null then [{
           WHEN {{dimension.browser}} = 'iPad Safari'
             THEN SUBSTRING({{dimension.browser}}, POSITION('Safari' IN {{dimension.browser}}) + 7, 100)
           ELSE 'Unknown'
-        END
+        END)
       |||,
     },
     user_agent: {
