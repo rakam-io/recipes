@@ -14,7 +14,7 @@
       description: 'The event schema in your Snowflake Warehouse',
       options: {
         sql: |||
-          SELECT EVENT_DB as "db", EVENT_NAME as "n", ARRAY_AGG(OBJECT_CONSTRUCT('db', PROP_DB, 'n', PROP_NAME, 't', TYPE)) as "props"
+          SELECT EVENT_NAME as "n", ANY_VALUE(EVENT_DB) as "db", ARRAY_AGG(OBJECT_CONSTRUCT('db', PROP_DB, 'n', PROP_NAME, 't', TYPE)) as "props"
           FROM (
                   SELECT
                   DISTINCT E.EVENT_TYPE as EVENT_DB,
@@ -31,7 +31,7 @@
                   --AND REGEXP_LIKE(F.KEY, '^[a-zA-Z0-9]*$')
                   AND EVENT_TYPE NOT IN ('$invalid_schema', '$identify')    
           ) d
-          GROUP BY 1, 2
+          GROUP BY 1
         |||,
       },
     },
