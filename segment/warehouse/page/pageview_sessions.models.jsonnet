@@ -8,10 +8,10 @@ local dbtModel = (importstr 'rakam_segment_web_sessions.sql');
  */
 
 local first_values = {
-  context_campaign_source: { column: 'utm_source' },
+  // context_campaign_source: { column: 'utm_source' },
   // context_campaign_content: { column: 'utm_content' },
   // context_campaign_medium: { column: 'utm_medium' },
-  context_campaign_name: { column: 'utm_campaign' },
+  // context_campaign_name: { column: 'utm_campaign' },
   context_page_url: { column: 'first_page_url' },
   context_page_path: { column: 'first_page_url_path' },
   context_page_referrer: { column: 'first_referrer' },
