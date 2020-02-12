@@ -124,29 +124,6 @@ if std.extVar('pages_target') != null then [{
       column: 'context_user_agent',
       category: 'Website',
     },
-    // campaign_content: {
-    //   label: 'Campaign Content',
-    //   category: 'Marketing',
-    //   column: 'context_campaign_content',
-    // },
-    // campaign_medium: {
-    //   label: 'Campaign Medium',
-    //   category: 'Marketing',
-    //   type: 'string',
-    //   column: 'context_campaign_medium',
-    // },
-    // campaign_name: {
-    //   label: 'Campaign Name',
-    //   category: 'Marketing',
-    //   type: 'string',
-    //   column: 'context_campaign_name',
-    // },
-    // campaign_source: {
-    //   label: 'Campaign Source',
-    //   category: 'Marketing',
-    //   type: 'string',
-    //   column: 'context_campaign_source',
-    // },
     page_path: {
       category: 'Website',
       type: 'string',

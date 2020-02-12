@@ -36,7 +36,7 @@ if __name__ == "__main__":
                      "path": root[1:],
                      "config": config
                      })
-                variableValues = {}
+                variableValues = {"_aq": '\'"\''}
                 if "variables" in config:
                     for variable_name, variable_value in config.get("variables").items():
                         if not variable_value.get('required', True):

@@ -38,28 +38,28 @@ local mappingForConsolidatedMarketing = {
     facebook_ads: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'facebook_ads',
+      model: 'facebook_ads',
       sourceColumn: 'ad_id',
       targetColumn: 'id',
     },
     facebook_ad_sets: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'facebook_ad_sets',
+      model: 'facebook_ad_sets',
       sourceColumn: 'adset_id',
       targetColumn: 'id',
     },
     facebook_campaigns: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'facebook_campaigns',
+      model: 'facebook_campaigns',
       sourceColumn: 'campaign_id',
       targetColumn: 'id',
     },
     facebook_ad_accounts: {
       relationType: 'manyToOne',
       joinType: 'leftJoin',
-      modelName: 'facebook_ad_accounts',
+      model: 'facebook_ad_accounts',
       sourceColumn: 'account_id',
       targetColumn: 'id',
     },
@@ -67,10 +67,8 @@ local mappingForConsolidatedMarketing = {
   dimensions: mappingForConsolidatedMarketing {
     date: {
       sql: 'CAST({{TABLE}}.date_start AS DATE)',
-      timeframes: [],
     },
     ad_id: {
-      pivot: false,
       type: 'string',
       column: 'ad_id',
       hidden: true,

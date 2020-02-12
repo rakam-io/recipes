@@ -70,7 +70,31 @@
       label: 'Campaign columns',
       parent: 'pages_target',
       type: 'table-multiple-column',
-      default: ['context_campaign_medium', 'context_campaign_content', 'context_campaign_content_name', 'context_campaign_source'],
+      default: {
+        campaign_content: {
+          label: 'Campaign Content',
+          category: 'Marketing',
+          column: 'context_campaign_content',
+        },
+        campaign_medium: {
+          label: 'Campaign Medium',
+          category: 'Marketing',
+          type: 'string',
+          column: 'context_campaign_medium',
+        },
+        campaign_name: {
+          label: 'Campaign Name',
+          category: 'Marketing',
+          type: 'string',
+          column: 'context_campaign_name',
+        },
+        campaign_source: {
+          label: 'Campaign Source',
+          category: 'Marketing',
+          type: 'string',
+          column: 'context_campaign_source',
+        },
+      },
       options: {
         category: 'Marketing',
       },
