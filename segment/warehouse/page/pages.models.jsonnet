@@ -99,14 +99,14 @@ if std.extVar('pages_target') != null then [{
           WHEN {{dimension.browser}} = 'Safari'
             THEN SUBSTRING({{dimension.browser}}, POSITION('Safari' IN {{dimension.browser}}) + 7, 100)
           WHEN {{dimension.browser}} = 'Chrome'
-            THEN SUBSTRING(
+            THEN (SUBSTRING(
                       SUBSTRING({{dimension.browser}}
                                 , POSITION('Chrome' IN {{dimension.browser}}) + 7
                                 , 100), 0, POSITION(' ' IN SUBSTRING({{dimension.browser}}
                                                   , POSITION('Chrome' IN {{dimension.browser}}) + 7
                                                   , 100)
                                 )
-                      )
+                      ))
           WHEN {{dimension.browser}} LIKE '%Trident%'
             THEN '11.0'
           WHEN {{dimension.browser}} = 'IE'
