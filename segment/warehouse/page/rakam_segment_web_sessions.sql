@@ -151,8 +151,6 @@ with
       {% if is_incremental() %}
     where session_start_tstamp > {{ sessionization_cutoff }}
         {% endif %}
-    }
-    }
   ),
 
   sessions as (
