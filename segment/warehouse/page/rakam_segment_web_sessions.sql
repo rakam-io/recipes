@@ -1,12 +1,16 @@
 {% set partition_by = "partition by session_id" %}
 
-{% set sessionization_cutoff = "
+{% set sessionization_cutoff %}
 (
     select
-        {{ dbt_utils.safe_cast(dbt_utils.dateadd('hour', -2, 'max(session_start_tstamp)'), 'timestamp') }} 
+        {{ dbt_utils.dateadd(
+            'hour',
+            -2,
+            'max(session_start_tstamp)'
+        ) }}
     from {{this}}
-)
-" %}
+)    
+{% endset %}
 
   {% set window_clause = "
     partition by session_id
