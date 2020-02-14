@@ -9,6 +9,10 @@
       aggregation: 'countUnique',
       sql: '{{dimension.device_id}}',
     },
+    unique_sessions: {
+      aggregation: 'countUnique',
+      sql: '{{dimension.session_id}}',
+    },
     total_events: {
       aggregation: 'count',
     },
@@ -29,5 +33,6 @@
   mappings: {
     eventTimestamp: 'time',
     userId: 'user',
+    device_id: 'device_id',
   },
 }

@@ -109,7 +109,7 @@
       description: 'We need to create an incremental model in your warehouse in order the sessionize your pageview table.',
     },
     session_duration_in_minutes: {
-      parent: 'pages_target',
+      parent: 'session_model_target',
       label: 'Session duration',
       type: 'numeric',
       default: 30,

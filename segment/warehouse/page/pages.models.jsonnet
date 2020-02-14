@@ -89,36 +89,37 @@ if std.extVar('pages_target') != null then [{
         END)
       |||,
     },
-    browser_version: {
-      description: 'The browser type parsed from the user agent',
-      category: 'Website',
-      sql: |||
-        (CASE
-          WHEN {{dimension.browser}} = 'Firefox'
-            THEN SUBSTRING({{dimension.browser}}, POSITION('Firefox' IN {{dimension.browser}}) + 8, 100)
-          WHEN {{dimension.browser}} = 'Safari'
-            THEN SUBSTRING({{dimension.browser}}, POSITION('Safari' IN {{dimension.browser}}) + 7, 100)
-          WHEN {{dimension.browser}} = 'Chrome'
-            THEN (SUBSTRING(
-                      SUBSTRING({{dimension.browser}}
-                                , POSITION('Chrome' IN {{dimension.browser}}) + 7
-                                , 100), 0, POSITION(' ' IN SUBSTRING({{dimension.browser}}
-                                                  , POSITION('Chrome' IN {{dimension.browser}}) + 7
-                                                  , 100)
-                                )
-                      ))
-          WHEN {{dimension.browser}} LIKE '%Trident%'
-            THEN '11.0'
-          WHEN {{dimension.browser}} = 'IE'
-            THEN SUBSTRING({{dimension.browser}}, POSITION('MSIE' IN {{dimension.browser}}) + 5, 4)
-          WHEN {{dimension.browser}} = 'iPhone Safari'
-            THEN SUBSTRING({{dimension.browser}}, POSITION('Safari' IN {{dimension.browser}}) + 7, 100)
-          WHEN {{dimension.browser}} = 'iPad Safari'
-            THEN SUBSTRING({{dimension.browser}}, POSITION('Safari' IN {{dimension.browser}}) + 7, 100)
-          ELSE 'Unknown'
-        END)
-      |||,
-    },
+    // in BigQuery, there's no POSITION but SUBFND function as an alternative so I'm disabling it until we support dbt_utils in dimensions
+    // browser_version: {
+    //   description: 'The browser type parsed from the user agent',
+    //   category: 'Website',
+    //   sql: |||
+    //     (CASE
+    //       WHEN {{dimension.browser}} = 'Firefox'
+    //         THEN SUBSTRING({{dimension.browser}}, POSITION('Firefox' IN {{dimension.browser}}) + 8, 100)
+    //       WHEN {{dimension.browser}} = 'Safari'
+    //         THEN SUBSTRING({{dimension.browser}}, POSITION('Safari' IN {{dimension.browser}}) + 7, 100)
+    //       WHEN {{dimension.browser}} = 'Chrome'
+    //         THEN SUBSTRING(
+    //                   SUBSTRING({{dimension.browser}}
+    //                             , POSITION('Chrome' IN {{dimension.browser}}) + 7
+    //                             , 100), 0, POSITION(' ' IN SUBSTRING({{dimension.browser}}
+    //                                               , POSITION('Chrome' IN {{dimension.browser}}) + 7
+    //                                               , 100)
+    //                             )
+    //                   )
+    //       WHEN {{dimension.browser}} LIKE '%Trident%'
+    //         THEN '11.0'
+    //       WHEN {{dimension.browser}} = 'IE'
+    //         THEN SUBSTRING({{dimension.browser}}, POSITION('MSIE' IN {{dimension.browser}}) + 5, 4)
+    //       WHEN {{dimension.browser}} = 'iPhone Safari'
+    //         THEN SUBSTRING({{dimension.browser}}, POSITION('Safari' IN {{dimension.browser}}) + 7, 100)
+    //       WHEN {{dimension.browser}} = 'iPad Safari'
+    //         THEN SUBSTRING({{dimension.browser}}, POSITION('Safari' IN {{dimension.browser}}) + 7, 100)
+    //       ELSE 'Unknown'
+    //     END)
+    //   |||,
+    // },
     user_agent: {
       column: 'context_user_agent',
       category: 'Website',
