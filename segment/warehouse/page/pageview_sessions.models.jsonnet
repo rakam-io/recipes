@@ -25,7 +25,7 @@ local last_values = {
 };
 
 
-if std.extVar('pages_target') != null then [{
+if std.extVar('session_model_target') != null then [{
   name: 'segment_rakam_pageview_sessions',
   label: '[Segment] Pageview Sessions',
   description: 'Website session information for the pageview event',
