@@ -25,8 +25,7 @@ with
         select distinct anonymous_id
         from {{pages_target}}
         where timestamp >= (
-        select {{ dbt_utils.safe_cast(dbt_utils.dateadd('hour', -2, 'max(session_start_tstamp)'), 'timestamp') }}
-        from {{ this }})
+        {{ sessionization_cutoff }}
         )
           {% endif %}
       ),
