@@ -28,7 +28,7 @@ with
       where anonymous_id in (
         select distinct anonymous_id
         from {{pages_target}}
-        where timestamp >= {{ sessionization_cutoff }}
+        where timestamp >= {{sessionization_cutoff}}
           {% endif %}
       ),
 
@@ -149,7 +149,7 @@ with
     from pageviews
 
       {% if is_incremental() %}
-    where session_start_tstamp > {{ sessionization_cutoff }}
+    where session_start_tstamp > {{sessionization_cutoff}}
         {% endif %}
   ),
 
