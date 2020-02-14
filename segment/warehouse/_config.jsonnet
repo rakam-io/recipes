@@ -14,6 +14,7 @@
     event_types: {
       label: 'Event types',
       type: 'multiple-table',
+      required: false,
       parent: 'tracks_target',
       description: 'Select the event types that you want to create models from',
       options: {
