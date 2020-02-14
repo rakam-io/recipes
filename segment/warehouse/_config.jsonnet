@@ -98,7 +98,7 @@
       options: {
         category: 'Marketing',
       },
-      description: 'If your website has visitors coming with UTM campaigns, Segment add context columns so that you can select them here.',
+      description: 'If your website has visitors coming with UTM campaigns, Segment automatically adds context columns.',
     },
     session_model_target: {
       parent: 'pages_target',
