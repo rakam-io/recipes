@@ -3,8 +3,7 @@
 {% set sessionization_cutoff = "
 (
     select
-        {{
-        dbt_utils.safe_cast(
+        {{ dbt_utils.safe_cast(
             dbt_utils.dateadd(
                 'hour',
                 -2,
