@@ -24,13 +24,13 @@ with
 
       select * from {{pages_target}}
 
-        {% if is_incremental() %}
+      {% if is_incremental() %}
       where anonymous_id in (
         select distinct anonymous_id
         from {{pages_target}}
         where timestamp >= {{sessionization_cutoff}} 
-          {% endif %}
       )
+      {% endif %}
     ),
 
       numbered as (
