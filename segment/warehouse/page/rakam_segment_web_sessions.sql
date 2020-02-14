@@ -24,9 +24,7 @@ with
       where anonymous_id in (
         select distinct anonymous_id
         from {{pages_target}}
-        where timestamp >= (
-        {{ sessionization_cutoff }}
-        )
+        where timestamp >= {{ sessionization_cutoff }}
           {% endif %}
       ),
 
@@ -147,16 +145,10 @@ with
     from pageviews
 
       {% if is_incremental() %}
-    where session_start_tstamp > (
-      select       {{
-      dbt_utils.safe_cast(
-      dbt_utils.dateadd(
-      'hour',
-      -2,
-      'max(session_start_tstamp)'),
-      'timestamp') }}
-      from {{ this }})
+    where session_start_tstamp > {{ sessionization_cutoff }}
         {% endif %}
+    }
+    }
   ),
 
   sessions as (
@@ -176,16 +168,7 @@ with
     from sessionized_durations
 
       {% if is_incremental() %}
-    where session_start_tstamp > (
-      select
-             {{
-      dbt_utils.safe_cast(
-      dbt_utils.dateadd(
-      'hour',
-      -2,
-      'max(session_start_tstamp)'),
-      'timestamp') }}
-      from {{ this }})
+    where session_start_tstamp > {{sessionization_cutoff}}
         {% endif %}
   ),
 
