@@ -3,12 +3,7 @@
 {% set sessionization_cutoff = "
 (
     select
-        {{ dbt_utils.safe_cast(
-            dbt_utils.dateadd(
-                'hour',
-                -2,
-                'max(session_start_tstamp)'),
-            'timestamp') }}
+        {{ dbt_utils.safe_cast(dbt_utils.dateadd('hour', -2, 'max(session_start_tstamp)'), 'timestamp') }} 
     from {{this}}
 )
 " %}
@@ -30,14 +25,7 @@ with
         select distinct anonymous_id
         from {{pages_target}}
         where timestamp >= (
-        select
-                {{
-        dbt_utils.safe_cast(
-        dbt_utils.dateadd(
-        'hour',
-        -2,
-        'max(session_start_tstamp)'),
-        'timestamp') }}
+        select {{ dbt_utils.safe_cast(dbt_utils.dateadd('hour', -2, 'max(session_start_tstamp)'), 'timestamp') }}
         from {{ this }})
         )
           {% endif %}
