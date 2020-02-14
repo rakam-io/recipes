@@ -30,7 +30,8 @@ with
         from {{pages_target}}
         where timestamp >= {{sessionization_cutoff}} 
           {% endif %}
-      ),
+      )
+    ),
 
       numbered as (
 
