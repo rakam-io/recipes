@@ -9,7 +9,7 @@ std.map(function(row)
   {
     name: 'tenjin_event_' + row.event,
     label: row.event,
-    category: 'Event',
+    category: 'Tenjin Events',
     sql: "SELECT * FROM events WHERE event = '%(event)s' " % {
       event: row.event,
     },

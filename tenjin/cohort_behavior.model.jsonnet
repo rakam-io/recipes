@@ -1,6 +1,7 @@
 {
   name: 'tenjin_cohort_behavior',
   label: 'Cohort Behavior',
+  category: 'Tenjin Marketing',
   target: std.mergePatch(std.extVar('schema'), { table: 'cohort_behavior' }),
   description: |||
     Pre-aggregated view from events table. It includes cohort metrics(such as ltv, retained users) by date, campaign, country, and site. 

@@ -1,6 +1,7 @@
 {
   name: 'tenjin_bucket_campaign_info',
   hidden: true,
+  category: 'Tenjin Marketing',
   target: std.mergePatch(std.extVar('schema'), { table: 'bucket_campaign_info' }),
   description: 'A view that joins campaign buckets and campaigns table',
   mappings: {},

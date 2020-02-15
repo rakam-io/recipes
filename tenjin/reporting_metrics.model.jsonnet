@@ -1,6 +1,7 @@
 {
   name: 'tenjin_reporting_metrics',
   label: 'Reporting Metrics',
+  category: 'Tenjin Marketing',
   target: std.mergePatch(std.extVar('schema'), { table: 'reporting_metrics' }),
   description: 'Includes all non-cohorted metrics that are synced with dashboard data',
   mappings: {

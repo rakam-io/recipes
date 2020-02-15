@@ -1,6 +1,7 @@
 {
   name: 'tenjin_publisher_apps',
   hidden: true,
+  category: 'Tenjin Marketing',
   target: std.mergePatch(std.extVar('schema'), { table: 'publisher_apps' }),
   description: 'Publisher campaigns that we get from ad-network API',
   mappings: {},

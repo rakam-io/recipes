@@ -2,6 +2,7 @@
   name: 'tenjin_campaigns',
   hidden: false,
   label: 'Campaigns',
+  category: 'Tenjin Marketing',
   target: std.mergePatch(std.extVar('schema'), { table: 'campaigns' }),
   description: 'Campaigns that users are attributed to, or campaigns from ad-networks API',
   mappings: {},

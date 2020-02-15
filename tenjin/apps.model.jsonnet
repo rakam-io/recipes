@@ -1,6 +1,7 @@
 {
   name: 'tenjin_apps',
   hidden: true,
+  category: 'Tenjin Marketing',
   label: 'Apps',
   target: std.mergePatch(std.extVar('schema'), { table: 'apps' }),
   description: 'List of apps',

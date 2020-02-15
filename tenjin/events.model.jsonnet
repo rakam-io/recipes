@@ -1,7 +1,8 @@
 {
   name: 'tenjin_events',
   target: std.mergePatch(std.extVar('schema'), { table: 'events' }),
-  label: 'Raw Events',
+  label: '[Tenjin] All Events',
+  category: 'Tenjin Events',
   description: 'User event data that comes from Tenjin SDK or 3rd party attribution provider',
   mappings: {
     eventTimestamp: 'created_at',

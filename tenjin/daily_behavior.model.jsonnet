@@ -2,6 +2,7 @@
   name: 'tenjin_daily_behavior',
   hidden: false,
   label: 'Daily Behavior',
+  category: 'Tenjin Marketing',
   target: std.mergePatch(std.extVar('schema'), { table: 'daily_behavior' }),
   description: 'Pre-aggregated view from events table. It includes non-cohort metrics(such as dau, arpdau) by date, campaign, country, and site',
   mappings: {

@@ -1,6 +1,7 @@
 {
   name: 'tenjin_daily_ad_revenue',
   label: 'Daily Ad Revenue',
+  category: 'Tenjin Marketing',
   target: std.mergePatch(std.extVar('schema'), { table: 'daily_ad_revenue' }),
   description: 'Includes ad revenue data by publisher campaigns, date, and country',
   mappings: {

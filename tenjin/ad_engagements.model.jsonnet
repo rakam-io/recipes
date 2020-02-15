@@ -2,6 +2,7 @@
   name: 'tenjin_ad_engagements',
   label: 'Ad Engagements',
   hidden: false,
+  category: 'Tenjin Marketing',
   target: std.mergePatch(std.extVar('schema'), { table: 'ad_engagements' }),
   description: 'Includes click or impression data for each device. It only has data for non-self attributing ad-networks. We don’t store click or impression data for Google or Facebook.',
   mappings: {
