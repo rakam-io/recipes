@@ -1,17 +1,16 @@
 {% set partition_by = "partition by session_id" %}
 
-{% set sessionization_cutoff = "
+{% set sessionization_cutoff %}
 (
     select
-        {{ dbt_utils.safe_cast(
-            dbt_utils.dateadd(
-                'hour',
-                -2,
-                'max(session_start_tstamp)'),
-            'timestamp') }}
+        {{ dbt_utils.dateadd(
+            'hour',
+            -2,
+            'max(session_start_tstamp)'
+        ) }}
     from {{this}}
-)
-" %}
+)    
+{% endset %}
 
   {% set window_clause = "
     partition by session_id
@@ -25,23 +24,14 @@ with
 
       select * from {{pages_target}}
 
-        {% if is_incremental() %}
+      {% if is_incremental() %}
       where anonymous_id in (
         select distinct anonymous_id
         from {{pages_target}}
-        where timestamp >= (
-        select
-                {{
-        dbt_utils.safe_cast(
-        dbt_utils.dateadd(
-        'hour',
-        -2,
-        'max(session_start_tstamp)'),
-        'timestamp') }}
-        from {{ this }})
-        )
-          {% endif %}
-      ),
+        where timestamp >= {{sessionization_cutoff}} 
+      )
+      {% endif %}
+    ),
 
       numbered as (
 
@@ -160,15 +150,7 @@ with
     from pageviews
 
       {% if is_incremental() %}
-    where session_start_tstamp > (
-      select       {{
-      dbt_utils.safe_cast(
-      dbt_utils.dateadd(
-      'hour',
-      -2,
-      'max(session_start_tstamp)'),
-      'timestamp') }}
-      from {{ this }})
+    where session_start_tstamp > {{sessionization_cutoff}}
         {% endif %}
   ),
 
@@ -189,16 +171,7 @@ with
     from sessionized_durations
 
       {% if is_incremental() %}
-    where session_start_tstamp > (
-      select
-             {{
-      dbt_utils.safe_cast(
-      dbt_utils.dateadd(
-      'hour',
-      -2,
-      'max(session_start_tstamp)'),
-      'timestamp') }}
-      from {{ this }})
+    where session_start_tstamp > {{sessionization_cutoff}}
         {% endif %}
   ),
 
