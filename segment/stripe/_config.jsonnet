@@ -1,5 +1,5 @@
 {
-  version: '1.0',
+  version: 1.0,
   label: 'Segment Stripe',
   description: 'It lets you analyze the Stripe data exported via Segment integrations',
   tags: ['finance', 'saas'],
