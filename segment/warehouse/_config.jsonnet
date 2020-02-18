@@ -8,6 +8,7 @@
     tracks_target: {
       label: 'Segment Tracks Table',
       type: 'table',
+      required: false,
       default: { table: 'tracks' },
       description: "The tracks table in your Segment Destination if you're tracking the custom events. See: https://segment.com/docs/destinations/#warehouse-schemas",
     },

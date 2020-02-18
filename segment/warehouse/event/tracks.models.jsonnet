@@ -1,7 +1,7 @@
 local util = import '../../../util.libsonnet';
 local commonDimensions = import '../common_dimensions.jsonnet';
 
-{
+if std.extVar('tracks_target') == null then [] else [{
   name: util.generate_model_name_from_file(std.thisFile),
   label: '[Segment] All Events',
   category: 'Segment Events',
@@ -53,4 +53,4 @@ local commonDimensions = import '../common_dimensions.jsonnet';
       column: 'event_text',
     },
   },
-}
+}]
