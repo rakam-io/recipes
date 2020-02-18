@@ -3,6 +3,7 @@
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'contacts' }),
   label: 'Leads',
+  category: 'Intercom',
   description: 'Leads (previously known as Contacts) are useful for representing logged-out users of your application For more info, check out the Intercom docs',
   mappings: {
     eventTimestamp: 'received_at',

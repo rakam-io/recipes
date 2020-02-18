@@ -2,6 +2,7 @@
   name: 'intercom_social_profiles',
   hidden: true,
   target: std.mergePatch(std.extVar('schema'), { table: 'social_profiles' }),
+  category: 'Intercom',
   description: 'Social data about the user. For more info, check out the [Intercom docs](https://developers.intercom.com/intercom-api-reference/reference#section-social-profile-object)',
   mappings: {
     eventTimestamp: 'received_at',

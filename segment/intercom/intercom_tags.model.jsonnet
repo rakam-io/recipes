@@ -2,6 +2,7 @@
   name: 'intercom_tags',
   hidden: true,
   target: std.mergePatch(std.extVar('schema'), { table: 'tags' }),
+  category: 'Intercom',
   description: 'A tag allows you to label your users and companies and list them using that tag. For more info, check out the Intercom docs\n',
   mappings: {
     eventTimestamp: 'received_at',

@@ -2,6 +2,7 @@
   name: 'intercom_segments',
   hidden: true,
   target: std.mergePatch(std.extVar('schema'), { table: 'segments' }),
+  category: 'Intercom',
   description: 'A segment is a group of your users defined by rules that you set For more info, check out the [Intercom docs](https://developers.intercom.io/docs/segments)',
   mappings: {
     eventTimestamp: 'received_at',

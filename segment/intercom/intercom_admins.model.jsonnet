@@ -3,6 +3,7 @@
   hidden: true,
   target: std.mergePatch(std.extVar('schema'), { table: 'admins' }),
   label: 'Admins',
+  category: 'Intercom',
   description: 'Admins are how you can view your teams and team members. For more info, check out the [Intercom docs](https://developers.intercom.io/docs/admin-model#section-admin-object)',
   mappings: {},
   dimensions: {

@@ -2,6 +2,7 @@
   name: 'intercom_conversation_parts',
   hidden: true,
   target: std.mergePatch(std.extVar('schema'), { table: 'conversation_parts' }),
+  category: 'Intercom',
   description: 'A conversation part describes an element of the conversation. For more info, check out the [Intercom docs](https://developers.intercom.com/intercom-api-reference/reference#section-conversation-part-object).',
   mappings: {
     eventTimestamp: 'received_at',

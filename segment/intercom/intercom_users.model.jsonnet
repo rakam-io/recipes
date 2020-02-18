@@ -2,6 +2,7 @@
   name: 'intercom_users',
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'users' }),
+  category: 'Intercom',
   label: 'Users',
   description: 'The Users resource is the primary way of interacting with Intercom. You can create, update and delete your users, and add custom attributes describing them. Users can be viewed individually or as a list, and can queried using tags or segments. For more info, check out the [Intercom docs](https://developers.intercom.io/docs/users).',
   mappings: {

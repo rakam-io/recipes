@@ -3,6 +3,7 @@
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'conversations' }),
   label: 'Conversations',
+  category: 'Intercom',
   description: 'Conversation are how you can communicate with users in Intercom. For more info, check out the [Intercom docs](https://developers.intercom.io/docs/conversations).',
   mappings: {
     eventTimestamp: 'received_at',

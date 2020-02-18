@@ -3,6 +3,7 @@
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'companies' }),
   label: 'Companies',
+  category: 'Intercom',
   description: 'Companies allow you to represent commercial organizations using your product. For more info, check out the [Intercom docs](https://developers.intercom.io/docs/companies).',
   mappings: {},
   dimensions: {
