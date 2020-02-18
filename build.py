@@ -39,29 +39,34 @@ if __name__ == "__main__":
                 variableValues = {"_aq": '\'"\''}
                 if "variables" in config:
                     for variable_name, variable_value in config.get("variables").items():
-                        if not variable_value.get('required', True):
-                            variableValues[variable_name] = json.dumps(None)
-                        else:
-                            example_value = example_values[variable_value.get('type')]
-                            variableValues[variable_name] = json.dumps(example_value)
+                        var_value = variable_value.get('default', None if (not variable_value.get(
+                            'required', True)) else example_values[variable_value.get('type')])
+                        variableValues[variable_name] = json.dumps(var_value)
                 recipe_models = []
                 recipe_dashboards = []
                 for root_recipe, _, recipe_files in os.walk(root):
                     for recipe_file in recipe_files:
                         is_model = recipe_file.endswith(".model.jsonnet")
                         is_models = recipe_file.endswith(".models.jsonnet")
-                        is_dashboard = recipe_file.endswith(".dashboard.jsonnet")
-                        recipe_file_path = os.path.join(root_recipe, recipe_file)
+                        is_dashboard = recipe_file.endswith(
+                            ".dashboard.jsonnet")
+                        recipe_file_path = os.path.join(
+                            root_recipe, recipe_file)
                         if is_model or is_models or is_dashboard:
                             try:
-                                data = _jsonnet.evaluate_file(recipe_file_path, ext_codes=variableValues)
+                                data = _jsonnet.evaluate_file(
+                                    recipe_file_path, ext_codes=variableValues)
                             except Exception as e:
-                                raise Exception("Unable to parse "+recipe_file_path+": "+str(e))
-                            if is_model: recipe_models.append(json.loads(data))
-                            if is_models: recipe_models += json.loads(data)
-                            if is_dashboard: recipe_dashboards.append(json.loads(data))
+                                raise Exception(
+                                    "Unable to parse "+recipe_file_path+": "+str(e))
+                            if is_model:
+                                recipe_models.append(json.loads(data))
+                            if is_models:
+                                recipe_models += json.loads(data)
+                            if is_dashboard:
+                                recipe_dashboards.append(json.loads(data))
                 extended_result.append({"repository": 'https://github.com/rakam-io/recipes',
-                     "path": root[1:], "config": config, "models": recipe_models, "dashboards": recipe_dashboards})
+                                        "path": root[1:], "config": config, "models": recipe_models, "dashboards": recipe_dashboards})
 
     if len(sys.argv) == 2 and sys.argv[1] == 'deploy':
         credentials_dict = {
@@ -72,9 +77,13 @@ if __name__ == "__main__":
             'private_key': os.environ['PRIVATE_KEY'].replace('\\n', '\n'),
         }
 
-        credentials = ServiceAccountCredentials.from_json_keyfile_dict(credentials_dict)
-        client = storage.Client(credentials=credentials, project= os.environ['PROJECT_ID'])
+        credentials = ServiceAccountCredentials.from_json_keyfile_dict(
+            credentials_dict)
+        client = storage.Client(credentials=credentials,
+                                project=os.environ['PROJECT_ID'])
         bucket = client.get_bucket('rakam-public')
-        bucket.blob('rakam-recipes.index.json').upload_from_string(json.dumps(result), "application/json")
-        bucket.blob('rakam-recipes-extended.index.json').upload_from_string(json.dumps(extended_result), "application/json")
+        bucket.blob(
+            'rakam-recipes.index.json').upload_from_string(json.dumps(result), "application/json")
+        bucket.blob('rakam-recipes-extended.index.json').upload_from_string(
+            json.dumps(extended_result), "application/json")
         print("Successfully updated!")

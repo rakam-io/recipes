@@ -1,5 +1,5 @@
 {
-  version: '1.0',
+  version: 1.0,
   label: 'Segment Intercom',
   description: 'It lets you analyze the Intercom data exported via Segment integrations',
   tags: ['crm'],

@@ -32,6 +32,7 @@
     screens_event_attributes: {
       label: 'Screen Event attributes',
       required: false,
+      default: {},
       parent: 'screens_target',
       type: 'table-multiple-column',
       description: 'Select the attributes that you want to turn into dimensions',

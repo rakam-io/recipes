@@ -6,9 +6,9 @@
     std.strReplace(parts[std.length(parts) - 1], '.model.jsonnet', ''),
   generate_target_reference(target)::
     local alias_quote = std.extVar('_aq');
-    std.join('.', std.filter(function(x) x != null, [
-      alias_quote + target.database + alias_quote,
-      alias_quote + target.schema + alias_quote,
-      alias_quote + target.table + alias_quote,
-    ])),
+    std.join('.', std.map(function(x) alias_quote + x + alias_quote, std.filter(function(x) x != null, [
+      if std.objectHas(target, 'database') then target.database else null,
+      if std.objectHas(target, 'schema') then target.schema else null,
+      target.table,
+    ]))),
 }

@@ -1,3 +1,4 @@
+local util = import '../../util.libsonnet';
 local common = import '../common.libsonnet';
 local target = std.extVar('target');
 
@@ -39,8 +40,8 @@ local dimensions = [
   name: 'rakam_invalid_schema',
   label: '[System] Invalid Schema',
   sql: |||
-    select * from "%(database)s"."%(schema)s"."%(table)s" where event_type = '$invalid_schema'
-  ||| % { database: target.database, schema: target.schema, table: target.table },
+    select * from %(target)s where event_type = '$invalid_schema'
+  ||| % { target: util.generate_target_reference(target) },
   measures: common.measures,
   mappings: common.mappings,
   dimensions: common.dimensions + std.foldl(function(a, b) a + b, std.map(function(prop) {
