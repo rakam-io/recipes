@@ -5,6 +5,7 @@
   mappings: {
     eventTimestamp: 'received_at',
   },
+  category: 'Stripe',
   dimensions: {
     id: {
       pivot: false,
