@@ -1,0 +1,2420 @@
+{
+  "models": [
+    {
+      "name": "hubspot_companies",
+      "hidden": false,
+      "target": {
+        "database": "segment",
+        "schema": "hubspot",
+        "table": "companies"
+      },
+      "mappings": {
+        "eventTimestamp": "received_at"
+      },
+      "dimensions": {
+        "id": {
+          "pivot": false,
+          "type": "string",
+          "column": "id",
+          "hidden": false
+        },
+        "received_at": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "received_at",
+          "hidden": false
+        },
+        "address": {
+          "pivot": false,
+          "type": "string",
+          "column": "address",
+          "hidden": false
+        },
+        "total_money_raised": {
+          "pivot": false,
+          "type": "string",
+          "column": "total_money_raised",
+          "hidden": false
+        },
+        "numberofemployees": {
+          "pivot": false,
+          "type": "string",
+          "column": "numberofemployees",
+          "hidden": false
+        },
+        "city": {
+          "pivot": false,
+          "type": "string",
+          "column": "city",
+          "hidden": false
+        },
+        "hs_analytics_last_timestamp": {
+          "pivot": false,
+          "type": "string",
+          "column": "hs_analytics_last_timestamp",
+          "hidden": false
+        },
+        "hs_analytics_num_page_views": {
+          "pivot": false,
+          "type": "string",
+          "column": "hs_analytics_num_page_views",
+          "hidden": false
+        },
+        "industry": {
+          "pivot": false,
+          "type": "string",
+          "column": "industry",
+          "hidden": false
+        },
+        "is_deleted": {
+          "pivot": false,
+          "type": "boolean",
+          "column": "is_deleted",
+          "hidden": false
+        },
+        "linkedin_company_page": {
+          "pivot": false,
+          "type": "string",
+          "column": "linkedin_company_page",
+          "hidden": false
+        },
+        "timezone": {
+          "pivot": false,
+          "type": "string",
+          "column": "timezone",
+          "hidden": false
+        },
+        "twitterhandle": {
+          "pivot": false,
+          "type": "string",
+          "column": "twitterhandle",
+          "hidden": false
+        },
+        "annualrevenue": {
+          "pivot": false,
+          "type": "string",
+          "column": "annualrevenue",
+          "hidden": false
+        },
+        "description": {
+          "pivot": false,
+          "type": "string",
+          "column": "description",
+          "hidden": false
+        },
+        "hs_analytics_source": {
+          "pivot": false,
+          "type": "string",
+          "column": "hs_analytics_source",
+          "hidden": false
+        },
+        "notes_last_contacted": {
+          "pivot": false,
+          "type": "string",
+          "column": "notes_last_contacted",
+          "hidden": false
+        },
+        "num_associated_contacts": {
+          "pivot": false,
+          "type": "string",
+          "column": "num_associated_contacts",
+          "hidden": false
+        },
+        "phone": {
+          "pivot": false,
+          "type": "string",
+          "column": "phone",
+          "hidden": false
+        },
+        "createdate": {
+          "pivot": false,
+          "type": "string",
+          "column": "createdate",
+          "hidden": false
+        },
+        "domain": {
+          "pivot": false,
+          "type": "string",
+          "column": "domain",
+          "hidden": false
+        },
+        "facebook_company_page": {
+          "pivot": false,
+          "type": "string",
+          "column": "facebook_company_page",
+          "hidden": false
+        },
+        "hs_analytics_first_timestamp": {
+          "pivot": false,
+          "type": "string",
+          "column": "hs_analytics_first_timestamp",
+          "hidden": false
+        },
+        "hs_analytics_last_visit_timestamp": {
+          "pivot": false,
+          "type": "string",
+          "column": "hs_analytics_last_visit_timestamp",
+          "hidden": false
+        },
+        "linkedinbio": {
+          "pivot": false,
+          "type": "string",
+          "column": "linkedinbio",
+          "hidden": false
+        },
+        "state": {
+          "pivot": false,
+          "type": "string",
+          "column": "state",
+          "hidden": false
+        },
+        "uuid_ts": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "uuid_ts",
+          "hidden": false
+        },
+        "address_": {
+          "pivot": false,
+          "type": "string",
+          "column": "address_2",
+          "hidden": false
+        },
+        "hs_analytics_first_visit_timestamp": {
+          "pivot": false,
+          "type": "string",
+          "column": "hs_analytics_first_visit_timestamp",
+          "hidden": false
+        },
+        "hs_analytics_source_data_": {
+          "pivot": false,
+          "type": "string",
+          "column": "hs_analytics_source_data_2",
+          "hidden": false
+        },
+        "name": {
+          "pivot": false,
+          "type": "string",
+          "column": "name",
+          "hidden": false
+        },
+        "notes_last_updated": {
+          "pivot": false,
+          "type": "string",
+          "column": "notes_last_updated",
+          "hidden": false
+        },
+        "website": {
+          "pivot": false,
+          "type": "string",
+          "column": "website",
+          "hidden": false
+        },
+        "zip": {
+          "pivot": false,
+          "type": "string",
+          "column": "zip",
+          "hidden": false
+        },
+        "first_contact_createdate": {
+          "pivot": false,
+          "type": "string",
+          "column": "first_contact_createdate",
+          "hidden": false
+        }
+      },
+      "measures": {
+        "count_all_rows": {
+          "description": "Counts All Rows",
+          "aggregation": "count",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_portal_id": {
+          "column": "portal_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        }
+      }
+    },
+    {
+      "name": "hubspot_form_submissions",
+      "hidden": false,
+      "target": {
+        "database": "segment",
+        "schema": "hubspot",
+        "table": "form_submissions"
+      },
+      "mappings": {
+        "eventTimestamp": "received_at"
+      },
+      "dimensions": {
+        "id": {
+          "pivot": false,
+          "type": "string",
+          "column": "id",
+          "hidden": false
+        },
+        "received_at": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "received_at",
+          "hidden": false
+        },
+        "title": {
+          "pivot": false,
+          "type": "string",
+          "column": "title",
+          "hidden": false
+        },
+        "uuid_ts": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "uuid_ts",
+          "hidden": false
+        },
+        "form_id": {
+          "pivot": false,
+          "type": "string",
+          "column": "form_id",
+          "hidden": false
+        },
+        "page_title": {
+          "pivot": false,
+          "type": "string",
+          "column": "page_title",
+          "hidden": false
+        },
+        "timestamp": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "timestamp",
+          "hidden": false
+        },
+        "form_type": {
+          "pivot": false,
+          "type": "string",
+          "column": "form_type",
+          "hidden": false
+        },
+        "page_url": {
+          "pivot": false,
+          "type": "string",
+          "column": "page_url",
+          "hidden": false
+        },
+        "contact_associated_by_": {
+          "pivot": false,
+          "type": "string",
+          "column": "contact_associated_by_0",
+          "hidden": false
+        }
+      },
+      "measures": {
+        "count_all_rows": {
+          "description": "Counts All Rows",
+          "aggregation": "count",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_portal_id": {
+          "column": "portal_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        }
+      }
+    },
+    {
+      "name": "hubspot_contact_identities",
+      "hidden": false,
+      "target": {
+        "database": "segment",
+        "schema": "hubspot",
+        "table": "contact_identities"
+      },
+      "mappings": {
+        "eventTimestamp": "received_at"
+      },
+      "dimensions": {
+        "id": {
+          "pivot": false,
+          "type": "string",
+          "column": "id",
+          "hidden": false
+        },
+        "received_at": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "received_at",
+          "hidden": false
+        },
+        "timestamp": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "timestamp",
+          "hidden": false
+        },
+        "type": {
+          "pivot": false,
+          "type": "string",
+          "column": "type",
+          "hidden": false
+        },
+        "uuid_ts": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "uuid_ts",
+          "hidden": false
+        },
+        "is_primary": {
+          "pivot": false,
+          "type": "boolean",
+          "column": "is_primary",
+          "hidden": false
+        }
+      },
+      "measures": {
+        "count_all_rows": {
+          "description": "Counts All Rows",
+          "aggregation": "count",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_contact_id": {
+          "column": "contact_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        }
+      }
+    },
+    {
+      "name": "hubspot_contact_identity_profiles",
+      "hidden": false,
+      "target": {
+        "database": "segment",
+        "schema": "hubspot",
+        "table": "contact_identity_profiles"
+      },
+      "mappings": {
+        "eventTimestamp": "received_at"
+      },
+      "dimensions": {
+        "id": {
+          "pivot": false,
+          "type": "string",
+          "column": "id",
+          "hidden": false
+        },
+        "received_at": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "received_at",
+          "hidden": false
+        },
+        "saved_at_timestamp": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "saved_at_timestamp",
+          "hidden": false
+        },
+        "uuid_ts": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "uuid_ts",
+          "hidden": false
+        },
+        "deleted_changed_timestamp": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "deleted_changed_timestamp",
+          "hidden": false
+        },
+        "identities": {
+          "pivot": false,
+          "type": "string",
+          "column": "identities",
+          "hidden": false
+        }
+      },
+      "measures": {
+        "count_all_rows": {
+          "description": "Counts All Rows",
+          "aggregation": "count",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_contact_id": {
+          "column": "contact_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        }
+      }
+    },
+    {
+      "name": "hubspot_contact_lists",
+      "hidden": false,
+      "target": {
+        "database": "segment",
+        "schema": "hubspot",
+        "table": "contact_lists"
+      },
+      "mappings": {
+        "eventTimestamp": "received_at"
+      },
+      "dimensions": {
+        "id": {
+          "pivot": false,
+          "type": "string",
+          "column": "id",
+          "hidden": false
+        },
+        "received_at": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "received_at",
+          "hidden": false
+        },
+        "archived": {
+          "pivot": false,
+          "type": "boolean",
+          "column": "archived",
+          "hidden": false
+        },
+        "deleteable": {
+          "pivot": false,
+          "type": "boolean",
+          "column": "deleteable",
+          "hidden": false
+        },
+        "dynamic": {
+          "pivot": false,
+          "type": "boolean",
+          "column": "dynamic",
+          "hidden": false
+        },
+        "filters___value": {
+          "pivot": false,
+          "type": "string",
+          "column": "filters_0_0_value",
+          "hidden": false
+        },
+        "filters___filter_family": {
+          "pivot": false,
+          "type": "string",
+          "column": "filters_0_0_filter_family",
+          "hidden": false
+        },
+        "filters___operator": {
+          "pivot": false,
+          "type": "string",
+          "column": "filters_0_0_operator",
+          "hidden": false
+        },
+        "filters___property": {
+          "pivot": false,
+          "type": "string",
+          "column": "filters_0_0_property",
+          "hidden": false
+        },
+        "filters___type": {
+          "pivot": false,
+          "type": "string",
+          "column": "filters_0_0_type",
+          "hidden": false
+        },
+        "name": {
+          "pivot": false,
+          "type": "string",
+          "column": "name",
+          "hidden": false
+        },
+        "uuid_ts": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "uuid_ts",
+          "hidden": false
+        },
+        "meta_data_last_size_change_at": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "meta_data_last_size_change_at",
+          "hidden": false
+        },
+        "meta_data_processing": {
+          "pivot": false,
+          "type": "string",
+          "column": "meta_data_processing",
+          "hidden": false
+        },
+        "updated_at": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "updated_at",
+          "hidden": false
+        },
+        "created_at": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "created_at",
+          "hidden": false
+        },
+        "filters___within_time_mode": {
+          "pivot": false,
+          "type": "string",
+          "column": "filters_0_0_within_time_mode",
+          "hidden": false
+        },
+        "list_type": {
+          "pivot": false,
+          "type": "string",
+          "column": "list_type",
+          "hidden": false
+        },
+        "meta_data_last_processing_state_change_at": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "meta_data_last_processing_state_change_at",
+          "hidden": false
+        },
+        "filters___email_event_filter_level": {
+          "pivot": false,
+          "type": "string",
+          "column": "filters_0_0_email_event_filter_level",
+          "hidden": false
+        },
+        "read_only": {
+          "pivot": false,
+          "type": "boolean",
+          "column": "read_only",
+          "hidden": false
+        }
+      },
+      "measures": {
+        "count_all_rows": {
+          "description": "Counts All Rows",
+          "aggregation": "count",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_internal_list_id": {
+          "column": "internal_list_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_author_id": {
+          "column": "author_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_meta_data_size": {
+          "column": "meta_data_size",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_portal_id": {
+          "column": "portal_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_filters___email_event_filter_app_id": {
+          "column": "filters_0_0_email_event_filter_app_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_filters___email_event_filter_email_id": {
+          "column": "filters_0_0_email_event_filter_email_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_filters___value": {
+          "column": "filters_1_0_value",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        }
+      }
+    },
+    {
+      "name": "hubspot_contacts",
+      "hidden": false,
+      "target": {
+        "database": "segment",
+        "schema": "hubspot",
+        "table": "contacts"
+      },
+      "mappings": {
+        "eventTimestamp": "received_at"
+      },
+      "dimensions": {
+        "id": {
+          "pivot": false,
+          "type": "string",
+          "column": "id",
+          "hidden": false
+        },
+        "received_at": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "received_at",
+          "hidden": false
+        },
+        "profile_token": {
+          "pivot": false,
+          "type": "string",
+          "column": "profile_token",
+          "hidden": false
+        },
+        "properties_company_value": {
+          "pivot": false,
+          "type": "string",
+          "column": "properties_company_value",
+          "hidden": false
+        },
+        "properties_lastname_value": {
+          "pivot": false,
+          "type": "string",
+          "column": "properties_lastname_value",
+          "hidden": false
+        },
+        "properties_firstname_value": {
+          "pivot": false,
+          "type": "string",
+          "column": "properties_firstname_value",
+          "hidden": false
+        },
+        "form_submissions": {
+          "pivot": false,
+          "type": "string",
+          "column": "form_submissions",
+          "hidden": false
+        },
+        "properties_lastmodifieddate_value": {
+          "pivot": false,
+          "type": "string",
+          "column": "properties_lastmodifieddate_value",
+          "hidden": false
+        },
+        "uuid_ts": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "uuid_ts",
+          "hidden": false
+        },
+        "added_at": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "added_at",
+          "hidden": false
+        },
+        "email": {
+          "pivot": false,
+          "type": "string",
+          "column": "email",
+          "hidden": false
+        },
+        "is_contact": {
+          "pivot": false,
+          "type": "boolean",
+          "column": "is_contact",
+          "hidden": false
+        },
+        "lead_guid": {
+          "pivot": false,
+          "type": "string",
+          "column": "lead_guid",
+          "hidden": false
+        },
+        "profile_url": {
+          "pivot": false,
+          "type": "string",
+          "column": "profile_url",
+          "hidden": false
+        },
+        "list_memberships": {
+          "pivot": false,
+          "type": "string",
+          "column": "list_memberships",
+          "hidden": false
+        },
+        "merged_vids": {
+          "pivot": false,
+          "type": "string",
+          "column": "merged_vids",
+          "hidden": false
+        }
+      },
+      "measures": {
+        "count_all_rows": {
+          "description": "Counts All Rows",
+          "aggregation": "count",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_portal_id": {
+          "column": "portal_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_canonical_vid": {
+          "column": "canonical_vid",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        }
+      }
+    },
+    {
+      "name": "hubspot_deals",
+      "hidden": false,
+      "target": {
+        "database": "segment",
+        "schema": "hubspot",
+        "table": "deals"
+      },
+      "mappings": {
+        "eventTimestamp": "received_at"
+      },
+      "dimensions": {
+        "id": {
+          "pivot": false,
+          "type": "string",
+          "column": "id",
+          "hidden": false
+        },
+        "received_at": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "received_at",
+          "hidden": false
+        },
+        "hs_lastmodifieddate": {
+          "pivot": false,
+          "type": "string",
+          "column": "hs_lastmodifieddate",
+          "hidden": false
+        },
+        "pipeline": {
+          "pivot": false,
+          "type": "string",
+          "column": "pipeline",
+          "hidden": false
+        },
+        "uuid_ts": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "uuid_ts",
+          "hidden": false
+        },
+        "amount": {
+          "pivot": false,
+          "type": "string",
+          "column": "amount",
+          "hidden": false
+        },
+        "dealstage": {
+          "pivot": false,
+          "type": "string",
+          "column": "dealstage",
+          "hidden": false
+        },
+        "hs_all_owner_ids": {
+          "pivot": false,
+          "type": "string",
+          "column": "hs_all_owner_ids",
+          "hidden": false
+        },
+        "dealname": {
+          "pivot": false,
+          "type": "string",
+          "column": "dealname",
+          "hidden": false
+        },
+        "hs_createdate": {
+          "pivot": false,
+          "type": "string",
+          "column": "hs_createdate",
+          "hidden": false
+        },
+        "is_deleted": {
+          "pivot": false,
+          "type": "boolean",
+          "column": "is_deleted",
+          "hidden": false
+        },
+        "hubspot_owner_id": {
+          "pivot": false,
+          "type": "string",
+          "column": "hubspot_owner_id",
+          "hidden": false
+        },
+        "closedate": {
+          "pivot": false,
+          "type": "string",
+          "column": "closedate",
+          "hidden": false
+        },
+        "createdate": {
+          "pivot": false,
+          "type": "string",
+          "column": "createdate",
+          "hidden": false
+        },
+        "hubspot_owner_assigneddate": {
+          "pivot": false,
+          "type": "string",
+          "column": "hubspot_owner_assigneddate",
+          "hidden": false
+        },
+        "hs_object_id": {
+          "pivot": false,
+          "type": "string",
+          "column": "hs_object_id",
+          "hidden": false
+        },
+        "num_associated_contacts": {
+          "pivot": false,
+          "type": "string",
+          "column": "num_associated_contacts",
+          "hidden": false
+        },
+        "associated_vids": {
+          "pivot": false,
+          "type": "string",
+          "column": "associated_vids",
+          "hidden": false
+        },
+        "hs_analytics_source_data_": {
+          "pivot": false,
+          "type": "string",
+          "column": "hs_analytics_source_data_2",
+          "hidden": false
+        },
+        "associated_company_ids": {
+          "pivot": false,
+          "type": "string",
+          "column": "associated_company_ids",
+          "hidden": false
+        },
+        "hs_analytics_source": {
+          "pivot": false,
+          "type": "string",
+          "column": "hs_analytics_source",
+          "hidden": false
+        },
+        "vid": {
+          "pivot": false,
+          "type": "string",
+          "column": "vid",
+          "hidden": false
+        },
+        "company_id": {
+          "pivot": false,
+          "type": "string",
+          "column": "company_id",
+          "hidden": false
+        },
+        "num_contacted_notes": {
+          "pivot": false,
+          "type": "string",
+          "column": "num_contacted_notes",
+          "hidden": false
+        },
+        "num_notes": {
+          "pivot": false,
+          "type": "string",
+          "column": "num_notes",
+          "hidden": false
+        },
+        "notes_last_updated": {
+          "pivot": false,
+          "type": "string",
+          "column": "notes_last_updated",
+          "hidden": false
+        },
+        "notes_last_contacted": {
+          "pivot": false,
+          "type": "string",
+          "column": "notes_last_contacted",
+          "hidden": false
+        },
+        "amount_in_home_currency": {
+          "pivot": false,
+          "type": "string",
+          "column": "amount_in_home_currency",
+          "hidden": false
+        },
+        "notes_next_activity_date": {
+          "pivot": false,
+          "type": "string",
+          "column": "notes_next_activity_date",
+          "hidden": false
+        },
+        "hs_sales_email_last_replied": {
+          "pivot": false,
+          "type": "string",
+          "column": "hs_sales_email_last_replied",
+          "hidden": false
+        },
+        "days_to_close": {
+          "pivot": false,
+          "type": "string",
+          "column": "days_to_close",
+          "hidden": false
+        },
+        "hs_projected_amount": {
+          "pivot": false,
+          "type": "string",
+          "column": "hs_projected_amount",
+          "hidden": false
+        },
+        "hs_projected_amount_in_home_currency": {
+          "pivot": false,
+          "type": "string",
+          "column": "hs_projected_amount_in_home_currency",
+          "hidden": false
+        },
+        "hs_closed_amount_in_home_currency": {
+          "pivot": false,
+          "type": "string",
+          "column": "hs_closed_amount_in_home_currency",
+          "hidden": false
+        }
+      },
+      "measures": {
+        "count_all_rows": {
+          "description": "Counts All Rows",
+          "aggregation": "count",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_portal_id": {
+          "column": "portal_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        }
+      }
+    },
+    {
+      "name": "hubspot_email_campaigns",
+      "hidden": false,
+      "target": {
+        "database": "segment",
+        "schema": "hubspot",
+        "table": "email_campaigns"
+      },
+      "mappings": {
+        "eventTimestamp": "received_at"
+      },
+      "dimensions": {
+        "id": {
+          "pivot": false,
+          "type": "string",
+          "column": "id",
+          "hidden": false
+        },
+        "received_at": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "received_at",
+          "hidden": false
+        },
+        "name": {
+          "pivot": false,
+          "type": "string",
+          "column": "name",
+          "hidden": false
+        },
+        "app_name": {
+          "pivot": false,
+          "type": "string",
+          "column": "app_name",
+          "hidden": false
+        },
+        "uuid_ts": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "uuid_ts",
+          "hidden": false
+        },
+        "last_processing_started_at": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "last_processing_started_at",
+          "hidden": false
+        },
+        "type": {
+          "pivot": false,
+          "type": "string",
+          "column": "type",
+          "hidden": false
+        },
+        "last_processing_finished_at": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "last_processing_finished_at",
+          "hidden": false
+        },
+        "last_processing_state_change_at": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "last_processing_state_change_at",
+          "hidden": false
+        },
+        "processing_state": {
+          "pivot": false,
+          "type": "string",
+          "column": "processing_state",
+          "hidden": false
+        },
+        "subject": {
+          "pivot": false,
+          "type": "string",
+          "column": "subject",
+          "hidden": false
+        }
+      },
+      "measures": {
+        "count_all_rows": {
+          "description": "Counts All Rows",
+          "aggregation": "count",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_counters_unsubscribed": {
+          "column": "counters_unsubscribed",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_counters_bounce": {
+          "column": "counters_bounce",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_counters_dropped": {
+          "column": "counters_dropped",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_counters_mta_dropped": {
+          "column": "counters_mta_dropped",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_counters_processed": {
+          "column": "counters_processed",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_app_id": {
+          "column": "app_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_counters_click": {
+          "column": "counters_click",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_counters_sent": {
+          "column": "counters_sent",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_counters_delivered": {
+          "column": "counters_delivered",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_counters_forward": {
+          "column": "counters_forward",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_counters_reply": {
+          "column": "counters_reply",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_counters_statuschange": {
+          "column": "counters_statuschange",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_counters_open": {
+          "column": "counters_open",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_num_included": {
+          "column": "num_included",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_counters_print": {
+          "column": "counters_print",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_counters_deferred": {
+          "column": "counters_deferred",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_content_id": {
+          "column": "content_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_counters_spamreport": {
+          "column": "counters_spamreport",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        }
+      }
+    },
+    {
+      "name": "hubspot_email_events",
+      "hidden": false,
+      "target": {
+        "database": "segment",
+        "schema": "hubspot",
+        "table": "email_events"
+      },
+      "mappings": {
+        "eventTimestamp": "received_at"
+      },
+      "dimensions": {
+        "id": {
+          "pivot": false,
+          "type": "string",
+          "column": "id",
+          "hidden": false
+        },
+        "received_at": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "received_at",
+          "hidden": false
+        },
+        "browser_family": {
+          "pivot": false,
+          "type": "string",
+          "column": "browser_family",
+          "hidden": false
+        },
+        "browser_name": {
+          "pivot": false,
+          "type": "string",
+          "column": "browser_name",
+          "hidden": false
+        },
+        "recipient": {
+          "pivot": false,
+          "type": "string",
+          "column": "recipient",
+          "hidden": false
+        },
+        "browser_type": {
+          "pivot": false,
+          "type": "string",
+          "column": "browser_type",
+          "hidden": false
+        },
+        "filtered_event": {
+          "pivot": false,
+          "type": "boolean",
+          "column": "filtered_event",
+          "hidden": false
+        },
+        "type": {
+          "pivot": false,
+          "type": "string",
+          "column": "type",
+          "hidden": false
+        },
+        "app_name": {
+          "pivot": false,
+          "type": "string",
+          "column": "app_name",
+          "hidden": false
+        },
+        "browser_producer_url": {
+          "pivot": false,
+          "type": "string",
+          "column": "browser_producer_url",
+          "hidden": false
+        },
+        "location_country": {
+          "pivot": false,
+          "type": "string",
+          "column": "location_country",
+          "hidden": false
+        },
+        "response": {
+          "pivot": false,
+          "type": "string",
+          "column": "response",
+          "hidden": false
+        },
+        "subject": {
+          "pivot": false,
+          "type": "string",
+          "column": "subject",
+          "hidden": false
+        },
+        "user_agent": {
+          "pivot": false,
+          "type": "string",
+          "column": "user_agent",
+          "hidden": false
+        },
+        "uuid_ts": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "uuid_ts",
+          "hidden": false
+        },
+        "_from": {
+          "pivot": false,
+          "type": "string",
+          "column": "_from",
+          "hidden": false
+        },
+        "browser_producer": {
+          "pivot": false,
+          "type": "string",
+          "column": "browser_producer",
+          "hidden": false
+        },
+        "location_state": {
+          "pivot": false,
+          "type": "string",
+          "column": "location_state",
+          "hidden": false
+        },
+        "browser_url": {
+          "pivot": false,
+          "type": "string",
+          "column": "browser_url",
+          "hidden": false
+        },
+        "device_type": {
+          "pivot": false,
+          "type": "string",
+          "column": "device_type",
+          "hidden": false
+        },
+        "location_city": {
+          "pivot": false,
+          "type": "string",
+          "column": "location_city",
+          "hidden": false
+        },
+        "sent_by_id": {
+          "pivot": false,
+          "type": "string",
+          "column": "sent_by_id",
+          "hidden": false
+        },
+        "created": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "created",
+          "hidden": false
+        },
+        "sent_by_created": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "sent_by_created",
+          "hidden": false
+        },
+        "browser_version_": {
+          "pivot": false,
+          "type": "string",
+          "column": "browser_version_0",
+          "hidden": false
+        },
+        "url": {
+          "pivot": false,
+          "type": "string",
+          "column": "url",
+          "hidden": false
+        },
+        "subscriptions__legal_basis_change_opt_state": {
+          "pivot": false,
+          "type": "string",
+          "column": "subscriptions_0_legal_basis_change_opt_state",
+          "hidden": false
+        },
+        "portal_subscription_status": {
+          "pivot": false,
+          "type": "string",
+          "column": "portal_subscription_status",
+          "hidden": false
+        },
+        "subscriptions__status": {
+          "pivot": false,
+          "type": "string",
+          "column": "subscriptions_0_status",
+          "hidden": false
+        },
+        "source": {
+          "pivot": false,
+          "type": "string",
+          "column": "source",
+          "hidden": false
+        },
+        "subscriptions__legal_basis_change_legal_basis_explanation": {
+          "pivot": false,
+          "type": "string",
+          "column": "subscriptions_0_legal_basis_change_legal_basis_explanation",
+          "hidden": false
+        },
+        "subscriptions__legal_basis_change_legal_basis_type": {
+          "pivot": false,
+          "type": "string",
+          "column": "subscriptions_0_legal_basis_change_legal_basis_type",
+          "hidden": false
+        }
+      },
+      "measures": {
+        "count_all_rows": {
+          "description": "Counts All Rows",
+          "aggregation": "count",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_app_id": {
+          "column": "app_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_duration": {
+          "column": "duration",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_email_campaign_id": {
+          "column": "email_campaign_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_attempt": {
+          "column": "attempt",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_location_latitude": {
+          "column": "location_latitude",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_portal_id": {
+          "column": "portal_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_link_id": {
+          "column": "link_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_subscriptions__id": {
+          "column": "subscriptions_0_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_requested_by_user_id": {
+          "column": "requested_by_user_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        }
+      }
+    },
+    {
+      "name": "hubspot_email_subscription_event_changes",
+      "hidden": false,
+      "target": {
+        "database": "segment",
+        "schema": "hubspot",
+        "table": "email_subscription_event_changes"
+      },
+      "mappings": {
+        "eventTimestamp": "received_at"
+      },
+      "dimensions": {
+        "id": {
+          "pivot": false,
+          "type": "string",
+          "column": "id",
+          "hidden": false
+        },
+        "received_at": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "received_at",
+          "hidden": false
+        },
+        "caused_by_event_id": {
+          "pivot": false,
+          "type": "string",
+          "column": "caused_by_event_id",
+          "hidden": false
+        },
+        "change": {
+          "pivot": false,
+          "type": "string",
+          "column": "change",
+          "hidden": false
+        },
+        "change_type": {
+          "pivot": false,
+          "type": "string",
+          "column": "change_type",
+          "hidden": false
+        },
+        "source": {
+          "pivot": false,
+          "type": "string",
+          "column": "source",
+          "hidden": false
+        },
+        "timestamp": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "timestamp",
+          "hidden": false
+        },
+        "uuid_ts": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "uuid_ts",
+          "hidden": false
+        },
+        "caused_by_event_created": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "caused_by_event_created",
+          "hidden": false
+        },
+        "email_subscription_event_id": {
+          "pivot": false,
+          "type": "string",
+          "column": "email_subscription_event_id",
+          "hidden": false
+        }
+      },
+      "measures": {
+        "count_all_rows": {
+          "description": "Counts All Rows",
+          "aggregation": "count",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_portal_id": {
+          "column": "portal_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_subscription_id": {
+          "column": "subscription_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        }
+      }
+    },
+    {
+      "name": "hubspot_email_subscription_events",
+      "hidden": false,
+      "target": {
+        "database": "segment",
+        "schema": "hubspot",
+        "table": "email_subscription_events"
+      },
+      "mappings": {
+        "eventTimestamp": "received_at"
+      },
+      "dimensions": {
+        "id": {
+          "pivot": false,
+          "type": "string",
+          "column": "id",
+          "hidden": false
+        },
+        "received_at": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "received_at",
+          "hidden": false
+        },
+        "uuid_ts": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "uuid_ts",
+          "hidden": false
+        },
+        "timestamp": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "timestamp",
+          "hidden": false
+        },
+        "changes__change_type": {
+          "pivot": false,
+          "type": "string",
+          "column": "changes_0_change_type",
+          "hidden": false
+        },
+        "recipient": {
+          "pivot": false,
+          "type": "string",
+          "column": "recipient",
+          "hidden": false
+        },
+        "changes__email_subscription_event_id": {
+          "pivot": false,
+          "type": "string",
+          "column": "changes_2_email_subscription_event_id",
+          "hidden": false
+        },
+        "changes__source": {
+          "pivot": false,
+          "type": "string",
+          "column": "changes_0_source",
+          "hidden": false
+        },
+        "changes__id": {
+          "pivot": false,
+          "type": "string",
+          "column": "changes_0_id",
+          "hidden": false
+        },
+        "changes__caused_by_event_created": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "changes_0_caused_by_event_created",
+          "hidden": false
+        },
+        "changes__caused_by_event_id": {
+          "pivot": false,
+          "type": "string",
+          "column": "changes_0_caused_by_event_id",
+          "hidden": false
+        },
+        "changes__timestamp": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "changes_1_timestamp",
+          "hidden": false
+        },
+        "normalized_email_id": {
+          "pivot": false,
+          "type": "string",
+          "column": "normalized_email_id",
+          "hidden": false
+        }
+      },
+      "measures": {
+        "count_all_rows": {
+          "description": "Counts All Rows",
+          "aggregation": "count",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_changes__portal_id": {
+          "column": "changes_0_portal_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_portal_id": {
+          "column": "portal_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_changes__subscription_id": {
+          "column": "changes_0_subscription_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        }
+      }
+    },
+    {
+      "name": "hubspot_email_subscriptions",
+      "hidden": false,
+      "target": {
+        "database": "segment",
+        "schema": "hubspot",
+        "table": "email_subscriptions"
+      },
+      "mappings": {
+        "eventTimestamp": "received_at"
+      },
+      "dimensions": {
+        "id": {
+          "pivot": false,
+          "type": "string",
+          "column": "id",
+          "hidden": false
+        },
+        "received_at": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "received_at",
+          "hidden": false
+        },
+        "email": {
+          "pivot": false,
+          "type": "string",
+          "column": "email",
+          "hidden": false
+        },
+        "portal_subscription_legal_basis": {
+          "pivot": false,
+          "type": "string",
+          "column": "portal_subscription_legal_basis",
+          "hidden": false
+        },
+        "subscription_statuses__legal_basis_explanation": {
+          "pivot": false,
+          "type": "string",
+          "column": "subscription_statuses_0_legal_basis_explanation",
+          "hidden": false
+        },
+        "subscription_statuses__opt_state": {
+          "pivot": false,
+          "type": "string",
+          "column": "subscription_statuses_0_opt_state",
+          "hidden": false
+        },
+        "unsubscribe_from_portal": {
+          "pivot": false,
+          "type": "boolean",
+          "column": "unsubscribe_from_portal",
+          "hidden": false
+        },
+        "portal_subscription_legal_basis_explanation": {
+          "pivot": false,
+          "type": "string",
+          "column": "portal_subscription_legal_basis_explanation",
+          "hidden": false
+        },
+        "subscription_statuses__legal_basis": {
+          "pivot": false,
+          "type": "string",
+          "column": "subscription_statuses_0_legal_basis",
+          "hidden": false
+        },
+        "subscription_statuses__updated_at": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "subscription_statuses_0_updated_at",
+          "hidden": false
+        },
+        "bounced": {
+          "pivot": false,
+          "type": "boolean",
+          "column": "bounced",
+          "hidden": false
+        },
+        "subscribed": {
+          "pivot": false,
+          "type": "boolean",
+          "column": "subscribed",
+          "hidden": false
+        },
+        "uuid_ts": {
+          "pivot": false,
+          "timeframes": [
+            "hour",
+            "day",
+            "week",
+            "month",
+            "year",
+            "hourOfDay",
+            "dayOfMonth",
+            "weekOfYear",
+            "monthOfYear",
+            "quarterOfYear",
+            "dayOfWeek"
+          ],
+          "type": "timestamp",
+          "column": "uuid_ts",
+          "hidden": false
+        },
+        "marked_as_spam": {
+          "pivot": false,
+          "type": "boolean",
+          "column": "marked_as_spam",
+          "hidden": false
+        },
+        "status": {
+          "pivot": false,
+          "type": "string",
+          "column": "status",
+          "hidden": false
+        },
+        "subscription_statuses__subscribed": {
+          "pivot": false,
+          "type": "boolean",
+          "column": "subscription_statuses_0_subscribed",
+          "hidden": false
+        }
+      },
+      "measures": {
+        "count_all_rows": {
+          "description": "Counts All Rows",
+          "aggregation": "count",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_subscription_statuses__id": {
+          "column": "subscription_statuses_0_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        },
+        "sum_of_portal_id": {
+          "column": "portal_id",
+          "aggregation": "sum",
+          "type": "double",
+          "hidden": false
+        }
+      }
+    }
+  ],
+  "dashboards": [
+    {
+      "name": "Website Analytics",
+      "filterSchema": [
+        {
+          "name": "Date",
+          "type": "mappingDimension",
+          "value": {
+            "name": "eventTimestamp"
+          },
+          "defaultValue": "P14D",
+          "isRequired": true
+        }
+      ]
+    },
+    {
+      "name": "Facebook Ads", 
+      "filterSchema": [
+        {
+          "name": "Date",
+          "type": "mappingDimension",
+          "value": {
+            "name": "eventTimestamp"
+          },
+          "defaultValue": "P1D",
+          "isRequired": true
+        }
+      ]
+    }
+  ],
+  "label": "Rakam Internal",
+  "version": "1.0"
+}
