@@ -1,35 +1,36 @@
 {
-  name: 'so_users',
-  category: 'Stackoverflow',
+  name: 'intercom_companies',
   hidden: false,
-  target: std.mergePatch(std.extVar('schema'), { table: 'users' }),
+  target: std.mergePatch(std.extVar('schema'), { table: 'companies' }),
+  label: 'Companies',
+  description: 'Companies allow you to represent commercial organizations using your product. For more info, check out the [Intercom docs](https://developers.intercom.io/docs/companies).',
   mappings: {},
   dimensions: {
-    display_name: {
+    id: {
       type: 'string',
-      column: 'display_name',
+      column: 'id',
       reportOptions: {
         formatNumbers: true,
       },
       hidden: false,
     },
-    about_me: {
+    name: {
       type: 'string',
-      column: 'about_me',
+      column: 'name',
       reportOptions: {
         formatNumbers: true,
       },
       hidden: false,
     },
-    age: {
+    company_id: {
       type: 'string',
-      column: 'age',
+      column: 'company_id',
       reportOptions: {
         formatNumbers: true,
       },
       hidden: false,
     },
-    creation_date: {
+    last_request_at: {
       timeframes: [
         'hour',
         'day',
@@ -37,20 +38,20 @@
         'month',
         'year',
         'hourOfDay',
-        'dayOfWeek',
         'dayOfMonth',
         'weekOfYear',
         'monthOfYear',
         'quarterOfYear',
+        'dayOfWeek',
       ],
       type: 'timestamp',
-      column: 'creation_date',
+      column: 'last_request_at',
       reportOptions: {
         formatNumbers: true,
       },
       hidden: false,
     },
-    last_access_date: {
+    remote_created_at: {
       timeframes: [
         'hour',
         'day',
@@ -58,38 +59,72 @@
         'month',
         'year',
         'hourOfDay',
-        'dayOfWeek',
         'dayOfMonth',
         'weekOfYear',
         'monthOfYear',
         'quarterOfYear',
+        'dayOfWeek',
       ],
       type: 'timestamp',
-      column: 'last_access_date',
+      column: 'remote_created_at',
       reportOptions: {
         formatNumbers: true,
       },
       hidden: false,
     },
-    location: {
-      type: 'string',
-      column: 'location',
+    updated_at: {
+      timeframes: [
+        'hour',
+        'day',
+        'week',
+        'month',
+        'year',
+        'hourOfDay',
+        'dayOfMonth',
+        'weekOfYear',
+        'monthOfYear',
+        'quarterOfYear',
+        'dayOfWeek',
+      ],
+      type: 'timestamp',
+      column: 'updated_at',
       reportOptions: {
         formatNumbers: true,
       },
       hidden: false,
     },
-    profile_image_url: {
-      type: 'string',
-      column: 'profile_image_url',
+    uuid_ts: {
+      timeframes: [
+        'hour',
+        'day',
+        'week',
+        'month',
+        'year',
+        'hourOfDay',
+        'dayOfMonth',
+        'weekOfYear',
+        'monthOfYear',
+        'quarterOfYear',
+        'dayOfWeek',
+      ],
+      type: 'timestamp',
+      column: 'uuid_ts',
       reportOptions: {
         formatNumbers: true,
       },
       hidden: false,
     },
-    website_url: {
+    created_at: {
+      type: 'timestamp',
+      column: 'created_at',
+      reportOptions: {
+        formatNumbers: true,
+      },
+      hidden: false,
+    },
+    segments: {
       type: 'string',
-      column: 'website_url',
+      column: 'segments',
       reportOptions: {
         formatNumbers: true,
       },
@@ -97,57 +132,39 @@
     },
   },
   measures: {
-    count_all_rows: {
-      description: 'Counts All Rows',
+    session_count: {
+      reportOptions: {
+        formatNumbers: true,
+      },
+      column: 'session_count',
+      aggregation: 'sum',
+      type: 'double',
+      hidden: false,
+    },
+    monthly_spend: {
+      reportOptions: {
+        prefix: '$',
+        formatNumbers: true,
+      },
+      column: 'monthly_spend',
+      aggregation: 'sum',
+      type: 'double',
+      hidden: false,
+    },
+    all_users: {
+      reportOptions: {
+        formatNumbers: true,
+      },
+      column: 'user_count',
+      aggregation: 'sum',
+      type: 'double',
+      hidden: false,
+    },
+    all_companies: {
       reportOptions: {
         formatNumbers: true,
       },
       aggregation: 'count',
-      type: 'double',
-      hidden: false,
-    },
-    sum_of_id: {
-      reportOptions: {
-        formatNumbers: true,
-      },
-      column: 'id',
-      aggregation: 'sum',
-      type: 'double',
-      hidden: false,
-    },
-    sum_of_reputation: {
-      reportOptions: {
-        formatNumbers: true,
-      },
-      column: 'reputation',
-      aggregation: 'sum',
-      type: 'double',
-      hidden: false,
-    },
-    sum_of_up_votes: {
-      reportOptions: {
-        formatNumbers: true,
-      },
-      column: 'up_votes',
-      aggregation: 'sum',
-      type: 'double',
-      hidden: false,
-    },
-    sum_of_down_votes: {
-      reportOptions: {
-        formatNumbers: true,
-      },
-      column: 'down_votes',
-      aggregation: 'sum',
-      type: 'double',
-      hidden: false,
-    },
-    sum_of_views: {
-      reportOptions: {
-        formatNumbers: true,
-      },
-      column: 'views',
-      aggregation: 'sum',
       type: 'double',
       hidden: false,
     },

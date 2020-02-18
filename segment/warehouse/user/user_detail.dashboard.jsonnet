@@ -42,7 +42,6 @@
               type: 'timestamp',
               value: 'day',
             },
-            pivot: false,
           },
         ],
         measures: [
@@ -81,7 +80,6 @@
           modelName: 'segment_users',
           relationName: null,
           postOperation: null,
-          pivot: false,
         }, std.objectFields(std.extVar('attributions'))),
         measures: [],
         reportOptions: null,

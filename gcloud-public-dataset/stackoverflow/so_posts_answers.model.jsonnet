@@ -1,12 +1,11 @@
 {
   name: 'so_posts_answers',
-  category: "Stackoverflow",
+  category: 'Stackoverflow',
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'posts_answers' }),
   mappings: {},
   dimensions: {
     title: {
-      pivot: false,
       type: 'string',
       column: 'title',
       reportOptions: {
@@ -15,7 +14,6 @@
       hidden: false,
     },
     body: {
-      pivot: false,
       type: 'string',
       column: 'body',
       reportOptions: {
@@ -24,7 +22,6 @@
       hidden: false,
     },
     accepted_answer_id: {
-      pivot: false,
       type: 'string',
       column: 'accepted_answer_id',
       reportOptions: {
@@ -33,7 +30,6 @@
       hidden: false,
     },
     answer_count: {
-      pivot: false,
       type: 'string',
       column: 'answer_count',
       reportOptions: {
@@ -42,7 +38,6 @@
       hidden: false,
     },
     community_owned_date: {
-      pivot: false,
       timeframes: [
         'hour',
         'day',
@@ -65,7 +60,6 @@
     },
     creation_date: {
       label: 'Event_Timestamp',
-      pivot: false,
       timeframes: [
         'hour',
         'day',
@@ -87,7 +81,6 @@
       hidden: false,
     },
     favorite_count: {
-      pivot: false,
       type: 'string',
       column: 'favorite_count',
       reportOptions: {
@@ -96,7 +89,6 @@
       hidden: false,
     },
     last_activity_date: {
-      pivot: false,
       timeframes: [
         'hour',
         'day',
@@ -118,7 +110,6 @@
       hidden: false,
     },
     last_edit_date: {
-      pivot: false,
       timeframes: [
         'hour',
         'day',
@@ -140,7 +131,6 @@
       hidden: false,
     },
     last_editor_display_name: {
-      pivot: false,
       type: 'string',
       column: 'last_editor_display_name',
       reportOptions: {
@@ -149,7 +139,6 @@
       hidden: false,
     },
     owner_display_name: {
-      pivot: false,
       type: 'string',
       column: 'owner_display_name',
       reportOptions: {
@@ -158,7 +147,6 @@
       hidden: false,
     },
     tags: {
-      pivot: false,
       type: 'string',
       column: 'tags',
       reportOptions: {
@@ -167,7 +155,6 @@
       hidden: false,
     },
     view_count: {
-      pivot: false,
       type: 'string',
       column: 'view_count',
       reportOptions: {
@@ -176,7 +163,6 @@
       hidden: false,
     },
     user_id: {
-      pivot: false,
       type: 'integer',
       column: 'owner_user_id',
       hidden: false,

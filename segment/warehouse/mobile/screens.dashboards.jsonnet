@@ -62,7 +62,6 @@ if std.extVar('screens_target') != null then [
               modelName: 'screens',
               relationName: null,
               postOperation: null,
-              pivot: false,
             },
           ],
           measures: [
@@ -155,7 +154,6 @@ if std.extVar('screens_target') != null then [
               modelName: 'screens',
               relationName: null,
               postOperation: null,
-              pivot: false,
             },
           ],
           measures: [

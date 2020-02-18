@@ -1,6 +1,6 @@
 {
   name: 'Liquor Sales',
-  category: "IOWA Liquor Sales",
+  category: 'IOWA Liquor Sales',
   filterSchema: [
     {
       name: 'Date',
@@ -33,7 +33,6 @@
               type: 'date',
               value: 'year',
             },
-            pivot: false,
           },
           {
             name: 'store_name',
@@ -86,7 +85,6 @@
               type: 'date',
               value: 'year',
             },
-            pivot: false,
           },
           {
             name: 'item_description',
@@ -212,7 +210,6 @@
               type: 'date',
               value: 'month',
             },
-            pivot: false,
           },
           {
             name: 'item_description',
@@ -264,7 +261,6 @@
               type: 'date',
               value: 'month',
             },
-            pivot: false,
           },
           {
             name: 'store_name',
@@ -316,7 +312,6 @@
               type: 'date',
               value: 'year',
             },
-            pivot: false,
           },
           {
             name: 'store_name',

@@ -1,14 +1,13 @@
 {
   name: 'so_comments',
   hidden: false,
-  category: "Stackoverflow",
+  category: 'Stackoverflow',
   target: std.mergePatch(std.extVar('schema'), { table: 'comments' }),
   mappings: {
     eventTimestamp: 'creation_date',
   },
   dimensions: {
     text: {
-      pivot: false,
       type: 'string',
       column: 'text',
       reportOptions: {
@@ -17,7 +16,6 @@
       hidden: false,
     },
     creation_date: {
-      pivot: false,
       timeframes: [
         'hour',
         'day',
@@ -39,7 +37,6 @@
       hidden: false,
     },
     user_display_name: {
-      pivot: false,
       type: 'string',
       column: 'user_display_name',
       reportOptions: {

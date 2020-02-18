@@ -41,7 +41,6 @@
   },
   dimensions: {
     created_at: {
-      pivot: false,
       type: 'timestamp',
       column: 'created_at',
       reportOptions: {
@@ -50,7 +49,6 @@
       hidden: false,
     },
     advertising_id: {
-      pivot: false,
       type: 'string',
       description: 'IDFA for iOS or Google advertising ID for Android. Lower case, without hyphen.',
       column: 'advertising_id',
@@ -65,7 +63,6 @@
       column: 'event_type',
     },
     bundle_id: {
-      pivot: false,
       type: 'string',
       column: 'bundle_id',
       reportOptions: {
@@ -84,7 +81,6 @@
       column: 'ip_address',
     },
     site_id: {
-      pivot: false,
       type: 'string',
       column: 'site_id',
       reportOptions: {
@@ -93,7 +89,6 @@
       hidden: false,
     },
     user_agent: {
-      pivot: false,
       type: 'string',
       description: 'ex. Dalvik/2.1.0 (Linux; U; Android 8.0.0; SM-G570M Build/R16NW)',
       column: 'user_agent',

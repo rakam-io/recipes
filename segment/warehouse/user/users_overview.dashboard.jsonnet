@@ -176,7 +176,6 @@ local attrs = std.extVar('attributions');
                    modelName: 'segment_users',
                    relationName: null,
                    postOperation: null,
-                   pivot: false,
                  },
                ],
                measures: [
@@ -221,7 +220,6 @@ local attrs = std.extVar('attributions');
                      type: 'timestamp',
                      value: 'day',
                    },
-                   pivot: false,
                  },
                ],
                measures: [

@@ -5,13 +5,11 @@
   category: 'Marketing',
   dimensions: {
     id: {
-      pivot: false,
       type: 'string',
       column: 'id',
       hidden: true,
     },
     name: {
-      pivot: false,
       type: 'string',
       column: 'name',
       hidden: false,

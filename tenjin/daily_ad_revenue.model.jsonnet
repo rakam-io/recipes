@@ -25,7 +25,6 @@
   },
   dimensions: {
     date: {
-      pivot: false,
       type: 'date',
       column: 'date',
       reportOptions: {
@@ -34,7 +33,6 @@
       hidden: false,
     },
     updated_at: {
-      pivot: false,
       type: 'timestamp',
       column: 'updated_at',
       reportOptions: {

@@ -41,7 +41,6 @@
   },
   dimensions: {
     event_date: {
-      pivot: false,
       type: 'date',
       column: 'event_date',
       reportOptions: {
@@ -50,7 +49,6 @@
       hidden: false,
     },
     install_date: {
-      pivot: false,
       type: 'date',
       column: 'install_date',
       reportOptions: {
@@ -59,7 +57,6 @@
       hidden: false,
     },
     platform: {
-      pivot: false,
       type: 'string',
       column: 'platform',
       reportOptions: {
@@ -68,7 +65,6 @@
       hidden: false,
     },
     site_id: {
-      pivot: false,
       type: 'string',
       column: 'site_id',
       reportOptions: {

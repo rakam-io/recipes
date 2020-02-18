@@ -1,12 +1,11 @@
 {
   name: 'so_tags',
-  category: "Stackoverflow",
+  category: 'Stackoverflow',
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'tags' }),
   mappings: {},
   dimensions: {
     tag_name: {
-      pivot: false,
       type: 'string',
       column: 'tag_name',
       reportOptions: {
@@ -15,19 +14,16 @@
       hidden: false,
     },
     post_id: {
-      pivot: false,
       type: 'integer',
       column: 'excerpt_post_id',
       hidden: false,
     },
     wiki_post_id: {
-      pivot: false,
       type: 'integer',
       column: 'wiki_post_id',
       hidden: false,
     },
     count: {
-      pivot: false,
       type: 'integer',
       column: 'count',
       hidden: false,

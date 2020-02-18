@@ -1,6 +1,6 @@
 {
   name: 'so_badges',
-  category: "Stackoverflow",
+  category: 'Stackoverflow',
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'badges' }),
   mappings: {
@@ -8,7 +8,6 @@
   },
   dimensions: {
     name: {
-      pivot: false,
       type: 'string',
       column: 'name',
       reportOptions: {
@@ -17,7 +16,6 @@
       hidden: false,
     },
     date: {
-      pivot: false,
       timeframes: [
         'hour',
         'day',
@@ -39,19 +37,16 @@
       hidden: false,
     },
     id: {
-      pivot: false,
       type: 'integer',
       column: 'id',
       hidden: false,
     },
     user_id: {
-      pivot: false,
       type: 'integer',
       column: 'user_id',
       hidden: false,
     },
     badge_type: {
-      pivot: false,
       type: 'integer',
       column: 'class',
       hidden: false,

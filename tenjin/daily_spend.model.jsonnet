@@ -19,7 +19,6 @@
   },
   dimensions: {
     updated_at: {
-      pivot: false,
       type: 'timestamp',
       column: 'updated_at',
       reportOptions: {
@@ -28,7 +27,6 @@
       hidden: true,
     },
     date: {
-      pivot: false,
       type: 'date',
       column: 'date',
       reportOptions: {
@@ -37,7 +35,6 @@
       hidden: false,
     },
     campaign_id: {
-      pivot: false,
       type: 'string',
       column: 'campaign_id',
       reportOptions: {

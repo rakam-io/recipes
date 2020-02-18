@@ -23,7 +23,6 @@
   },
   dimensions: {
     id: {
-      pivot: false,
       type: 'string',
       column: 'id',
       reportOptions: {
@@ -32,7 +31,6 @@
       hidden: false,
     },
     name: {
-      pivot: false,
       type: 'string',
       column: 'name',
       reportOptions: {
@@ -41,7 +39,6 @@
       hidden: false,
     },
     app_id: {
-      pivot: false,
       type: 'string',
       column: 'app_id',
       reportOptions: {

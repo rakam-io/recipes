@@ -6,7 +6,6 @@
   mappings: {},
   dimensions: {
     name: {
-      pivot: false,
       type: 'string',
       column: 'name',
       reportOptions: {

@@ -43,7 +43,6 @@
     },
     dimensions: {
       purchase_state: {
-        pivot: false,
         sql: "case when purchase_state = 0 then 'Unknowable' when purchase_state = 1 then 'Unverified' when purchase_state = 2 then 'Fraudulent' when purchase_state = 3 then 'Verified' when purchase_state = 4 then 'Sandbox' end",
         reportOptions: {
           formatNumbers: true,
@@ -51,7 +50,6 @@
         hidden: false,
       },
       currency: {
-        pivot: false,
         type: 'string',
         column: 'currency',
         description: 'Currency code for the purchase event. (i.e. USD)',

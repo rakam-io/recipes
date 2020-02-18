@@ -32,7 +32,6 @@
               type: 'timestamp',
               value: 'day',
             },
-            pivot: false,
           },
         ],
         measures: [
@@ -81,7 +80,6 @@
               type: 'timestamp',
               value: 'day',
             },
-            pivot: false,
           },
         ],
         measures: [

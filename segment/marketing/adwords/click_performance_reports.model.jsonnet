@@ -29,39 +29,33 @@
   },
   dimensions: {
     id: {
-      pivot: false,
       type: 'string',
       column: 'id',
       hidden: false,
     },
     slot: {
       description: 'The position of the Ad.',
-      pivot: false,
       type: 'string',
       column: 'slot',
       hidden: false,
     },
     aoi_most_specific_target_id: {
       description: 'The most specific location target.',
-      pivot: false,
       type: 'string',
       column: 'aoi_most_specific_target_id',
       hidden: false,
     },
     creative_id: {
-      pivot: false,
       type: 'string',
       column: 'creative_id',
       hidden: false,
     },
     criteria_parameters: {
-      pivot: false,
       type: 'string',
       column: 'criteria_parameters',
       hidden: false,
     },
     ad_group_id: {
-      pivot: false,
       type: 'string',
       column: 'ad_group_id',
       hidden: true,

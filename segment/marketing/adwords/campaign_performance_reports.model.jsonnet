@@ -41,7 +41,6 @@ local ad_performance_reports = import './ad_performance_reports.model.jsonnet';
       sql: 'cast(date_start as date)',
     },
     advertising_channel_sub_type: {
-      pivot: false,
       type: 'string',
       column: 'advertising_channel_sub_type',
     },

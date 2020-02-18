@@ -302,7 +302,6 @@
             modelName: 'facebook_campaigns',
             relationName: 'facebook_campaigns',
             postOperation: null,
-            pivot: false,
           },
         ],
         measures: [

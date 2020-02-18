@@ -1,27 +1,26 @@
 {
-  name: 'so_posts_questions',
-  category: 'Stackoverflow',
+  name: 'intercom_contacts',
   hidden: false,
-  target: std.mergePatch(std.extVar('schema'), { table: 'posts_questions' }),
-  mappings: {},
+  target: std.mergePatch(std.extVar('schema'), { table: 'contacts' }),
+  label: 'Leads',
+  description: 'Leads (previously known as Contacts) are useful for representing logged-out users of your application For more info, check out the Intercom docs',
+  mappings: {
+    eventTimestamp: 'received_at',
+    incremental: 'user_id',
+    userId: 'user_id',
+  },
   dimensions: {
-    title: {
+    id: {
+      pivot: false,
       type: 'string',
-      column: 'title',
+      column: 'id',
       reportOptions: {
         formatNumbers: true,
       },
       hidden: false,
     },
-    body: {
-      type: 'string',
-      column: 'body',
-      reportOptions: {
-        formatNumbers: true,
-      },
-      hidden: false,
-    },
-    community_owned_date: {
+    received_at: {
+      pivot: false,
       timeframes: [
         'hour',
         'day',
@@ -29,20 +28,21 @@
         'month',
         'year',
         'hourOfDay',
-        'dayOfWeek',
         'dayOfMonth',
         'weekOfYear',
         'monthOfYear',
         'quarterOfYear',
+        'dayOfWeek',
       ],
       type: 'timestamp',
-      column: 'community_owned_date',
+      column: 'received_at',
       reportOptions: {
         formatNumbers: true,
       },
       hidden: false,
     },
-    creation_date: {
+    uuid_ts: {
+      pivot: false,
       timeframes: [
         'hour',
         'day',
@@ -50,20 +50,21 @@
         'month',
         'year',
         'hourOfDay',
-        'dayOfWeek',
         'dayOfMonth',
         'weekOfYear',
         'monthOfYear',
         'quarterOfYear',
+        'dayOfWeek',
       ],
       type: 'timestamp',
-      column: 'creation_date',
+      column: 'uuid_ts',
       reportOptions: {
         formatNumbers: true,
       },
       hidden: false,
     },
-    last_activity_date: {
+    created_at: {
+      pivot: false,
       timeframes: [
         'hour',
         'day',
@@ -71,20 +72,39 @@
         'month',
         'year',
         'hourOfDay',
-        'dayOfWeek',
         'dayOfMonth',
         'weekOfYear',
         'monthOfYear',
         'quarterOfYear',
+        'dayOfWeek',
       ],
       type: 'timestamp',
-      column: 'last_activity_date',
+      column: 'created_at',
       reportOptions: {
         formatNumbers: true,
       },
       hidden: false,
     },
-    last_edit_date: {
+    unsubscribed_from_emails: {
+      pivot: false,
+      type: 'boolean',
+      column: 'unsubscribed_from_emails',
+      reportOptions: {
+        formatNumbers: true,
+      },
+      hidden: false,
+    },
+    name: {
+      pivot: false,
+      type: 'string',
+      column: 'name',
+      reportOptions: {
+        formatNumbers: true,
+      },
+      hidden: false,
+    },
+    updated_at: {
+      pivot: false,
       timeframes: [
         'hour',
         'day',
@@ -92,183 +112,203 @@
         'month',
         'year',
         'hourOfDay',
-        'dayOfWeek',
         'dayOfMonth',
         'weekOfYear',
         'monthOfYear',
         'quarterOfYear',
+        'dayOfWeek',
       ],
       type: 'timestamp',
-      column: 'last_edit_date',
+      column: 'updated_at',
       reportOptions: {
         formatNumbers: true,
       },
       hidden: false,
     },
-    last_editor_display_name: {
+    email: {
+      pivot: false,
       type: 'string',
-      column: 'last_editor_display_name',
+      column: 'email',
       reportOptions: {
         formatNumbers: true,
       },
       hidden: false,
     },
-    owner_display_name: {
+    last_request_at: {
+      pivot: false,
+      timeframes: [
+        'hour',
+        'day',
+        'week',
+        'month',
+        'year',
+        'hourOfDay',
+        'dayOfMonth',
+        'weekOfYear',
+        'monthOfYear',
+        'quarterOfYear',
+        'dayOfWeek',
+      ],
+      type: 'timestamp',
+      column: 'last_request_at',
+      reportOptions: {
+        formatNumbers: true,
+      },
+      hidden: false,
+    },
+    user_id: {
+      pivot: false,
       type: 'string',
-      column: 'owner_display_name',
+      column: 'user_id',
       reportOptions: {
         formatNumbers: true,
       },
       hidden: false,
     },
-    parent_id: {
+    location_timezone: {
+      pivot: false,
       type: 'string',
-      column: 'parent_id',
+      column: 'location_timezone',
       reportOptions: {
         formatNumbers: true,
       },
       hidden: false,
     },
-    tags: {
+    location_continent_code: {
+      pivot: false,
       type: 'string',
-      column: 'tags',
+      column: 'location_continent_code',
       reportOptions: {
         formatNumbers: true,
       },
       hidden: false,
     },
-    accepted_answer: {
-      type: 'integer',
-      column: 'accepted_answer_id',
+    location_country_name: {
+      pivot: false,
+      type: 'string',
+      column: 'location_country_name',
+      reportOptions: {
+        formatNumbers: true,
+      },
+      hidden: false,
+    },
+    location_region_name: {
+      pivot: false,
+      type: 'string',
+      column: 'location_region_name',
+      reportOptions: {
+        formatNumbers: true,
+      },
+      hidden: false,
+    },
+    location_city_name: {
+      pivot: false,
+      type: 'string',
+      column: 'location_city_name',
+      reportOptions: {
+        formatNumbers: true,
+      },
+      hidden: false,
+    },
+    location_postal_code: {
+      pivot: false,
+      type: 'string',
+      column: 'location_postal_code',
+      reportOptions: {
+        formatNumbers: true,
+      },
+      hidden: false,
+    },
+    user_agent_data: {
+      pivot: false,
+      type: 'string',
+      column: 'user_agent_data',
+      reportOptions: {
+        formatNumbers: true,
+      },
+      hidden: false,
+    },
+    last_seen_ip: {
+      pivot: false,
+      type: 'string',
+      column: 'last_seen_ip',
+      reportOptions: {
+        formatNumbers: true,
+      },
+      hidden: false,
+    },
+    location_country_code: {
+      pivot: false,
+      type: 'string',
+      column: 'location_country_code',
+      reportOptions: {
+        formatNumbers: true,
+      },
+      hidden: false,
+    },
+    avatar_image_url: {
+      pivot: false,
+      type: 'string',
+      column: 'avatar_image_url',
+      reportOptions: {
+        formatNumbers: true,
+      },
+      hidden: false,
+    },
+    custom_job_title: {
+      pivot: false,
+      type: 'string',
+      column: 'custom_job_title',
+      reportOptions: {
+        formatNumbers: true,
+      },
       hidden: false,
     },
   },
   measures: {
     count_all_rows: {
-      label: 'Total Questions',
       description: 'Counts All Rows',
       reportOptions: {
         formatNumbers: true,
       },
-      column: 'id',
       aggregation: 'count',
       type: 'double',
       hidden: false,
     },
-    sum_of_favorite_count: {
+    sum_of_location_latitude: {
       reportOptions: {
         formatNumbers: true,
       },
-      column: 'favorite_count',
+      column: 'location_latitude',
       aggregation: 'sum',
       type: 'double',
       hidden: false,
     },
-    sum_of_last_editor_user_id: {
+    sum_of_location_longitude: {
       reportOptions: {
         formatNumbers: true,
       },
-      column: 'last_editor_user_id',
+      column: 'location_longitude',
       aggregation: 'sum',
       type: 'double',
       hidden: false,
     },
-    sum_of_owner_user_id: {
+    sum_of_session_count: {
       reportOptions: {
         formatNumbers: true,
       },
-      column: 'owner_user_id',
+      column: 'session_count',
       aggregation: 'sum',
       type: 'double',
       hidden: false,
     },
-    sum_of_post_type_id: {
+    count_unique_users: {
+      description: 'Counts Unique Users',
       reportOptions: {
         formatNumbers: true,
       },
-      column: 'post_type_id',
-      aggregation: 'sum',
-      type: 'double',
-      hidden: false,
-    },
-    sum_of_score: {
-      reportOptions: {
-        formatNumbers: true,
-      },
-      column: 'score',
-      aggregation: 'sum',
-      type: 'double',
-      hidden: false,
-    },
-    accepted_answers_count: {
-      reportOptions: {
-        formatNumbers: true,
-      },
-      column: 'accepted_answer_id',
-      aggregation: 'count',
-      type: 'double',
-      hidden: false,
-    },
-    total_comment: {
-      reportOptions: {
-        formatNumbers: true,
-      },
-      column: 'comment_count',
-      aggregation: 'sum',
-      type: 'double',
-      hidden: false,
-    },
-    total_answer: {
-      reportOptions: {
-        formatNumbers: true,
-      },
-      column: 'answer_count',
-      aggregation: 'sum',
-      type: 'double',
-      hidden: false,
-    },
-    total_accepted_answer: {
-      reportOptions: {
-        formatNumbers: true,
-      },
-      column: 'accepted_answer_id',
-      aggregation: 'count',
-      type: 'double',
-      hidden: false,
-    },
-    total_questions: {
-      reportOptions: {
-        formatNumbers: true,
-      },
-      column: 'id',
-      aggregation: 'count',
-      type: 'double',
-      hidden: false,
-    },
-    total_view: {
-      reportOptions: {
-        formatNumbers: true,
-      },
-      column: 'view_count',
-      aggregation: 'sum',
-      type: 'double',
-      hidden: false,
-    },
-    average_answers: {
-      reportOptions: {
-        formatNumbers: true,
-      },
-      column: 'answer_count',
-      aggregation: 'average',
-      type: 'double',
-      hidden: false,
-    },
-    average_comments: {
-      reportOptions: {
-        formatNumbers: true,
-      },
-      column: 'comment_count',
-      aggregation: 'average',
+      column: 'user_id',
+      aggregation: 'countUnique',
       type: 'double',
       hidden: false,
     },

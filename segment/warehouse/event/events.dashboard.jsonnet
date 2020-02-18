@@ -30,7 +30,6 @@
             modelName: 'tracks',
             relationName: null,
             postOperation: null,
-            pivot: false,
           },
         ],
         measures: [
@@ -72,7 +71,6 @@
             modelName: 'tracks',
             relationName: null,
             postOperation: null,
-            pivot: false,
           },
         ],
         measures: [
@@ -115,7 +113,6 @@
             modelName: 'tracks',
             relationName: null,
             postOperation: null,
-            pivot: false,
           },
         ],
         measures: [

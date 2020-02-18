@@ -26,7 +26,6 @@
   },
   dimensions: {
     date: {
-      pivot: false,
       type: 'timestamp',
       column: 'date',
       reportOptions: {
@@ -35,7 +34,6 @@
       hidden: false,
     },
     site_id: {
-      pivot: false,
       type: 'string',
       column: 'site_id',
       reportOptions: {

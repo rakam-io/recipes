@@ -251,7 +251,6 @@
             modelName: 'adwords_ad_performance_reports',
             relationName: null,
             postOperation: null,
-            pivot: false,
           },
         ],
         measures: [
@@ -300,7 +299,6 @@
             modelName: 'adwords_ads',
             relationName: 'adwords_ads',
             postOperation: null,
-            pivot: false,
           },
         ],
         measures: [

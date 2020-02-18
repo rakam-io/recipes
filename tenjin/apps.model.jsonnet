@@ -8,7 +8,6 @@
   mappings: {},
   dimensions: {
     name: {
-      pivot: false,
       type: 'string',
       column: 'name',
       reportOptions: {
@@ -17,7 +16,6 @@
       hidden: false,
     },
     store_id: {
-      pivot: false,
       type: 'string',
       column: 'store_id',
       reportOptions: {
@@ -26,7 +24,6 @@
       hidden: false,
     },
     platform: {
-      pivot: false,
       type: 'string',
       column: 'platform',
       reportOptions: {
@@ -35,7 +32,6 @@
       hidden: false,
     },
     bundle_id: {
-      pivot: false,
       type: 'string',
       column: 'bundle_id',
       description: 'ex. com.tenjin.wordfinder',

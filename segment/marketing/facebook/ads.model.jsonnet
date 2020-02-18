@@ -28,37 +28,31 @@
   },
   dimensions: {
     id: {
-      pivot: false,
       type: 'string',
       column: 'id',
       hidden: true,
     },
     account_id: {
-      pivot: false,
       type: 'string',
       column: 'account_id',
       hidden: true,
     },
     bid_type: {
-      pivot: false,
       type: 'string',
       column: 'bid_type',
       hidden: false,
     },
     campaign_id: {
-      pivot: false,
       type: 'string',
       column: 'campaign_id',
       hidden: true,
     },
     adset_id: {
-      pivot: false,
       type: 'string',
       column: 'adset_id',
       hidden: true,
     },
     name: {
-      pivot: false,
       type: 'string',
       column: 'name',
       hidden: false,
@@ -68,7 +62,6 @@
       sql: "CASE WHEN {{TABLE}}.status = 'ACTIVE' then TRUE else FALSE END",
     },
     status: {
-      pivot: false,
       type: 'string',
       column: 'status',
       hidden: false,

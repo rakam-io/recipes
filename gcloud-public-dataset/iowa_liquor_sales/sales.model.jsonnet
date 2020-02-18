@@ -4,12 +4,11 @@
   target: std.extVar('table'),
   label: 'Liquor Sales',
   description: 'Liquor sales in Iowa',
-  category: "IOWA Liquor Sales",
+  category: 'IOWA Liquor Sales',
   mappings: {},
   dimensions: {
     date: {
       description: 'Date of order',
-      pivot: false,
       timeframes: [
         'week',
         'month',
@@ -29,7 +28,6 @@
     },
     store_name: {
       description: 'Name of store who ordered the liquor.',
-      pivot: false,
       type: 'string',
       column: 'store_name',
       reportOptions: {
@@ -39,7 +37,6 @@
     },
     city: {
       description: 'City where the store who ordered the liquor is located',
-      pivot: false,
       type: 'string',
       sql: 'LOWER(city)',
       reportOptions: {
@@ -49,7 +46,6 @@
     },
     county: {
       description: 'County where the store who ordered the liquor is located',
-      pivot: false,
       type: 'string',
       column: 'county',
       reportOptions: {
@@ -59,7 +55,6 @@
     },
     category: {
       description: 'Category code associated with the liquor ordered',
-      pivot: false,
       type: 'string',
       column: 'category',
       reportOptions: {
@@ -69,7 +64,6 @@
     },
     category_name: {
       description: 'Category of the liquor ordered.',
-      pivot: false,
       type: 'string',
       column: 'category_name',
       reportOptions: {
@@ -79,7 +73,6 @@
     },
     vendor_name: {
       description: 'The vendor name of the company for the brand of liquor ordered',
-      pivot: false,
       type: 'string',
       column: 'vendor_name',
       reportOptions: {
@@ -89,7 +82,6 @@
     },
     item_description: {
       description: 'Description of the individual liquor product ordered.',
-      pivot: false,
       type: 'string',
       column: 'item_description',
       reportOptions: {
@@ -98,19 +90,16 @@
       hidden: false,
     },
     sold_in_dollars: {
-      pivot: false,
       type: 'double',
       column: 'sale_dollars',
       hidden: false,
     },
     sold_in_bottles: {
-      pivot: false,
       type: 'integer',
       column: 'bottles_sold',
       hidden: false,
     },
     sold_in_liters: {
-      pivot: false,
       type: 'double',
       column: 'volume_sold_liters',
       hidden: false,

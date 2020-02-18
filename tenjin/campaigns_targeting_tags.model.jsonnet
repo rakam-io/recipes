@@ -23,7 +23,6 @@
   },
   dimensions: {
     campaign_id: {
-      pivot: false,
       type: 'string',
       column: 'campaign_id',
       reportOptions: {

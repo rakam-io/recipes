@@ -12,13 +12,11 @@
       sql: 'CASE WHEN {{TABLE}}.effective_status = "ACTIVE" then TRUE else FALSE END',
     },
     id: {
-      pivot: false,
       type: 'string',
       column: 'id',
       hidden: true,
     },
     name: {
-      pivot: false,
       type: 'string',
       column: 'name',
       hidden: false,
@@ -28,13 +26,11 @@
       timeframes: [],
     },
     buying_type: {
-      pivot: false,
       type: 'string',
       column: 'buying_type',
       hidden: false,
     },
     effective_status: {
-      pivot: false,
       type: 'string',
       column: 'effective_status',
       hidden: false,

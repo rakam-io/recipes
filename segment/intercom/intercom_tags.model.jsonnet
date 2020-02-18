@@ -1,20 +1,23 @@
 {
-  name: 'adwords_campaigns',
+  name: 'intercom_tags',
   hidden: true,
-  target: std.mergePatch(std.extVar('schema'), { table: 'campaigns' }),
-  category: 'Marketing',
+  target: std.mergePatch(std.extVar('schema'), { table: 'tags' }),
+  description: 'A tag allows you to label your users and companies and list them using that tag. For more info, check out the Intercom docs\n',
+  mappings: {
+    eventTimestamp: 'received_at',
+  },
   dimensions: {
     id: {
+      pivot: false,
       type: 'string',
       column: 'id',
-      hidden: true,
-    },
-    serving_status: {
-      type: 'string',
-      column: 'serving_status',
+      reportOptions: {
+        formatNumbers: true,
+      },
       hidden: false,
     },
-    end_date: {
+    received_at: {
+      pivot: false,
       timeframes: [
         'hour',
         'day',
@@ -29,15 +32,23 @@
         'dayOfWeek',
       ],
       type: 'timestamp',
-      column: 'end_date',
+      column: 'received_at',
+      reportOptions: {
+        formatNumbers: true,
+      },
       hidden: false,
     },
     name: {
+      pivot: false,
       type: 'string',
       column: 'name',
+      reportOptions: {
+        formatNumbers: true,
+      },
       hidden: false,
     },
-    start_date: {
+    uuid_ts: {
+      pivot: false,
       timeframes: [
         'hour',
         'day',
@@ -52,17 +63,10 @@
         'dayOfWeek',
       ],
       type: 'timestamp',
-      column: 'start_date',
-      hidden: false,
-    },
-    status: {
-      type: 'string',
-      column: 'status',
-      hidden: false,
-    },
-    adwords_customer_id: {
-      type: 'string',
-      column: 'adwords_customer_id',
+      column: 'uuid_ts',
+      reportOptions: {
+        formatNumbers: true,
+      },
       hidden: false,
     },
   },

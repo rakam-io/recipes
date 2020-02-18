@@ -20,7 +20,6 @@
       column: 'category',
     },
     segment: {
-      pivot: false,
       type: 'string',
       column: 'segment',
       reportOptions: {
