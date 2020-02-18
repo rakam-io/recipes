@@ -2,6 +2,7 @@
   name: 'stripe_invoices',
   hidden: false,
   target: std.mergePatch(std.extVar('schema'), { table: 'invoices' }),
+  description: 'Invoices are statements of what a customer owes for a particular billing period, including subscriptions, invoice items, and any automatic proration adjustments if necessary.',
   mappings: {
     eventTimestamp: 'received_at',
   },
