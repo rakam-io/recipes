@@ -9,7 +9,6 @@
         column: 'platform',
         category: 'Application'
     },
-
     collector_tstamp: {
         description: 'Time stamp for the event recorded by the collector',
         column: 'collector_tstamp',
@@ -134,21 +133,21 @@
         column: 'dvce_type',
         category: 'Device and operating system'
     },
-    /*dvce_ismobile: {
+    dvce_ismobile: {
         description: 'Is the device mobile?',
-        column: 'dvce_ismob',
+        column: 'dvce_ismobile',
         category: 'Device and operating system'
     },
     dvce_screenheight: {
         description: 'Screen height in pixels',
-        column: 'dvce_scree',
+        column: 'dvce_screenheight',
         category: 'Device and operating system'
     },
     dvce_screenwidth: {
         description: 'Screen width in pixels',
-        column: 'dvce_scree',
+        column: 'dvce_screenwidth',
         category: 'Device and operating system'
-    },*/
+    },
     os_name: {
         description: 'Name of operating system',
         column: 'os_name',
@@ -161,7 +160,7 @@
     },
     os_manufacturer: {
         description: 'Company responsible for OS',
-        column: 'os_manufac',
+        column: 'os_manufacturer',
         category: 'Device and operating system'
     },
 
