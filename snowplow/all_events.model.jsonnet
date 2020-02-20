@@ -21,5 +21,5 @@ local web_specific_dimensions = import 'dimensions/web_specific_dimensions.jsonn
       hidden: false,
     },
   },
-  dimensions: common_dimensions,
+  dimensions: common_dimensions + web_specific_dimensions,
 }
