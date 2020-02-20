@@ -8,6 +8,7 @@ local web_specific_dimensions = import 'dimensions/web_specific_dimensions.jsonn
   target: std.extVar('events'),
   mappings: {
     eventTimestamp: 'dvce_sent_tstamp',
+    userId: 'user_id'
   },
   measures: {
     count_all_rows: {
