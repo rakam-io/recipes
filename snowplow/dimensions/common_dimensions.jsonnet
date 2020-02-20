@@ -134,7 +134,7 @@
         column: 'dvce_type',
         category: 'Device and operating system'
     },
-    dvce_ismobile: {
+    /*dvce_ismobile: {
         description: 'Is the device mobile?',
         column: 'dvce_ismob',
         category: 'Device and operating system'
@@ -148,7 +148,7 @@
         description: 'Screen width in pixels',
         column: 'dvce_scree',
         category: 'Device and operating system'
-    },
+    },*/
     os_name: {
         description: 'Name of operating system',
         column: 'os_name',
