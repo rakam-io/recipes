@@ -13,6 +13,7 @@
     description: 'Time stamp for the event recorded by the collector',
     column: 'collector_tstamp',
     category: 'Date/time',
+    type: 'timestamp',
     timeframes: [
       'hour',
       'day',
@@ -31,6 +32,7 @@
     description: 'Timestamp event was recorded on the client device',
     column: 'dvce_created_tstamp',
     category: 'Date/time',
+    type: 'timestamp',
     timeframes: [
       'hour',
       'day',
@@ -49,6 +51,7 @@
     description: 'When the event was sent by the client device\t',
     column: 'dvce_sent_tstamp',
     category: 'Date/time',
+    type: 'timestamp',
     timeframes: [
       'hour',
       'day',
@@ -67,6 +70,7 @@
     description: 'Timestamp event began ETL\t',
     column: 'etl_tstamp',
     category: 'Date/time',
+    type: 'timestamp',
     timeframes: [
       'hour',
       'day',
