@@ -12,22 +12,26 @@
     collector_tstamp: {
         description: 'Time stamp for the event recorded by the collector',
         column: 'collector_tstamp',
-        category: 'Date/time'
+        category: 'Date/time',
+        timeframes: [],
     },
     dvce_created_tstamp: {
         description: 'Timestamp event was recorded on the client device',
         column: 'dvce_created_tstamp',
-        category: 'Date/time'
+        category: 'Date/time',
+        timeframes: [],
     },
     dvce_sent_tstamp:{
         description: 'When the event was sent by the client device	',
         column: 'dvce_sent_tstamp',
-        category: 'Date/time'
+        category: 'Date/time',
+        timeframes: [],
     },
     etl_tstamp: {
         description: 'Timestamp event began ETL	',
         column: 'etl_tstamp',
-        category: 'Date/time'
+        category: 'Date/time',
+        timeframes: [],
     },
     os_timezone: {
         description: 'Client operating system timezone	',

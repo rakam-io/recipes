@@ -7,7 +7,7 @@ local web_specific_dimensions = import 'dimensions/web_specific_dimensions.jsonn
   category: 'Snowplow Events',
   target: std.extVar('events'),
   mappings: {
-    eventTimestamp: 'collector_tstamp',
+    eventTimestamp: 'dvce_sent_tstamp',
   },
   measures: {
     count_all_rows: {
