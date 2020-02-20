@@ -9,16 +9,6 @@
       type: 'table',
       default: { schema: 'atomic', table: 'events' },
     },
-    /*snowplow_sessions: {
-      label: 'Snowplow DBT sessions table',
-      type: 'table',
-      default: { schema: 'atomic', table: 'snowplow_sessions' },
-    },
-    snowplow_page_views: {
-      label: 'Snowplow DBT page views table',
-      type: 'table',
-      default: { schema: 'atomic', table: 'snowplow_page_views' },
-    },*/
   },
   tags: ['website'],
 }
