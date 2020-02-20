@@ -9,6 +9,16 @@ local web_specific_dimensions = import 'dimensions/web_specific_dimensions.jsonn
   mappings: {
     eventTimestamp: 'collector_tstamp',
   },
-  measures: common_measures,
+  measures: {
+    count_all_rows: {
+      description: 'Counts All Rows',
+      reportOptions: {
+        formatNumbers: true,
+      },
+      aggregation: 'count',
+      type: 'double',
+      hidden: false,
+    },
+  },
   dimensions: common_dimensions + web_specific_dimensions,
 }
