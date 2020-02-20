@@ -1,264 +1,264 @@
 {
-    page_url: {
-        description: 'The page URL',
-        column: 'page_url',
-        category: 'Page'
-    },
-    page_urlscheme: {
-        description: 'Scheme aka protocol',
-        column: 'page_urlscheme',
-        category: 'Page'
-    },
-    page_urlhost: {
-        description: 'Host aka domain',
-        column: 'page_urlhost',
-        category: 'Page'
-    },
-    page_urlport: {
-        description: 'Port if specified, 80 if not',
-        column: 'page_urlport',
-        category: 'Page'
-    },
-    page_urlpath: {
-        description: 'Path to page',
-        column: 'page_urlpath',
-        category: 'Page'
-    },
-    page_urlquery: {
-        description: 'Querystring',
-        column: 'page_urlquery',
-        category: 'Page'
-    },
-    page_urlfragment: {
-        description: 'Fragment aka anchor',
-        column: 'page_urlfragment',
-        category: 'Page'
-    },
-    page_referrer: {
-        description: 'URL of the referrer',
-        column: 'page_referrer',
-        category: 'Page'
-    },
-    page_title: {
-        description: 'Web page title',
-        column: 'page_title',
-        category: 'Page'
-    },
-    refr_urlscheme: {
-        description: 'Referer scheme',
-        column: 'refr_urlscheme',
-        category: 'Page'
-    },
-    refr_urlhost: {
-        description: 'Referer host',
-        column: 'refr_urlhost',
-        category: 'Page'
-    },
-    refr_urlport: {
-        description: 'Referer port',
-        column: 'refr_urlport',
-        category: 'Page'
-    },
-    refr_urlpath: {
-        description: 'Referer page path',
-        column: 'refr_urlpath',
-        category: 'Page'
-    },
-    refr_urlquery: {
-        description: 'Referer URL querystring',
-        column: 'refr_urlquery',
-        category: 'Page'
-    },
-    refr_urlfragment: {
-        description: 'Referer URL fragment',
-        column: 'refr_urlfragment',
-        category: 'Page'
-    },
-    refr_medium: {
-        description: 'Type of referer',
-        column: 'refr_medium',
-        category: 'Page'
-    },
-    refr_source: {
-        description: 'Name of referer if recognised',
-        column: 'refr_source',
-        category: 'Page'
-    },
-    refr_term: {
-        description: 'Keywords if source is a search engine',
-        column: 'refr_term',
-        category: 'Page'
-    },
-    refr_domain_userid: {
-        description: 'The Snowplow domain_userid of the referring website',
-        column: 'refr_domain_userid',
-        category: 'Page'
-    },
-    refr_dvce_tstamp: {
-        description: 'The time of attaching the domain_userid to the inbound link',
-        column: 'refr_dvce_tstamp',
-        category: 'Page'
-    },
+  page_url: {
+    description: 'The page URL',
+    column: 'page_url',
+    category: 'Page',
+  },
+  page_urlscheme: {
+    description: 'Scheme aka protocol',
+    column: 'page_urlscheme',
+    category: 'Page',
+  },
+  page_urlhost: {
+    description: 'Host aka domain',
+    column: 'page_urlhost',
+    category: 'Page',
+  },
+  page_urlport: {
+    description: 'Port if specified, 80 if not',
+    column: 'page_urlport',
+    category: 'Page',
+  },
+  page_urlpath: {
+    description: 'Path to page',
+    column: 'page_urlpath',
+    category: 'Page',
+  },
+  page_urlquery: {
+    description: 'Querystring',
+    column: 'page_urlquery',
+    category: 'Page',
+  },
+  page_urlfragment: {
+    description: 'Fragment aka anchor',
+    column: 'page_urlfragment',
+    category: 'Page',
+  },
+  page_referrer: {
+    description: 'URL of the referrer',
+    column: 'page_referrer',
+    category: 'Page',
+  },
+  page_title: {
+    description: 'Web page title',
+    column: 'page_title',
+    category: 'Page',
+  },
+  refr_urlscheme: {
+    description: 'Referer scheme',
+    column: 'refr_urlscheme',
+    category: 'Page',
+  },
+  refr_urlhost: {
+    description: 'Referer host',
+    column: 'refr_urlhost',
+    category: 'Page',
+  },
+  refr_urlport: {
+    description: 'Referer port',
+    column: 'refr_urlport',
+    category: 'Page',
+  },
+  refr_urlpath: {
+    description: 'Referer page path',
+    column: 'refr_urlpath',
+    category: 'Page',
+  },
+  refr_urlquery: {
+    description: 'Referer URL querystring',
+    column: 'refr_urlquery',
+    category: 'Page',
+  },
+  refr_urlfragment: {
+    description: 'Referer URL fragment',
+    column: 'refr_urlfragment',
+    category: 'Page',
+  },
+  refr_medium: {
+    description: 'Type of referer',
+    column: 'refr_medium',
+    category: 'Page',
+  },
+  refr_source: {
+    description: 'Name of referer if recognised',
+    column: 'refr_source',
+    category: 'Page',
+  },
+  refr_term: {
+    description: 'Keywords if source is a search engine',
+    column: 'refr_term',
+    category: 'Page',
+  },
+  refr_domain_userid: {
+    description: 'The Snowplow domain_userid of the referring website',
+    column: 'refr_domain_userid',
+    category: 'Page',
+  },
+  refr_dvce_tstamp: {
+    description: 'The time of attaching the domain_userid to the inbound link',
+    column: 'refr_dvce_tstamp',
+    category: 'Page',
+  },
 
-    doc_charset: {
-        description: 'The page’s character encoding',
-        column: 'doc_charset',
-        category: 'Document'
-    },
-    doc_width: {
-        description: 'The page\'s width in pixels',
-        column: 'doc_width',
-        category: 'Document'
-    },
-    doc_height: {
-        description: 'The page\'s height in pixels',
-        column: 'doc_height',
-        category: 'Document'
-    },
-    mkt_medium: {
-        description: 'Type of traffic source',
-        column: 'mkt_medium',
-        category: 'Marketing'
-    },
-    mkt_source: {
-        description: 'The company / website where the traffic came from',
-        column: 'mkt_source',
-        category: 'Marketing'
-    },
-    mkt_term: {
-        description: 'Any keywords associated with the referrer',
-        column: 'mkt_term',
-        category: 'Marketing'
-    },
-    mkt_content: {
-        description: 'The content of the ad. (Or an ID so that it can be looked up.)',
-        column: 'mkt_content',
-        category: 'Marketing'
-    },
-    mkt_campaign: {
-        description: 'The campaign ID',
-        column: 'mkt_campaign',
-        category: 'Marketing'
-    },
-    mkt_clickid: {
-        description: 'The click ID',
-        column: 'mkt_clickid',
-        category: 'Marketing'
-    },
-    mkt_network: {
-        description: 'The ad network to which the click ID belongs',
-        column: 'mkt_network',
-        category: 'Marketing'
-    },
+  doc_charset: {
+    description: 'The page’s character encoding',
+    column: 'doc_charset',
+    category: 'Document',
+  },
+  doc_width: {
+    description: "The page's width in pixels",
+    column: 'doc_width',
+    category: 'Document',
+  },
+  doc_height: {
+    description: "The page's height in pixels",
+    column: 'doc_height',
+    category: 'Document',
+  },
+  mkt_medium: {
+    description: 'Type of traffic source',
+    column: 'mkt_medium',
+    category: 'Marketing',
+  },
+  mkt_source: {
+    description: 'The company / website where the traffic came from',
+    column: 'mkt_source',
+    category: 'Marketing',
+  },
+  mkt_term: {
+    description: 'Any keywords associated with the referrer',
+    column: 'mkt_term',
+    category: 'Marketing',
+  },
+  mkt_content: {
+    description: 'The content of the ad. (Or an ID so that it can be looked up.)',
+    column: 'mkt_content',
+    category: 'Marketing',
+  },
+  mkt_campaign: {
+    description: 'The campaign ID',
+    column: 'mkt_campaign',
+    category: 'Marketing',
+  },
+  mkt_clickid: {
+    description: 'The click ID',
+    column: 'mkt_clickid',
+    category: 'Marketing',
+  },
+  mkt_network: {
+    description: 'The ad network to which the click ID belongs',
+    column: 'mkt_network',
+    category: 'Marketing',
+  },
 
-    user_fingerprint: {
-        description: 'A user fingerprint generated by looking at the individual browser features',
-        column: 'user_fingerprint',
-        category: 'Browser'
-    },
-    connection_type: {
-        description: 'Type of internet connection',
-        column: 'connection_type',
-        category: 'Browser'
-    },
-    cookie: {
-        description: 'Does the browser support persistent cookies?',
-        column: 'cookie',
-        category: 'Browser'
-    },
-    br_name: {
-        description: 'Browser name',
-        column: 'br_name',
-        category: 'Browser'
-    },
-    br_version: {
-        description: 'Browser version',
-        column: 'br_version',
-        category: 'Browser'
-    },
-    br_family: {
-        description: 'Browser family',
-        column: 'br_family',
-        category: 'Browser'
-    },
-    br_type: {
-        description: 'Browser type',
-        column: 'br_type',
-        category: 'Browser'
-    },
-    br_renderengine: {
-        description: 'Browser rendering engine',
-        column: 'br_renderengine',
-        category: 'Browser'
-    },
-    br_lang: {
-        description: 'Language the browser is set to',
-        column: 'br_lang',
-        category: 'Browser'
-    },
-    br_features_pdf: {
-        description: 'Whether the browser recognizes PDFs',
-        column: 'br_features_pdf',
-        category: 'Browser'
-    },
-    br_features_flash: {
-        description: 'Whether Flash is installed',
-        column: 'br_features_flash',
-        category: 'Browser'
-    },
-    br_features_java: {
-        description: 'Whether Java is installed',
-        column: 'br_features_java',
-        category: 'Browser'
-    },
-    br_features_director: {
-        description: 'Whether Adobe Shockwave is installed',
-        column: 'br_features_director',
-        category: 'Browser'
-    },
-    br_features_quicktime: {
-        description: 'Whether QuickTime is installed',
-        column: 'br_features_quicktime',
-        category: 'Browser'
-    },
-    br_features_realplayer: {
-        description: 'Whether RealPlayer is installed',
-        column: 'br_features_realplayer',
-        category: 'Browser'
-    },
-    br_features_windowsmedia: {
-        description: 'Whether mplayer2 is installed',
-        column: 'br_features_windowsmedia',
-        category: 'Browser'
-    },
-    br_features_gears: {
-        description: 'Whether Google Gears is installed',
-        column: 'br_features_gears',
-        category: 'Browser'
-    },
-    br_features_silverlight: {
-        description: 'Whether Microsoft Silverlight is installed',
-        column: 'br_features_silverlight',
-        category: 'Browser'
-    },
-    br_cookies: {
-        description: 'Whether cookies are enabled',
-        column: 'br_cookies',
-        category: 'Browser'
-    },
-    br_colordepth: {
-        description: 'Bit depth of the browser color palette',
-        column: 'br_colordepth',
-        category: 'Browser'
-    },
-    br_viewheight: {
-        description: 'Viewport height',
-        column: 'br_viewheight',
-        category: 'Browser'
-    },
-    br_viewwidth: {
-        description: 'Viewport width',
-        column: 'br_viewwidth',
-        category: 'Browser'
-    },
+  user_fingerprint: {
+    description: 'A user fingerprint generated by looking at the individual browser features',
+    column: 'user_fingerprint',
+    category: 'Browser',
+  },
+  connection_type: {
+    description: 'Type of internet connection',
+    column: 'connection_type',
+    category: 'Browser',
+  },
+  cookie: {
+    description: 'Does the browser support persistent cookies?',
+    column: 'cookie',
+    category: 'Browser',
+  },
+  br_name: {
+    description: 'Browser name',
+    column: 'br_name',
+    category: 'Browser',
+  },
+  br_version: {
+    description: 'Browser version',
+    column: 'br_version',
+    category: 'Browser',
+  },
+  br_family: {
+    description: 'Browser family',
+    column: 'br_family',
+    category: 'Browser',
+  },
+  br_type: {
+    description: 'Browser type',
+    column: 'br_type',
+    category: 'Browser',
+  },
+  br_renderengine: {
+    description: 'Browser rendering engine',
+    column: 'br_renderengine',
+    category: 'Browser',
+  },
+  br_lang: {
+    description: 'Language the browser is set to',
+    column: 'br_lang',
+    category: 'Browser',
+  },
+  br_features_pdf: {
+    description: 'Whether the browser recognizes PDFs',
+    column: 'br_features_pdf',
+    category: 'Browser',
+  },
+  br_features_flash: {
+    description: 'Whether Flash is installed',
+    column: 'br_features_flash',
+    category: 'Browser',
+  },
+  br_features_java: {
+    description: 'Whether Java is installed',
+    column: 'br_features_java',
+    category: 'Browser',
+  },
+  br_features_director: {
+    description: 'Whether Adobe Shockwave is installed',
+    column: 'br_features_director',
+    category: 'Browser',
+  },
+  br_features_quicktime: {
+    description: 'Whether QuickTime is installed',
+    column: 'br_features_quicktime',
+    category: 'Browser',
+  },
+  br_features_realplayer: {
+    description: 'Whether RealPlayer is installed',
+    column: 'br_features_realplayer',
+    category: 'Browser',
+  },
+  br_features_windowsmedia: {
+    description: 'Whether mplayer2 is installed',
+    column: 'br_features_windowsmedia',
+    category: 'Browser',
+  },
+  br_features_gears: {
+    description: 'Whether Google Gears is installed',
+    column: 'br_features_gears',
+    category: 'Browser',
+  },
+  br_features_silverlight: {
+    description: 'Whether Microsoft Silverlight is installed',
+    column: 'br_features_silverlight',
+    category: 'Browser',
+  },
+  br_cookies: {
+    description: 'Whether cookies are enabled',
+    column: 'br_cookies',
+    category: 'Browser',
+  },
+  br_colordepth: {
+    description: 'Bit depth of the browser color palette',
+    column: 'br_colordepth',
+    category: 'Browser',
+  },
+  br_viewheight: {
+    description: 'Viewport height',
+    column: 'br_viewheight',
+    category: 'Browser',
+  },
+  br_viewwidth: {
+    description: 'Viewport width',
+    column: 'br_viewwidth',
+    category: 'Browser',
+  },
 }
