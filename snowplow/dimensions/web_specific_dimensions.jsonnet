@@ -261,4 +261,4 @@
         column: 'br_viewwidth',
         category: 'Browser'
     },
-},
+}

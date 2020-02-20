@@ -19,4 +19,4 @@
         column: 'pp_yoffset_max',
         category: 'Page pings'
     },
-},
+}

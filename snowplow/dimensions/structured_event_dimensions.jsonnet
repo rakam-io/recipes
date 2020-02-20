@@ -24,4 +24,4 @@
         column: 'se_value',
         category: 'Custome structured events'
     },
-},
+}
