@@ -5,7 +5,7 @@ local web_specific_dimensions = import 'dimensions/web_specific_dimensions.jsonn
   name: 'snowplow_events',
   label: '[Snowpolow] All events',
   category: 'Snowplow Events',
-  target: std.mergePatch(std.extVar('schema'), { table: 'events' }),
+  target: std.extVar('events'),
   mappings: {
     eventTimestamp: 'collector_tstamp',
   },
