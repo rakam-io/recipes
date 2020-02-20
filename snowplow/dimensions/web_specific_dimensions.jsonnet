@@ -156,7 +156,7 @@
     column: 'user_fingerprint',
     category: 'Browser',
   },
-  connection_type: {
+  /*connection_type: {
     description: 'Type of internet connection',
     column: 'connection_type',
     category: 'Browser',
@@ -165,7 +165,7 @@
     description: 'Does the browser support persistent cookies?',
     column: 'cookie',
     category: 'Browser',
-  },
+  },*/
   br_name: {
     description: 'Browser name',
     column: 'br_name',
