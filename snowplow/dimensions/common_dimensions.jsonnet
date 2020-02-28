@@ -48,7 +48,7 @@
     ],
   },
   dvce_sent_tstamp: {
-    description: 'When the event was sent by the client device\t',
+    description: 'When the event was sent by the client device',
     column: 'dvce_sent_tstamp',
     category: 'Date/time',
     type: 'timestamp',
@@ -67,7 +67,7 @@
     ],
   },
   etl_tstamp: {
-    description: 'Timestamp event began ETL\t',
+    description: 'Timestamp event began ETL',
     column: 'etl_tstamp',
     category: 'Date/time',
     type: 'timestamp',
@@ -86,38 +86,38 @@
     ],
   },
   os_timezone: {
-    description: 'Client operating system timezone\t',
+    description: 'Client operating system timezone',
     column: 'os_timezone',
     category: 'Date/time',
   },
   derived_tstamp: {
-    description: 'Timestamp making allowance for innaccurate device clock\t',
+    description: 'Timestamp making allowance for innaccurate device clock',
     column: 'derived_tstamp',
     category: 'Date/time',
   },
   true_tstamp: {
-    description: 'User-set "true timestamp" for the event\t',
+    description: 'User-set "true timestamp" for the event',
     column: 'true_tstamp',
     category: 'Date/time',
   },
 
   event: {
-    description: 'The type of event recorded\t',
+    description: 'The type of event recorded',
     column: 'event',
     category: 'Event/transaction',
   },
   event_id: {
-    description: 'A UUID for each event\t',
+    description: 'A UUID for each event',
     column: 'event_id',
     category: 'Event/transaction',
   },
   txn_id: {
-    description: 'Transaction ID set client-side, used to de-dupe records\t',
+    description: 'Transaction ID set client-side, used to de-dupe records',
     column: 'txn_id',
     category: 'Event/transaction',
   },
   event_fingerprint: {
-    description: 'Hash client-set event fields\t',
+    description: 'Hash client-set event fields',
     column: 'event_fingerprint',
     category: 'Event/transaction',
   },

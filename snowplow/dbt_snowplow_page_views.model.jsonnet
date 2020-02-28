@@ -1,552 +1,486 @@
-{
+if std.extVar('dbt_snowplow_page_views') == null then null else {
   name: 'snowplow_page_views',
-  target: std.extVar('snowplow_page_views'),
+  target: std.extVar('dbt_snowplow_page_views'),
   mappings: {},
+  category: 'Snowplow Pageview',
+  label: 'Pageviews',
   measures: {
-    all_rows: {
-      aggregation: 'count'
+    all_events: {
+      aggregation: 'count',
     },
   },
   dimensions: {
+    /* App */
     app_cache_time_in_ms: {
-      label: '',
       column: 'app_cache_time_in_ms',
-      category: ''
+      category: 'App',
     },
     app_id: {
-      label: '',
       column: 'app_id',
-      category: ''
+      category: 'App',
     },
+
+    /* Browser */
     browser: {
-      label: '',
       column: 'browser',
-      category: ''
+      category: 'Browser',
     },
     browser_build_version: {
-      label: '',
       column: 'browser_build_version',
-      category: ''
+      category: 'Browser',
     },
     browser_engine: {
-      label: '',
       column: 'browser_engine',
-      category: ''
+      category: 'Browser',
     },
     browser_language: {
-      label: '',
       column: 'browser_language',
-      category: ''
+      category: 'Browser',
     },
     browser_major_version: {
-      label: '',
       column: 'browser_major_version',
-      category: ''
+      category: 'Browser',
     },
     browser_minor_version: {
-      label: '',
       column: 'browser_minor_version',
-      category: ''
+      category: 'Browser',
     },
     browser_name: {
-      label: '',
       column: 'browser_name',
-      category: ''
+      category: 'Browser',
     },
     browser_window_height: {
-      label: '',
       column: 'browser_window_height',
-      category: ''
+      category: 'Browser',
     },
     browser_window_width: {
-      label: '',
       column: 'browser_window_width',
-      category: ''
+      category: 'Browser',
     },
+
+    /* Device */
     device: {
-      label: '',
       column: 'device',
-      category: ''
+      category: 'Device',
     },
     device_is_mobile: {
-      label: '',
       column: 'device_is_mobile',
-      category: ''
+      category: 'Device',
     },
     device_type: {
-      label: '',
       column: 'device_type',
-      category: ''
+      category: 'Device',
     },
+
+    /* Load Time */
     dns_time_in_ms: {
-      label: '',
       column: 'dns_time_in_ms',
-      category: ''
+      category: 'Load Time',
     },
     dom_interactive_to_complete_time_in_ms: {
-      label: '',
       column: 'dom_interactive_to_complete_time_in_ms',
-      category: ''
+      category: 'Load Time',
     },
     dom_loading_to_interactive_time_in_ms: {
-      label: '',
       column: 'dom_loading_to_interactive_time_in_ms',
-      category: ''
+      category: 'Load Time',
     },
     onload_time_in_ms: {
-      label: '',
       column: 'onload_time_in_ms',
-      category: ''
+      category: 'Load Time',
     },
     processing_time_in_ms: {
-      label: '',
       column: 'processing_time_in_ms',
-      category: ''
+      category: 'Load Time',
     },
     redirect_time_in_ms: {
-      label: '',
       column: 'redirect_time_in_ms',
-      category: ''
+      category: 'Load Time',
     },
     tcp_time_in_ms: {
-      label: '',
       column: 'tcp_time_in_ms',
-      category: ''
+      category: 'Load Time',
     },
     time_engaged_in_s: {
-      label: '',
       column: 'time_engaged_in_s',
-      category: ''
+      category: 'Load Time',
     },
     time_engaged_in_s_tier: {
-      label: '',
       column: 'time_engaged_in_s_tier',
-      category: ''
+      category: 'Load Time',
     },
     total_time_in_ms: {
-      label: '',
       column: 'total_time_in_ms',
-      category: ''
+      category: 'Load Time',
     },
     unload_time_in_ms: {
-      label: '',
       column: 'unload_time_in_ms',
-      category: ''
+      category: 'Load Time',
     },
+
+    /* GEO */
+
     geo_city: {
-      label: '',
       column: 'geo_city',
-      category: ''
+      category: 'Geo',
     },
     geo_country: {
-      label: '',
       column: 'geo_country',
-      category: ''
+      category: 'Geo',
     },
     geo_latitude: {
-      label: '',
       column: 'geo_latitude',
-      category: ''
+      category: 'Geo',
     },
     geo_longitude: {
-      label: '',
       column: 'geo_longitude',
-      category: ''
+      category: 'Geo',
     },
     geo_region: {
-      label: '',
       column: 'geo_region',
-      category: ''
+      category: 'Geo',
     },
     geo_region_name: {
-      label: '',
       column: 'geo_region_name',
-      category: ''
+      category: 'Geo',
     },
     geo_timezone: {
-      label: '',
       column: 'geo_timezone',
-      category: ''
+      category: 'Geo',
     },
     geo_zipcode: {
-      label: '',
       column: 'geo_zipcode',
-      category: ''
+      category: 'Geo',
     },
+    // geo_location: {
+    //   type: 'location',
+    //   category: 'Geo',
+    //   column: {
+    //     latitude: 'geo_latitude',
+    //     longitude: 'geo_longitude',
+    //   },
+    // },
+
+    /* Scrolling */
     horizontal_percentage_scrolled: {
-      label: '',
       column: 'horizontal_percentage_scrolled',
-      category: ''
+      category: 'Scrolling',
     },
     horizontal_pixels_scrolled: {
-      label: '',
       column: 'horizontal_pixels_scrolled',
-      category: ''
+      category: 'Scrolling',
     },
     vertical_percentage_scrolled: {
-      label: '',
       column: 'vertical_percentage_scrolled',
-      category: ''
+      category: 'Scrolling',
     },
     vertical_percentage_scrolled_tier: {
-      label: '',
       column: 'vertical_percentage_scrolled_tier',
-      category: ''
+      category: 'Scrolling',
     },
     vertical_pixels_scrolled: {
-      label: '',
       column: 'vertical_pixels_scrolled',
-      category: ''
+      category: 'Scrolling',
     },
-    ip_address: {
-      label: '',
+
+    /* IP */
+    address: {
       column: 'ip_address',
-      category: ''
+      category: 'IP',
     },
     ip_domain: {
-      label: '',
       column: 'ip_domain',
-      category: ''
+      category: 'IP',
     },
     ip_isp: {
-      label: '',
       column: 'ip_isp',
-      category: ''
+      category: 'IP',
     },
     ip_net_speed: {
-      label: '',
       column: 'ip_net_speed',
-      category: ''
+      category: 'IP',
     },
     ip_organization: {
-      label: '',
       column: 'ip_organization',
-      category: ''
+      category: 'IP',
     },
+
+    /* Marketing */
     marketing_campaign: {
-      label: '',
       column: 'marketing_campaign',
-      category: ''
+      category: 'Marketing',
     },
     marketing_click_id: {
-      label: '',
       column: 'marketing_click_id',
-      category: ''
+      category: 'Marketing',
     },
     marketing_content: {
-      label: '',
       column: 'marketing_content',
-      category: ''
+      category: 'Marketing',
     },
     marketing_medium: {
-      label: '',
       column: 'marketing_medium',
-      category: ''
+      category: 'Marketing',
     },
     marketing_network: {
-      label: '',
       column: 'marketing_network',
-      category: ''
+      category: 'Marketing',
     },
     marketing_source: {
-      label: '',
       column: 'marketing_source',
-      category: ''
+      category: 'Marketing',
     },
     marketing_term: {
-      label: '',
       column: 'marketing_term',
-      category: ''
+      category: 'Marketing',
     },
+
+    /* Timestamps */
     max_tstamp: {
-      label: '',
       column: 'max_tstamp',
-      category: ''
+      category: 'Timestamps',
     },
     min_tstamp: {
-      label: '',
       column: 'min_tstamp',
-      category: ''
+      category: 'Timestamps',
     },
+
+    /* OS */
     os: {
-      label: '',
       column: 'os',
-      category: ''
+      category: 'OS',
     },
     os_build_version: {
-      label: '',
       column: 'os_build_version',
-      category: ''
+      category: 'OS',
     },
     os_major_version: {
-      label: '',
       column: 'os_major_version',
-      category: ''
+      category: 'OS',
     },
     os_manufacturer: {
-      label: '',
       column: 'os_manufacturer',
-      category: ''
+      category: 'OS',
     },
     os_minor_version: {
-      label: '',
       column: 'os_minor_version',
-      category: ''
+      category: 'OS',
     },
     os_name: {
-      label: '',
       column: 'os_name',
-      category: ''
+      category: 'OS',
     },
     os_timezone: {
-      label: '',
       column: 'os_timezone',
-      category: ''
+      category: 'OS',
     },
+
+    /* Page */
     page_height: {
-      label: '',
       column: 'page_height',
-      category: ''
+      category: 'Page',
     },
     page_width: {
-      label: '',
       column: 'page_width',
-      category: ''
+      category: 'Page',
     },
     page_title: {
-      label: '',
       column: 'page_title',
-      category: ''
+      category: 'Page',
     },
     page_url: {
-      label: '',
       column: 'page_url',
-      category: ''
+      category: 'Page',
     },
     page_url_fragment: {
-      label: '',
       column: 'page_url_fragment',
-      category: ''
+      category: 'Page',
     },
     page_url_host: {
-      label: '',
       column: 'page_url_host',
-      category: ''
+      category: 'Page',
     },
     page_url_path: {
-      label: '',
       column: 'page_url_path',
-      category: ''
+      category: 'Page',
     },
     page_url_port: {
-      label: '',
       column: 'page_url_port',
-      category: ''
+      category: 'Page',
     },
     page_url_query: {
-      label: '',
       column: 'page_url_query',
-      category: ''
+      category: 'Page',
     },
     page_url_scheme: {
-      label: '',
       column: 'page_url_scheme',
-      category: ''
+      category: 'Page',
     },
-    /*page_view_date: {
-      label: '',
+
+    /* Page View */
+    page_view_date: {
       column: 'page_view_date',
-      category: ''
-    },*/
+      category: 'Page View',
+    },
     page_view_end: {
-      label: '',
       column: 'page_view_end',
-      category: ''
+      category: 'Page View',
     },
     page_view_end_local: {
-      label: '',
       column: 'page_view_end_local',
-      category: ''
+      category: 'Page View',
     },
-    /*page_view_hour: {
-      label: '',
+    page_view_hour: {
       column: 'page_view_hour',
-      category: ''
-    },*/
+      category: 'Page View',
+    },
     page_view_id: {
-      label: '',
       column: 'page_view_id',
-      category: ''
+      category: 'Page View',
     },
     page_view_in_session_index: {
-      label: '',
       column: 'page_view_in_session_index',
-      category: ''
+      category: 'Page View',
     },
     page_view_index: {
-      label: '',
       column: 'page_view_index',
-      category: ''
+      category: 'Page View',
     },
     /*page_view_local_day_of_week: {
-      label: '',
-      column: 'page_view_local_day_of_week',
-      category: ''
+            column: 'page_view_local_day_of_week',
+      category: 'Page View',
     },
     page_view_local_day_of_week_index: {
-      label: '',
-      column: 'page_view_local_day_of_week_index',
-      category: ''
+            column: 'page_view_local_day_of_week_index',
+      category: 'Page View',
     },
     page_view_local_hour_of_day: {
-      label: '',
-      column: 'page_view_local_hour_of_day',
-      category: ''
+            column: 'page_view_local_hour_of_day',
+      category: 'Page View',
     },*/
     /*page_view_local_time: {
-      label: '',
-      column: 'page_view_local_time',
-      category: ''
+            column: 'page_view_local_time',
+      category: 'Page View',
     },
     page_view_local_time_of_day: {
-      label: '',
-      column: 'page_view_local_time_of_day',
-      category: ''
+            column: 'page_view_local_time_of_day',
+      category: 'Page View',
     },
     page_view_minute: {
-      label: '',
-      column: 'page_view_minute',
-      category: ''
+            column: 'page_view_minute',
+      category: 'Page View',
     },
     page_view_month: {
-      label: '',
-      column: 'page_view_month',
-      category: ''
+            column: 'page_view_month',
+      category: 'Page View',
     },
     page_view_quarter: {
-      label: '',
-      column: 'page_view_quarter',
-      category: ''
+            column: 'page_view_quarter',
+      category: 'Page View',
     },*/
     page_view_start: {
-      label: '',
       column: 'page_view_start',
-      category: ''
+      category: 'Page View',
     },
     page_view_start_local: {
-      label: '',
       column: 'page_view_start_local',
-      category: ''
+      category: 'Page View',
     },
     /*page_view_time: {
-      label: '',
-      column: 'page_view_time',
-      category: ''
+            column: 'page_view_time',
+      category: 'Page View',
     },
     page_view_week: {
-      label: '',
-      column: 'page_view_week',
-      category: ''
+            column: 'page_view_week',
+      category: 'Page View',
     },
     page_view_year: {
-      label: '',
-      column: 'page_view_year',
-      category: ''
+            column: 'page_view_year',
+      category: 'Page View',
     },*/
+
+    /* Referrer */
     referer_medium: {
-      label: '',
       column: 'referer_medium',
-      category: ''
+      category: 'Referer',
     },
     referer_source: {
-      label: '',
       column: 'referer_source',
-      category: ''
+      category: 'Referer',
     },
     referer_term: {
-      label: '',
       column: 'referer_term',
-      category: ''
+      category: 'Referer',
     },
     referer_url: {
-      label: '',
       column: 'referer_url',
-      category: ''
+      category: 'Referer',
     },
     referer_url_fragment: {
-      label: '',
       column: 'referer_url_fragment',
-      category: ''
+      category: 'Referer',
     },
     referer_url_host: {
-      label: '',
       column: 'referer_url_host',
-      category: ''
+      category: 'Referer',
     },
     referer_url_path: {
-      label: '',
       column: 'referer_url_path',
-      category: ''
+      category: 'Referer',
     },
     referer_url_port: {
-      label: '',
       column: 'referer_url_port',
-      category: ''
+      category: 'Referer',
     },
     referer_url_query: {
-      label: '',
       column: 'referer_url_query',
-      category: ''
+      category: 'Referer',
     },
     referer_url_scheme: {
-      label: '',
       column: 'referer_url_scheme',
-      category: ''
+      category: 'Referer',
     },
+
+    /* Performance */
     request_time_in_ms: {
-      label: '',
       column: 'request_time_in_ms',
-      category: ''
+      category: 'Performance',
     },
     response_time_in_ms: {
-      label: '',
       column: 'response_time_in_ms',
-      category: ''
+      category: 'Performance',
     },
+
+    /* Session */
     session_id: {
-      label: '',
       column: 'session_id',
-      category: ''
+      category: 'Session',
     },
     session_index: {
-      label: '',
       column: 'session_index',
-      category: ''
+      category: 'Session',
     },
-    /*user_bounced: {
-      label: '',
+
+    /* User */
+    user_bounced: {
       column: 'user_bounced',
-      category: ''
-    },*/
+      category: 'User',
+    },
     user_custom_id: {
-      label: '',
       column: 'user_custom_id',
-      category: ''
+      category: 'User',
     },
     user_engaged: {
-      label: '',
       column: 'user_engaged',
-      category: ''
+      category: 'User',
     },
     user_snowplow_crossdomain_id: {
-      label: '',
       column: 'user_snowplow_crossdomain_id',
-      category: ''
+      category: 'User',
     },
     user_snowplow_domain_id: {
-      label: '',
       column: 'user_snowplow_domain_id',
-      category: ''
+      category: 'User',
     },
   },
 }
