@@ -14,12 +14,13 @@ if installRevenue then [
     label: 'In-app Purchase Distribution',
     name: 'firebase_event_in_app_purchase_distribution',
     sql: |||
-      SELECT *
+      SELECT *,
+      ROW_NUMBER() OVER(PARTITION BY events.user_id ORDER BY events.event_timestamp ASC) as purchase_number,
       %(user_jinja)s
       %(event_jinja)s
-      %(event_jinja)s,
+      %(event_jinja)s
       FROM (
-        SELECT *, ROW_NUMBER() OVER(PARTITION BY events.user_id ORDER BY events.event_timestamp ASC) as purchase_number FROM `%(project)s`.`%(dataset)s`.`events_*`
+        SELECT * FROM `%(project)s`.`%(dataset)s`.`events_*`
         {%% if partitioned %%} WHERE event_name = '%(event)s' AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
       ) events
     ||| % {
