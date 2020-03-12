@@ -24,7 +24,7 @@ std.map(function(event_type)
     |||
       UNION ALL
       SELECT * FROM `%(project)s`.`%(dataset)s`.`events_intraday_*`
-      {%% if partitioned %%} WHERE event_name = '%(event)s' AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
+      WHERE event_name = '%(event)s' {%% if partitioned %%}  AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
     ||| % {
       project: target.database,
       dataset: target.schema,

@@ -21,7 +21,7 @@ if installRevenue then [
       %(event_jinja)s
       FROM (
         SELECT * FROM `%(project)s`.`%(dataset)s`.`events_*`
-        {%% if partitioned %%} WHERE event_name = '%(event)s' AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
+        WHERE event_name = '%(event)s' {%% if partitioned %%} AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
       ) events
     ||| % {
       user_jinja: std.join('\n', common.generate_jinja_for_user_properties(user_props)),
