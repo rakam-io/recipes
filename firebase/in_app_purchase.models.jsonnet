@@ -16,7 +16,7 @@ if installRevenue then [
     sql: |||
       SELECT *,
       ROW_NUMBER() OVER(PARTITION BY events.user_id ORDER BY events.event_timestamp ASC) as purchase_number,
-      COUNT() over (partition by events.user_id) as user_total_transactions
+      COUNT(*) over (partition by events.user_id) as user_total_transactions
       %(user_jinja)s
       %(event_jinja)s
       %(event_jinja)s
