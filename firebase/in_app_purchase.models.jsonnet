@@ -14,8 +14,22 @@ if installRevenue then [
     label: 'In-app Purchase Distribution',
     name: 'firebase_event_in_app_purchase_distribution',
     sql: |||
-      {{model.firebase_event_in_app_purchase}}
-    |||,
+      SELECT *
+      %(user_jinja)s
+      %(event_jinja)s
+      %(event_jinja)s,
+      ROW_NUMBER() OVER(PARTITION BY {{TABLE}}.user_id ORDER BY {{TABLE}}.event_timestamp ASC) as purchase_number
+      FROM (
+        SELECT * FROM `%(project)s`.`%(dataset)s`.`events_*`
+        {%% if partitioned %%} WHERE event_name = '%(event)s' AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
+      ) events
+    ||| % {
+      user_jinja: std.join('\n', common.generate_jinja_for_user_properties(user_props)),
+      event_jinja: std.join('\n', common.generate_jinja_for_event_properties(current_event_props)),
+      project: target.database,
+      dataset: target.schema,
+      event: 'in_app_purchase',
+    },
     measures: common.measures + predefined.in_app_purchase.measures,
     dimensions: {
       purchase_number: {

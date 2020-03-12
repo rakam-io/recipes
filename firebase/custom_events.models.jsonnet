@@ -41,6 +41,7 @@ std.map(function(event_type)
       SELECT *
       %(user_jinja)s
       %(event_jinja)s
+      %(event_jinja)s
       FROM (
         SELECT * FROM `%(project)s`.`%(dataset)s`.`events_*`
         {%% if partitioned %%} WHERE event_name = '%(event)s' AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
