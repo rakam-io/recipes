@@ -14,7 +14,7 @@ if installRevenue then [
     label: 'In-app Purchase Distribution',
     name: 'firebase_event_in_app_purchase_distribution',
     sql: |||
-      select * from {{model.firebase_event_in_app_purchase}}
+      {{model.firebase_event_in_app_purchase}}
     |||,
     measures: common.measures + predefined.in_app_purchase.measures,
     dimensions: {
