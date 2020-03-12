@@ -18,7 +18,7 @@ if installRevenue then [
       %(user_jinja)s
       %(event_jinja)s
       %(event_jinja)s,
-      ROW_NUMBER() OVER(PARTITION BY {{TABLE}}.user_id ORDER BY {{TABLE}}.event_timestamp ASC) as purchase_number
+      ROW_NUMBER() OVER(PARTITION BY events.user_id ORDER BY events.event_timestamp ASC) as purchase_number
       FROM (
         SELECT * FROM `%(project)s`.`%(dataset)s`.`events_*`
         {%% if partitioned %%} WHERE event_name = '%(event)s' AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
