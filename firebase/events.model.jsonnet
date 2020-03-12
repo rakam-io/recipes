@@ -25,7 +25,7 @@ local intraday_query = if std.extVar('intradayAnalytics') == true then
 {
   name: 'firebase_events',
   label: '[Firebase] All events',
-  category1: 'Firebase Events',
+  category: 'Firebase Events',
   measures: common_measures,
   mappings: common.mappings,
   relations: common.relations,
