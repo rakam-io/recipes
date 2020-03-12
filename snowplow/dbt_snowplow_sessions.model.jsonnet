@@ -47,6 +47,7 @@ if std.extVar('dbt_snowplow_sessions') == null then null else {
     },
   },
   dimensions: {
+    /* Session identifying information */
     session_id: {
       column: 'session_id',
       category: '',
@@ -59,6 +60,8 @@ if std.extVar('dbt_snowplow_sessions') == null then null else {
       column: 'app_id',
       category: '',
     },
+
+    /* User identifying information */
     inferred_user_id: {
       column: 'inferred_user_id',
       category: '',
@@ -76,6 +79,9 @@ if std.extVar('dbt_snowplow_sessions') == null then null else {
       column: 'user_snowplow_crossdomain_id',
       category: '',
     },
+
+    /* Timestamps */
+
     session_end: {
       column: 'session_end',
       category: '',
@@ -92,6 +98,8 @@ if std.extVar('dbt_snowplow_sessions') == null then null else {
       column: 'session_start_local',
       category: '',
     },
+
+    /* First Page */
     first_page_title: {
       column: 'first_page_title',
       category: '',
@@ -124,6 +132,8 @@ if std.extVar('dbt_snowplow_sessions') == null then null else {
       column: 'first_page_url_scheme',
       category: '',
     },
+
+    /* Geo */
     geo_city: {
       column: 'geo_city',
       category: '',
@@ -160,6 +170,8 @@ if std.extVar('dbt_snowplow_sessions') == null then null else {
                 column: 'geo_latlong',
         category: ''
     },*/
+
+    /* Marketing */
     marketing_campaign: {
       column: 'marketing_campaign',
       category: '',
@@ -188,6 +200,8 @@ if std.extVar('dbt_snowplow_sessions') == null then null else {
       column: 'marketing_term',
       category: '',
     },
+
+    /* Referer */
     referer_medium: {
       column: 'referer_medium',
       category: '',
@@ -228,6 +242,8 @@ if std.extVar('dbt_snowplow_sessions') == null then null else {
       column: 'referer_url_scheme',
       category: '',
     },
+
+    /* Browser */
     browser: {
       column: 'browser',
       category: '',
@@ -272,6 +288,8 @@ if std.extVar('dbt_snowplow_sessions') == null then null else {
                 column: 'engaged_page_views',
         category: ''
     },*/
+
+    /* OS */
     os: {
       column: 'os',
       category: '',
@@ -300,6 +318,8 @@ if std.extVar('dbt_snowplow_sessions') == null then null else {
       column: 'os_timezone',
       category: '',
     },
+
+    /* IP */
     ip_address: {
       column: 'ip_address',
       category: '',

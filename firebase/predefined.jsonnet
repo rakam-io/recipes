@@ -210,5 +210,10 @@
         reportOptions: { formatNumbers: '0.0%' },
       },
     },
+    dimensions: {
+      purchase_count: {
+        sql: 'ROW_NUMBER() OVER(PARTITION BY {{TABLE}}.user_id ORDER BY {{TABLE}}.event_timestamp ASC)',
+      },
+    },
   },
 }
