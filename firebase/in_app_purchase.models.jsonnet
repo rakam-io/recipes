@@ -30,9 +30,12 @@ if installRevenue then [
       dataset: target.schema,
       event: 'in_app_purchase',
     },
-    measures: common.measures + predefined.in_app_purchase.measures,
+    measures: {
+
+    } + common.measures + predefined.in_app_purchase.measures,
     dimensions: {
       purchase_number: {
+        type: 'integer',
         column: 'purchase_number',
       },
     } + common.dimensions + predefined.in_app_purchase.dimensions + common.generate_user_dimensions(user_props) + common.generate_event_dimensions(current_event_props),
