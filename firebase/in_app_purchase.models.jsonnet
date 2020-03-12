@@ -43,6 +43,6 @@ if installRevenue then [
         type: 'integer',
         column: 'user_total_transactions',
       },
-    } + common.dimensions + predefined.in_app_purchase.dimensions + common.generate_user_dimensions(user_props) + common.generate_event_dimensions(current_event_props),
+    } + common.dimensions + common.generate_user_dimensions(user_props) + common.generate_event_dimensions(current_event_props),
   },
 ] else []
