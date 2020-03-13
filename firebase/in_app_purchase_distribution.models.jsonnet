@@ -4,7 +4,7 @@ local predefined = import 'predefined.jsonnet';
 
 local user_props = common.get_user_properties();
 local current_event_props = std.filter(function(p) p.event_name == 'in_app_purchase', common.get_event_properties());
-
+local target = std.extVar('schema');
 
 if installRevenue then [
   {
@@ -15,8 +15,15 @@ if installRevenue then [
       SELECT *,
       ROW_NUMBER() OVER(PARTITION BY events.user_id ORDER BY events.event_timestamp ASC) as purchase_number,
       COUNT(*) over (partition by events.user_id) as user_total_transactions
-      FROM {{model.firebase_event_in_app_purchase}} as events
-    |||,
+      FROM (
+        SELECT * FROM `%(project)s`.`%(dataset)s`.`events_*`
+        WHERE event_name = '%(event)s' {%% if partitioned %%} AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
+      ) events
+    ||| % {
+      project: target.database,
+      dataset: target.schema,
+      event: 'in_app_purchase',
+    },
     measures: {
 
     } + common.measures + predefined.in_app_purchase.measures,
