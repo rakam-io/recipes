@@ -13,6 +13,7 @@ if installRevenue then [
   {
     label: 'In-app Purchase Distribution',
     name: 'firebase_event_in_app_purchase_distribution',
+    mappings: common.mappings,
     sql: |||
       SELECT *,
       ROW_NUMBER() OVER(PARTITION BY events.user_id ORDER BY events.event_timestamp ASC) as purchase_number,
