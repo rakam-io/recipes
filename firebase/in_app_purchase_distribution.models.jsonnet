@@ -10,6 +10,7 @@ if installRevenue then [
   {
     label: 'In-app Purchase Distribution',
     name: 'firebase_event_in_app_purchase_distribution',
+    category: 'Sales',
     mappings: common.mappings,
     sql: |||
       SELECT *,
