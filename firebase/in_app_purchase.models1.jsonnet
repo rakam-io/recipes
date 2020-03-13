@@ -1,12 +1,9 @@
 local common = import 'common.libsonnet';
 local installRevenue = std.extVar('installRevenue');
-local target = std.extVar('schema');
 local predefined = import 'predefined.jsonnet';
 
 local user_props = common.get_user_properties();
-
-local all_event_props = common.get_event_properties();
-local current_event_props = std.filter(function(p) p.event_name == 'in_app_purchase', all_event_props);
+local current_event_props = std.filter(function(p) p.event_name == 'in_app_purchase', common.get_event_properties());
 
 
 if installRevenue then [
@@ -19,13 +16,7 @@ if installRevenue then [
       ROW_NUMBER() OVER(PARTITION BY events.user_id ORDER BY events.event_timestamp ASC) as purchase_number,
       COUNT(*) over (partition by events.user_id) as user_total_transactions
       FROM {{model.firebase_event_in_app_purchase}} as events
-    ||| % {
-      user_jinja: std.join('\n', common.generate_jinja_for_user_properties(user_props)),
-      event_jinja: std.join('\n', common.generate_jinja_for_event_properties(current_event_props)),
-      project: target.database,
-      dataset: target.schema,
-      event: 'in_app_purchase',
-    },
+    |||,
     measures: {
 
     } + common.measures + predefined.in_app_purchase.measures,

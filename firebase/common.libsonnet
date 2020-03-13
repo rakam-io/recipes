@@ -5,7 +5,7 @@ local predefined = import 'predefined.jsonnet';
     std.foldl(function(a, b) a + b, std.map(function(attr) {
       ['user__' + attr.name]: {
         category: 'User Attribute',
-        sql: "(SELECT value.%(value_type)s FROM UNNEST({{TABLE}}.user_properties) WHERE key = '%(prop_db)s'" % attr,
+        sql: "(SELECT value.%(value_type)s FROM UNNEST({{TABLE}}.user_properties) WHERE key = '%(prop_db)s')" % attr,
         type: attr.type,
       },
     }, user_props), {}),
@@ -13,7 +13,7 @@ local predefined = import 'predefined.jsonnet';
     std.foldl(function(a, b) a + b, std.map(function(attr) {
       ['event__' + attr.name]: {
         category: 'Event Attribute',
-        sql: "(SELECT value.%(value_type)s FROM UNNEST({{TABLE}}.event_params) WHERE key = '%(prop_db)s'" % attr,
+        sql: "(SELECT value.%(value_type)s FROM UNNEST({{TABLE}}.event_params) WHERE key = '%(prop_db)s')" % attr,
         type: attr.type,
       },
     }, event_props), {}),

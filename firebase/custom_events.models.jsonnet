@@ -32,8 +32,6 @@ std.map(function(event_type)
       {%% if partitioned %%} WHERE event_name = '%(event)s' AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
       %(intraday_query)s
     ||| % {
-      user_jinja: std.join('\n', common.generate_jinja_for_user_properties(user_props)),
-      event_jinja: std.join('\n', common.generate_jinja_for_event_properties(current_event_props)),
       project: target.database,
       dataset: target.schema,
       event: event_db_name,
