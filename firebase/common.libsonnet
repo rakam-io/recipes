@@ -5,7 +5,7 @@ local predefined = import 'predefined.jsonnet';
     std.foldl(function(a, b) a + b, std.map(function(attr) {
       ['user__' + attr.name]: {
         category: 'User Attribute',
-        sql: '{{TABLE}}.`user__' + attr.name + '`',
+        sql: "(SELECT value.%(value_type)s FROM UNNEST({{TABLE}}.user_properties) WHERE key = '%(prop_db)s'" % attr,
         type: attr.type,
       },
     }, user_props), {}),
@@ -13,24 +13,10 @@ local predefined = import 'predefined.jsonnet';
     std.foldl(function(a, b) a + b, std.map(function(attr) {
       ['event__' + attr.name]: {
         category: 'Event Attribute',
-        sql: '{{TABLE}}.`event__' + attr.name + '`',
+        sql: "(SELECT value.%(value_type)s FROM UNNEST({{TABLE}}.event_params) WHERE key = '%(prop_db)s'" % attr,
         type: attr.type,
       },
     }, event_props), {}),
-  generate_jinja_for_user_properties(user_props)::
-    std.map(function(prop)
-      |||
-        {%% if in_query.user__%(name)s %%}
-          , (SELECT value.%(value_type)s FROM UNNEST(user_properties) WHERE key = '%(prop_db)s') as user__%(name)s
-        {%% endif %%}
-      ||| % prop, user_props),
-  generate_jinja_for_event_properties(event_props)::
-    std.map(function(prop)
-      |||
-        {%% if in_query.event__%(name)s %%}
-          , (SELECT value.%(value_type)s FROM UNNEST(event_params) WHERE key = '%(prop_db)s') as event__%(name)s
-        {%% endif %%}
-      ||| % prop, event_props),
   get_user_properties()::
     if std.extVar('user_properties') != null then std.extVar('user_properties') else
       [

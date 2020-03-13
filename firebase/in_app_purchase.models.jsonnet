@@ -18,13 +18,7 @@ if installRevenue then [
       SELECT *,
       ROW_NUMBER() OVER(PARTITION BY events.user_id ORDER BY events.event_timestamp ASC) as purchase_number,
       COUNT(*) over (partition by events.user_id) as user_total_transactions
-      %(user_jinja)s
-      %(event_jinja)s
-      %(event_jinja)s
-      FROM (
-        SELECT * FROM `%(project)s`.`%(dataset)s`.`events_*`
-        WHERE event_name = '%(event)s' {%% if partitioned %%} AND _TABLE_SUFFIX BETWEEN FORMAT_DATE("%%Y%%m%%d", DATE '{{date.start}}') and FORMAT_DATE("%%Y%%m%%d", DATE '{{date.end}}') {%% endif %%}
-      ) events
+      FROM {{model.firebase_event_in_app_purchase}} as events
     ||| % {
       user_jinja: std.join('\n', common.generate_jinja_for_user_properties(user_props)),
       event_jinja: std.join('\n', common.generate_jinja_for_event_properties(current_event_props)),
