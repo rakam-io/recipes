@@ -30,7 +30,7 @@ if std.extVar('pages_target') != null then [{
       targetColumn: 'id',
     },
   } + if std.extVar('session_model_target') != null then { session: {
-    relationType: 'oneToMany',
+    relationType: 'oneToOne',
     joinType: 'leftJoin',
     modelName: 'segment_rakam_pageview_sessions',
     sourceColumn: 'anonymous_id',
