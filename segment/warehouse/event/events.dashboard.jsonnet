@@ -23,11 +23,11 @@
       component: 'r-segmentation-table',
       type: 1,
       reportOptions: {
-        modelName: 'tracks',
+        modelName: 'segment_events',
         dimensions: [
           {
             name: 'event_text',
-            modelName: 'tracks',
+            modelName: 'segment_events',
             relationName: null,
             postOperation: null,
           },
@@ -35,7 +35,7 @@
         measures: [
           {
             name: 'context_app_version',
-            modelName: 'tracks',
+            modelName: 'segment_events',
             relationName: null,
           },
         ],
@@ -64,11 +64,11 @@
       component: 'r-segmentation-chart',
       type: 1,
       reportOptions: {
-        modelName: 'tracks',
+        modelName: 'segment_events',
         dimensions: [
           {
             name: 'event_text',
-            modelName: 'tracks',
+            modelName: 'segment_events',
             relationName: null,
             postOperation: null,
           },
@@ -76,7 +76,7 @@
         measures: [
           {
             name: 'total_events',
-            modelName: 'tracks',
+            modelName: 'segment_events',
             relationName: null,
           },
         ],
@@ -106,11 +106,11 @@
       component: 'r-segmentation-chart',
       type: 1,
       reportOptions: {
-        modelName: 'tracks',
+        modelName: 'segment_events',
         dimensions: [
           {
             name: 'event_text',
-            modelName: 'tracks',
+            modelName: 'segment_events',
             relationName: null,
             postOperation: null,
           },
@@ -118,7 +118,7 @@
         measures: [
           {
             name: 'unique_users',
-            modelName: 'tracks',
+            modelName: 'segment_events',
             relationName: null,
           },
         ],
@@ -148,12 +148,12 @@
       component: 'r-number',
       type: 1,
       reportOptions: {
-        modelName: 'tracks',
+        modelName: 'segment_events',
         dimensions: [],
         measures: [
           {
             name: 'total_events',
-            modelName: 'tracks',
+            modelName: 'segment_events',
             relationName: null,
           },
         ],
@@ -183,12 +183,12 @@
       component: 'r-number',
       type: 1,
       reportOptions: {
-        modelName: 'tracks',
+        modelName: 'segment_events',
         dimensions: [],
         measures: [
           {
             name: 'unique_users',
-            modelName: 'tracks',
+            modelName: 'segment_events',
             relationName: null,
           },
         ],
@@ -218,12 +218,12 @@
       component: 'r-number',
       type: 1,
       reportOptions: {
-        modelName: 'tracks',
+        modelName: 'segment_events',
         dimensions: [],
         measures: [
           {
             name: 'unique_devices',
-            modelName: 'tracks',
+            modelName: 'segment_events',
             relationName: null,
           },
         ],

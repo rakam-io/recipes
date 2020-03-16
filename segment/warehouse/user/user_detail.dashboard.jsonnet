@@ -32,11 +32,11 @@
       component: 'r-segmentation-chart',
       type: 1,
       reportOptions: {
-        modelName: 'tracks',
+        modelName: 'segment_events',
         dimensions: [
           {
             name: 'received_at',
-            modelName: 'tracks',
+            modelName: 'segment_events',
             relationName: null,
             postOperation: {
               type: 'timestamp',
@@ -47,7 +47,7 @@
         measures: [
           {
             name: 'total_events',
-            modelName: 'tracks',
+            modelName: 'segment_events',
             relationName: null,
           },
         ],
@@ -97,11 +97,11 @@
       component: 'r-segmentation-chart',
       type: 1,
       reportOptions: {
-        modelName: 'tracks',
+        modelName: 'segment_events',
         dimensions: [
           {
             name: 'event_text',
-            modelName: 'tracks',
+            modelName: 'segment_events',
             relationName: null,
             postOperation: null,
             pivot: null,
@@ -110,7 +110,7 @@
         measures: [
           {
             name: 'total_events',
-            modelName: 'tracks',
+            modelName: 'segment_events',
             relationName: null,
           },
         ],
