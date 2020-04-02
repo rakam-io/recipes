@@ -3,7 +3,7 @@ local installRevenue = std.extVar('installRevenue');
 local predefined = import 'predefined.jsonnet';
 
 local user_props = common.get_user_properties();
-local current_event_props = std.filter(function(p) p.event_name == 'in_app_purchase', common.get_event_properties());
+local current_event_props = std.filter(function(p) p.event_name == 'in_app_purchase', common.event_properties);
 local target = std.extVar('schema');
 
 if installRevenue then [

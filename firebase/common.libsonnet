@@ -22,7 +22,7 @@ local predefined = import 'predefined.jsonnet';
       [
         { name: 'last_deep_link_referrer', type: 'string', value_type: 'string_value', prop_db: 'last_deep_link_referrer', description: 'Last deep-link referrer value (2K-character limit)' },
       ],
-  get_event_properties()::
+  event_properties:
     if std.extVar('event_properties') != null then std.extVar('event_properties') else
       std.flattenArrays(std.map(function(event_type) std.map(function(prop)
                                                                { event_name: event_type, event_db: event_type, name: prop.name, prop_db: prop.prop_db, type: prop.type, value_type: prop.value_type },
